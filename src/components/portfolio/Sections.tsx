@@ -365,9 +365,9 @@ export function Journey() {
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeader kicker="Journey" title="The road so far" lead="From writing first lines of code to building AI-powered products." />
         <div className="relative mt-16">
-          {/* Vertical line */}
+          {/* Vertical center line */}
           <div className="absolute left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)] via-white/20 to-transparent md:left-1/2 md:-translate-x-px" />
-          <ul className="space-y-12 md:space-y-16">
+          <ul className="space-y-12 md:space-y-0">
             {timeline.map((t, i) => {
               const Icon = timelineIcons[t.icon] ?? Code;
               const isLeft = i % 2 === 0;
@@ -378,26 +378,64 @@ export function Journey() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.08 }}
-                  className={`relative grid items-center gap-6 md:grid-cols-2 md:gap-16 ${isLeft ? "" : "md:[&>*:first-child]:col-start-2"}`}
+                  className="relative flex items-start gap-0 md:gap-0 md:py-10"
                 >
                   {/* Dot on timeline */}
                   <span
                     aria-hidden
-                    className="absolute left-[27px] top-6 z-10 flex size-8 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-glow)] ring-4 ring-[var(--background)] shadow-glow md:left-1/2"
+                    className="absolute left-[27px] top-8 z-10 flex size-8 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-glow)] ring-4 ring-[var(--background)] shadow-glow md:left-1/2"
                   >
                     <Icon className="size-3.5 text-white" />
                   </span>
 
-                  {/* Year badge */}
-                  <div className={`pl-14 md:pl-0 ${isLeft ? "md:text-right" : "md:text-left"}`}>
+                  {/* Desktop: zig-zag layout */}
+                  <div className="hidden md:grid md:w-full md:grid-cols-2 md:gap-16">
+                    {/* Left side */}
+                    <div className={`flex ${isLeft ? "justify-end" : "justify-end"}`}>
+                      {isLeft ? (
+                        <div className="max-w-md text-right">
+                          <span className="inline-block rounded-full bg-gradient-to-r from-[var(--primary)]/20 to-[var(--primary-glow)]/10 px-3 py-1 text-xs font-medium tracking-wider text-[var(--primary)]">
+                            {t.year}
+                          </span>
+                          <div className="glass-strong group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all hover:bg-white/[0.06] hover:shadow-elevated">
+                            <div className={`absolute -right-8 -top-8 size-24 rounded-full bg-gradient-to-br ${timelineGradients[i]} blur-2xl opacity-60 transition-opacity group-hover:opacity-100`} />
+                            <div className="relative">
+                              <h3 className="font-display text-xl font-semibold">{t.title}</h3>
+                              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.body}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div />
+                      )}
+                    </div>
+                    {/* Right side */}
+                    <div className="flex">
+                      {!isLeft ? (
+                        <div className="max-w-md">
+                          <span className="inline-block rounded-full bg-gradient-to-r from-[var(--primary)]/20 to-[var(--primary-glow)]/10 px-3 py-1 text-xs font-medium tracking-wider text-[var(--primary)]">
+                            {t.year}
+                          </span>
+                          <div className="glass-strong group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all hover:bg-white/[0.06] hover:shadow-elevated">
+                            <div className={`absolute -right-8 -top-8 size-24 rounded-full bg-gradient-to-br ${timelineGradients[i]} blur-2xl opacity-60 transition-opacity group-hover:opacity-100`} />
+                            <div className="relative">
+                              <h3 className="font-display text-xl font-semibold">{t.title}</h3>
+                              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.body}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Mobile: stacked layout */}
+                  <div className="md:hidden pl-14">
                     <span className="inline-block rounded-full bg-gradient-to-r from-[var(--primary)]/20 to-[var(--primary-glow)]/10 px-3 py-1 text-xs font-medium tracking-wider text-[var(--primary)]">
                       {t.year}
                     </span>
-                  </div>
-
-                  {/* Card */}
-                  <div className={`pl-14 md:pl-0 ${isLeft ? "md:pl-0" : "md:pr-0"}`}>
-                    <div className={`glass-strong group relative overflow-hidden rounded-2xl p-6 transition-all hover:bg-white/[0.06] hover:shadow-elevated`}>
+                    <div className="glass-strong group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all hover:bg-white/[0.06] hover:shadow-elevated">
                       <div className={`absolute -right-8 -top-8 size-24 rounded-full bg-gradient-to-br ${timelineGradients[i]} blur-2xl opacity-60 transition-opacity group-hover:opacity-100`} />
                       <div className="relative">
                         <h3 className="font-display text-xl font-semibold">{t.title}</h3>
