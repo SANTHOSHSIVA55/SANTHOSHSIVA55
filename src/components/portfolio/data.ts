@@ -22,8 +22,8 @@ export const stats = [
 
 export const skills = [
   {
-    group: "Software Development",
-    items: ["HTML", "CSS", "JavaScript", "React", "Python", "Java", "Git", "GitHub", "REST APIs"],
+    group: "Full Stack Development",
+    items: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express.js", "Git", "GitHub", "REST APIs"],
   },
   {
     group: "Data Analytics",
