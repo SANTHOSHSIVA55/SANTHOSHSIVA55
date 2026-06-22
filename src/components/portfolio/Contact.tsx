@@ -8,7 +8,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeader kicker="Contact" title="Let's build something" lead="Open to internships, full-time Software Engineer / Full Stack / Data Analyst roles and interesting collaborations." />
+        <SectionHeader kicker="Contact" title="Let's build something" lead="Open to internships, full-time Full Stack / Data Analyst roles and interesting collaborations." />
         <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           <ContactRow href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`} icon={<Mail className="size-5" />} label="Email" value={profile.email} />
           <ContactRow href={profile.linkedin} icon={<LinkedinIcon className="size-5" />} label="LinkedIn" value="santhosh-t-s" />

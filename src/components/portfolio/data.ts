@@ -1,6 +1,6 @@
 export const profile = {
   name: "Santhosh T S",
-  role: "Software Engineer | Full Stack Developer | Data Analyst",
+  role: "Full Stack Developer | Data Analyst",
   location: "Chennai, India",
   email: "shaisanthoshsiva2006@gmail.com",
   github: "https://github.com/SANTHOSHSIVA55",
@@ -124,7 +124,7 @@ export const timeline = [
     icon: "sparkle",
   },
   {
-    title: "Software Engineering & Analytics",
+    title: "Full Stack Development & Analytics",
     body: "Focused on scalable systems, data-driven decision making, distributed design, and product craftsmanship.",
     year: "2026",
     icon: "rocket",
