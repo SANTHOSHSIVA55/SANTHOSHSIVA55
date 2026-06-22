@@ -10,7 +10,7 @@ export function Contact() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeader kicker="Contact" title="Let's build something" lead="Open to internships, full-time Full Stack roles and interesting collaborations." />
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <ContactRow href={`mailto:${profile.email}`} icon={<Mail className="size-5" />} label="Email" value={profile.email} />
+          <ContactRow href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`} icon={<Mail className="size-5" />} label="Email" value={profile.email} />
           <ContactRow href={profile.linkedin} icon={<LinkedinIcon className="size-5" />} label="LinkedIn" value="santhosh-t-s" />
           <ContactRow href={profile.github} icon={<GithubIcon className="size-5" />} label="GitHub" value="GitHub Profile" />
           <ContactRow href={profile.leetcode} icon={<LeetcodeIcon className="size-5" />} label="LeetCode" value="santhoshts" />
@@ -22,6 +22,7 @@ export function Contact() {
 }
 
 function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
+  const isMailto = href?.startsWith("mailto:");
   const cls = "glass group flex items-center justify-between gap-4 rounded-2xl p-5 transition-colors hover:bg-white/[0.06]";
   const content = (
     <>
@@ -38,19 +39,9 @@ function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label
     </>
   );
   return href ? (
-    <a href={href} target="_blank" rel="noreferrer" className={cls}>{content}</a>
+    <a href={href} {...(isMailto ? {} : { target: "_blank", rel: "noreferrer" })} className={cls}>{content}</a>
   ) : (
     <div className={cls}>{content}</div>
-  );
-}
-
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <span className="mb-1.5 block text-xs uppercase tracking-[0.18em] text-muted-foreground">{label}</span>
-      {children}
-      {error && <span className="mt-1 block text-xs text-destructive">{error}</span>}
-    </label>
   );
 }
 
