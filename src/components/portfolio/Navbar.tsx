@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { DarkModeToggle } from "./Sections";
 
 const links = [
   { href: "#about", label: "About" },
@@ -60,7 +59,6 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden md:flex items-center gap-2">
-          <DarkModeToggle />
           <a
             href="#contact"
             className="rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary-glow)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] shadow-glow transition-transform hover:scale-105"
@@ -101,9 +99,6 @@ export function Navbar() {
               ))}
             </ul>
             <div className="mt-2 border-t border-white/5 pt-2 flex flex-col gap-2">
-              <div className="px-4">
-                <DarkModeToggle />
-              </div>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}

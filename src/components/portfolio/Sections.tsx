@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   Code2, Database, Wrench, Layers, Sparkles, ExternalLink, ArrowUpRight,
   Star, GitFork, RefreshCw, Code, Brain, Blocks, Rocket, BookOpen,
-  BarChart3, LineChart, PieChart, Sun, Moon,
+  BarChart3, LineChart, PieChart,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline } from "./data";
@@ -749,46 +749,6 @@ function Mini({ label, value }: { label: string; value: number | string }) {
       <div className="font-display text-xl font-semibold">{value}</div>
       <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
     </div>
-  );
-}
-
-export function DarkModeToggle() {
-  const [dark, setDark] = useState(() => {
-    if (typeof document !== "undefined") {
-      return document.documentElement.classList.contains("dark");
-    }
-    return true;
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (dark) {
-      root.classList.add("dark");
-      root.classList.remove("light");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      root.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "light") {
-      setDark(false);
-    }
-  }, []);
-
-  return (
-    <button
-      onClick={() => setDark((d) => !d)}
-      className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-all hover:bg-white/10"
-      aria-label="Toggle theme"
-    >
-      {dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
-      <span className="hidden sm:inline">{dark ? "Light" : "Dark"} Mode</span>
-    </button>
   );
 }
 
