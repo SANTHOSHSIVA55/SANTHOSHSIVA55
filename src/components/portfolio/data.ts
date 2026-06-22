@@ -24,7 +24,7 @@ export const skills = [
     group: "Frontend",
     items: ["HTML5", "CSS3", "JavaScript", "React.js", "Tailwind CSS"],
   },
-  { group: "Backend", items: ["Python", "Java", "REST APIs"] },
+  { group: "Backend", items: ["Node.js", "Express.js", "REST APIs"] },
   { group: "Database", items: ["MySQL", "MongoDB"] },
   { group: "Tools", items: ["Git", "GitHub", "Postman", "VS Code", "Figma"] },
 ];
