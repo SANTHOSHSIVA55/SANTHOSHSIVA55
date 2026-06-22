@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Database, Wrench, Layers, Sparkles, ExternalLink, ArrowUpRight, Star, GitFork, RefreshCw } from "lucide-react";
+import { Code2, Database, Wrench, Layers, Sparkles, ExternalLink, ArrowUpRight, Star, GitFork, RefreshCw, Code, Brain, Blocks, Rocket } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline } from "./data";
 
@@ -343,36 +343,71 @@ export function Projects() {
   );
 }
 
+const timelineIcons: Record<string, typeof Code2> = {
+  code: Code,
+  brain: Brain,
+  stack: Layers,
+  sparkle: Sparkles,
+  rocket: Rocket,
+};
+
+const timelineGradients = [
+  "from-cyan-500/20 to-blue-500/10",
+  "from-violet-500/20 to-purple-500/10",
+  "from-emerald-500/20 to-teal-500/10",
+  "from-amber-500/20 to-orange-500/10",
+  "from-rose-500/20 to-pink-500/10",
+];
+
 export function Journey() {
   return (
     <section id="journey" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeader kicker="Journey" title="The road so far" lead="From writing first lines of code to building AI-powered products." />
         <div className="relative mt-16">
-          <div className="pointer-events-none absolute left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-[var(--primary)]/60 via-white/10 to-transparent md:left-1/2 md:-translate-x-1/2" />
-          <ul className="space-y-10">
-            {timeline.map((t, i) => (
-              <motion.li
-                key={t.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                className={`relative grid gap-4 md:grid-cols-2 md:gap-12 ${i % 2 ? "md:[&>*:first-child]:col-start-2" : ""}`}
-              >
-                <span
-                  aria-hidden
-                  className="absolute left-[15px] top-2 size-3.5 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-glow)] shadow-glow ring-4 ring-[var(--background)] md:left-1/2 md:-translate-x-1/2"
-                />
-                <div className={`pl-10 md:pl-0 ${i % 2 ? "md:text-left md:pl-12" : "md:text-right md:pr-12"}`}>
-                  <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Step {String(i + 1).padStart(2, "0")}</div>
-                  <h3 className="mt-1 font-display text-xl font-semibold">{t.title}</h3>
-                </div>
-                <div className={`pl-10 md:pl-0 ${i % 2 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                  <p className="text-muted-foreground">{t.body}</p>
-                </div>
-              </motion.li>
-            ))}
+          {/* Vertical line */}
+          <div className="absolute left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)] via-white/20 to-transparent md:left-1/2 md:-translate-x-px" />
+          <ul className="space-y-12 md:space-y-16">
+            {timeline.map((t, i) => {
+              const Icon = timelineIcons[t.icon] ?? Code;
+              const isLeft = i % 2 === 0;
+              return (
+                <motion.li
+                  key={t.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.6, delay: i * 0.08 }}
+                  className={`relative grid items-center gap-6 md:grid-cols-2 md:gap-16 ${isLeft ? "" : "md:[&>*:first-child]:col-start-2"}`}
+                >
+                  {/* Dot on timeline */}
+                  <span
+                    aria-hidden
+                    className="absolute left-[27px] top-6 z-10 flex size-8 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-glow)] ring-4 ring-[var(--background)] shadow-glow md:left-1/2"
+                  >
+                    <Icon className="size-3.5 text-white" />
+                  </span>
+
+                  {/* Year badge */}
+                  <div className={`pl-14 md:pl-0 ${isLeft ? "md:text-right" : "md:text-left"}`}>
+                    <span className="inline-block rounded-full bg-gradient-to-r from-[var(--primary)]/20 to-[var(--primary-glow)]/10 px-3 py-1 text-xs font-medium tracking-wider text-[var(--primary)]">
+                      {t.year}
+                    </span>
+                  </div>
+
+                  {/* Card */}
+                  <div className={`pl-14 md:pl-0 ${isLeft ? "md:pl-0" : "md:pr-0"}`}>
+                    <div className={`glass-strong group relative overflow-hidden rounded-2xl p-6 transition-all hover:bg-white/[0.06] hover:shadow-elevated`}>
+                      <div className={`absolute -right-8 -top-8 size-24 rounded-full bg-gradient-to-br ${timelineGradients[i]} blur-2xl opacity-60 transition-opacity group-hover:opacity-100`} />
+                      <div className="relative">
+                        <h3 className="font-display text-xl font-semibold">{t.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.body}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.li>
+              );
+            })}
           </ul>
         </div>
       </div>

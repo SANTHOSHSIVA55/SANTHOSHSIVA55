@@ -66,21 +66,31 @@ export const timeline = [
   {
     title: "Started Programming",
     body: "Wrote first lines of code, discovered the craft of building software.",
+    year: "2022",
+    icon: "code",
   },
   {
     title: "Learning DSA",
     body: "Solved 300+ problems across arrays, graphs, DP and system thinking.",
+    year: "2023",
+    icon: "brain",
   },
   {
     title: "Full Stack Development",
     body: "Shipping production-grade React + Python apps with clean APIs.",
+    year: "2024",
+    icon: "stack",
   },
   {
     title: "AI Projects",
     body: "Built AquaBloom AI and GenAI BI Platform — applied ML to real problems.",
+    year: "2025",
+    icon: "sparkle",
   },
   {
     title: "Software Engineering Journey",
     body: "Focused on scalable systems, distributed design and product craft.",
+    year: "2026",
+    icon: "rocket",
   },
 ];
