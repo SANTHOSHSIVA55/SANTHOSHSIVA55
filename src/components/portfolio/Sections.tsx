@@ -30,10 +30,12 @@ export function About() {
     "Data Cleaning", "EDA", "SQL", "Power BI", "Statistical Analysis", "Dashboard Development",
   ];
   return (
-    <section id="about" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
+    <section id="about" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader kicker="About" title="Engineer & Analyst — building across the stack and the data pipeline." />
-        <div className="mt-10 sm:mt-14 grid gap-4 sm:gap-6 md:grid-cols-3">
+        <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 md:grid-cols-3">
+
+        
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -104,14 +106,16 @@ const groupIcons: Record<string, typeof Code2> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
+    <section id="skills" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           kicker="Toolkit"
           title="Skills & Expertise"
           lead="Bridging software engineering and data analytics — from frontend to databases, from dashboards to distributed systems."
         />
-        <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+
+          
           {skills.map((g, i) => {
             const Icon = groupIcons[g.group] ?? Code2;
             return (
@@ -235,7 +239,7 @@ export function Projects() {
   }, [repos]);
 
   return (
-    <section id="projects" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
+    <section id="projects" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           kicker="Featured Work"
@@ -246,7 +250,9 @@ export function Projects() {
           <RefreshCw className="size-3.5" />
           <span>{err ? err : repos ? `Live · ${repos.length} latest projects` : "Fetching projects..."}</span>
         </div>
-        <div className="mt-10 sm:mt-14 grid gap-5 sm:gap-8 lg:grid-cols-2">
+        <div className="mt-6 sm:mt-8 grid gap-5 sm:gap-8 lg:grid-cols-2">
+
+          
           {!repos && !err &&
             Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className="glass-strong h-[320px] sm:h-[420px] animate-pulse rounded-2xl sm:rounded-3xl" />
@@ -378,10 +384,10 @@ const timelineGradients = [
 
 export function Journey() {
   return (
-    <section id="journey" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
+    <section id="journey" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <SectionHeader kicker="Journey" title="The road so far" lead="From writing first lines of code to building AI-powered products and data analytics platforms." />
-        <div className="relative mt-10 sm:mt-16">
+        <div className="relative mt-6 sm:mt-8">
           <div className="absolute left-[23px] sm:left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)] via-white/20 to-transparent md:left-1/2 md:-translate-x-px" />
           <ul className="space-y-8 sm:space-y-12 md:space-y-0">
             {timeline.map((t, i) => {
@@ -551,7 +557,7 @@ export function GithubStats() {
   }, [repos]);
 
   return (
-    <section id="github" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
+    <section id="github" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           kicker="GitHub Statistics"
@@ -561,7 +567,7 @@ export function GithubStats() {
         {err ? (
           <p className="mt-8 text-center text-sm text-muted-foreground">{err}</p>
         ) : (
-          <div className="mt-10 sm:mt-14 space-y-6">
+          <div className="mt-6 sm:mt-8 space-y-6">
             <div className="grid gap-4 sm:gap-6 md:grid-cols-[1fr_2fr]">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

@@ -6,7 +6,7 @@ import { SectionHeader } from "./Sections";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
+    <section id="contact" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader kicker="Contact" title="Let's build something" lead="Open to internships, full-time Full Stack / Data Analyst roles and interesting collaborations." />
         <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
@@ -47,7 +47,7 @@ function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 py-8 sm:py-10">
+    <footer className="border-t border-white/5 py-4 sm:py-6">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 sm:px-6 text-xs sm:text-sm text-muted-foreground sm:flex-row">
         <div>© {new Date().getFullYear()} {profile.name}. Crafted with care.</div>
         <div className="flex items-center gap-3 sm:gap-4">

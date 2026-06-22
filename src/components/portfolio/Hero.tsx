@@ -42,7 +42,7 @@ export function Hero() {
   const typed = useTypingEffect(roles);
 
   return (
-    <section id="top" className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <section id="top" className="relative pt-20 pb-10 sm:pt-24 sm:pb-14 md:pt-28 md:pb-18 overflow-hidden">
       <div className="mx-auto grid max-w-6xl gap-8 sm:gap-12 px-4 sm:px-6 md:grid-cols-[1.2fr_1fr] md:items-center">
         <div>
           <motion.div
@@ -171,7 +171,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <div className="mx-auto mt-12 sm:mt-16 grid max-w-6xl grid-cols-2 gap-2.5 px-4 sm:px-6 sm:gap-4 md:grid-cols-4">
+      <div className="mx-auto mt-8 sm:mt-10 grid max-w-6xl grid-cols-2 gap-2.5 px-4 sm:px-6 sm:gap-4 md:grid-cols-4">
         {stats.map((s, i) => (
           <motion.div
             key={s.label}
