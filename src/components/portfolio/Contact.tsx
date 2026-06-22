@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, GfgIcon } from "./icons";
 import { profile } from "./data";
