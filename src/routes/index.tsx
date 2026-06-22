@@ -8,13 +8,13 @@ import { Contact, Footer, BackToTop } from "@/components/portfolio/Contact";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Santhosh T S — Full Stack Developer & Software Engineer" },
+      { title: "Santhosh T S — Full Stack Developer & Data Analyst & Software Engineer" },
       {
         name: "description",
         content:
           "Portfolio of Santhosh T S — Computer Science Engineering student in Chennai building scalable full-stack and AI-powered software.",
       },
-      { property: "og:title", content: "Santhosh T S — Full Stack Developer" },
+      { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
       {
         property: "og:description",
         content: "Building scalable software solutions through code, design and innovation.",

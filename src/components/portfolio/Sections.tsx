@@ -35,7 +35,7 @@ export function About() {
             className="glass-strong md:col-span-2 rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <p className="text-base leading-relaxed text-foreground/90 sm:text-lg">
-              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student and full stack developer who genuinely enjoys turning hard problems into clean, reliable software.
+              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student and full stack developer & data analyst who genuinely enjoys turning hard problems into clean, reliable software.
             </p>
             <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
               My focus is on building scalable systems with great UX — across the stack. I've sharpened my fundamentals through 300+ DSA problems and applied them in real products like AI-driven aquaculture monitoring and a generative-AI BI platform. I care about craft: clean APIs, fast UIs, sensible data models, and code that other engineers actually enjoy reading.
@@ -56,10 +56,10 @@ export function About() {
             className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <div className="flex flex-col gap-4 text-sm sm:gap-5">
-              <Stat label="Focus" value="Full Stack + AI" />
+              <Stat label="Focus" value="Full Stack + AI + Data" />
               <Stat label="Based in" value={profile.location} />
               <Stat label="Studying" value="CSE · Undergrad" />
-              <Stat label="Currently" value="Open to Full Stack roles" />
+              <Stat label="Currently" value="Open to Full Stack & Data roles" />
             </div>
           </motion.div>
         </div>

@@ -18,7 +18,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-            Available for internships & Full Stack roles
+            Available for internships & Full Stack / Data Analyst roles
           </motion.div>
 
           <motion.h1
@@ -91,7 +91,7 @@ export function Hero() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl sm:rounded-2xl">
               <img
                 src={profile.image}
-                alt={`${profile.name}, Full Stack Developer based in Chennai`}
+                alt={`${profile.name}, Full Stack Developer & Data Analyst based in Chennai`}
                 loading="eager"
                 className="h-full w-full object-cover"
               />

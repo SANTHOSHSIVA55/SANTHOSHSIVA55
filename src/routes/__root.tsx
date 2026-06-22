@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Santhosh T S — Full Stack Developer & Software Engineer" },
+      { title: "Santhosh T S — Full Stack Developer & Data Analyst & Software Engineer" },
       { name: "description", content: "Portfolio of Santhosh T S — Computer Science Engineering student building scalable full-stack and AI-powered software from Chennai, India." },
       { name: "author", content: "Santhosh T S" },
       { name: "theme-color", content: "#0b0f1a" },
-      { property: "og:title", content: "Santhosh T S — Full Stack Developer" },
+      { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
       { property: "og:description", content: "Building scalable software solutions through code, design and innovation." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
