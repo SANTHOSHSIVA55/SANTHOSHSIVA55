@@ -1,11 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { DarkModeToggle } from "./Sections";
 
 const links = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#journey", label: "Journey" },
+  { href: "#github", label: "GitHub" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -57,12 +59,15 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className="hidden rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary-glow)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] shadow-glow transition-transform hover:scale-105 md:inline-flex"
-        >
-          Let's talk
-        </a>
+        <div className="hidden md:flex items-center gap-2">
+          <DarkModeToggle />
+          <a
+            href="#contact"
+            className="rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary-glow)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] shadow-glow transition-transform hover:scale-105"
+          >
+            Let's talk
+          </a>
+        </div>
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
@@ -95,7 +100,10 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="mt-2 border-t border-white/5 pt-2">
+            <div className="mt-2 border-t border-white/5 pt-2 flex flex-col gap-2">
+              <div className="px-4">
+                <DarkModeToggle />
+              </div>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}

@@ -1,11 +1,48 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin, ExternalLink } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, GfgIcon } from "./icons";
 import { profile, stats } from "./data";
 
+function useTypingEffect(words: string[], speed = 90, deleteSpeed = 50, pause = 2000) {
+  const [text, setText] = useState("");
+  const [idx, setIdx] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[idx] || "";
+    const timer = setTimeout(
+      () => {
+        if (!deleting) {
+          if (text.length < current.length) {
+            setText(current.slice(0, text.length + 1));
+          } else {
+            setTimeout(() => setDeleting(true), pause);
+          }
+        } else {
+          if (text.length > 0) {
+            setText(current.slice(0, text.length - 1));
+          } else {
+            setDeleting(false);
+            setIdx((i) => (i + 1) % words.length);
+          }
+        }
+      },
+      deleting ? deleteSpeed : speed,
+    );
+    return () => clearTimeout(timer);
+  }, [text, idx, deleting, words, speed, deleteSpeed, pause]);
+
+  return text;
+}
+
+const roles = ["Software Engineer", "Full Stack Developer", "Data Analyst"];
+
 export function Hero() {
+  const typed = useTypingEffect(roles);
+
   return (
-    <section id="top" className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28">
+    <section id="top" className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28 overflow-hidden">
       <div className="mx-auto grid max-w-6xl gap-8 sm:gap-12 px-4 sm:px-6 md:grid-cols-[1.2fr_1fr] md:items-center">
         <div>
           <motion.div
@@ -18,7 +55,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-            Available for internships & Full Stack / Data Analyst roles
+            Open to Software Engineer / Full Stack / Data Analyst roles
           </motion.div>
 
           <motion.h1
@@ -27,14 +64,27 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.05 }}
             className="mt-5 font-display text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px]"
           >
-            Building <span className="text-brand-gradient">scalable software</span> through code, design & innovation.
+            <span className="text-foreground">{profile.name.split(" ")[0]}{" "}</span>
+            <span className="text-brand-gradient">{profile.name.split(" ").slice(1).join(" ")}</span>
           </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-3 flex items-center gap-2"
+          >
+            <span className="font-display text-lg sm:text-xl md:text-2xl text-muted-foreground">
+              {typed}
+            </span>
+            <span className="inline-block h-5 w-[2px] animate-pulse bg-primary sm:h-6" />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-5 max-w-xl text-sm text-muted-foreground sm:text-base md:text-lg"
+            className="mt-4 max-w-xl text-sm text-muted-foreground sm:text-base md:text-lg"
           >
             {profile.sub}
           </motion.p>
@@ -47,20 +97,36 @@ export function Hero() {
           >
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary-glow)] px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-[var(--primary-foreground)] shadow-glow transition-transform hover:scale-[1.03]"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary-glow)] px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-[var(--primary-foreground)] shadow-glow transition-all hover:scale-[1.03] hover:shadow-lg"
             >
               View Projects
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="/resume.pdf"
-              className="glass inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-foreground transition-colors hover:bg-white/10"
+              className="glass inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-foreground transition-all hover:bg-white/10 hover:scale-[1.02]"
             >
-              <Download className="size-4" /> <span className="hidden xs:inline">Download </span>Resume
+              <Download className="size-4" /> Resume
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="glass inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-foreground transition-all hover:bg-white/10 hover:scale-[1.02]"
+            >
+              <GithubIcon className="size-4" /> GitHub
+            </a>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="glass inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-muted-foreground transition-all hover:bg-white/10 hover:text-foreground hover:scale-[1.02]"
+            >
+              <ExternalLink className="size-4" /> LinkedIn
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-medium text-muted-foreground transition-all hover:text-foreground"
             >
               <Mail className="size-4" /> Contact
             </a>
@@ -91,7 +157,7 @@ export function Hero() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl sm:rounded-2xl">
               <img
                 src={profile.image}
-                alt={`${profile.name}, Full Stack Developer & Data Analyst based in Chennai`}
+                alt={`${profile.name}, Software Engineer & Full Stack Developer & Data Analyst based in Chennai`}
                 loading="eager"
                 className="h-full w-full object-cover"
               />
@@ -113,7 +179,7 @@ export function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="glass rounded-xl sm:rounded-2xl p-3.5 sm:p-5 transition-colors hover:bg-white/[0.06]"
+            className="glass rounded-xl sm:rounded-2xl p-3.5 sm:p-5 transition-all hover:bg-white/[0.06] hover:scale-[1.02]"
           >
             <div className="font-display text-xl sm:text-2xl md:text-3xl font-semibold">{s.value}</div>
             <div className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs md:text-sm text-muted-foreground">{s.label}</div>

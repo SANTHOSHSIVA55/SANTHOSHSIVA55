@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Database, Wrench, Layers, Sparkles, ExternalLink, ArrowUpRight, Star, GitFork, RefreshCw, Code, Brain, Blocks, Rocket } from "lucide-react";
+import {
+  Code2, Database, Wrench, Layers, Sparkles, ExternalLink, ArrowUpRight,
+  Star, GitFork, RefreshCw, Code, Brain, Blocks, Rocket, BookOpen,
+  BarChart3, LineChart, PieChart, Sun, Moon,
+} from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline } from "./data";
 
@@ -22,10 +26,13 @@ export function About() {
   const pills = [
     "DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design",
   ];
+  const dataPills = [
+    "Data Cleaning", "EDA", "SQL", "Power BI", "Statistical Analysis", "Dashboard Development",
+  ];
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeader kicker="About" title="Engineer in the making, shipping in the present." />
+        <SectionHeader kicker="About" title="Engineer & Analyst — building across the stack and the data pipeline." />
         <div className="mt-10 sm:mt-14 grid gap-4 sm:gap-6 md:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -35,17 +42,28 @@ export function About() {
             className="glass-strong md:col-span-2 rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <p className="text-base leading-relaxed text-foreground/90 sm:text-lg">
-              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student and full stack developer & data analyst who genuinely enjoys turning hard problems into clean, reliable software.
+              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student, full stack developer, and data analyst who genuinely enjoys turning hard problems into clean, reliable software and actionable data insights.
             </p>
             <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
-              My focus is on building scalable systems with great UX — across the stack. I've sharpened my fundamentals through 300+ DSA problems and applied them in real products like AI-driven aquaculture monitoring and a generative-AI BI platform. I care about craft: clean APIs, fast UIs, sensible data models, and code that other engineers actually enjoy reading.
+              On the software side, I build scalable full-stack applications with React, Node.js, and Python, shipping production-grade APIs and intuitive UIs. On the data side, I clean, analyze, and visualize data using SQL, Python, Power BI, and Excel — uncovering business insights through dashboards and statistical analysis. I've sharpened my fundamentals through 300+ DSA problems and applied them across AI-powered products and data analytics platforms.
             </p>
-            <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-6 sm:gap-2">
-              {pills.map((p) => (
-                <span key={p} className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-muted-foreground sm:px-3">
-                  {p}
-                </span>
-              ))}
+            <div className="mt-4 space-y-2 sm:mt-6">
+              <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">CS Fundamentals</div>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {pills.map((p) => (
+                  <span key={p} className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-muted-foreground sm:px-3">
+                    {p}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">Data Analytics</div>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {dataPills.map((p) => (
+                  <span key={p} className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-muted-foreground sm:px-3">
+                    {p}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
           <motion.div
@@ -59,7 +77,8 @@ export function About() {
               <Stat label="Focus" value="Full Stack + AI + Data" />
               <Stat label="Based in" value={profile.location} />
               <Stat label="Studying" value="CSE · Undergrad" />
-              <Stat label="Currently" value="Open to Full Stack & Data roles" />
+              <Stat label="Available for" value="SWE / Full Stack / Data roles" />
+              <Stat label="DSA Solved" value="300+ Problems" />
             </div>
           </motion.div>
         </div>
@@ -78,10 +97,9 @@ function Stat({ label, value }: { label: string; value: string }) {
 }
 
 const groupIcons: Record<string, typeof Code2> = {
-  Frontend: Code2,
-  Backend: Layers,
-  Database: Database,
-  Tools: Wrench,
+  "Software Development": Code2,
+  "Data Analytics": BarChart3,
+  "Computer Science": Brain,
 };
 
 export function Skills() {
@@ -90,10 +108,10 @@ export function Skills() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           kicker="Toolkit"
-          title="Tools I reach for"
-          lead="Battle-tested across coursework, side projects and production-grade builds."
+          title="Skills & Expertise"
+          lead="Bridging software engineering and data analytics — from frontend to databases, from dashboards to distributed systems."
         />
-        <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {skills.map((g, i) => {
             const Icon = groupIcons[g.group] ?? Code2;
             return (
@@ -103,7 +121,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="glass group relative overflow-hidden rounded-xl sm:rounded-2xl p-5 sm:p-6 transition-colors hover:bg-white/[0.06]"
+                className="glass group relative overflow-hidden rounded-xl sm:rounded-2xl p-5 sm:p-6 transition-all hover:bg-white/[0.06] hover:scale-[1.01]"
               >
                 <div className="absolute -right-12 -top-12 size-32 rounded-full bg-[var(--primary)]/10 blur-2xl transition-opacity group-hover:opacity-100" />
                 <div className="relative">
@@ -222,7 +240,7 @@ export function Projects() {
         <SectionHeader
           kicker="Featured Work"
           title="Projects I'm proud of"
-          lead="Synced live from my GitHub — these update automatically as I ship new work."
+          lead="Synced live from my GitHub — spanning software engineering, AI, and data analytics."
         />
         <div className="mt-4 sm:mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground">
           <RefreshCw className="size-3.5" />
@@ -252,8 +270,8 @@ export function Projects() {
                   </div>
                   <div className="space-y-1 sm:space-y-1.5">
                     <div><span className="text-[var(--primary)]">const</span> <span className="text-foreground">{p.title.replace(/\s/g, "")}</span> = <span className="text-[var(--primary-glow)]">async</span> () =&gt; {"{"}</div>
-                    <div className="pl-3 sm:pl-4">await <span className="text-foreground">predict</span>(data);</div>
-                    <div className="pl-3 sm:pl-4">return <span className="text-foreground">insights</span>;</div>
+                    <div className="pl-3 sm:pl-4">await <span className="text-foreground">build</span>(data);</div>
+                    <div className="pl-3 sm:pl-4">return <span className="text-foreground">impact</span>;</div>
                     <div>{"}"}</div>
                   </div>
                 </div>
@@ -362,9 +380,8 @@ export function Journey() {
   return (
     <section id="journey" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeader kicker="Journey" title="The road so far" lead="From writing first lines of code to building AI-powered products." />
+        <SectionHeader kicker="Journey" title="The road so far" lead="From writing first lines of code to building AI-powered products and data analytics platforms." />
         <div className="relative mt-10 sm:mt-16">
-          {/* Vertical center line */}
           <div className="absolute left-[23px] sm:left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)] via-white/20 to-transparent md:left-1/2 md:-translate-x-px" />
           <ul className="space-y-8 sm:space-y-12 md:space-y-0">
             {timeline.map((t, i) => {
@@ -379,7 +396,6 @@ export function Journey() {
                   transition={{ duration: 0.6, delay: i * 0.08 }}
                   className="relative flex items-start gap-0 md:gap-0 md:py-10"
                 >
-                  {/* Dot on timeline */}
                   <span
                     aria-hidden
                     className="absolute left-[23px] sm:left-[27px] top-6 sm:top-8 z-10 flex size-7 sm:size-8 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-glow)] ring-3 sm:ring-4 ring-[var(--background)] shadow-glow md:left-1/2"
@@ -387,9 +403,7 @@ export function Journey() {
                     <Icon className="size-3 sm:size-3.5 text-white" />
                   </span>
 
-                  {/* Desktop: zig-zag layout */}
                   <div className="hidden md:grid md:w-full md:grid-cols-2 md:gap-12 lg:gap-16">
-                    {/* Left side */}
                     <div className={`flex ${isLeft ? "justify-end" : "justify-end"}`}>
                       {isLeft ? (
                         <div className="max-w-md text-right">
@@ -408,7 +422,6 @@ export function Journey() {
                         <div />
                       )}
                     </div>
-                    {/* Right side */}
                     <div className="flex">
                       {!isLeft ? (
                         <div className="max-w-md">
@@ -429,7 +442,6 @@ export function Journey() {
                     </div>
                   </div>
 
-                  {/* Mobile: stacked layout */}
                   <div className="md:hidden pl-10 sm:pl-14">
                     <span className="inline-block rounded-full bg-gradient-to-r from-[var(--primary)]/20 to-[var(--primary-glow)]/10 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-medium tracking-wider text-[var(--primary)]">
                       {t.year}
@@ -449,6 +461,334 @@ export function Journey() {
         </div>
       </div>
     </section>
+  );
+}
+
+type Repo = {
+  id: number;
+  name: string;
+  html_url: string;
+  description: string | null;
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+  pushed_at: string;
+};
+
+type User = {
+  public_repos: number;
+  followers: number;
+  following: number;
+  avatar_url: string;
+  name: string | null;
+  bio: string | null;
+  public_gists?: number;
+};
+
+const LANG_COLORS: Record<string, string> = {
+  JavaScript: "#f7df1e",
+  TypeScript: "#3178c6",
+  Python: "#3572A5",
+  Java: "#b07219",
+  HTML: "#e34c26",
+  CSS: "#563d7c",
+  Shell: "#89e051",
+  Ruby: "#701516",
+  Go: "#00ADD8",
+  Rust: "#dea584",
+  "C++": "#f34b7d",
+  C: "#555555",
+  SQL: "#e38c00",
+  Jupyter: "#DA5B0B",
+};
+
+export function GithubStats() {
+  const [repos, setRepos] = useState<Repo[] | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const githubUser = profile.github.split("/").pop();
+    Promise.all([
+      fetch(`https://api.github.com/users/${githubUser}`).then((r) => r.json()),
+      fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`).then((r) => r.json()),
+    ])
+      .then(([u, r]: [User, Repo[]]) => {
+        if (cancelled) return;
+        setUser(u);
+        setRepos((r ?? []).filter((x) => !x.fork));
+      })
+      .catch(() => !cancelled && setErr("Could not load GitHub data."));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const langData = useMemo(() => {
+    if (!repos) return [];
+    const counts: Record<string, { count: number; bytes: number }> = {};
+    for (const r of repos) {
+      if (r.language) {
+        if (!counts[r.language]) counts[r.language] = { count: 0, bytes: 0 };
+        counts[r.language].count++;
+      }
+    }
+    const total = Object.values(counts).reduce((s, c) => s + c.count, 0);
+    return Object.entries(counts)
+      .map(([name, c]) => ({ name, count: c.count, pct: Math.round((c.count / total) * 100) }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 6);
+  }, [repos]);
+
+  const totalStars = useMemo(() => repos?.reduce((s, r) => s + r.stargazers_count, 0) ?? 0, [repos]);
+  const totalForks = useMemo(() => repos?.reduce((s, r) => s + r.forks_count, 0) ?? 0, [repos]);
+
+  const recentCommits = useMemo(() => {
+    if (!repos) return 0;
+    const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    return repos.filter((r) => new Date(r.pushed_at).getTime() > thirtyDaysAgo).length;
+  }, [repos]);
+
+  return (
+    <section id="github" className="relative py-16 sm:py-20 md:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeader
+          kicker="GitHub Statistics"
+          title="Open Source Activity"
+          lead="Live from my GitHub — repos, contributions, and coding activity."
+        />
+        {err ? (
+          <p className="mt-8 text-center text-sm text-muted-foreground">{err}</p>
+        ) : (
+          <div className="mt-10 sm:mt-14 space-y-6">
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-[1fr_2fr]">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-7"
+              >
+                <div className="flex items-center gap-4">
+                  <img
+                    src={user?.avatar_url ?? profile.image}
+                    alt="GitHub avatar"
+                    className="size-14 rounded-full border border-white/10"
+                  />
+                  <div>
+                    <div className="font-display text-lg font-semibold">@{profile.github.split("/").pop()}</div>
+                    <a
+                      href={profile.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      <GithubIcon className="size-3.5" /> {profile.github.split("/").slice(-2).join("/")}
+                    </a>
+                  </div>
+                </div>
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <Mini label="Repositories" value={user?.public_repos ?? "—"} />
+                  <Mini label="Gists" value={user?.public_gists ?? "—"} />
+                  <Mini label="Followers" value={user?.followers ?? "—"} />
+                  <Mini label="Following" value={user?.following ?? "—"} />
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-7"
+              >
+                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Activity Overview</div>
+                <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <Mini label="Total Stars" value={totalStars} />
+                  <Mini label="Total Forks" value={totalForks} />
+                  <Mini label="Active Repos (30d)" value={recentCommits} />
+                  <Mini label="Top Language" value={langData[0]?.name ?? "—"} />
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-[1fr_1fr]">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-7"
+              >
+                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Top Languages</div>
+                <div className="mt-5 space-y-3">
+                  {langData.length === 0 && (
+                    <p className="text-sm text-muted-foreground">Loading language data...</p>
+                  )}
+                  {langData.map((l) => (
+                    <div key={l.name}>
+                      <div className="flex items-center justify-between text-sm mb-1">
+                        <span className="flex items-center gap-2">
+                          <span
+                            className="size-2.5 rounded-sm"
+                            style={{ backgroundColor: LANG_COLORS[l.name] ?? "#888" }}
+                          />
+                          {l.name}
+                        </span>
+                        <span className="text-muted-foreground">{l.pct}%</span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <motion.div
+                          className="h-full rounded-full"
+                          style={{ backgroundColor: LANG_COLORS[l.name] ?? "#888", width: `${l.pct}%` }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${l.pct}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.3 }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-7"
+              >
+                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Contribution Graph</div>
+                <div className="mt-5">
+                  <img
+                    src={`https://ghchart.rshah.org/SANTHOSHSIVA55`}
+                    alt="GitHub contribution chart"
+                    className="w-full rounded-lg"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                  <div className="mt-4 flex flex-wrap gap-2 justify-center text-[10px] text-muted-foreground">
+                    <span>Less</span>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} className="size-3 rounded-sm" style={{ backgroundColor: `oklch(0.5 ${0.05 + i * 0.04} ${210 - i * 15})` }} />
+                    ))}
+                    <span>More</span>
+                  </div>
+                  <p className="mt-3 text-center text-xs text-muted-foreground">
+                    {repos?.length ?? "?"} repositories · {totalStars} stars across all repos
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-7"
+            >
+              <div className="flex items-center justify-between">
+                <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Recent Repositories</div>
+                <a href={profile.github} target="_blank" rel="noreferrer" className="text-xs text-primary hover:underline">
+                  View all on GitHub →
+                </a>
+              </div>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {!repos && !err &&
+                  Array.from({ length: 6 }).map((_, i) => (
+                    <div key={i} className="glass h-24 animate-pulse rounded-xl" />
+                  ))}
+                {repos?.slice(0, 6).map((r, i) => (
+                  <motion.a
+                    key={r.id}
+                    href={r.html_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-30px" }}
+                    transition={{ duration: 0.3, delay: i * 0.04 }}
+                    className="glass group block rounded-xl p-4 transition-all hover:bg-white/[0.06] hover:scale-[1.01]"
+                  >
+                    <div className="flex items-center gap-2 font-medium text-sm truncate">
+                      <BookOpen className="size-3.5 shrink-0 text-muted-foreground" />
+                      {r.name}
+                    </div>
+                    <p className="mt-1.5 line-clamp-2 text-xs text-muted-foreground">
+                      {r.description ?? "No description"}
+                    </p>
+                    <div className="mt-2.5 flex items-center gap-3 text-[10px] text-muted-foreground">
+                      {r.language && (
+                        <span className="inline-flex items-center gap-1">
+                          <span className="size-1.5 rounded-full" style={{ backgroundColor: LANG_COLORS[r.language] ?? "#888" }} />
+                          {r.language}
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-0.5"><Star className="size-3" /> {r.stargazers_count}</span>
+                      <span className="inline-flex items-center gap-0.5"><GitFork className="size-3" /> {r.forks_count}</span>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function Mini({ label, value }: { label: string; value: number | string }) {
+  return (
+    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+      <div className="font-display text-xl font-semibold">{value}</div>
+      <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+
+export function DarkModeToggle() {
+  const [dark, setDark] = useState(() => {
+    if (typeof document !== "undefined") {
+      return document.documentElement.classList.contains("dark");
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (dark) {
+      root.classList.add("dark");
+      root.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      root.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  }, [dark]);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored === "light") {
+      setDark(false);
+    }
+  }, []);
+
+  return (
+    <button
+      onClick={() => setDark((d) => !d)}
+      className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-all hover:bg-white/10"
+      aria-label="Toggle theme"
+    >
+      {dark ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
+      <span className="hidden sm:inline">{dark ? "Light" : "Dark"} Mode</span>
+    </button>
   );
 }
 
