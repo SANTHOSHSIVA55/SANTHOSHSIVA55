@@ -1,10 +1,11 @@
+
 <div align="center">
 
 # Hi there 👋, I'm Santhosh T S
 
-### 🚀 Software Engineer • 🎨 UI/UX Designer
+### 🚀 Software Engineer • 💻 Full Stack Developer
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=1000&center=true&vCenter=true&width=900&lines=Building+Software+That+Solves+Problems;Designing+Experiences+Users+Love;Turning+Data+Into+Insights;Full+Stack+Developer;Always+Learning+Always+Building" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=1000&center=true&vCenter=true&width=900&lines=Building+Scalable+Software+Systems;Creating+Production-Ready+Applications;Solving+Problems+Through+Code;Full+Stack+Developer+%26+Software+Engineer;Always+Learning+Always+Building" />
 
 <br>
 
@@ -40,17 +41,17 @@
 
 🎓 Computer Science Engineering Student
 
-💻 Passionate about Software Engineering
+💻 Passionate about Software Engineering and Full Stack Development
 
-🎨 UI/UX Designer
+🚀 Building scalable applications that solve real-world problems.
 
-🚀 Building products that combine technology and design to solve real-world problems.
+⚡ Strong foundation in Data Structures, Algorithms, and Computer Science fundamentals.
 
 ### 🎯 Current Focus
 
 - Data Structures & Algorithms
 - Full Stack Development
-- UI/UX Design with Figma
+- System Design
 - SQL & Database Systems
 - Production-Level Projects
 
@@ -79,15 +80,15 @@ AI-powered aquaculture monitoring platform designed to predict harmful algal blo
 
 ### ✨ Features
 
-- AI-Based Monitoring
-- Environmental Analysis
-- Predictive Analytics
+- Real-Time Risk Monitoring
+- Machine Learning Predictions
+- REST APIs
 - Responsive Design
-- Real-World Problem Solving
+- End-to-End Product Development
 
 ### 🛠️ Tech Stack
 
-HTML • CSS • JavaScript • AI Integration
+React • FastAPI • Python • Machine Learning • REST APIs
 
 </td>
 
@@ -95,9 +96,9 @@ HTML • CSS • JavaScript • AI Integration
 
 <div align="center">
 
-## 🤖 GenAI BI
+## 🤖 GenAI Platform
 
-AI-powered Business Intelligence platform focused on analytics, visualization, and automated insights.
+AI-powered platform that transforms natural language into intelligent workflows and actionable insights.
 
 <br>
 
@@ -109,15 +110,15 @@ AI-powered Business Intelligence platform focused on analytics, visualization, a
 
 ### ✨ Features
 
-- AI Generated Insights
-- Business Intelligence
-- Interactive Dashboards
-- Data Visualization
-- Smart Reporting
+- Natural Language Processing
+- Secure Authentication
+- Dynamic Visualizations
+- Scalable Architecture
+- AI-Powered Query Engine
 
 ### 🛠️ Tech Stack
 
-JavaScript • Analytics • AI • Data Visualization
+React • Node.js • Python • SQL • JWT Authentication
 
 </td>
 
@@ -130,19 +131,23 @@ JavaScript • Analytics • AI • Data Visualization
 
 ### 💻 Programming
 
-<img src="https://skillicons.dev/icons?i=python,javascript,mysql"/>
+<img src="https://skillicons.dev/icons?i=python,java,javascript,typescript,mysql"/>
 
 ### 🌐 Frontend
 
-<img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind"/>
+<img src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,tailwind"/>
 
-### 🎨 UI/UX
+### ⚙️ Backend
 
-<img src="https://skillicons.dev/icons?i=figma"/>
+<img src="https://skillicons.dev/icons?i=nodejs,express,fastapi"/>
 
-### ⚙️ Tools
+### 🗄️ Databases
 
-<img src="https://skillicons.dev/icons?i=git,github,vscode"/>
+<img src="https://skillicons.dev/icons?i=mysql,postgres,mongodb"/>
+
+### ☁️ Tools
+
+<img src="https://skillicons.dev/icons?i=git,github,docker,vscode,figma"/>
 
 ---
 
@@ -176,8 +181,6 @@ JavaScript • Analytics • AI • Data Visualization
 
 ---
 
----
-
 # 📈 Contribution Activity
 
 <p align="center">
@@ -192,11 +195,13 @@ JavaScript • Analytics • AI • Data Visualization
 
 ✅ Solve 500+ DSA Problems
 
-✅ Build Production-Level Projects
+✅ Build 5+ Production-Level Projects
 
 ✅ Master Full Stack Development
 
-✅ Strengthen UI/UX Design Skills
+✅ Learn System Design & Distributed Systems
+
+✅ Contribute to Open Source
 
 ✅ Secure a Software Engineering Role
 
@@ -224,6 +229,6 @@ JavaScript • Analytics • AI • Data Visualization
 
 <div align="center">
 
-### ⚡ Building software, designing experiences, and creating insights.
+### ⚡ Building scalable software, solving real-world problems, and continuously learning.
 
 </div>
