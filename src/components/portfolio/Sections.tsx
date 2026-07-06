@@ -65,7 +65,7 @@ export function About() {
             className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <div className="flex flex-col gap-4 text-sm sm:gap-5">
-              <Stat label="Focus" value="Software Engineering + Full Stack + AI" />
+              <Stat label="Focus" value="Software Engineering + Full Stack" />
               <Stat label="Based in" value={profile.location} />
               <Stat label="Studying" value="CSE · Undergrad" />
               <Stat label="Available for" value="Software Engineer / Full Stack Developer roles" />
