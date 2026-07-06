@@ -150,7 +150,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative mx-auto w-full max-w-[240px] sm:max-w-sm md:max-w-none"
+          className="relative mx-auto w-full max-w-[200px] sm:max-w-[220px] md:max-w-[260px]"
         >
           <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-tr from-[var(--primary)]/30 via-[var(--primary-glow)]/20 to-transparent blur-2xl" />
           <div className="glass-strong relative overflow-hidden rounded-2xl sm:rounded-3xl p-2 sm:p-3 shadow-elevated">
