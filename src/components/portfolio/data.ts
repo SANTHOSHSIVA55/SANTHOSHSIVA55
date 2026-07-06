@@ -1,6 +1,6 @@
 export const profile = {
   name: "Santhosh T S",
-  role: "Full Stack Developer | Data Analyst",
+  role: "Full Stack Developer",
   location: "Chennai, India",
   email: "shaisanthoshsiva2006@gmail.com",
   github: "https://github.com/SANTHOSHSIVA55",
@@ -9,25 +9,37 @@ export const profile = {
   gfg: "https://www.geeksforgeeks.org/profile/santhoshts",
   image: "https://cdn.corenexis.com/f/STjpKFS53V1.jpg",
   headline:
-    "Crafting scalable software, insightful data products, and intelligent systems that drive real-world impact.",
-  sub: "Computer Science Engineering student with expertise in Full Stack Development, Data Analytics, and AI-Powered Applications. I turn complex problems into clean, reliable, and impactful solutions.",
+    "Crafting scalable software, robust backend systems, and intelligent applications that drive real-world impact.",
+  sub: "Computer Science Engineering student with expertise in Software Engineering, Full Stack Development, and AI-Powered Applications. I build scalable, reliable, and impactful software solutions.",
 };
 
 export const stats = [
   { value: "300+", label: "DSA Problems Solved" },
   { value: "5+", label: "Major Projects" },
-  { value: "3+", label: "Data Analytics Projects" },
+  { value: "3+", label: "AI & ML Projects" },
   { value: "CSE", label: "Student · Engineer" },
 ];
 
 export const skills = [
   {
-    group: "Full Stack Development",
-    items: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express.js", "Git", "GitHub", "REST APIs"],
+    group: "Languages & Core",
+    items: ["TypeScript", "JavaScript", "Python", "Java", "HTML", "CSS"],
   },
   {
-    group: "Data Analytics",
-    items: ["SQL", "MySQL", "Excel", "Power BI", "Pandas", "NumPy", "Matplotlib", "Data Cleaning", "EDA", "Dashboard Development"],
+    group: "Frontend & Frameworks",
+    items: ["React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    group: "Backend & APIs",
+    items: ["Node.js", "Express.js", "FastAPI", "REST APIs", "JWT Authentication"],
+  },
+  {
+    group: "Databases & Storage",
+    items: ["MongoDB", "PostgreSQL", "Redis"],
+  },
+  {
+    group: "DevOps & Tools",
+    items: ["Docker", "Git", "GitHub", "CI/CD", "System Design", "Microservices"],
   },
   {
     group: "Computer Science",
@@ -53,49 +65,20 @@ export const projects = [
   },
   {
     title: "GenAI BI Platform",
-    tag: "GenAI · Analytics",
+    tag: "GenAI · Full Stack",
     description:
-      "Generative AI–powered Business Intelligence platform that turns raw business data into actionable insights via analytics, dashboards and AI-generated reporting.",
-    stack: ["Python", "LLMs", "React", "SQL"],
+      "Generative AI–powered platform that transforms natural language into SQL queries and generates structured reports via a full-stack React + Python architecture with LLM integration.",
+    stack: ["Python", "LLMs", "React", "Node.js", "PostgreSQL"],
     achievements: [
-      "Natural-language to SQL querying",
-      "Auto-generated executive reports",
-      "Interactive dashboard builder",
+      "Natural-language to SQL query engine",
+      "AI-generated structured reporting pipeline",
+      "Modular full-stack architecture with REST APIs",
     ],
     github: "https://github.com/SANTHOSHSIVA55/genai-bi-platform",
     website: "https://genaibi.vercel.app",
     accent: "from-violet-400/30 to-fuchsia-500/20",
   },
-  {
-    title: "Sales Analytics Dashboard",
-    tag: "Data Analytics · BI",
-    description:
-      "Interactive sales performance dashboard providing real-time insights into revenue trends, regional performance, and product category analysis using Power BI and SQL.",
-    stack: ["SQL", "Power BI", "Excel", "Data Cleaning", "EDA"],
-    achievements: [
-      "Dynamic KPI tracking with drill-down capabilities",
-      "Automated data refresh pipeline",
-      "Reduced reporting time by 60%",
-    ],
-    github: "https://github.com/SANTHOSHSIVA55/sales-analytics-dashboard",
-    website: "",
-    accent: "from-emerald-400/30 to-teal-500/20",
-  },
-  {
-    title: "Customer Segmentation Analysis",
-    tag: "Data Analytics · ML",
-    description:
-      "Customer segmentation using RFM analysis and K-means clustering on e-commerce transaction data to identify high-value customer segments and optimize marketing strategy.",
-    stack: ["Python", "Pandas", "NumPy", "Matplotlib", "EDA"],
-    achievements: [
-      "Identified 5 distinct customer segments",
-      "Actionable insights for targeted campaigns",
-      "Interactive visualization dashboard",
-    ],
-    github: "https://github.com/SANTHOSHSIVA55/customer-segmentation",
-    website: "",
-    accent: "from-amber-400/30 to-orange-500/20",
-  },
+
 ];
 
 export const timeline = [
@@ -112,20 +95,20 @@ export const timeline = [
     icon: "brain",
   },
   {
-    title: "Full Stack Development",
-    body: "Shipping production-grade React + Python apps with clean APIs, responsive UIs, and scalable backends.",
+    title: "Software Engineering & Distributed Systems",
+    body: "Shipping production-grade full-stack apps with clean APIs, responsive UIs, scalable backends, and distributed architecture patterns.",
     year: "2024",
     icon: "stack",
   },
   {
-    title: "AI & Data Analytics",
-    body: "Built AquaBloom AI, GenAI BI Platform, and data analytics dashboards — combining ML, BI tools, and data storytelling.",
+    title: "AI-Powered Software Engineering",
+    body: "Built AquaBloom AI and GenAI BI Platform — combining ML, LLMs, and full-stack product engineering with cloud-ready architectures.",
     year: "2025",
     icon: "sparkle",
   },
   {
-    title: "Full Stack Development & Analytics",
-    body: "Focused on scalable systems, data-driven decision making, distributed design, and product craftsmanship.",
+    title: "Full Stack & Scalable Systems",
+    body: "Focused on scalable systems, distributed design, and product craftsmanship.",
     year: "2026",
     icon: "rocket",
   },

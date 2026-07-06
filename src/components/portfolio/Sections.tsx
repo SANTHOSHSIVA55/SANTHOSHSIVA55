@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Code2, Database, Wrench, Layers, Sparkles, ExternalLink, ArrowUpRight,
-  Star, GitFork, RefreshCw, Code, Brain, Blocks, Rocket, BookOpen,
-  BarChart3, LineChart, PieChart,
+  Code2, Layers, Sparkles, ExternalLink, ArrowUpRight,
+  Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline } from "./data";
@@ -26,13 +25,10 @@ export function About() {
   const pills = [
     "DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design",
   ];
-  const dataPills = [
-    "Data Cleaning", "EDA", "SQL", "Power BI", "Statistical Analysis", "Dashboard Development",
-  ];
   return (
     <section id="about" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeader kicker="About" title="Engineer & Analyst — building across the stack and the data pipeline." />
+        <SectionHeader kicker="About" title="Engineer — building across the full stack and beyond." />
         <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 md:grid-cols-3">
 
         
@@ -44,10 +40,10 @@ export function About() {
             className="glass-strong md:col-span-2 rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <p className="text-base leading-relaxed text-foreground/90 sm:text-lg">
-              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student, full stack developer, and data analyst who genuinely enjoys turning hard problems into clean, reliable software and actionable data insights.
+              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student and software engineer who genuinely enjoys turning hard problems into clean, reliable, and scalable software.
             </p>
             <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
-              On the software side, I build scalable full-stack applications with React, Node.js, and Python, shipping production-grade APIs and intuitive UIs. On the data side, I clean, analyze, and visualize data using SQL, Python, Power BI, and Excel — uncovering business insights through dashboards and statistical analysis. I've sharpened my fundamentals through 300+ DSA problems and applied them across AI-powered products and data analytics platforms.
+              I build production-grade full-stack applications with React, Node.js, and Python — designing scalable backend systems, RESTful APIs, and intuitive UIs. I've sharpened my fundamentals through 300+ DSA problems and apply clean architecture patterns across every project I ship.
             </p>
             <div className="mt-4 space-y-2 sm:mt-6">
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">CS Fundamentals</div>
@@ -58,14 +54,7 @@ export function About() {
                   </span>
                 ))}
               </div>
-              <div className="mt-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">Data Analytics</div>
-              <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                {dataPills.map((p) => (
-                  <span key={p} className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs text-muted-foreground sm:px-3">
-                    {p}
-                  </span>
-                ))}
-              </div>
+
             </div>
           </motion.div>
           <motion.div
@@ -76,10 +65,10 @@ export function About() {
             className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <div className="flex flex-col gap-4 text-sm sm:gap-5">
-              <Stat label="Focus" value="Full Stack + AI + Data" />
+              <Stat label="Focus" value="Software Engineering + Full Stack + AI" />
               <Stat label="Based in" value={profile.location} />
               <Stat label="Studying" value="CSE · Undergrad" />
-              <Stat label="Available for" value="SWE / Full Stack / Data roles" />
+              <Stat label="Available for" value="Software Engineer / Full Stack Developer roles" />
               <Stat label="DSA Solved" value="300+ Problems" />
             </div>
           </motion.div>
@@ -100,7 +89,6 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 const groupIcons: Record<string, typeof Code2> = {
   "Software Development": Code2,
-  "Data Analytics": BarChart3,
   "Computer Science": Brain,
 };
 
@@ -111,7 +99,7 @@ export function Skills() {
         <SectionHeader
           kicker="Toolkit"
           title="Skills & Expertise"
-          lead="Bridging software engineering and data analytics — from frontend to databases, from dashboards to distributed systems."
+          lead="TypeScript, Python, React, Node.js, Docker, PostgreSQL, Redis, system design, and microservices — building across the entire stack."
         />
         <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
 
@@ -244,7 +232,7 @@ export function Projects() {
         <SectionHeader
           kicker="Featured Work"
           title="Projects I'm proud of"
-          lead="Synced live from my GitHub — spanning software engineering, AI, and data analytics."
+          lead="Synced live from my GitHub — spanning backend systems, full-stack applications, and AI-powered software."
         />
         <div className="mt-4 sm:mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground">
           <RefreshCw className="size-3.5" />
@@ -386,7 +374,7 @@ export function Journey() {
   return (
     <section id="journey" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeader kicker="Journey" title="The road so far" lead="From writing first lines of code to building AI-powered products and data analytics platforms." />
+        <SectionHeader kicker="Journey" title="The road so far" lead="From first lines of code to shipping full-stack platforms and distributed systems." />
         <div className="relative mt-6 sm:mt-8">
           <div className="absolute left-[23px] sm:left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)] via-white/20 to-transparent md:left-1/2 md:-translate-x-px" />
           <ul className="space-y-8 sm:space-y-12 md:space-y-0">
@@ -479,6 +467,7 @@ type Repo = {
   forks_count: number;
   language: string | null;
   pushed_at: string;
+  fork: boolean;
 };
 
 type User = {

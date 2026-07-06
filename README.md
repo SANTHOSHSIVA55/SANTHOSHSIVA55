@@ -2,7 +2,7 @@
 
 # Hi there 👋, I'm Santhosh T S
 
-### 🚀 Software Engineer • 🎨 UI/UX Designer • 📊 Data Analytics Enthusiast
+### 🚀 Software Engineer • 🎨 UI/UX Designer
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=1000&center=true&vCenter=true&width=900&lines=Building+Software+That+Solves+Problems;Designing+Experiences+Users+Love;Turning+Data+Into+Insights;Full+Stack+Developer;Always+Learning+Always+Building" />
 
@@ -44,9 +44,7 @@
 
 🎨 UI/UX Designer
 
-📊 Data Analytics Enthusiast
-
-🚀 Building products that combine technology, design, and data to solve real-world problems.
+🚀 Building products that combine technology and design to solve real-world problems.
 
 ### 🎯 Current Focus
 
@@ -54,7 +52,6 @@
 - Full Stack Development
 - UI/UX Design with Figma
 - SQL & Database Systems
-- Power BI & Analytics
 - Production-Level Projects
 
 ---
@@ -147,10 +144,6 @@ JavaScript • Analytics • AI • Data Visualization
 
 <img src="https://skillicons.dev/icons?i=git,github,vscode"/>
 
-### 📊 Analytics
-
-Power BI • Excel • SQL • Pandas • Matplotlib
-
 ---
 
 # 🏆 Coding Profiles
@@ -204,8 +197,6 @@ Power BI • Excel • SQL • Pandas • Matplotlib
 ✅ Master Full Stack Development
 
 ✅ Strengthen UI/UX Design Skills
-
-✅ Become Data Analytics Ready
 
 ✅ Secure a Software Engineering Role
 
