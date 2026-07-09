@@ -79,7 +79,7 @@ export function Hero() {
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div
-          className="grid grid-cols-[1fr_auto] items-start gap-3
+          className="grid grid-cols-1 gap-6
                      sm:grid-cols-[1.2fr_1fr] sm:gap-6
                      md:grid-cols-[1.4fr_1fr] md:items-center md:gap-16 lg:gap-20"
         >
@@ -94,7 +94,8 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400" />
               </span>
-              Open to Software Engineer / Full Stack Developer roles
+              <span className="sm:hidden">Open to opportunities</span>
+              <span className="hidden sm:inline">Open to Software Engineer / Full Stack Developer roles</span>
             </motion.div>
 
             <motion.h1
@@ -191,7 +192,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative w-full max-w-[90px] sm:max-w-[160px] md:max-w-[300px] lg:max-w-[320px] justify-self-end self-start md:self-center"
+            className="relative w-full max-w-[200px] mx-auto sm:mx-0 sm:max-w-[160px] md:max-w-[300px] lg:max-w-[320px] sm:justify-self-end sm:self-start md:self-center"
           >
             <div className="absolute -inset-3 sm:-inset-6 rounded-[1.5rem] sm:rounded-[2.5rem] bg-gradient-to-tr from-[var(--primary)]/25 via-[var(--primary-glow)]/15 to-transparent blur-2xl sm:blur-3xl" />
             <div className="absolute -inset-0.5 sm:-inset-1 rounded-[1.25rem] sm:rounded-[2rem] bg-gradient-to-br from-[var(--primary)]/40 via-transparent to-[var(--primary-glow)]/20 animate-pulse" style={{ animationDuration: '4s' }} />

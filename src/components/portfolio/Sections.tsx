@@ -79,7 +79,7 @@ export function About() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between border-b border-white/5 pb-4 last:border-0 last:pb-0">
+    <div className="flex items-center gap-2 border-b border-white/5 pb-4 last:border-0 last:pb-0">
       <span className="text-muted-foreground">{label}</span>
       <span className="font-medium">{value}</span>
     </div>
@@ -487,8 +487,8 @@ export function Certifications() {
               <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)]/30 to-[var(--primary-glow)]/20 text-foreground mb-3">
                 <Award className="size-5" />
               </div>
-              <h3 className="font-display text-sm sm:text-base font-semibold">{c.title}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">{c.issuer}</p>
+              <h3 className="font-display text-xs leading-snug sm:text-sm lg:text-base font-semibold break-words">{c.title}</h3>
+              <p className="mt-1 text-[11px] sm:text-xs text-muted-foreground">{c.issuer}</p>
             </motion.a>
           ))}
         </div>
