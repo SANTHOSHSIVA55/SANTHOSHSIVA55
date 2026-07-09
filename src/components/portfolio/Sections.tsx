@@ -259,7 +259,7 @@ export function Projects() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group glass-strong relative overflow-hidden rounded-2xl sm:rounded-3xl"
             >
-              <div className={`relative h-40 sm:h-48 w-full overflow-hidden bg-gradient-to-br ${p.accent}`}>
+              <div className={`relative h-52 sm:h-56 w-full overflow-hidden bg-gradient-to-br ${p.accent}`}>
                 <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle at 30% 30%, oklch(1 0 0 / 0.18), transparent 60%)" }} />
                 <div className="absolute inset-4 sm:inset-6 glass rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-elevated">
                   <div className="mb-2 sm:mb-3 flex gap-1.5">
@@ -267,10 +267,10 @@ export function Projects() {
                     <span className="size-2 sm:size-2.5 rounded-full bg-yellow-400/70" />
                     <span className="size-2 sm:size-2.5 rounded-full bg-emerald-400/70" />
                   </div>
-                  <div className="text-[11px] sm:text-xs text-muted-foreground">
+                  <div className="text-[11px] sm:text-xs text-muted-foreground line-clamp-3 break-words">
                     <span className="text-[var(--primary)]">Problem:</span> {p.problem ?? "No description."}
                   </div>
-                  <div className="mt-2 text-[11px] sm:text-xs text-muted-foreground">
+                  <div className="mt-2 text-[11px] sm:text-xs text-muted-foreground line-clamp-3 break-words">
                     <span className="text-[var(--primary-glow)]">Solution:</span> {p.solution ?? "A full-stack application built with modern technologies."}
                   </div>
                 </div>
@@ -291,7 +291,7 @@ export function Projects() {
                     <ArrowUpRight className="size-3.5 sm:size-4" />
                   </a>
                 </div>
-                <p className="mt-1.5 text-[11px] text-muted-foreground sm:mt-2 sm:text-xs">{p.description}</p>
+                <p className="mt-1.5 text-[11px] text-muted-foreground sm:mt-2 sm:text-xs break-words">{p.description}</p>
                 {p.features && (
                   <ul className="mt-2.5 sm:mt-3 space-y-1 sm:space-y-1.5 text-[11px] sm:text-xs text-muted-foreground">
                     {p.features.map((f) => (
