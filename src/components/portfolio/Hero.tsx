@@ -43,7 +43,7 @@ export function Hero() {
 
   return (
     <section id="top" className="relative pt-20 pb-10 sm:pt-24 sm:pb-14 md:pt-28 md:pb-18 overflow-hidden">
-      <div className="mx-auto grid max-w-6xl gap-8 sm:gap-12 px-4 sm:px-6 md:grid-cols-[1.2fr_1fr] md:items-center">
+      <div className="mx-auto grid max-w-6xl gap-8 sm:gap-12 px-4 sm:px-6 md:grid-cols-[1.4fr_1fr] md:items-center md:gap-16 lg:gap-20">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05 }}
-            className="mt-5 font-display text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px]"
+            className="mt-6 font-display text-3xl font-bold leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px]"
           >
             <span className="text-foreground">{profile.name.split(" ")[0]}{" "}</span>
             <span className="text-brand-gradient">{profile.name.split(" ").slice(1).join(" ")}</span>
@@ -72,7 +72,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-3 flex items-center gap-2"
+            className="mt-4 flex items-center gap-2"
           >
             <span className="font-display text-lg sm:text-xl md:text-2xl text-muted-foreground">
               {typed}
@@ -84,7 +84,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-4 max-w-xl text-sm text-muted-foreground sm:text-base md:text-lg"
+            className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg"
           >
             {profile.sub}
           </motion.p>
@@ -93,7 +93,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-6 flex flex-wrap items-center gap-2.5 sm:gap-3"
+            className="mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3"
           >
             <a
               href="#projects"
@@ -136,7 +136,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground sm:gap-5"
+            className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground"
           >
             <span className="inline-flex items-center gap-1.5"><MapPin className="size-4" /> {profile.location}</span>
             <a href={profile.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-foreground"><GithubIcon className="size-4" /> GitHub</a>
@@ -147,23 +147,24 @@ export function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative mx-auto w-full max-w-[200px] sm:max-w-[220px] md:max-w-[260px]"
+          initial={{ opacity: 0, scale: 0.9, x: 30 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="relative mx-auto w-full max-w-[220px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[320px]"
         >
-          <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-tr from-[var(--primary)]/30 via-[var(--primary-glow)]/20 to-transparent blur-2xl" />
-          <div className="glass-strong relative overflow-hidden rounded-2xl sm:rounded-3xl p-2 sm:p-3 shadow-elevated">
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-tr from-[var(--primary)]/25 via-[var(--primary-glow)]/15 to-transparent blur-3xl" />
+          <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-[var(--primary)]/40 via-transparent to-[var(--primary-glow)]/20 animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="glass-strong relative overflow-hidden rounded-2xl sm:rounded-3xl p-2 sm:p-3 shadow-elevated ring-1 ring-white/10">
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl sm:rounded-2xl">
               <img
                 src={profile.image}
                 alt={`${profile.name}, Software Engineer & Full Stack Developer based in Chennai`}
                 loading="eager"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 glass rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3 sm:py-2">
-                <div className="text-[10px] sm:text-xs text-muted-foreground">Currently</div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3 glass rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-2.5">
+                <div className="text-[10px] sm:text-xs text-muted-foreground tracking-wider">Currently</div>
                 <div className="text-xs sm:text-sm font-medium">CSE @ Chennai · Open to opportunities</div>
               </div>
             </div>
