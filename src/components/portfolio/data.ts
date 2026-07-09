@@ -1,6 +1,6 @@
 export const profile = {
   name: "Santhosh T S",
-  role: "Computer Science Student | Full Stack Developer | AI Builder",
+  role: "Computer Science Student | Full Stack Developer | Data Analyst",
   location: "Chennai, India",
   email: "shaisanthoshsiva2006@gmail.com",
   github: "https://github.com/SANTHOSHSIVA55",
@@ -9,21 +9,25 @@ export const profile = {
   gfg: "https://www.geeksforgeeks.org/profile/santhoshts",
   image: "https://cdn.corenexis.com/f/STjpKFS53V1.jpg",
   headline:
-    "Computer Science Student | Full Stack Developer | AI Builder",
-  sub: "I build scalable full-stack applications, AI-powered platforms, and data-driven software solutions using modern web technologies.",
+    "Computer Science Student | Full Stack Developer | Data Analyst",
+  sub: "I build scalable full-stack applications, data-driven solutions, and modern software products using React, Node.js, Python, SQL, and analytics tools.",
 };
 
 export const stats = [
   { value: "300+", label: "DSA Problems Solved" },
   { value: "5+", label: "Major Projects Built" },
-  { value: "3+", label: "AI Applications Developed" },
+  { value: "3+", label: "Data & Software Projects Built" },
   { value: "CSE", label: "Student · Developer" },
 ];
 
 export const skills = [
   {
-    group: "Languages",
-    items: ["Python", "JavaScript", "TypeScript", "HTML", "CSS"],
+    group: "Data Analytics",
+    items: [
+      "Excel", "Advanced Excel", "SQL", "Python (Pandas, NumPy)",
+      "Data Cleaning", "Data Visualization", "Power BI",
+      "Matplotlib", "Dashboard Development", "Data Storytelling",
+    ],
   },
   {
     group: "Frontend",
@@ -31,11 +35,11 @@ export const skills = [
   },
   {
     group: "Backend",
-    items: ["Node.js", "Express.js", "FastAPI", "REST APIs", "JWT Authentication"],
+    items: ["Node.js", "Express.js", "FastAPI", "REST APIs"],
   },
   {
     group: "Database",
-    items: ["MongoDB", "MySQL"],
+    items: ["PostgreSQL", "MongoDB", "MySQL"],
   },
   {
     group: "Tools",
@@ -50,36 +54,35 @@ export const skills = [
 export const projects = [
   {
     title: "GenAI BI Platform",
-    tag: "GenAI · Full Stack",
+    tag: "Data Analytics · Full Stack",
     description:
-      "Generative AI-powered Business Intelligence platform that converts natural language queries into SQL insights and generates interactive reports.",
+      "An analytics platform that converts business questions into database insights, generates dashboards, and helps users understand data through interactive visualizations.",
     problem: "Business users struggle to extract insights from databases without SQL knowledge.",
-    solution: "An AI-powered BI platform that accepts natural language questions, translates them to SQL, and renders interactive dashboards with AI-generated insights.",
-    stack: ["Python", "LLMs", "React", "Node.js", "PostgreSQL"],
+    solution: "A full-stack analytics platform that accepts natural language questions, translates them into SQL queries, and renders interactive dashboards with data-driven insights.",
+    stack: ["Python", "SQL", "React", "Node.js", "PostgreSQL"],
     features: [
-      "Natural Language to SQL",
-      "AI-generated analytics",
-      "Interactive dashboards",
-      "Authentication",
+      "Natural language to SQL query translation",
+      "Interactive data dashboards",
       "Data visualization",
+      "User authentication",
     ],
     github: "https://github.com/SANTHOSHSIVA55/genai-bi-platform",
     website: "https://genaibi.vercel.app",
     accent: "from-violet-400/30 to-fuchsia-500/20",
   },
   {
-    title: "AquaBloom AI",
-    tag: "AI · Aquaculture",
+    title: "AquaBloom Analytics",
+    tag: "Data Analytics · Machine Learning",
     description:
-      "AI-powered aquaculture monitoring platform predicting harmful algae bloom risks and providing intelligent recommendations.",
-    problem: "Fish and shrimp farmers lack real-time water quality monitoring and early warning systems for harmful algal blooms.",
-    solution: "A machine learning platform that analyzes water quality data, predicts algae bloom risks, and provides actionable recommendations to farm operators.",
-    stack: ["Python", "Machine Learning", "React", "REST API"],
+      "A data-driven platform that processes water quality data, performs predictive analytics, and provides risk analysis through interactive visualizations.",
+    problem: "Fish and shrimp farmers lack real-time water quality monitoring and early warning systems for harmful conditions.",
+    solution: "A platform that processes environmental data, performs predictive analytics to assess risk levels, and visualizes trends through interactive dashboards.",
+    stack: ["Python", "Pandas", "React", "REST API", "Matplotlib"],
     features: [
-      "ML prediction system",
-      "Risk scoring",
-      "Data visualization",
-      "Recommendation engine",
+      "Data processing pipeline",
+      "Predictive analytics",
+      "Risk analysis scoring",
+      "Interactive data visualization",
     ],
     github: "https://github.com/SANTHOSHSIVA55/aqua-bloom-ai",
     website: "https://aqua-bloom-v2.vercel.app",
@@ -137,14 +140,14 @@ export const timeline = [
     icon: "stack",
   },
   {
-    title: "DSA & AI Applications",
-    body: "Sharpened problem-solving skills with 300+ DSA problems. Explored machine learning and built AI-powered applications combining ML with full-stack engineering.",
+    title: "Data Analytics & Advanced Development",
+    body: "Improved problem-solving skills with 300+ DSA problems and built data-driven applications using Python, SQL, visualization tools, and modern web technologies.",
     year: "2025",
     icon: "brain",
   },
   {
     title: "Scalable Systems",
-    body: "Building scalable full-stack and AI-powered systems — focusing on clean architecture, distributed design, and production-ready engineering practices.",
+    body: "Building scalable full-stack applications and data-driven solutions — focusing on clean architecture, distributed design, and production-ready engineering practices.",
     year: "2026",
     icon: "rocket",
   },
@@ -152,23 +155,23 @@ export const timeline = [
 
 export const certifications = [
   {
-    title: "AWS Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    link: "#",
-  },
-  {
-    title: "IBM SkillsBuild",
-    issuer: "IBM",
-    link: "#",
-  },
-  {
     title: "Data Analysis with Python",
     issuer: "freeCodeCamp",
     link: "#",
   },
   {
-    title: "Python for Everybody",
-    issuer: "University of Michigan (Coursera)",
+    title: "SQL Certification",
+    issuer: "HackerRank / LeetCode",
+    link: "#",
+  },
+  {
+    title: "Power BI Certification",
+    issuer: "Microsoft Learn",
+    link: "#",
+  },
+  {
+    title: "Excel Analytics Certification",
+    issuer: "Coursera / LinkedIn Learning",
     link: "#",
   },
 ];
@@ -176,5 +179,5 @@ export const certifications = [
 export const achievements = [
   { value: "300+", label: "DSA Problems Solved", icon: "code" },
   { value: "5+", label: "Major Projects Built", icon: "rocket" },
-  { value: "3+", label: "AI Applications", icon: "sparkle" },
+  { value: "3+", label: "Data & Software Projects", icon: "sparkle" },
 ];

@@ -36,7 +36,7 @@ function useTypingEffect(words: string[], speed = 90, deleteSpeed = 50, pause = 
   return text;
 }
 
-const roles = ["Computer Science Student", "Full Stack Developer", "AI Builder"];
+const roles = ["Computer Science Student", "Full Stack Developer", "Data Analyst"];
 
 const floatingTechs = [
   { Icon: Code2, label: "React", x: "10%", y: "20%", delay: 0 },
@@ -199,7 +199,7 @@ export function Hero() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-lg sm:rounded-2xl">
                 <img
                   src={profile.image}
-                  alt={`${profile.name}, Computer Science Student & Full Stack Developer based in Chennai`}
+                  alt={`${profile.name}, Full Stack Developer & Data Analyst based in Chennai`}
                   loading="eager"
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                 />

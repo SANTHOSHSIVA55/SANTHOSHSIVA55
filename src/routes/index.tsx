@@ -8,16 +8,16 @@ import { Contact, Footer, BackToTop } from "@/components/portfolio/Contact";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Santhosh T S — Software Engineer & Full Stack Developer" },
+      { title: "Santhosh T S — Full Stack Developer & Data Analyst" },
         {
           name: "description",
           content:
-            "Portfolio of Santhosh T S — Computer Science Engineering student and Software Engineer in Chennai building scalable applications and intelligent systems.",
+            "Portfolio of Santhosh T S — Computer Science Engineering student, Full Stack Developer and Data Analyst in Chennai building scalable web applications and data-driven solutions.",
         },
-        { property: "og:title", content: "Santhosh T S — Software Engineer & Full Stack Developer" },
+        { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
         {
           property: "og:description",
-          content: "Crafting scalable software, robust backend systems, and intelligent applications that drive real-world impact.",
+          content: "Building scalable full-stack applications, data-driven solutions, and modern software products using React, Node.js, Python, SQL, and analytics tools.",
         },
       { property: "og:image", content: "https://cdn.corenexis.com/f/STjpKFS53V1.jpg" },
       { name: "twitter:image", content: "https://cdn.corenexis.com/f/STjpKFS53V1.jpg" },

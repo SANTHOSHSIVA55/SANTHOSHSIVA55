@@ -40,10 +40,10 @@ export function About() {
             className="glass-strong md:col-span-2 rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <p className="text-base leading-relaxed text-foreground/90 sm:text-lg">
-              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student passionate about building full-stack applications, AI-powered products, and solving complex problems through clean, scalable software.
+              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student passionate about building scalable web applications and transforming data into meaningful insights.
             </p>
             <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
-              My expertise spans full stack development with React, Node.js, and Python — designing RESTful APIs, responsive UIs, and data-driven systems. I've solved 300+ DSA problems, built production-grade applications, and developed AI platforms that combine machine learning with modern web architecture. I'm actively seeking Software Engineer / Full Stack Developer internship and placement opportunities.
+              I specialize in React, Node.js, Python, SQL, and data visualization — building full-stack applications, designing RESTful APIs, and creating data-driven dashboards. I've solved 300+ DSA problems, built production-grade software projects, and developed analytics platforms that turn raw data into actionable insights. I'm actively seeking Software Engineer / Full Stack Developer internship and placement opportunities.
             </p>
             <div className="mt-4 space-y-2 sm:mt-6">
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">CS Fundamentals</div>
@@ -64,7 +64,7 @@ export function About() {
             className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <div className="flex flex-col gap-4 text-sm sm:gap-5">
-              <Stat label="Focus" value="Full Stack + AI" />
+              <Stat label="Focus" value="Full Stack + Data Analytics" />
               <Stat label="Based in" value={profile.location} />
               <Stat label="Studying" value="CSE · Undergrad" />
               <Stat label="Available for" value="Software Engineer / Full Stack Developer internships" />
@@ -378,7 +378,7 @@ export function Journey() {
   return (
     <section id="journey" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeader kicker="Journey" title="The road so far" lead="From first lines of code to building full-stack platforms and AI-powered systems." />
+        <SectionHeader kicker="Journey" title="The road so far" lead="From first lines of code to building full-stack and data-driven applications." />
         <div className="relative mt-6 sm:mt-8">
           <div className="absolute left-[23px] sm:left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)] via-white/20 to-transparent md:left-1/2 md:-translate-x-px" />
           <ul className="space-y-8 sm:space-y-12 md:space-y-0">
