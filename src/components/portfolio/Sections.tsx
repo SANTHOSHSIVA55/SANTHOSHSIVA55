@@ -471,7 +471,7 @@ export function Certifications() {
           title="Certifications"
           lead="Industry-recognized certifications that validate my expertise."
         />
-        <div className="mt-6 sm:mt-8 grid gap-3.5 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 sm:mt-8 grid gap-3.5 sm:gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {certifications.map((c, i) => (
             <motion.a
               key={c.title}

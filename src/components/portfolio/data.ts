@@ -160,18 +160,33 @@ export const certifications = [
     link: "#",
   },
   {
-    title: "SQL Certification",
-    issuer: "HackerRank / LeetCode",
+    title: "Data Analytics Job Simulation",
+    issuer: "Deloitte Australia / Forage",
     link: "#",
   },
   {
-    title: "Power BI Certification",
-    issuer: "Microsoft Learn",
+    title: "GenAI Powered Data Analytics Job Simulation",
+    issuer: "TATA / Forage",
     link: "#",
   },
   {
-    title: "Excel Analytics Certification",
-    issuer: "Coursera / LinkedIn Learning",
+    title: "Python Full Course Online - Complete Beginner to Advanced",
+    issuer: "GeeksforGeeks",
+    link: "#",
+  },
+  {
+    title: "Mastering AWS Serverless: Hands-On with Core AWS Services",
+    issuer: "Udemy",
+    link: "#",
+  },
+  {
+    title: "Data Science Tools",
+    issuer: "Cognitive Class / IBM",
+    link: "#",
+  },
+  {
+    title: "Data Analysis: Visualisations in Excel",
+    issuer: "OpenLearn",
     link: "#",
   },
 ];
