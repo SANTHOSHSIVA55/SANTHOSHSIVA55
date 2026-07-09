@@ -267,7 +267,7 @@ export function Projects() {
                     <span className="size-2 sm:size-2.5 rounded-full bg-yellow-400/70" />
                     <span className="size-2 sm:size-2.5 rounded-full bg-emerald-400/70" />
                   </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">
+                  <div className="text-[11px] sm:text-xs text-muted-foreground">
                     <span className="text-[var(--primary)]">Problem:</span> {p.problem ?? "No description."}
                   </div>
                   <div className="mt-2 text-xs sm:text-sm text-muted-foreground">
@@ -278,8 +278,8 @@ export function Projects() {
               <div className="p-4 sm:p-7">
                 <div className="flex items-start justify-between gap-3 sm:gap-4">
                   <div>
-                    <div className="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-muted-foreground">{p.tag}</div>
-                    <h3 className="mt-0.5 font-display text-lg sm:text-2xl font-semibold capitalize">{p.title}</h3>
+                    <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{p.tag}</div>
+                    <h3 className="mt-0.5 font-display text-sm sm:text-base font-semibold capitalize">{p.title}</h3>
                   </div>
                   <a
                     href={p.github}
@@ -291,9 +291,9 @@ export function Projects() {
                     <ArrowUpRight className="size-3.5 sm:size-4" />
                   </a>
                 </div>
-                <p className="mt-2.5 text-xs text-muted-foreground sm:mt-3 sm:text-sm">{p.description}</p>
+                <p className="mt-1.5 text-[11px] text-muted-foreground sm:mt-2 sm:text-xs">{p.description}</p>
                 {p.features && (
-                  <ul className="mt-3.5 sm:mt-5 space-y-1 sm:space-y-1.5 text-xs sm:text-sm text-muted-foreground">
+                  <ul className="mt-2.5 sm:mt-3 space-y-1 sm:space-y-1.5 text-[11px] sm:text-xs text-muted-foreground">
                     {p.features.map((f) => (
                       <li key={f} className="flex items-start gap-1.5 sm:gap-2">
                         <span className="mt-1 size-1 sm:mt-1.5 sm:size-1.5 rounded-full bg-[var(--primary)]" /> {f}
@@ -302,7 +302,7 @@ export function Projects() {
                   </ul>
                 )}
                 {(p.stars !== undefined || p.updated) && (
-                  <div className="mt-3 sm:mt-5 flex flex-wrap items-center gap-3 sm:gap-4 text-[10px] sm:text-xs text-muted-foreground">
+                  <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] text-muted-foreground">
                     {p.stars !== undefined && (
                       <span className="inline-flex items-center gap-1"><Star className="size-3 sm:size-3.5" /> {p.stars}</span>
                     )}
@@ -314,19 +314,19 @@ export function Projects() {
                     )}
                   </div>
                 )}
-                <div className="mt-3 sm:mt-5 flex flex-wrap gap-1 sm:gap-1.5">
+                <div className="mt-2 sm:mt-3 flex flex-wrap gap-1 sm:gap-1.5">
                   {p.stack.map((s) => (
-                    <span key={s} className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs text-muted-foreground">
+                    <span key={s} className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 sm:px-2 py-0.5 sm:py-1 text-[9px] sm:text-[10px] text-muted-foreground">
                       {s}
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
+                <div className="mt-3 sm:mt-4 flex gap-2 sm:gap-3">
                   <a
                     href={p.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full glass px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium hover:bg-white/10"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full glass px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium hover:bg-white/10"
                   >
                     <GithubIcon className="size-3.5 sm:size-4" /> View Code
                   </a>
@@ -335,7 +335,7 @@ export function Projects() {
                       href={p.homepage}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-muted-foreground hover:text-foreground"
                     >
                       <ExternalLink className="size-3.5 sm:size-4" /> Live Demo
                     </a>
@@ -344,7 +344,7 @@ export function Projects() {
                       href={p.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-muted-foreground hover:text-foreground"
                     >
                       <ExternalLink className="size-3.5 sm:size-4" /> Details
                     </a>
