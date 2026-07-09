@@ -326,7 +326,7 @@ export function Projects() {
                     href={p.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full glass px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium hover:bg-white/10"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full glass px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-foreground transition-all hover:bg-white/15 hover:scale-[1.04]"
                   >
                     <GithubIcon className="size-3.5 sm:size-4" /> View Code
                   </a>
@@ -335,7 +335,7 @@ export function Projects() {
                       href={p.homepage}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-muted-foreground hover:text-foreground"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary-glow)] px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-[var(--primary-foreground)] shadow-glow transition-all hover:scale-[1.04] hover:shadow-lg"
                     >
                       <ExternalLink className="size-3.5 sm:size-4" /> Live Demo
                     </a>
@@ -344,7 +344,7 @@ export function Projects() {
                       href={p.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-muted-foreground hover:text-foreground"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full glass px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-medium text-foreground transition-all hover:bg-white/15 hover:scale-[1.04]"
                     >
                       <ExternalLink className="size-3.5 sm:size-4" /> Details
                     </a>
