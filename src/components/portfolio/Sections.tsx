@@ -270,7 +270,7 @@ export function Projects() {
                   <div className="text-[11px] sm:text-xs text-muted-foreground">
                     <span className="text-[var(--primary)]">Problem:</span> {p.problem ?? "No description."}
                   </div>
-                  <div className="mt-2 text-xs sm:text-sm text-muted-foreground">
+                  <div className="mt-2 text-[11px] sm:text-xs text-muted-foreground">
                     <span className="text-[var(--primary-glow)]">Solution:</span> {p.solution ?? "A full-stack application built with modern technologies."}
                   </div>
                 </div>
