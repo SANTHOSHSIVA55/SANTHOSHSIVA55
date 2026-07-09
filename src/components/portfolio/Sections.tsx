@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import {
   Code2, Layers, Sparkles, ExternalLink, ArrowUpRight,
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
+  Award, Trophy, BookMarked,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
-import { profile, projects as featuredProjects, skills, timeline } from "./data";
+import { profile, projects as featuredProjects, skills, timeline, certifications, achievements, learning } from "./data";
 
 function SectionHeader({ kicker, title, lead }: { kicker: string; title: string; lead?: string }) {
   return (
@@ -28,10 +29,9 @@ export function About() {
   return (
     <section id="about" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeader kicker="About" title="Engineer — building across the full stack and beyond." />
+        <SectionHeader kicker="About" title="Aspiring Software Engineer & Builder" />
         <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-6 md:grid-cols-3">
 
-        
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -40,10 +40,10 @@ export function About() {
             className="glass-strong md:col-span-2 rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <p className="text-base leading-relaxed text-foreground/90 sm:text-lg">
-              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student and software engineer who genuinely enjoys turning hard problems into clean, reliable, and scalable software.
+              I'm <span className="text-foreground font-medium">{profile.name}</span> — a Computer Science Engineering student passionate about building full-stack applications, AI-powered products, and solving complex problems through clean, scalable software.
             </p>
             <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
-              I build production-grade full-stack applications with React, Node.js, and Python — designing scalable backend systems, RESTful APIs, and intuitive UIs. I've sharpened my fundamentals through 300+ DSA problems and apply clean architecture patterns across every project I ship.
+              My expertise spans full stack development with React, Node.js, and Python — designing RESTful APIs, responsive UIs, and data-driven systems. I've solved 300+ DSA problems, built production-grade applications, and developed AI platforms that combine machine learning with modern web architecture. I'm actively seeking Software Engineer / Full Stack Developer internship and placement opportunities.
             </p>
             <div className="mt-4 space-y-2 sm:mt-6">
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">CS Fundamentals</div>
@@ -54,7 +54,6 @@ export function About() {
                   </span>
                 ))}
               </div>
-
             </div>
           </motion.div>
           <motion.div
@@ -65,10 +64,10 @@ export function About() {
             className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8"
           >
             <div className="flex flex-col gap-4 text-sm sm:gap-5">
-              <Stat label="Focus" value="Software Engineering + Full Stack" />
+              <Stat label="Focus" value="Full Stack + AI" />
               <Stat label="Based in" value={profile.location} />
               <Stat label="Studying" value="CSE · Undergrad" />
-              <Stat label="Available for" value="Software Engineer / Full Stack Developer roles" />
+              <Stat label="Available for" value="Software Engineer / Full Stack Developer internships" />
               <Stat label="DSA Solved" value="300+ Problems" />
             </div>
           </motion.div>
@@ -88,7 +87,11 @@ function Stat({ label, value }: { label: string; value: string }) {
 }
 
 const groupIcons: Record<string, typeof Code2> = {
-  "Software Development": Code2,
+  Languages: Code2,
+  Frontend: Layers,
+  Backend: Code2,
+  Database: BookMarked,
+  Tools: Layers,
   "Computer Science": Brain,
 };
 
@@ -99,11 +102,10 @@ export function Skills() {
         <SectionHeader
           kicker="Toolkit"
           title="Skills & Expertise"
-          lead="TypeScript, Python, React, Node.js, Docker, PostgreSQL, Redis, system design, and microservices — building across the entire stack."
+          lead="Technologies and tools I use to build production-grade applications."
         />
         <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
 
-          
           {skills.map((g, i) => {
             const Icon = groupIcons[g.group] ?? Code2;
             return (
@@ -135,6 +137,33 @@ export function Skills() {
               </motion.div>
             );
           })}
+
+          {/* Currently Learning card */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="glass group relative overflow-hidden rounded-xl sm:rounded-2xl p-5 sm:p-6 transition-all hover:bg-white/[0.06] hover:scale-[1.01] border border-dashed border-white/10"
+          >
+            <div className="absolute -right-12 -top-12 size-32 rounded-full bg-amber-500/10 blur-2xl transition-opacity group-hover:opacity-100" />
+            <div className="relative">
+              <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/30 to-orange-500/20 text-foreground">
+                <Sparkles className="size-5" />
+              </div>
+              <h3 className="mt-3 font-display text-base font-semibold sm:mt-4 sm:text-lg">Currently Learning</h3>
+              <ul className="mt-2.5 flex flex-wrap gap-1.5 sm:mt-3">
+                {learning.map((it) => (
+                  <li
+                    key={it}
+                    className="rounded-md border border-amber-500/20 bg-amber-500/[0.06] px-2 py-1 text-xs text-amber-400/80 transition-colors group-hover:text-amber-300"
+                  >
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -206,8 +235,10 @@ export function Projects() {
           title: featured?.title ?? r.name.replace(/[-_]/g, " "),
           tag: featured?.tag ?? (r.language ?? "Code"),
           description: featured?.description ?? r.description ?? "Open source project.",
+          problem: featured?.problem,
+          solution: featured?.solution,
+          features: featured?.features,
           stack: featured?.stack ?? (stack.length ? stack : ["Code"]),
-          achievements: featured?.achievements,
           github: r.html_url,
           homepage: r.homepage || featured?.website || undefined,
           stars: r.stargazers_count,
@@ -231,8 +262,8 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
           kicker="Featured Work"
-          title="Projects I'm proud of"
-          lead="Synced live from my GitHub — spanning backend systems, full-stack applications, and AI-powered software."
+          title="Projects I've Built"
+          lead="Real-world applications spanning full-stack platforms, AI systems, and data-driven tools."
         />
         <div className="mt-4 sm:mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground">
           <RefreshCw className="size-3.5" />
@@ -240,7 +271,6 @@ export function Projects() {
         </div>
         <div className="mt-6 sm:mt-8 grid gap-5 sm:gap-8 lg:grid-cols-2">
 
-          
           {!repos && !err &&
             Array.from({ length: 4 }).map((_, i) => (
               <div key={i} className="glass-strong h-[320px] sm:h-[420px] animate-pulse rounded-2xl sm:rounded-3xl" />
@@ -254,19 +284,19 @@ export function Projects() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group glass-strong relative overflow-hidden rounded-2xl sm:rounded-3xl"
             >
-              <div className={`relative h-40 sm:h-56 w-full overflow-hidden bg-gradient-to-br ${p.accent}`}>
+              <div className={`relative h-40 sm:h-48 w-full overflow-hidden bg-gradient-to-br ${p.accent}`}>
                 <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle at 30% 30%, oklch(1 0 0 / 0.18), transparent 60%)" }} />
-                <div className="absolute inset-4 sm:inset-6 glass rounded-lg sm:rounded-xl p-3 sm:p-4 font-mono text-[10px] sm:text-[11px] text-muted-foreground shadow-elevated">
+                <div className="absolute inset-4 sm:inset-6 glass rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-elevated">
                   <div className="mb-2 sm:mb-3 flex gap-1.5">
                     <span className="size-2 sm:size-2.5 rounded-full bg-red-400/70" />
                     <span className="size-2 sm:size-2.5 rounded-full bg-yellow-400/70" />
                     <span className="size-2 sm:size-2.5 rounded-full bg-emerald-400/70" />
                   </div>
-                  <div className="space-y-1 sm:space-y-1.5">
-                    <div><span className="text-[var(--primary)]">const</span> <span className="text-foreground">{p.title.replace(/\s/g, "")}</span> = <span className="text-[var(--primary-glow)]">async</span> () =&gt; {"{"}</div>
-                    <div className="pl-3 sm:pl-4">await <span className="text-foreground">build</span>(data);</div>
-                    <div className="pl-3 sm:pl-4">return <span className="text-foreground">impact</span>;</div>
-                    <div>{"}"}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">
+                    <span className="text-[var(--primary)]">Problem:</span> {p.problem ?? "No description."}
+                  </div>
+                  <div className="mt-2 text-xs sm:text-sm text-muted-foreground">
+                    <span className="text-[var(--primary-glow)]">Solution:</span> {p.solution ?? "A full-stack application built with modern technologies."}
                   </div>
                 </div>
               </div>
@@ -287,11 +317,11 @@ export function Projects() {
                   </a>
                 </div>
                 <p className="mt-2.5 text-xs text-muted-foreground sm:mt-3 sm:text-sm">{p.description}</p>
-                {p.achievements && (
+                {p.features && (
                   <ul className="mt-3.5 sm:mt-5 space-y-1 sm:space-y-1.5 text-xs sm:text-sm text-muted-foreground">
-                    {p.achievements.map((a) => (
-                      <li key={a} className="flex items-start gap-1.5 sm:gap-2">
-                        <span className="mt-1 size-1 sm:mt-1.5 sm:size-1.5 rounded-full bg-[var(--primary)]" /> {a}
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-1.5 sm:gap-2">
+                        <span className="mt-1 size-1 sm:mt-1.5 sm:size-1.5 rounded-full bg-[var(--primary)]" /> {f}
                       </li>
                     ))}
                   </ul>
@@ -332,7 +362,7 @@ export function Projects() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground"
                     >
-                      <ExternalLink className="size-3.5 sm:size-4" /> Live
+                      <ExternalLink className="size-3.5 sm:size-4" /> Live Demo
                     </a>
                   ) : (
                     <a
@@ -367,14 +397,13 @@ const timelineGradients = [
   "from-violet-500/20 to-purple-500/10",
   "from-emerald-500/20 to-teal-500/10",
   "from-amber-500/20 to-orange-500/10",
-  "from-rose-500/20 to-pink-500/10",
 ];
 
 export function Journey() {
   return (
     <section id="journey" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeader kicker="Journey" title="The road so far" lead="From first lines of code to shipping full-stack platforms and distributed systems." />
+        <SectionHeader kicker="Journey" title="The road so far" lead="From first lines of code to building full-stack platforms and AI-powered systems." />
         <div className="relative mt-6 sm:mt-8">
           <div className="absolute left-[23px] sm:left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[var(--primary)] via-white/20 to-transparent md:left-1/2 md:-translate-x-px" />
           <ul className="space-y-8 sm:space-y-12 md:space-y-0">
@@ -452,6 +481,84 @@ export function Journey() {
               );
             })}
           </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Certifications() {
+  return (
+    <section id="certifications" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeader
+          kicker="Credentials"
+          title="Certifications"
+          lead="Industry-recognized certifications that validate my expertise."
+        />
+        <div className="mt-6 sm:mt-8 grid gap-3.5 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {certifications.map((c, i) => (
+            <motion.a
+              key={c.title}
+              href={c.link}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="glass group relative overflow-hidden rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all hover:bg-white/[0.06] hover:scale-[1.02]"
+            >
+              <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)]/30 to-[var(--primary-glow)]/20 text-foreground mb-3">
+                <Award className="size-5" />
+              </div>
+              <h3 className="font-display text-sm sm:text-base font-semibold">{c.title}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{c.issuer}</p>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Achievements() {
+  const iconMap: Record<string, typeof Code2> = {
+    code: Code,
+    rocket: Rocket,
+    sparkle: Sparkles,
+  };
+
+  return (
+    <section id="achievements" className="relative py-8 sm:py-10 md:py-12 lg:py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeader
+          kicker="Milestones"
+          title="Achievements"
+          lead="Key milestones that reflect my growth and dedication."
+        />
+        <div className="mt-6 sm:mt-8 grid gap-3.5 sm:gap-5 sm:grid-cols-3">
+          {achievements.map((a, i) => {
+            const Icon = iconMap[a.icon] ?? Trophy;
+            return (
+              <motion.div
+                key={a.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="glass group relative overflow-hidden rounded-xl sm:rounded-2xl p-5 sm:p-7 text-center transition-all hover:bg-white/[0.06] hover:scale-[1.02]"
+              >
+                <div className="flex justify-center mb-3">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)]/30 to-[var(--primary-glow)]/20 text-foreground">
+                    <Icon className="size-6" />
+                  </div>
+                </div>
+                <div className="font-display text-2xl sm:text-3xl font-bold text-brand-gradient">{a.value}</div>
+                <div className="mt-1 text-xs sm:text-sm text-muted-foreground">{a.label}</div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
