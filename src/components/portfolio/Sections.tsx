@@ -6,7 +6,7 @@ import {
   Award, Trophy, BookMarked,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
-import { profile, projects as featuredProjects, skills, timeline, certifications, achievements, learning } from "./data";
+import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
 
 function SectionHeader({ kicker, title, lead }: { kicker: string; title: string; lead?: string }) {
   return (
@@ -138,32 +138,7 @@ export function Skills() {
             );
           })}
 
-          {/* Currently Learning card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="glass group relative overflow-hidden rounded-xl sm:rounded-2xl p-5 sm:p-6 transition-all hover:bg-white/[0.06] hover:scale-[1.01] border border-dashed border-white/10"
-          >
-            <div className="absolute -right-12 -top-12 size-32 rounded-full bg-amber-500/10 blur-2xl transition-opacity group-hover:opacity-100" />
-            <div className="relative">
-              <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/30 to-orange-500/20 text-foreground">
-                <Sparkles className="size-5" />
-              </div>
-              <h3 className="mt-3 font-display text-base font-semibold sm:mt-4 sm:text-lg">Currently Learning</h3>
-              <ul className="mt-2.5 flex flex-wrap gap-1.5 sm:mt-3">
-                {learning.map((it) => (
-                  <li
-                    key={it}
-                    className="rounded-md border border-amber-500/20 bg-amber-500/[0.06] px-2 py-1 text-xs text-amber-400/80 transition-colors group-hover:text-amber-300"
-                  >
-                    {it}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+
         </div>
       </div>
     </section>

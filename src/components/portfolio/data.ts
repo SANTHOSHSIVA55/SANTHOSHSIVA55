@@ -35,7 +35,7 @@ export const skills = [
   },
   {
     group: "Database",
-    items: ["MongoDB", "PostgreSQL", "MySQL"],
+    items: ["MongoDB", "MySQL"],
   },
   {
     group: "Tools",
@@ -45,10 +45,6 @@ export const skills = [
     group: "Computer Science",
     items: ["DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design"],
   },
-];
-
-export const learning = [
-  "Redis", "Microservices", "Cloud", "Advanced System Design",
 ];
 
 export const projects = [
@@ -90,22 +86,22 @@ export const projects = [
     accent: "from-cyan-400/30 to-blue-500/20",
   },
   {
-    title: "Neon Project Manager",
-    tag: "Full Stack · SaaS",
+    title: "Portfolio",
+    tag: "Full Stack · Portfolio",
     description:
-      "A modern project management dashboard with real-time collaboration, task tracking, and team analytics — inspired by Linear.",
-    problem: "Small teams need lightweight, modern project management tools without the bloat of enterprise solutions.",
-    solution: "A clean, real-time project management app with drag-and-drop task boards, sprint planning, and team performance analytics.",
-    stack: ["React", "Node.js", "PostgreSQL", "WebSockets"],
+      "Modern Full Stack Developer portfolio showcasing web applications, technical skills, projects, and software engineering experience.",
+    problem: "Developers need a compelling online presence to showcase their work and attract opportunities.",
+    solution: "A modern, responsive portfolio built with TanStack Start and React, featuring glassmorphism design, live GitHub integration, and optimized for recruiter impact.",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     features: [
-      "Kanban board with drag-and-drop",
-      "Real-time collaboration",
-      "Sprint planning",
-      "Team analytics dashboard",
+      "Responsive glassmorphism design",
+      "Live GitHub API integration",
+      "Smooth animations",
+      "SEO optimized",
     ],
-    github: "https://github.com/SANTHOSHSIVA55",
-    website: "",
-    accent: "from-emerald-400/30 to-teal-500/20",
+    github: "https://github.com/SANTHOSHSIVA55/SANTHOSHSIVA55",
+    website: "https://santhosh-portfolio-plum.vercel.app",
+    accent: "from-sky-400/30 to-indigo-500/20",
   },
   {
     title: "E-commerce Analytics Dashboard",
