@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/portfolio/Navbar";
-import { AnimatedBackground, ScrollProgress } from "@/components/portfolio/AnimatedBackground";
+import { AnimatedBackground, ScrollProgress, ScrollProgressScript } from "@/components/portfolio/AnimatedBackground";
 import { Hero } from "@/components/portfolio/Hero";
 import { About, Skills, Projects, Journey, GithubStats, Certifications, Achievements } from "@/components/portfolio/Sections";
 import { Contact, Footer, BackToTop } from "@/components/portfolio/Contact";
@@ -38,6 +38,7 @@ function Index() {
       <div className="relative min-h-screen overflow-x-hidden">
         <AnimatedBackground />
         <ScrollProgress />
+        <ScrollProgressScript />
         <Navbar />
         <main>
           <Hero />

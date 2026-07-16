@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
@@ -9,7 +9,6 @@ export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
-  const followerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -75,8 +74,8 @@ export function CustomCursor() {
       >
         <motion.div
           animate={{
-            width: isPressed ? 4 : isHovering ? 6 : 6,
-            height: isPressed ? 4 : isHovering ? 6 : 6,
+            width: isPressed ? 4 : 5,
+            height: isPressed ? 4 : 5,
             opacity: 1,
           }}
           transition={{ duration: 0.15 }}
@@ -86,7 +85,6 @@ export function CustomCursor() {
 
       {/* Outer follower */}
       <motion.div
-        ref={followerRef}
         className="fixed top-0 left-0 z-[9998] pointer-events-none mix-blend-difference"
         style={{
           x: followerX,

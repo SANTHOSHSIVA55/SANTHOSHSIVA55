@@ -70,8 +70,12 @@ function FloatingParticles() {
     let particles: Particle[] = [];
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx!.scale(dpr, dpr);
     };
 
     resize();
@@ -129,7 +133,11 @@ function FloatingParticles() {
     }
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (document.hidden) {
+        animFrame = requestAnimationFrame(animate);
+        return;
+      }
+      ctx!.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
       for (const p of particles) {
         p.update();
         p.draw();
@@ -165,22 +173,27 @@ export function ScrollProgress() {
           transition: "transform 0.1s linear",
         }}
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(() => {
-            const bar = document.getElementById('scroll-progress-bar');
-            if (!bar) return;
-            const upd = () => {
-              const h = document.documentElement;
-              const p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
-              bar.style.transform = 'scaleX(' + p + ')';
-            };
-            upd();
-            window.addEventListener('scroll', upd, { passive: true });
-            window.addEventListener('resize', upd);
-          })();`,
-        }}
-      />
     </div>
+  );
+}
+
+export function ScrollProgressScript() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `(() => {
+          const bar = document.getElementById('scroll-progress-bar');
+          if (!bar) return;
+          const upd = () => {
+            const h = document.documentElement;
+            const p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+            bar.style.transform = 'scaleX(' + p + ')';
+          };
+          upd();
+          window.addEventListener('scroll', upd, { passive: true });
+          window.addEventListener('resize', upd);
+        })();`,
+      }}
+    />
   );
 }

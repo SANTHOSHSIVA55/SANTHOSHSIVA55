@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, useMotionValue, useTransform, useSpring, useScroll, useTransform as useTransform2 } from "framer-motion";
-import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Download, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, GfgIcon } from "./icons";
 import { profile, stats } from "./data";
 
@@ -11,13 +11,14 @@ function useTypingEffect(words: string[], speed = 75, deleteSpeed = 35, pause = 
 
   useEffect(() => {
     const current = words[idx] || "";
+    let pauseTimer: ReturnType<typeof setTimeout> | undefined;
     const timer = setTimeout(
       () => {
         if (!deleting) {
           if (text.length < current.length) {
             setText(current.slice(0, text.length + 1));
           } else {
-            setTimeout(() => setDeleting(true), pause);
+            pauseTimer = setTimeout(() => setDeleting(true), pause);
           }
         } else {
           if (text.length > 0) {
@@ -30,7 +31,10 @@ function useTypingEffect(words: string[], speed = 75, deleteSpeed = 35, pause = 
       },
       deleting ? deleteSpeed : speed,
     );
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (pauseTimer) clearTimeout(pauseTimer);
+    };
   }, [text, idx, deleting, words, speed, deleteSpeed, pause]);
 
   return text;
@@ -60,8 +64,6 @@ export function Hero() {
   const mouseY = useMotionValue(0);
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [12, -12]), { stiffness: 120, damping: 20 });
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-12, 12]), { stiffness: 120, damping: 20 });
-  const glareX = useSpring(useTransform(mouseX, [-0.5, 0.5], [0, 100]), { stiffness: 120, damping: 20 });
-  const glareY = useSpring(useTransform(mouseY, [-0.5, 0.5], [0, 100]), { stiffness: 120, damping: 20 });
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
@@ -242,9 +244,6 @@ export function Hero() {
             transition={{ duration: 1, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-[300px] mx-auto lg:mx-0 lg:max-w-[340px] lg:justify-self-end"
           >
-            {/* Animated glow behind card */}
-            <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-tr from-[#E8E8E8]/[0.06] via-[#C0C0C0]/[0.04] to-transparent blur-3xl animate-slow-pulse" />
-
             <motion.div
               ref={cardRef}
               onMouseMove={handleMouseMove}
@@ -254,44 +253,51 @@ export function Hero() {
                 rotateY,
                 transformPerspective: 1200,
               }}
-              className="relative"
+              className="relative group"
             >
-              {/* Gradient border */}
-              <div className="absolute -inset-[1px] rounded-[2.2rem] bg-gradient-to-br from-[#E8E8E8]/30 via-[#C0C0C0]/15 to-[#A8A8A8]/10" />
-
-              {/* Card body */}
-              <div className="glass-strong relative overflow-hidden rounded-[2.1rem] p-3 shadow-elevated">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.7rem]">
+              {/* Circular glass frame */}
+              <div className="relative mx-auto w-[260px] h-[260px] lg:w-[300px] lg:h-[300px]">
+                {/* Metallic border ring */}
+                <div className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[#F2F2F2]/40 via-[#C0C0C0]/20 to-[#A8A8A8]/30 group-hover:from-[#F2F2F2]/60 group-hover:via-[#C0C0C0]/35 group-hover:to-[#A8A8A8]/50 transition-all duration-700" />
+                {/* Glass ring */}
+                <div className="absolute -inset-[1px] rounded-full bg-gradient-to-br from-white/10 to-white/[0.04] backdrop-blur-sm" />
+                {/* Profile image */}
+                <div className="relative w-full h-full rounded-full overflow-hidden shadow-elevated">
                   <img
                     src={profile.image}
                     alt={`${profile.name}, Full Stack Developer & Data Analyst based in Chennai`}
                     loading="eager"
-                    className="h-full w-full object-cover"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-
-                  {/* Bottom info card */}
-                  <div className="absolute bottom-3 left-3 right-3 glass rounded-2xl px-4 py-3.5 border border-white/[0.06]">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-[9px] text-[#94A3B8] tracking-[0.2em] uppercase font-medium">Currently</div>
-                        <div className="text-sm font-semibold text-[#F8FAFC] leading-tight mt-1">
-                          CSE @ Chennai
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-1.5 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.08] px-2.5 py-1">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
-                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
-                        </span>
-                        <span className="text-[9px] text-[#22C55E] font-medium">Available</span>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Inner shadow overlay */}
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(0,0,0,0.4)]" />
                 </div>
               </div>
+
+              {/* Bottom info card */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 2.2 }}
+                className="mt-6 glass rounded-2xl px-5 py-3.5 border border-white/[0.06] mx-auto max-w-[280px]"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-[9px] text-[#94A3B8] tracking-[0.2em] uppercase font-medium">Currently</div>
+                    <div className="text-sm font-semibold text-[#F8FAFC] leading-tight mt-1">
+                      CSE @ Chennai
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.08] px-2.5 py-1">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
+                    </span>
+                    <span className="text-[9px] text-[#22C55E] font-medium">Available</span>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

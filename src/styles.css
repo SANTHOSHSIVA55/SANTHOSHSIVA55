@@ -49,16 +49,16 @@
   --radius: 0.75rem;
   --background: #020202;
   --foreground: #FFFFFF;
-  --card: rgba(255, 255, 255, 0.04);
+  --card: #151515;
   --card-foreground: #FFFFFF;
-  --popover: rgba(255, 255, 255, 0.04);
+  --popover: #151515;
   --popover-foreground: #FFFFFF;
   --primary: #E8E8E8;
   --primary-foreground: #020202;
   --secondary: #C0C0C0;
   --secondary-foreground: #FFFFFF;
   --muted: rgba(255, 255, 255, 0.04);
-  --muted-foreground: #A8A8A8;
+  --muted-foreground: #B5B5B5;
   --accent: #D9D9D9;
   --accent-foreground: #020202;
   --destructive: #EF4444;
@@ -320,27 +320,6 @@
 }
 
 /* Idle chrome reflection - subtle ambient shine */
-.chrome-ambient {
-  position: relative;
-  overflow: hidden;
-}
-
-.chrome-ambient::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.015) 40%,
-    rgba(255, 255, 255, 0.03) 50%,
-    rgba(255, 255, 255, 0.015) 60%,
-    transparent 70%
-  );
-  transform: translateX(-100%);
-  animation: chrome-idle 6s ease-in-out infinite;
-  pointer-events: none;
-}
 
 /* Section spacing */
 .section-padding {
@@ -436,14 +415,6 @@
   85% { transform: translateX(100%); }
 }
 
-/* Particle drift */
-@keyframes particle-drift {
-  0% { transform: translateY(0) translateX(0); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
-}
-
 /* Loading screen */
 @keyframes loader-progress {
   0% { width: 0%; }
@@ -455,27 +426,6 @@
 
 @utility animate-loader {
   animation: loader-progress 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Counter animation */
-@keyframes count-up {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Magnetic button base */
-@utility magnetic-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Reveal mask */
-@keyframes mask-reveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
 }
 
 /* Screenshot shimmer loading */
@@ -508,4 +458,14 @@
 @media (max-width: 768px) {
   body { cursor: auto; }
   a, button { cursor: pointer; }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

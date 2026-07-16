@@ -19,8 +19,8 @@ export function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
 
-      const sections = ["top", "about", "skills", "projects", "journey", "github", "contact"];
-      for (const id of sections.reverse()) {
+        const sections = ["top", "about", "skills", "projects", "journey", "github", "contact"];
+      for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= 150) {
           setActiveSection("#" + id);
@@ -68,7 +68,7 @@ export function Navbar() {
         }`}
         style={{
           border: scrolled
-            ? "1px solid rgba(0, 229, 255, 0.08)"
+            ? "1px solid rgba(232, 232, 232, 0.08)"
             : "1px solid rgba(255, 255, 255, 0.06)",
         }}
       >

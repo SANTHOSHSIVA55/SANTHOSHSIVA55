@@ -53,14 +53,14 @@ export function Contact() {
             icon={<Mail className="size-5" />}
             label="Email"
             value={profile.email}
-            color="#00E5FF"
+            color="#E8E8E8"
           />
           <ContactRow
             href={profile.linkedin}
             icon={<LinkedinIcon className="size-5" />}
             label="LinkedIn"
             value="santhosh-t-s"
-            color="#3B82F6"
+            color="#D9D9D9"
           />
           <ContactRow
             href={profile.github}
@@ -94,7 +94,7 @@ function ContactRow({
   label,
   value,
   href,
-  color = "#00E5FF",
+  color = "#E8E8E8",
 }: {
   icon: React.ReactNode;
   label: string;

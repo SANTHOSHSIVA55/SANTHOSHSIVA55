@@ -1,17 +1,17 @@
-import { useEffect, useMemo, useState, useRef, useCallback } from "react";
+import { useEffect, useMemo, useState, useRef, memo } from "react";
 import { motion, useInView } from "framer-motion";
 import {
-  Code2, Layers, Sparkles, ExternalLink, ArrowUpRight,
+  Code2, Layers, Sparkles,
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
-  Award, Trophy, BookMarked, Target, Zap, TrendingUp,
-  Database, Cloud, Wrench, GraduationCap, Heart, Lightbulb,
+  Award, Trophy, Target, Zap, TrendingUp,
+  Database, Wrench, GraduationCap, Heart, Lightbulb,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
 import { ProjectShowcaseCard, ProjectCardCompact } from "./ProjectShowcase";
 
 /* ──────────── Section Header ──────────── */
-function SectionHeader({ kicker, title, lead }: { kicker: string; title: string; lead?: string }) {
+const SectionHeader = memo(function SectionHeader({ kicker, title, lead }: { kicker: string; title: string; lead?: string }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
       <motion.div
@@ -45,7 +45,7 @@ function SectionHeader({ kicker, title, lead }: { kicker: string; title: string;
       )}
     </div>
   );
-}
+});
 
 /* ──────────── Animated Counter ──────────── */
 function AnimatedCounter({ value, label }: { value: string; label: string }) {
@@ -241,23 +241,56 @@ export function Skills() {
   );
 }
 
+/* ──────────── Shared GitHub Fetch Cache ──────────── */
+type Repo = {
+  id: number;
+  name: string;
+  html_url: string;
+  homepage: string | null;
+  description: string | null;
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+  topics?: string[];
+  pushed_at: string;
+  updated_at: string;
+  fork: boolean;
+  archived: boolean;
+};
+
+type User = {
+  public_repos: number;
+  followers: number;
+  following: number;
+  avatar_url: string;
+  name: string | null;
+  bio: string | null;
+  public_gists?: number;
+};
+
+let _cachedRepos: Repo[] | null = null;
+let _cachedUser: User | null = null;
+let _fetchPromise: Promise<{ repos: Repo[]; user: User }> | null = null;
+
+function fetchGitHubData() {
+  if (_cachedRepos && _cachedUser) return Promise.resolve({ repos: _cachedRepos, user: _cachedUser });
+  if (_fetchPromise) return _fetchPromise;
+
+  const githubUser = profile.github.split("/").pop();
+  _fetchPromise = Promise.all([
+    fetch(`https://api.github.com/users/${githubUser}`).then((r) => r.json()),
+    fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`).then((r) => r.json()),
+  ]).then(([u, r]: [User, Repo[]]) => {
+    _cachedUser = u;
+    _cachedRepos = (r ?? []).filter((x) => !x.fork);
+    return { repos: _cachedRepos, user: _cachedUser };
+  });
+
+  return _fetchPromise;
+}
+
 /* ──────────── Projects ──────────── */
 export function Projects() {
-  type Repo = {
-    id: number;
-    name: string;
-    html_url: string;
-    homepage: string | null;
-    description: string | null;
-    stargazers_count: number;
-    forks_count: number;
-    language: string | null;
-    topics?: string[];
-    pushed_at: string;
-    updated_at: string;
-    fork: boolean;
-    archived: boolean;
-  };
 
   const accents = [
     { from: "rgba(232,232,232,0.20)", to: "rgba(192,192,192,0.12)", glow: "#E8E8E8" },
@@ -273,19 +306,11 @@ export function Projects() {
 
   useEffect(() => {
     let cancelled = false;
-    const githubUser = profile.github.split("/").pop();
-    fetch(
-      `https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`,
-      { headers: { Accept: "application/vnd.github+json" } },
-    )
-      .then((r) => {
-        if (!r.ok) throw new Error(String(r.status));
-        return r.json();
-      })
-      .then((data: Repo[]) => {
+    fetchGitHubData()
+      .then(({ repos }) => {
         if (cancelled) return;
-        const cleaned = (data ?? [])
-          .filter((r) => !r.fork && !r.archived)
+        const cleaned = repos
+          .filter((r) => !r.archived)
           .sort((a, b) => +new Date(b.pushed_at) - +new Date(a.pushed_at))
           .slice(0, 6);
         setRepos(cleaned);
@@ -391,7 +416,7 @@ export function Journey() {
           <ul className="space-y-10 md:space-y-0">
             {timeline.map((t, i) => {
               const Icon = timelineIcons[t.icon] ?? Code;
-              const color = timelineColors[i] ?? "#00E5FF";
+              const color = timelineColors[i] ?? "#E8E8E8";
               const isLeft = i % 2 === 0;
 
               return (
@@ -416,7 +441,7 @@ export function Journey() {
 
                   {/* Desktop layout */}
                   <div className="hidden md:grid md:w-full md:grid-cols-2 md:gap-14 lg:gap-20">
-                    <div className={`flex ${isLeft ? "justify-end" : "justify-end"}`}>
+                    <div className={`flex ${isLeft ? "justify-end" : "justify-start"}`}>
                       {isLeft ? (
                         <div className="max-w-md text-right">
                           <span
@@ -531,7 +556,7 @@ export function Achievements() {
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {achievements.map((a, i) => {
             const Icon = iconMap[a.icon] ?? Trophy;
-            const color = colors[i] ?? "#00E5FF";
+            const color = colors[i] ?? "#E8E8E8";
             return (
               <motion.div
                 key={a.label}
@@ -560,28 +585,6 @@ export function Achievements() {
 }
 
 /* ──────────── GitHub Stats ──────────── */
-type Repo = {
-  id: number;
-  name: string;
-  html_url: string;
-  description: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-  pushed_at: string;
-  fork: boolean;
-};
-
-type User = {
-  public_repos: number;
-  followers: number;
-  following: number;
-  avatar_url: string;
-  name: string | null;
-  bio: string | null;
-  public_gists?: number;
-};
-
 const LANG_COLORS: Record<string, string> = {
   JavaScript: "#f7df1e",
   TypeScript: "#3178c6",
@@ -606,15 +609,11 @@ export function GithubStats() {
 
   useEffect(() => {
     let cancelled = false;
-    const githubUser = profile.github.split("/").pop();
-    Promise.all([
-      fetch(`https://api.github.com/users/${githubUser}`).then((r) => r.json()),
-      fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`).then((r) => r.json()),
-    ])
-      .then(([u, r]: [User, Repo[]]) => {
+    fetchGitHubData()
+      .then(({ repos, user }) => {
         if (cancelled) return;
-        setUser(u);
-        setRepos((r ?? []).filter((x) => !x.fork));
+        setUser(user);
+        setRepos(repos);
       })
       .catch(() => !cancelled && setErr("Could not load GitHub data."));
     return () => { cancelled = true; };
@@ -845,13 +844,13 @@ export function GithubStats() {
   );
 }
 
-function MiniStat({ label, value }: { label: string; value: number | string }) {
+const MiniStat = memo(function MiniStat({ label, value }: { label: string; value: number | string }) {
   return (
     <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-3">
       <div className="font-display text-xl font-bold text-[#FFFFFF]">{value}</div>
-      <div className="text-[10px] uppercase tracking-wider text-[#A8A8A8] mt-0.5">{label}</div>
+      <div className="text-[10px] uppercase tracking-wider text-[#B5B5B5] mt-0.5">{label}</div>
     </div>
   );
-}
+});
 
 export { SectionHeader };

@@ -1,9 +1,7 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import Lenis from "lenis";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
-  const lenisRef = useRef<Lenis | null>(null);
-
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.4,
@@ -15,20 +13,16 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       touchMultiplier: 1.5,
     });
 
-    lenisRef.current = lenis;
-
-    // Sync Lenis with native scroll for anchor links
-    lenis.on("scroll", () => {});
-
+    let animFrame: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      animFrame = requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
+    animFrame = requestAnimationFrame(raf);
 
     return () => {
       lenis.destroy();
+      cancelAnimationFrame(animFrame);
     };
   }, []);
 
