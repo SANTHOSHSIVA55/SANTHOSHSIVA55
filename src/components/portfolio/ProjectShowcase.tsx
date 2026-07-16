@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useMemo } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { ExternalLink, ArrowUpRight, Star, GitFork, Monitor } from "lucide-react";
+import { ExternalLink, ArrowUpRight, Star, GitFork, Monitor, Clock, Users } from "lucide-react";
 import { GithubIcon } from "./icons";
 
 /* ─── Screenshot URL Generator ─── */
@@ -103,6 +103,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
     title: string; tag: string; description: string; homepage?: string;
     github: string; stack: string[]; features?: string[]; stars?: number;
     forks?: number; updated?: string; accent?: { from: string; to: string; glow: string };
+    duration?: string; role?: string; impact?: string[];
   };
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
@@ -210,6 +211,27 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
 
           <p className="mt-3 text-sm sm:text-base text-[#A8A8A8] leading-relaxed">{project.description}</p>
 
+          {(project.duration || project.role) && (
+            <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-[#94A3B8]">
+              {project.duration && (
+                <span className="inline-flex items-center gap-1.5"><Clock className="size-3.5" /> {project.duration}</span>
+              )}
+              {project.role && (
+                <span className="inline-flex items-center gap-1.5"><Users className="size-3.5" /> {project.role}</span>
+              )}
+            </div>
+          )}
+
+          {project.impact && project.impact.length > 0 && (
+            <div className="mt-3 space-y-1.5">
+              {project.impact.map((m: string) => (
+                <div key={m} className="flex items-start gap-2 text-xs text-[#A8A8A8]">
+                  <span className="mt-1.5 size-1 rounded-full bg-[#22C55E] shrink-0" /> {m}
+                </div>
+              ))}
+            </div>
+          )}
+
           {project.features && (
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
               {project.features.map((f: string) => (
@@ -253,6 +275,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
     title: string; tag: string; description: string; homepage?: string;
     github: string; stack: string[]; features?: string[]; stars?: number;
     forks?: number; updated?: string; accent?: { from: string; to: string; glow: string };
+    duration?: string; role?: string; impact?: string[];
   };
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
@@ -346,6 +369,27 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
           </div>
 
           <p className="mt-2 text-sm text-[#A8A8A8] line-clamp-2 break-words">{project.description}</p>
+
+          {(project.duration || project.role) && (
+            <div className="mt-2 flex flex-wrap items-center gap-2.5 text-[11px] text-[#94A3B8]">
+              {project.duration && (
+                <span className="inline-flex items-center gap-1"><Clock className="size-3" /> {project.duration}</span>
+              )}
+              {project.role && (
+                <span className="inline-flex items-center gap-1"><Users className="size-3" /> {project.role}</span>
+              )}
+            </div>
+          )}
+
+          {project.impact && project.impact.length > 0 && (
+            <div className="mt-2 space-y-1">
+              {project.impact.map((m: string) => (
+                <div key={m} className="flex items-start gap-1.5 text-[11px] text-[#A8A8A8]">
+                  <span className="mt-1 size-1 rounded-full bg-[#22C55E] shrink-0" /> {m}
+                </div>
+              ))}
+            </div>
+          )}
 
           {project.features && (
             <ul className="mt-3 space-y-1.5 text-xs text-[#A8A8A8]">

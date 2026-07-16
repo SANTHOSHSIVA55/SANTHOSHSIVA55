@@ -328,6 +328,9 @@ export function Projects() {
           stars: r.stargazers_count,
           forks: r.forks_count,
           updated: r.pushed_at,
+          duration: featured?.duration,
+          role: featured?.role,
+          impact: featured?.impact,
           accent: accents[i % accents.length],
         };
       });
