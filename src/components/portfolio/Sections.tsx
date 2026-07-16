@@ -722,11 +722,11 @@ export function GithubStats() {
                 className="cosmic-panel-strong rounded-2xl p-6"
               >
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Contribution Graph</div>
-                <div className="mt-5 overflow-x-auto -mx-2 px-2">
+                <div className="mt-5 overflow-x-auto -mx-2 px-2" style={{ overscrollBehaviorX: "contain" }}>
                   <img
                     src="https://ghchart.rshah.org/SANTHOSHSIVA55"
                     alt="GitHub contribution chart"
-                    className="w-full min-w-[320px] rounded-lg"
+                    className="w-full min-w-[280px] rounded-lg"
                     loading="lazy"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = "none";

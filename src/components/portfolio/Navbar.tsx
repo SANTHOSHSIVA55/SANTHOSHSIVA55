@@ -167,7 +167,7 @@ export function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
-            className="md:hidden flex items-center justify-center size-10 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
+            className="md:hidden flex items-center justify-center size-11 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               {open ? (

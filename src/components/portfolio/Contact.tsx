@@ -207,17 +207,17 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {profile.name}. Designed &amp; Developed by{" "}
             <span className="text-[#FFFFFF] font-medium">Santhosh T S</span>.
           </span>
-          <div className="flex items-center gap-4">
-            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+          <div className="flex items-center gap-2">
+            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
               <GithubIcon className="size-4" />
             </a>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
               <LinkedinIcon className="size-4" />
             </a>
-            <a href={profile.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+            <a href={profile.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
               <LeetcodeIcon className="size-4" />
             </a>
-            <a href={`mailto:${profile.email}`} aria-label="Email" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+            <a href={`mailto:${profile.email}`} aria-label="Email" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
               <Mail className="size-4" />
             </a>
           </div>

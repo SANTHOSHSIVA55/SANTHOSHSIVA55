@@ -172,7 +172,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
               href={project.homepage}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-6 py-3 text-sm font-semibold text-[#020202] transition-transform hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-6 py-3.5 text-sm font-semibold text-[#020202] transition-transform hover:scale-105 min-h-[44px]"
             >
               <ExternalLink className="size-4" /> Live Demo
             </a>
@@ -181,7 +181,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/[0.15] bg-white/[0.06] px-6 py-3 text-sm font-medium text-[#FFFFFF] backdrop-blur-md transition-transform hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/[0.15] bg-white/[0.06] px-6 py-3.5 text-sm font-medium text-[#FFFFFF] backdrop-blur-md transition-transform hover:scale-105 min-h-[44px]"
           >
             <GithubIcon className="size-4" /> View Code
           </a>
@@ -314,11 +314,11 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-[#020202]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3 z-20">
           {project.homepage && (
-            <a href={project.homepage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-5 py-2.5 text-xs font-semibold text-[#020202] transition-transform hover:scale-105">
+            <a href={project.homepage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-5 py-3 text-xs font-semibold text-[#020202] transition-transform hover:scale-105 min-h-[44px]">
               <ExternalLink className="size-3.5" /> Live Demo
             </a>
           )}
-          <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.06] px-5 py-2.5 text-xs font-medium text-[#FFFFFF] backdrop-blur-md transition-transform hover:scale-105">
+          <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.06] px-5 py-3 text-xs font-medium text-[#FFFFFF] backdrop-blur-md transition-transform hover:scale-105 min-h-[44px]">
             <GithubIcon className="size-3.5" /> View Code
           </a>
         </div>

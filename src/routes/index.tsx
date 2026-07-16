@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
 import { About, Skills, Projects, Journey, GithubStats, Certifications, Achievements } from "@/components/portfolio/Sections";
@@ -6,9 +7,12 @@ import { Contact, Footer, BackToTop } from "@/components/portfolio/Contact";
 import { LoadingScreen } from "@/components/portfolio/LoadingScreen";
 import { CustomCursor } from "@/components/portfolio/CustomCursor";
 import { SmoothScroll } from "@/components/portfolio/SmoothScroll";
-import { SolarSystem } from "@/components/portfolio/solar/SolarSystem";
-import { ScrollProgress, ScrollProgressScript } from "@/components/portfolio/AnimatedBackground";
+import { AnimatedBackground, ScrollProgress, ScrollProgressScript } from "@/components/portfolio/AnimatedBackground";
 import { useScrollProgress } from "@/components/portfolio/useScrollProgress";
+
+const LazySolarSystem = lazy(() =>
+  import("@/components/portfolio/solar/SolarSystem").then((m) => ({ default: m.SolarSystem }))
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,15 +36,42 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+function useSupports3D() {
+  const [supports, setSupports] = useState(false);
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.innerWidth < 768;
+    if (prefersReduced || isMobile) {
+      setSupports(false);
+      return;
+    }
+    try {
+      const canvas = document.createElement("canvas");
+      const gl = canvas.getContext("webgl2") || canvas.getContext("webgl");
+      setSupports(!!gl);
+    } catch {
+      setSupports(false);
+    }
+  }, []);
+  return supports;
+}
+
 function Index() {
   const scrollProgress = useScrollProgress();
+  const use3D = useSupports3D();
 
   return (
     <SmoothScroll>
       <LoadingScreen />
       <CustomCursor />
       <a href="#about" className="skip-link">Skip to content</a>
-      <SolarSystem scrollProgress={scrollProgress} />
+      {use3D ? (
+        <Suspense fallback={<AnimatedBackground />}>
+          <LazySolarSystem scrollProgress={scrollProgress} />
+        </Suspense>
+      ) : (
+        <AnimatedBackground />
+      )}
       <div className="relative min-h-screen overflow-x-hidden">
         <ScrollProgress />
         <ScrollProgressScript />
