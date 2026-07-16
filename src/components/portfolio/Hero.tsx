@@ -124,7 +124,7 @@ export function Hero() {
             <div className="overflow-hidden">
               <motion.h1
                 className="font-display font-bold leading-[0.9] tracking-[-0.04em] whitespace-nowrap"
-                style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)" }}
+                style={{ fontSize: "clamp(2.25rem, 5.5vw, 4.5rem)" }}
                 initial="hidden"
                 animate="visible"
                 variants={stagger}
