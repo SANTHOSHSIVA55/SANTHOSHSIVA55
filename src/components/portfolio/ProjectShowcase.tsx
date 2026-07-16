@@ -162,7 +162,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY, transformPerspective: 1400 }}
-        className="glass-strong group relative overflow-hidden rounded-3xl transition-shadow duration-500 shine-sweep chrome-border"
+        className="cosmic-panel-strong group relative overflow-hidden rounded-3xl transition-shadow duration-500 shine-sweep chrome-border"
       >
         {/* Enlarged mockup showcase area */}
         <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#0D0D0D] to-[#181818] px-4 pt-12 pb-0 sm:px-8 sm:pt-16 md:px-12 md:pt-20">
@@ -221,7 +221,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="glass inline-flex size-11 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.08] shrink-0 border border-white/[0.06]"
+              className="cosmic-panel inline-flex size-11 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.08] shrink-0 border border-white/[0.06]"
             >
               <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#E8E8E8] transition-colors" />
             </a>
@@ -308,7 +308,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY, transformPerspective: 1200 }}
-        className="glass-strong group relative overflow-hidden rounded-3xl transition-shadow duration-500 shine-sweep chrome-border"
+        className="cosmic-panel-strong group relative overflow-hidden rounded-3xl transition-shadow duration-500 shine-sweep chrome-border"
       >
         {/* Enlarged mockup preview area */}
         <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#0D0D0D] to-[#181818] px-4 pt-10 pb-0 sm:px-6 sm:pt-12">
@@ -354,7 +354,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
               <h3 className="mt-1 font-display text-lg font-semibold text-[#FFFFFF] capitalize">{project.title}</h3>
             </div>
             <a href={project.github} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`}
-              className="glass inline-flex size-10 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.08] shrink-0 border border-white/[0.06]">
+              className="cosmic-panel inline-flex size-10 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.08] shrink-0 border border-white/[0.06]">
               <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#E8E8E8] transition-colors" />
             </a>
           </div>

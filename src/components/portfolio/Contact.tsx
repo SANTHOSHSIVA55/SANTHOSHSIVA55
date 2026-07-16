@@ -114,7 +114,7 @@ function ContactRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.4 }}
-      className="glass group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.06] hover-glow border border-white/[0.04] hover:border-white/[0.10] chrome-border"
+      className="cosmic-panel group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.06] hover-glow border border-white/[0.04] hover:border-white/[0.10] chrome-border"
     >
       <div className="flex items-center gap-4 min-w-0">
         <span

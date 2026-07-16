@@ -78,14 +78,6 @@ export function Hero() {
   const typed = useTypingEffect(roles);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const bgY = useTransform2(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const textY = useTransform2(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const opacity = useTransform2(scrollYProgress, [0, 0.7], [1, 0]);
-
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -113,22 +105,7 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} id="top" className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* Parallax background glow */}
-      <motion.div
-        style={{ y: bgY }}
-        className="absolute inset-0 pointer-events-none"
-      >
-        <div className="absolute top-[15%] left-[10%] w-[500px] h-[500px] rounded-full bg-[#D9D9D9]/[0.04] blur-[120px] animate-aurora" />
-        <div className="absolute top-[25%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#C0C0C0]/[0.03] blur-[100px] animate-aurora-delayed" />
-        <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] rounded-full bg-[#A8A8A8]/[0.02] blur-[110px] animate-aurora-slow" />
-      </motion.div>
-
-      {/* Central radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,232,232,0.03)_0%,transparent_65%)] animate-slow-pulse" />
-      </div>
-
-      <motion.div style={{ y: textY, opacity }} className="mx-auto max-w-6xl px-4 sm:px-6 w-full pt-28 pb-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 w-full pt-28 pb-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-20">
           {/* Left: Text content */}
           <div className="min-w-0">
@@ -143,7 +120,7 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Name - Massive display typography with staggered reveal */}
+            {/* Name - Massive display typography */}
             <div className="overflow-hidden">
               <motion.h1
                 className="font-display font-bold leading-[0.9] tracking-[-0.04em]"
@@ -228,7 +205,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Profile card with 3D tilt */}
+          {/* Right: Profile card - glass capsule near the Sun */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -248,6 +225,8 @@ export function Hero() {
             >
               {/* Circular glass frame */}
               <div className="relative mx-auto w-[260px] h-[260px] lg:w-[300px] lg:h-[300px]">
+                {/* Sun glow behind */}
+                <div className="absolute inset-0 -m-10 rounded-full bg-[#FDB813]/[0.06] blur-[50px] animate-slow-pulse" />
                 {/* Metallic border ring */}
                 <div className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[#F2F2F2]/40 via-[#C0C0C0]/20 to-[#A8A8A8]/30 group-hover:from-[#F2F2F2]/60 group-hover:via-[#C0C0C0]/35 group-hover:to-[#A8A8A8]/50 transition-all duration-700" />
                 {/* Glass ring */}
@@ -261,13 +240,12 @@ export function Hero() {
                     decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Inner shadow overlay */}
                   <div className="absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(0,0,0,0.4)]" />
                 </div>
               </div>
 
               {/* Bottom info card */}
-              <motion.div {...fadeUp(0.9)} className="mt-6 glass rounded-2xl px-5 py-3.5 border border-white/[0.06] mx-auto max-w-[280px]">
+              <motion.div {...fadeUp(0.9)} className="mt-6 cosmic-panel rounded-2xl px-5 py-3.5 mx-auto max-w-[280px]">
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-[9px] text-[#94A3B8] tracking-[0.2em] uppercase font-medium">Currently</div>
@@ -302,7 +280,7 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: 1.2 + i * 0.06 }}
-              className="glass group rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.06]"
+              className="cosmic-panel group rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.08]"
             >
               <div className="font-display text-3xl sm:text-4xl font-bold text-gradient">
                 {s.value}
@@ -311,7 +289,7 @@ export function Hero() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

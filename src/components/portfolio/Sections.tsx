@@ -128,7 +128,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]"
+              className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]"
             >
               <div className="relative z-10">
                 <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8] mb-4">
@@ -202,7 +202,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] chrome-border"
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] chrome-border"
               >
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
@@ -444,7 +444,7 @@ export function Journey() {
                           >
                             {t.year}
                           </span>
-                          <div className="glass group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]">
+                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]">
                             <h3 className="font-display text-xl font-semibold text-[#FFFFFF]">{t.title}</h3>
                             <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                           </div>
@@ -460,7 +460,7 @@ export function Journey() {
                           >
                             {t.year}
                           </span>
-                          <div className="glass group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]">
+                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]">
                             <h3 className="font-display text-xl font-semibold text-[#FFFFFF]">{t.title}</h3>
                             <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                           </div>
@@ -477,7 +477,7 @@ export function Journey() {
                     >
                       {t.year}
                     </span>
-                    <div className="glass group relative mt-3 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05]">
+                    <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05]">
                       <h3 className="font-display text-lg font-semibold text-[#FFFFFF]">{t.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                     </div>
@@ -513,7 +513,7 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="glass group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05]"
+              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05]"
             >
               <div className="relative z-10">
                 <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8] mb-3">
@@ -558,7 +558,7 @@ export function Achievements() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="glass group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:bg-white/[0.05]"
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:bg-white/[0.05]"
               >
                 <div className="relative z-10">
                   <div className="flex justify-center mb-4">
@@ -657,7 +657,7 @@ export function GithubStats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="glass-strong rounded-2xl p-6"
+                className="cosmic-panel-strong rounded-2xl p-6"
               >
                 <div className="flex items-center gap-4">
                   <img
@@ -690,7 +690,7 @@ export function GithubStats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="glass-strong rounded-2xl p-6"
+                className="cosmic-panel-strong rounded-2xl p-6"
               >
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Activity Overview</div>
                 <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -709,7 +709,7 @@ export function GithubStats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="glass-strong rounded-2xl p-6"
+                className="cosmic-panel-strong rounded-2xl p-6"
               >
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Top Languages</div>
                 <div className="mt-5 space-y-3.5">
@@ -748,7 +748,7 @@ export function GithubStats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="glass-strong rounded-2xl p-6"
+                className="cosmic-panel-strong rounded-2xl p-6"
               >
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Contribution Graph</div>
                 <div className="mt-5">
@@ -785,7 +785,7 @@ export function GithubStats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="glass-strong rounded-2xl p-6"
+              className="cosmic-panel-strong rounded-2xl p-6"
             >
               <div className="flex items-center justify-between">
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Recent Repositories</div>
@@ -796,7 +796,7 @@ export function GithubStats() {
               <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {!repos && !err &&
                   Array.from({ length: 6 }).map((_, i) => (
-                    <div key={i} className="glass h-24 animate-pulse rounded-xl" />
+                    <div key={i} className="cosmic-panel h-24 animate-pulse rounded-xl" />
                   ))}
                 {repos?.slice(0, 6).map((r, i) => (
                   <motion.a
@@ -808,7 +808,7 @@ export function GithubStats() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-30px" }}
                     transition={{ duration: 0.3, delay: i * 0.04 }}
-                    className="glass group block rounded-xl p-4 transition-all duration-300 hover:bg-white/[0.06] border border-white/[0.04] hover:border-white/[0.08]"
+                    className="cosmic-panel group block rounded-xl p-4 transition-all duration-300 hover:bg-white/[0.06] border border-white/[0.04] hover:border-white/[0.08]"
                   >
                     <div className="flex items-center gap-2 font-medium text-sm text-[#FFFFFF] truncate">
                       <BookOpen className="size-3.5 shrink-0 text-[#A8A8A8]" />

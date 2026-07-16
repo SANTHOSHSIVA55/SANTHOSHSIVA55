@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/portfolio/Navbar";
-import { AnimatedBackground, ScrollProgress, ScrollProgressScript } from "@/components/portfolio/AnimatedBackground";
 import { Hero } from "@/components/portfolio/Hero";
 import { About, Skills, Projects, Journey, GithubStats, Certifications, Achievements } from "@/components/portfolio/Sections";
 import { Contact, Footer, BackToTop } from "@/components/portfolio/Contact";
 import { LoadingScreen } from "@/components/portfolio/LoadingScreen";
 import { CustomCursor } from "@/components/portfolio/CustomCursor";
 import { SmoothScroll } from "@/components/portfolio/SmoothScroll";
+import { SolarSystem } from "@/components/portfolio/solar/SolarSystem";
+import { ScrollProgress, ScrollProgressScript } from "@/components/portfolio/AnimatedBackground";
+import { useScrollProgress } from "@/components/portfolio/useScrollProgress";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,12 +33,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const scrollProgress = useScrollProgress();
+
   return (
     <SmoothScroll>
       <LoadingScreen />
       <CustomCursor />
+      <SolarSystem scrollProgress={scrollProgress} />
       <div className="relative min-h-screen overflow-x-hidden">
-        <AnimatedBackground />
         <ScrollProgress />
         <ScrollProgressScript />
         <Navbar />
