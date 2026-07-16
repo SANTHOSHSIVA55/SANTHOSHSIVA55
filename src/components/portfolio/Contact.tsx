@@ -1,6 +1,6 @@
 ﻿import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, MapPin, Clock } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, GfgIcon } from "./icons";
 import { profile } from "./data";
 import { SectionHeader } from "./Sections";
@@ -10,8 +10,8 @@ export function Contact() {
     <section id="contact" className="relative section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader
-          kicker="Contact"
-          title="Let's Build Something Impactful"
+          kicker="Get In Touch"
+          title="Let's Build Something Amazing"
           lead="Open to internships, Software Engineer roles, Full Stack Developer opportunities, and exciting engineering collaborations."
         />
 
@@ -38,14 +38,28 @@ export function Contact() {
             <p className="mt-5 text-base sm:text-lg text-[#94A3B8] max-w-lg mx-auto">
               I&apos;m always open to discussing new projects, creative ideas, and opportunities to be part of your vision.
             </p>
-            <a
-              href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`}
-              className="mt-10 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-10 py-5 text-base font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_50px_rgba(232,232,232,0.2)] hover:scale-[1.03] overflow-hidden group"
-            >
-              <Mail className="size-5" />
-              <span>Get In Touch</span>
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            <div className="mt-4 inline-flex items-center gap-2 text-xs text-[#22C55E]">
+              <Clock className="size-3.5" />
+              <span>Usually respond within 24 hours</span>
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-4 justify-center">
+              <a
+                href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`}
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-10 py-5 text-base font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_50px_rgba(232,232,232,0.2)] hover:scale-[1.03] overflow-hidden group"
+              >
+                <Mail className="size-5" />
+                <span>Get In Touch</span>
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/[0.1] bg-white/[0.04] px-8 py-5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.08] hover:border-white/[0.15]"
+              >
+                <GithubIcon className="size-4" /> GitHub
+              </a>
+            </div>
           </div>
         </motion.div>
 
@@ -85,6 +99,13 @@ export function Contact() {
             label="GeeksforGeeks"
             value="santhoshts"
             color="#22C55E"
+          />
+          <ContactRow
+            href="#"
+            icon={<MapPin className="size-5" />}
+            label="Location"
+            value={profile.location}
+            color="#A8A8A8"
           />
         </div>
       </div>
@@ -141,7 +162,7 @@ function ContactRow({
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.04] py-12 overflow-hidden">
+    <footer className="relative border-t border-white/[0.04] overflow-hidden">
       {/* Large decorative text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <span className="font-display font-bold text-white/[0.015] whitespace-nowrap" style={{ fontSize: "clamp(6rem, 20vw, 18rem)" }}>
@@ -149,24 +170,57 @@ export function Footer() {
         </span>
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:px-6 sm:flex-row">
-        <div className="flex items-center gap-3">
-          <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] shadow-[0_0_10px_rgba(232,232,232,0.3)]" />
-          <span className="text-sm text-[#A8A8A8]">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-12">
+        {/* Top row — branding + quick links */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-10">
+          {/* Brand */}
+          <div className="flex items-center gap-3">
+            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] shadow-[0_0_10px_rgba(232,232,232,0.3)]" />
+            <span className="font-display font-bold text-sm text-[#F8FAFC]">
+              santhosh<span className="text-[#94A3B8] font-medium">.dev</span>
+            </span>
+          </div>
+
+          {/* Quick links */}
+          <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer navigation">
+            {[
+              { label: "About", href: "#about" },
+              { label: "Skills", href: "#skills" },
+              { label: "Projects", href: "#projects" },
+              { label: "GitHub", href: "#github" },
+              { label: "Contact", href: "#contact" },
+            ].map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-xs text-[#A8A8A8] hover:text-[#E8E8E8] transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        {/* Bottom row — copyright + social */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
+          <span className="text-xs text-[#94A3B8]">
             &copy; {new Date().getFullYear()} {profile.name}. Designed &amp; Developed by{" "}
             <span className="text-[#FFFFFF] font-medium">Santhosh T S</span>.
           </span>
-        </div>
-        <div className="flex items-center gap-5">
-          <a href={profile.github} target="_blank" rel="noreferrer" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
-            <GithubIcon className="size-4" />
-          </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
-            <LinkedinIcon className="size-4" />
-          </a>
-          <a href={`mailto:${profile.email}`} className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
-            <Mail className="size-4" />
-          </a>
+          <div className="flex items-center gap-4">
+            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+              <GithubIcon className="size-4" />
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+              <LinkedinIcon className="size-4" />
+            </a>
+            <a href={profile.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+              <LeetcodeIcon className="size-4" />
+            </a>
+            <a href={`mailto:${profile.email}`} aria-label="Email" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
+              <Mail className="size-4" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,21 +1,17 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-
-const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#journey", label: "Journey" },
-  { href: "#github", label: "GitHub" },
-  { href: "#contact", label: "Contact" },
-];
+import { navLinks } from "./data";
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState("#top");
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const lastScrollY = useRef(0);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 25, restDelta: 0.001 });
 
   useEffect(() => {
     let ticking = false;
@@ -27,6 +23,8 @@ export function Navbar() {
       requestAnimationFrame(() => {
         const scrollY = window.scrollY;
         const delta = scrollY - lastScrollY.current;
+
+        setScrolled(scrollY > 30);
 
         if (scrollY < 60) {
           setVisible(true);
@@ -41,7 +39,7 @@ export function Navbar() {
 
         lastScrollY.current = scrollY;
 
-        const sections = ["top", "about", "skills", "projects", "journey", "github", "contact"];
+        const sections = ["top", "about", "skills", "projects", "journey", "certifications", "achievements", "github", "contact"];
         for (const id of [...sections].reverse()) {
           const el = document.getElementById(id);
           if (el && el.getBoundingClientRect().top <= 150) {
@@ -88,17 +86,25 @@ export function Navbar() {
         className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4"
       >
         <nav
-          className={`relative flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2 sm:py-2.5 transition-all duration-500 border border-white/[0.12] ${
-            !atTop
-              ? "shadow-elevated py-1.5 sm:py-2"
-              : ""
-          }`}
+          className={`relative flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 transition-all duration-500 border border-white/[0.12] ${
+            !atTop ? "shadow-elevated py-2" : ""
+          } ${scrolled ? "backdrop-blur-xl" : ""}`}
           style={{
-            background: "rgba(5, 5, 5, 0.85)",
+            background: scrolled ? "rgba(5, 5, 5, 0.88)" : "rgba(5, 5, 5, 0.75)",
             backdropFilter: "blur(24px) saturate(160%)",
             WebkitBackdropFilter: "blur(24px) saturate(160%)",
           }}
         >
+          {/* Scroll progress bar at bottom of nav */}
+          <motion.div
+            className="absolute bottom-0 left-0 h-[1px] origin-left"
+            style={{
+              scaleX,
+              width: "100%",
+              background: "linear-gradient(90deg, rgba(232,232,232,0.4), rgba(192,192,192,0.2))",
+            }}
+          />
+
           {/* Logo */}
           <a
             href="#top"
@@ -117,14 +123,14 @@ export function Navbar() {
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-0.5 md:flex">
-            {links.map((l) => {
+            {navLinks.map((l) => {
               const isActive = activeSection === l.href;
               return (
                 <li key={l.href}>
                   <a
                     href={l.href}
                     onClick={(e) => handleClick(e, l.href)}
-                    className={`relative rounded-xl px-3 py-1.5 text-sm transition-all duration-300 ${
+                    className={`relative rounded-xl px-3 py-1.5 text-sm transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8] ${
                       isActive
                         ? "text-[#E8E8E8]"
                         : "text-[#A8A8A8] hover:text-[#FFFFFF] hover:bg-white/[0.04]"
@@ -149,7 +155,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={(e) => handleClick(e, "#contact")}
-              className="group relative rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-2 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_25px_rgba(232,232,232,0.15)] hover:scale-[1.03] overflow-hidden"
+              className="group relative rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-2 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_25px_rgba(232,232,232,0.15)] hover:scale-[1.03] overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
             >
               <span className="relative z-10">Let&apos;s talk</span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#C0C0C0] to-[#E8E8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -161,17 +167,9 @@ export function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
-            className="md:hidden flex items-center justify-center size-10 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04] transition-colors"
+            className="md:hidden flex items-center justify-center size-10 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               {open ? (
                 <>
                   <line x1="18" y1="6" x2="6" y2="18" />
@@ -188,7 +186,7 @@ export function Navbar() {
         </nav>
       </motion.header>
 
-      {/* Mobile menu — rendered outside header to avoid clipping */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <>
@@ -207,10 +205,7 @@ export function Navbar() {
               exit={{ opacity: 0, y: -8, scale: 0.97 }}
               transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
               className="fixed left-3 right-3 top-[60px] z-[51] md:hidden"
-              style={{
-                maxWidth: "32rem",
-                margin: "0 auto",
-              }}
+              style={{ maxWidth: "32rem", margin: "0 auto" }}
             >
               <div
                 className="rounded-2xl p-3 shadow-elevated"
@@ -222,12 +217,12 @@ export function Navbar() {
                 }}
               >
                 <ul className="flex flex-col gap-0.5">
-                  {links.map((l) => (
+                  {navLinks.map((l) => (
                     <li key={l.href}>
                       <a
                         href={l.href}
                         onClick={(e) => handleClick(e, l.href)}
-                        className="flex items-center rounded-xl px-4 py-3.5 text-sm font-medium text-[#94A3B8] hover:bg-white/[0.06] hover:text-[#F8FAFC] active:scale-[0.98] transition-all"
+                        className="flex items-center rounded-xl px-4 py-3.5 text-sm font-medium text-[#94A3B8] hover:bg-white/[0.06] hover:text-[#F8FAFC] active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
                       >
                         {l.label}
                       </a>
@@ -238,7 +233,7 @@ export function Navbar() {
                   <a
                     href="#contact"
                     onClick={(e) => handleClick(e, "#contact")}
-                    className="flex items-center justify-center rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-3.5 text-sm font-semibold text-[#020202] active:scale-[0.98] transition-transform"
+                    className="flex items-center justify-center rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-3.5 text-sm font-semibold text-[#020202] active:scale-[0.98] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
                   >
                     Let&apos;s talk
                   </a>

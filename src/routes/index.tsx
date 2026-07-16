@@ -39,6 +39,7 @@ function Index() {
     <SmoothScroll>
       <LoadingScreen />
       <CustomCursor />
+      <a href="#about" className="skip-link">Skip to content</a>
       <SolarSystem scrollProgress={scrollProgress} />
       <div className="relative min-h-screen overflow-x-hidden">
         <ScrollProgress />

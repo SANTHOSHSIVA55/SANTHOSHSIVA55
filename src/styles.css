@@ -180,6 +180,13 @@
 
   a { cursor: none; }
   button { cursor: none; }
+
+  /* Focus indicators for accessibility */
+  *:focus-visible {
+    outline: 2px solid #E8E8E8;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
 
 @theme inline {
@@ -202,7 +209,7 @@
   border: 1px solid var(--glass-border);
 }
 
-/* Cosmic panels — transparent glass that shows 3D scene behind */
+/* Cosmic panels */
 @utility cosmic-panel {
   background: rgba(10, 10, 10, 0.45);
   backdrop-filter: blur(24px) saturate(160%);
@@ -340,25 +347,23 @@
   animation: shine-sweep 0.8s ease forwards;
 }
 
-/* Idle chrome reflection - subtle ambient shine */
-
 /* Section spacing */
 .section-padding {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 9rem;
+    padding-bottom: 9rem;
   }
 }
 
@@ -522,7 +527,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   Hero — Awwwards-quality premium styles
+   Hero — Premium styles
    ═══════════════════════════════════════════ */
 
 /* Orbit radius responsive */
@@ -530,7 +535,7 @@
 @media (min-width: 640px)  { .hero-glass-card { --hero-orbit: 135px; } }
 @media (min-width: 1024px) { .hero-glass-card { --hero-orbit: 160px; } }
 
-/* ── Animated gradient border ── */
+/* Animated gradient border */
 @property --border-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -575,7 +580,7 @@
   filter: brightness(1.3);
 }
 
-/* ── Typewriter cursor ── */
+/* Typewriter cursor */
 .hero-cursor {
   animation: hero-blink 1s step-end infinite;
 }
@@ -585,7 +590,7 @@
   50% { opacity: 0; }
 }
 
-/* ── Primary button ── */
+/* Primary button */
 .hero-btn-primary {
   background: linear-gradient(135deg, #E8E8E8, #C0C0C0);
   box-shadow:
@@ -616,7 +621,7 @@
   opacity: 1;
 }
 
-/* ── Ghost button ── */
+/* Ghost button */
 .hero-btn-ghost {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -633,7 +638,7 @@
   transform: translateY(-1px);
 }
 
-/* ── Stat card ── */
+/* Stat card */
 .hero-stat-card {
   background: rgba(10, 10, 10, 0.5);
   backdrop-filter: blur(16px);
@@ -646,9 +651,10 @@
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+  box-shadow: 0 0 30px -8px rgba(232, 232, 232, 0.08);
 }
 
-/* ── Floating tech icons ── */
+/* Floating tech icons */
 .hero-tech-icon {
   animation: hero-float 4.5s ease-in-out infinite;
 }
@@ -658,7 +664,7 @@
   50% { transform: translateY(-5px); }
 }
 
-/* ── Orbiting particles ── */
+/* Orbiting particles */
 .hero-orbit-dot {
   position: absolute;
   top: 50%;
@@ -684,7 +690,38 @@
   }
 }
 
-/* ── Reduced motion ── */
+/* ═══════════════════════════════════════════
+   Accessibility
+   ═══════════════════════════════════════════ */
+
+/* Focus visible for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #E8E8E8;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 999;
+  background: #020202;
+  color: #E8E8E8;
+  padding: 12px 24px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .hero-cursor { animation: none; opacity: 1; }
   .hero-animated-border { animation: none; }
@@ -694,7 +731,6 @@
   .hero-btn-ghost { transition: none; }
 }
 
-/* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

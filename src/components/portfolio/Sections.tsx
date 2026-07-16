@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState, useRef, memo } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   Code2, Layers, Sparkles,
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
-  Award, Trophy, Target, Zap, TrendingUp,
-  Database, Wrench, GraduationCap, Heart, Lightbulb,
+  Award, Trophy, Target, Zap, TrendingUp, CheckCircle2,
+  Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
@@ -49,118 +49,107 @@ const SectionHeader = memo(function SectionHeader({ kicker, title, lead }: { kic
 });
 
 /* ──────────── Animated Counter ──────────── */
-function AnimatedCounter({ value, label }: { value: string; label: string }) {
+function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const numericPart = value.replace(/[^0-9]/g, "");
-  const suffix = value.replace(/[0-9]/g, "");
-  const [display, setDisplay] = useState("0");
+  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (!isInView || !numericPart) {
-      if (!numericPart) setDisplay(value);
-      return;
-    }
-    const target = parseInt(numericPart, 10);
-    const duration = 1500;
+    if (!isInView) return;
+    const duration = 1800;
     const start = performance.now();
     const step = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(target * eased) + suffix);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      setDisplay(Math.round(value * eased));
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }, [isInView, numericPart, suffix, value]);
+  }, [isInView, value]);
 
   return (
-    <div ref={ref} className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient">
-      {display}
+    <div ref={ref} className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient tabular-nums">
+      {display}{suffix}
     </div>
   );
 }
 
 /* ──────────── About ──────────── */
 export function About() {
-  const pills = [
-    "DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design",
-  ];
-
   return (
     <section id="about" className="relative section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader kicker="About" title="Aspiring Software Engineer & Builder" />
 
-        {/* Editorial large quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 max-w-4xl mx-auto"
-        >
-          <blockquote className="relative">
-            <div className="absolute -top-6 -left-4 text-[80px] sm:text-[120px] font-display font-bold text-white/[0.03] leading-none select-none pointer-events-none">
-              &ldquo;
-            </div>
-            <p className="font-display text-xl sm:text-2xl lg:text-3xl font-medium leading-[1.5] text-[#D9D9D9] relative z-10">
-              I&apos;m passionate about building{' '}
-              <span className="text-[#F8FAFC]">scalable web applications</span>{' '}
-              and transforming data into{' '}
-              <span className="text-gradient">meaningful insights</span>{' '}
-              — from first lines of code to production-grade engineering.
-            </p>
-          </blockquote>
-        </motion.div>
-
-        {/* Info cards */}
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { icon: <Target className="size-5" />, title: "Current Focus", desc: "Building production-grade full-stack applications and mastering data analytics." },
-            { icon: <Lightbulb className="size-5" />, title: "Specialization", desc: "React, Node.js, Python, SQL, and data visualization tools." },
-            { icon: <GraduationCap className="size-5" />, title: "Education", desc: "CSE Undergrad in Chennai. 300+ DSA problems solved." },
-            { icon: <Zap className="size-5" />, title: "Seeking", desc: "Internship and placement opportunities in Software Engineering." },
-          ].map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]"
-            >
-              <div className="relative z-10">
-                <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8] mb-4">
-                  {card.icon}
-                </div>
-                <h3 className="font-display text-base font-semibold text-[#FFFFFF]">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{card.desc}</p>
+        <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+          {/* Left — Editorial summary */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <blockquote className="relative">
+              <div className="absolute -top-6 -left-4 text-[80px] sm:text-[120px] font-display font-bold text-white/[0.03] leading-none select-none pointer-events-none">
+                &ldquo;
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <p className="font-display text-xl sm:text-2xl lg:text-[28px] font-medium leading-[1.55] text-[#D9D9D9] relative z-10">
+                I&apos;m passionate about building{' '}
+                <span className="text-[#F8FAFC]">scalable web applications</span>{' '}
+                and transforming data into{' '}
+                <span className="text-gradient">meaningful insights</span>{' '}
+                — from first lines of code to production-grade engineering.
+              </p>
+            </blockquote>
 
-        {/* CS Fundamentals */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-10"
-        >
-          <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8] mb-4">CS Fundamentals</div>
-          <div className="flex flex-wrap gap-2">
-            {pills.map((p) => (
-              <span
-                key={p}
-                className="rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-xs text-[#A8A8A8] transition-all duration-300 hover:border-[#E8E8E8]/20 hover:text-[#E8E8E8] hover:bg-white/[0.05]"
+            <p className="mt-6 text-sm sm:text-[15px] leading-[1.8] text-[#94A3B8] max-w-lg">
+              A Computer Science undergrad in Chennai with hands-on experience in full-stack development,
+              data analytics, and modern software engineering. I build products that solve real problems
+              and deliver measurable impact.
+            </p>
+
+            {/* Quick facts */}
+            <div className="mt-6 flex flex-wrap gap-3">
+              {[
+                { label: "3rd Year CSE", icon: <GraduationCap className="size-3.5" /> },
+                { label: "300+ DSA", icon: <Code2 className="size-3.5" /> },
+                { label: "Open to Internships", icon: <Zap className="size-3.5" /> },
+              ].map((f) => (
+                <span key={f.label} className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-[#A8A8A8]">
+                  {f.icon} {f.label}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right — Animated cards */}
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: <Target className="size-5" />, title: "Current Focus", desc: "Building production-grade full-stack applications and mastering data analytics." },
+              { icon: <Lightbulb className="size-5" />, title: "Specialization", desc: "React, Node.js, Python, SQL, and data visualization tools." },
+              { icon: <GraduationCap className="size-5" />, title: "Education", desc: "CSE Undergrad in Chennai. 300+ DSA problems solved." },
+              { icon: <Zap className="size-5" />, title: "Seeking", desc: "Internship and placement opportunities in Software Engineering." },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] hover-glow"
               >
-                {p}
-              </span>
+                <div className="relative z-10">
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8] mb-3">
+                    {card.icon}
+                  </div>
+                  <h3 className="font-display text-sm font-semibold text-[#FFFFFF]">{card.title}</h3>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-[#A8A8A8]">{card.desc}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -173,7 +162,6 @@ const skillLayouts: Record<string, { icon: typeof Code2; color: string; descript
   "Backend": { icon: Code2, color: "#C0C0C0", description: "Scalable APIs and server architecture" },
   "Database": { icon: Database, color: "#A8A8A8", description: "Data modeling and query optimization" },
   "Tools": { icon: Wrench, color: "#F2F2F2", description: "Development workflow and collaboration" },
-  "Computer Science": { icon: Brain, color: "#E8E8E8", description: "Fundamental theory and problem solving" },
 };
 
 export function Skills() {
@@ -186,7 +174,6 @@ export function Skills() {
           lead="Technologies and tools I use to build production-grade applications."
         />
 
-        {/* Infinite marquee */}
         <div className="mt-10">
           <InfiniteMarquee />
         </div>
@@ -202,7 +189,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] chrome-border"
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] chrome-border hover-glow"
               >
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
@@ -227,6 +214,18 @@ export function Skills() {
                       </span>
                     ))}
                   </div>
+                  {g.projects && (
+                    <div className="mt-3 pt-3 border-t border-white/[0.04]">
+                      <div className="text-[10px] uppercase tracking-[0.15em] text-[#94A3B8] mb-1.5">Used in</div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {g.projects.map((p) => (
+                          <span key={p} className="inline-flex items-center gap-1 rounded-full bg-white/[0.04] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+                            <CheckCircle2 className="size-2.5 text-[#22C55E]" /> {p}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             );
@@ -239,29 +238,15 @@ export function Skills() {
 
 /* ──────────── Shared GitHub Fetch Cache ──────────── */
 type Repo = {
-  id: number;
-  name: string;
-  html_url: string;
-  homepage: string | null;
-  description: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-  topics?: string[];
-  pushed_at: string;
-  updated_at: string;
-  fork: boolean;
-  archived: boolean;
+  id: number; name: string; html_url: string; homepage: string | null;
+  description: string | null; stargazers_count: number; forks_count: number;
+  language: string | null; topics?: string[]; pushed_at: string; updated_at: string;
+  fork: boolean; archived: boolean;
 };
 
 type User = {
-  public_repos: number;
-  followers: number;
-  following: number;
-  avatar_url: string;
-  name: string | null;
-  bio: string | null;
-  public_gists?: number;
+  public_repos: number; followers: number; following: number;
+  avatar_url: string; name: string | null; bio: string | null; public_gists?: number;
 };
 
 let _cachedRepos: Repo[] | null = null;
@@ -287,14 +272,10 @@ function fetchGitHubData() {
 
 /* ──────────── Projects ──────────── */
 export function Projects() {
-
   const accents = [
     { from: "rgba(232,232,232,0.20)", to: "rgba(192,192,192,0.12)", glow: "#E8E8E8" },
     { from: "rgba(217,217,217,0.20)", to: "rgba(168,168,168,0.12)", glow: "#D9D9D9" },
     { from: "rgba(242,242,242,0.20)", to: "rgba(232,232,232,0.12)", glow: "#F2F2F2" },
-    { from: "rgba(192,192,192,0.20)", to: "rgba(168,168,168,0.12)", glow: "#C0C0C0" },
-    { from: "rgba(232,232,232,0.15)", to: "rgba(217,217,217,0.10)", glow: "#E8E8E8" },
-    { from: "rgba(200,200,200,0.15)", to: "rgba(180,180,180,0.10)", glow: "#C8C8C8" },
   ];
 
   const [repos, setRepos] = useState<Repo[] | null>(null);
@@ -417,9 +398,7 @@ export function Journey() {
                   <span
                     aria-hidden
                     className="absolute left-[19px] sm:left-[23px] md:left-1/2 top-5 z-10 flex size-10 -translate-x-1/2 items-center justify-center rounded-full ring-4 ring-[#020202]"
-                    style={{
-                      background: `linear-gradient(135deg, ${color}, ${color}80)`,
-                    }}
+                    style={{ background: `linear-gradient(135deg, ${color}, ${color}80)` }}
                   >
                     <Icon className="size-4 text-white" />
                   </span>
@@ -429,13 +408,10 @@ export function Journey() {
                     <div className={`flex ${isLeft ? "justify-end" : "justify-start"}`}>
                       {isLeft ? (
                         <div className="max-w-md text-right">
-                          <span
-                            className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-wider"
-                            style={{ color }}
-                          >
+                          <span className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-wider" style={{ color }}>
                             {t.year}
                           </span>
-                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]">
+                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] hover-glow">
                             <h3 className="font-display text-xl font-semibold text-[#FFFFFF]">{t.title}</h3>
                             <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                           </div>
@@ -445,13 +421,10 @@ export function Journey() {
                     <div className="flex">
                       {!isLeft ? (
                         <div className="max-w-md">
-                          <span
-                            className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-wider"
-                            style={{ color }}
-                          >
+                          <span className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-wider" style={{ color }}>
                             {t.year}
                           </span>
-                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]">
+                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] hover-glow">
                             <h3 className="font-display text-xl font-semibold text-[#FFFFFF]">{t.title}</h3>
                             <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                           </div>
@@ -462,13 +435,10 @@ export function Journey() {
 
                   {/* Mobile layout */}
                   <div className="md:hidden pl-14">
-                    <span
-                      className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold tracking-wider"
-                      style={{ color }}
-                    >
+                    <span className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold tracking-wider" style={{ color }}>
                       {t.year}
                     </span>
-                    <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05]">
+                    <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05] hover-glow">
                       <h3 className="font-display text-lg font-semibold text-[#FFFFFF]">{t.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                     </div>
@@ -504,14 +474,26 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05]"
+              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05] hover-glow shine-sweep"
             >
               <div className="relative z-10">
-                <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8] mb-3">
-                  <Award className="size-5" />
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8]">
+                    <Award className="size-5" />
+                  </div>
+                  <ExternalLink className="size-3.5 text-[#94A3B8] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <h3 className="font-display text-sm font-semibold text-[#FFFFFF] leading-snug">{c.title}</h3>
                 <p className="mt-1.5 text-xs text-[#A8A8A8]">{c.issuer}</p>
+                {c.skills && (
+                  <div className="mt-3 flex flex-wrap gap-1">
+                    {c.skills.map((s) => (
+                      <span key={s} className="rounded-full bg-white/[0.04] border border-white/[0.06] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.a>
           ))}
@@ -549,7 +531,7 @@ export function Achievements() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="cosmic-panel group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:bg-white/[0.05]"
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:bg-white/[0.05] hover-glow"
               >
                 <div className="relative z-10">
                   <div className="flex justify-center mb-4">
@@ -557,7 +539,7 @@ export function Achievements() {
                       <Icon className="size-6" />
                     </div>
                   </div>
-                  <AnimatedCounter value={a.value} label={a.label} />
+                  <AnimatedCounter value={a.value} suffix={a.suffix} />
                   <div className="mt-2 text-sm text-[#A8A8A8]">{a.label}</div>
                 </div>
               </motion.div>
@@ -711,10 +693,7 @@ export function GithubStats() {
                     <div key={l.name}>
                       <div className="flex items-center justify-between text-sm mb-1.5">
                         <span className="flex items-center gap-2 text-[#FFFFFF]">
-                          <span
-                            className="size-2.5 rounded-sm"
-                            style={{ backgroundColor: LANG_COLORS[l.name] ?? "#888" }}
-                          />
+                          <span className="size-2.5 rounded-sm" style={{ backgroundColor: LANG_COLORS[l.name] ?? "#888" }} />
                           {l.name}
                         </span>
                         <span className="text-[#A8A8A8]">{l.pct}%</span>
@@ -755,11 +734,7 @@ export function GithubStats() {
                   <div className="mt-4 flex flex-wrap gap-2 justify-center text-[10px] text-[#A8A8A8]">
                     <span>Less</span>
                     {[0.15, 0.25, 0.40, 0.55, 0.75].map((o, i) => (
-                      <span
-                        key={i}
-                        className="size-3 rounded-sm"
-                        style={{ backgroundColor: `rgba(232, 232, 232, ${o})` }}
-                      />
+                      <span key={i} className="size-3 rounded-sm" style={{ backgroundColor: `rgba(232, 232, 232, ${o})` }} />
                     ))}
                     <span>More</span>
                   </div>

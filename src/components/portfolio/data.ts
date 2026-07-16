@@ -1,6 +1,6 @@
 export const profile = {
   name: "Santhosh T S",
-  role: "Computer Science Student | Full Stack Developer | Data Analyst",
+  role: "Software Engineer · Full Stack Developer",
   location: "Chennai, India",
   email: "shaisanthoshsiva2006@gmail.com",
   github: "https://github.com/SANTHOSHSIVA55",
@@ -8,10 +8,23 @@ export const profile = {
   leetcode: "https://leetcode.com/u/santhoshts/",
   gfg: "https://www.geeksforgeeks.org/profile/santhoshts",
   image: "https://cdn.corenexis.com/f/STjpKFS53V1.jpg",
-  headline:
-    "Computer Science Student | Full Stack Developer | Data Analyst",
-  sub: "I build scalable full-stack applications, data-driven solutions, and modern software products using React, Node.js, Python, SQL, and analytics tools.",
+  headline: "Software Engineer · Full Stack Developer · Data Analyst",
+  sub: "Building scalable full-stack applications, AI-powered solutions, intuitive user experiences, and data-driven dashboards using React, Node.js, Python, SQL, Power BI, and modern cloud technologies.",
 };
+
+export const heroRoles = [
+  "Software Engineer",
+  "Full Stack Developer",
+  "Data Analyst",
+  "UI/UX Designer",
+];
+
+export const heroStats = [
+  { value: 300, suffix: "+", label: "DSA Problems" },
+  { value: 15, suffix: "+", label: "Projects" },
+  { value: 7, suffix: "", label: "Certifications" },
+  { value: 3, suffix: "+", label: "Years Coding" },
+];
 
 export const stats = [
   { value: "300+", label: "DSA Problems Solved" },
@@ -28,22 +41,27 @@ export const skills = [
       "Data Cleaning", "Data Visualization", "Power BI",
       "Matplotlib", "Dashboard Development", "Data Storytelling",
     ],
+    projects: ["AquaBloom Analytics", "GenAI BI Platform"],
   },
   {
     group: "Frontend",
     items: ["React.js", "Next.js", "Tailwind CSS", "Framer Motion"],
+    projects: ["GenAI BI Platform", "AquaBloom Analytics"],
   },
   {
     group: "Backend",
     items: ["Node.js", "Express.js", "FastAPI", "REST APIs"],
+    projects: ["GenAI BI Platform"],
   },
   {
     group: "Database",
     items: ["PostgreSQL", "MongoDB", "MySQL"],
+    projects: ["GenAI BI Platform", "AquaBloom Analytics"],
   },
   {
     group: "Tools",
     items: ["Git", "GitHub", "Docker", "Figma"],
+    projects: ["All Projects"],
   },
 ];
 
@@ -118,41 +136,58 @@ export const certifications = [
     title: "Data Analysis with Python",
     issuer: "freeCodeCamp",
     link: "#",
+    skills: ["Python", "Pandas", "Data Analysis"],
   },
   {
     title: "Data Analytics Job Simulation",
     issuer: "Deloitte Australia / Forage",
     link: "#",
+    skills: ["Data Analytics", "Problem Solving"],
   },
   {
     title: "GenAI Powered Data Analytics Job Simulation",
     issuer: "TATA / Forage",
     link: "#",
+    skills: ["GenAI", "Data Analytics"],
   },
   {
     title: "Python Full Course Online - Complete Beginner to Advanced",
     issuer: "GeeksforGeeks",
     link: "#",
+    skills: ["Python", "Programming"],
   },
   {
     title: "Mastering AWS Serverless: Hands-On with Core AWS Services",
     issuer: "Udemy",
     link: "#",
+    skills: ["AWS", "Serverless", "Cloud"],
   },
   {
     title: "Data Science Tools",
     issuer: "Cognitive Class / IBM",
     link: "#",
+    skills: ["Data Science", "Tools"],
   },
   {
     title: "Data Analysis: Visualisations in Excel",
     issuer: "OpenLearn",
     link: "#",
+    skills: ["Excel", "Data Visualization"],
   },
 ];
 
 export const achievements = [
-  { value: "300+", label: "DSA Problems Solved", icon: "code" },
-  { value: "5+", label: "Major Projects Built", icon: "rocket" },
-  { value: "3+", label: "Data & Software Projects", icon: "sparkle" },
+  { value: 300, suffix: "+", label: "DSA Problems Solved", icon: "code" },
+  { value: 15, suffix: "+", label: "Major Projects Built", icon: "rocket" },
+  { value: 7, suffix: "", label: "Certifications Earned", icon: "sparkle" },
+];
+
+export const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#journey", label: "Journey" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#github", label: "GitHub" },
+  { href: "#contact", label: "Contact" },
 ];
