@@ -112,7 +112,7 @@ export function About() {
             {/* Quick facts */}
             <div className="mt-6 flex flex-wrap gap-3">
               {[
-                { label: "3rd Year CSE", icon: <GraduationCap className="size-3.5" /> },
+                { label: "4th Year CSE", icon: <GraduationCap className="size-3.5" /> },
                 { label: "300+ DSA", icon: <Code2 className="size-3.5" /> },
                 { label: "Open to Internships", icon: <Zap className="size-3.5" /> },
               ].map((f) => (
