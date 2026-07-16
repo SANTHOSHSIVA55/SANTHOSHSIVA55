@@ -20,16 +20,16 @@ const SectionHeader = memo(function SectionHeader({ kicker, title, lead }: { kic
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-[#A8A8A8]"
+        className="inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-[#A8A8A8]"
       >
-        <Sparkles className="size-3.5 text-[#E8E8E8]" /> {kicker}
+        <Sparkles className="size-3.5 text-[#3B82F6]" /> {kicker}
       </motion.div>
       <motion.h2
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.05 }}
-        className="mt-5 font-display text-4xl sm:text-5xl lg:text-[52px] font-bold tracking-[-0.02em] leading-[1.1]"
+        className="mt-5 font-display text-4xl sm:text-5xl lg:text-[52px] font-bold tracking-[-0.03em] leading-[1.05]"
       >
         {title}
       </motion.h2>
@@ -39,7 +39,7 @@ const SectionHeader = memo(function SectionHeader({ kicker, title, lead }: { kic
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="mt-4 text-base sm:text-lg text-[#A8A8A8] max-w-xl mx-auto"
+          className="mt-4 text-base sm:text-lg text-[#94A3B8] max-w-xl mx-auto leading-relaxed"
         >
           {lead}
         </motion.p>
@@ -69,7 +69,7 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
   }, [isInView, value]);
 
   return (
-    <div ref={ref} className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient tabular-nums">
+    <div ref={ref} className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-accent-gradient tabular-nums">
       {display}{suffix}
     </div>
   );
@@ -91,19 +91,19 @@ export function About() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <blockquote className="relative">
-              <div className="absolute -top-6 -left-4 text-[80px] sm:text-[120px] font-display font-bold text-white/[0.03] leading-none select-none pointer-events-none">
+              <div className="absolute -top-6 -left-4 text-[80px] sm:text-[120px] font-display font-bold text-[#3B82F6]/[0.04] leading-none select-none pointer-events-none">
                 &ldquo;
               </div>
               <p className="font-display text-xl sm:text-2xl lg:text-[28px] font-medium leading-[1.55] text-[#D9D9D9] relative z-10">
                 I&apos;m passionate about building{' '}
                 <span className="text-[#F8FAFC]">scalable web applications</span>{' '}
                 and transforming data into{' '}
-                <span className="text-gradient">meaningful insights</span>{' '}
+                <span className="text-accent-gradient">meaningful insights</span>{' '}
                 — from first lines of code to production-grade engineering.
               </p>
             </blockquote>
 
-            <p className="mt-6 text-sm sm:text-[15px] leading-[1.8] text-[#94A3B8] max-w-lg">
+            <p className="mt-6 text-sm sm:text-[15px] leading-[1.85] text-[#94A3B8] max-w-lg">
               A Computer Science undergrad in Chennai with hands-on experience in full-stack development,
               data analytics, and modern software engineering. I build products that solve real problems
               and deliver measurable impact.
@@ -116,7 +116,7 @@ export function About() {
                 { label: "300+ DSA", icon: <Code2 className="size-3.5" /> },
                 { label: "Open to Internships", icon: <Zap className="size-3.5" /> },
               ].map((f) => (
-                <span key={f.label} className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-[#A8A8A8]">
+                <span key={f.label} className="inline-flex items-center gap-1.5 rounded-full border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] px-3 py-1.5 text-xs text-[#A8A8A8]">
                   {f.icon} {f.label}
                 </span>
               ))}
@@ -137,10 +137,10 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] hover-glow"
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
                 <div className="relative z-10">
-                  <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8] mb-3">
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] text-[#3B82F6] mb-3 transition-colors duration-300 group-hover:text-[#60A5FA]">
                     {card.icon}
                   </div>
                   <h3 className="font-display text-sm font-semibold text-[#FFFFFF]">{card.title}</h3>
@@ -157,12 +157,12 @@ export function About() {
 
 /* ──────────── Skills ──────────── */
 const skillLayouts: Record<string, { icon: typeof Code2; color: string; description: string }> = {
-  "Data Analytics": { icon: TrendingUp, color: "#E8E8E8", description: "Transforming raw data into actionable insights" },
-  "Frontend": { icon: Layers, color: "#D9D9D9", description: "Building beautiful, responsive interfaces" },
-  "Backend": { icon: Code2, color: "#C0C0C0", description: "Scalable APIs and server architecture" },
-  "Database": { icon: Database, color: "#A8A8A8", description: "Data modeling and query optimization" },
-  "Tools": { icon: Wrench, color: "#F2F2F2", description: "Development workflow and collaboration" },
-  "Computer Science": { icon: Brain, color: "#E8E8E8", description: "Fundamental theory and problem solving" },
+  "Data Analytics": { icon: TrendingUp, color: "#3B82F6", description: "Transforming raw data into actionable insights" },
+  "Frontend": { icon: Layers, color: "#60A5FA", description: "Building beautiful, responsive interfaces" },
+  "Backend": { icon: Code2, color: "#818CF8", description: "Scalable APIs and server architecture" },
+  "Database": { icon: Database, color: "#A78BFA", description: "Data modeling and query optimization" },
+  "Tools": { icon: Wrench, color: "#38BDF8", description: "Development workflow and collaboration" },
+  "Computer Science": { icon: Brain, color: "#3B82F6", description: "Fundamental theory and problem solving" },
 };
 
 export function Skills() {
@@ -181,7 +181,7 @@ export function Skills() {
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((g, i) => {
-            const layout = skillLayouts[g.group] ?? { icon: Code2, color: "#E8E8E8", description: "" };
+            const layout = skillLayouts[g.group] ?? { icon: Code2, color: "#3B82F6", description: "" };
             const Icon = layout.icon;
             return (
               <motion.div
@@ -190,12 +190,12 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] chrome-border hover-glow"
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.03] chrome-border hover-glow"
               >
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
                     <div
-                      className="flex size-11 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03]"
+                      className="flex size-11 items-center justify-center rounded-xl border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04]"
                       style={{ color: layout.color }}
                     >
                       <Icon className="size-5" />
@@ -209,18 +209,18 @@ export function Skills() {
                     {g.items.map((it) => (
                       <span
                         key={it}
-                        className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-2.5 py-1 text-xs text-[#A8A8A8] transition-colors duration-200 group-hover:text-[#FFFFFF]"
+                        className="rounded-lg border border-white/[0.05] bg-white/[0.02] px-2.5 py-1 text-xs text-[#A8A8A8] transition-all duration-200 group-hover:text-[#FFFFFF] group-hover:border-white/[0.08] group-hover:bg-white/[0.04]"
                       >
                         {it}
                       </span>
                     ))}
                   </div>
-                  {g.projects && (
+                  {g.projects && g.projects.length > 0 && (
                     <div className="mt-3 pt-3 border-t border-white/[0.04]">
                       <div className="text-[10px] uppercase tracking-[0.15em] text-[#94A3B8] mb-1.5">Used in</div>
                       <div className="flex flex-wrap gap-1.5">
                         {g.projects.map((p) => (
-                          <span key={p} className="inline-flex items-center gap-1 rounded-full bg-white/[0.04] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+                          <span key={p} className="inline-flex items-center gap-1 rounded-full bg-[#22C55E]/[0.06] border border-[#22C55E]/10 px-2 py-0.5 text-[10px] text-[#A8A8A8]">
                             <CheckCircle2 className="size-2.5 text-[#22C55E]" /> {p}
                           </span>
                         ))}
@@ -274,9 +274,9 @@ function fetchGitHubData() {
 /* ──────────── Projects ──────────── */
 export function Projects() {
   const accents = [
-    { from: "rgba(232,232,232,0.20)", to: "rgba(192,192,192,0.12)", glow: "#E8E8E8" },
-    { from: "rgba(217,217,217,0.20)", to: "rgba(168,168,168,0.12)", glow: "#D9D9D9" },
-    { from: "rgba(242,242,242,0.20)", to: "rgba(232,232,232,0.12)", glow: "#F2F2F2" },
+    { from: "rgba(59,130,246,0.20)", to: "rgba(99,102,241,0.12)", glow: "#3B82F6" },
+    { from: "rgba(99,102,241,0.20)", to: "rgba(139,92,246,0.12)", glow: "#6366F1" },
+    { from: "rgba(59,130,246,0.20)", to: "rgba(56,189,248,0.12)", glow: "#38BDF8" },
   ];
 
   const [repos, setRepos] = useState<Repo[] | null>(null);
@@ -368,7 +368,7 @@ const timelineIcons: Record<string, typeof Code2> = {
   rocket: Rocket,
 };
 
-const timelineColors = ["#E8E8E8", "#D9D9D9", "#C0C0C0", "#A8A8A8"];
+const timelineColors = ["#3B82F6", "#6366F1", "#818CF8", "#A78BFA"];
 
 export function Journey() {
   return (
@@ -378,12 +378,12 @@ export function Journey() {
 
         <div className="relative mt-14">
           {/* Growing vertical line */}
-          <div className="absolute left-[19px] sm:left-[23px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent" />
+          <div className="absolute left-[19px] sm:left-[23px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-[#3B82F6]/30 via-[#6366F1]/15 to-transparent" />
 
           <ul className="space-y-10 md:space-y-0">
             {timeline.map((t, i) => {
               const Icon = timelineIcons[t.icon] ?? Code;
-              const color = timelineColors[i] ?? "#E8E8E8";
+              const color = timelineColors[i] ?? "#3B82F6";
               const isLeft = i % 2 === 0;
 
               return (
@@ -412,7 +412,7 @@ export function Journey() {
                           <span className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-wider" style={{ color }}>
                             {t.year}
                           </span>
-                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] hover-glow">
+                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border">
                             <h3 className="font-display text-xl font-semibold text-[#FFFFFF]">{t.title}</h3>
                             <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                           </div>
@@ -425,7 +425,7 @@ export function Journey() {
                           <span className="inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-wider" style={{ color }}>
                             {t.year}
                           </span>
-                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] hover-glow">
+                          <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border">
                             <h3 className="font-display text-xl font-semibold text-[#FFFFFF]">{t.title}</h3>
                             <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                           </div>
@@ -439,7 +439,7 @@ export function Journey() {
                     <span className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold tracking-wider" style={{ color }}>
                       {t.year}
                     </span>
-                    <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05] hover-glow">
+                    <div className="cosmic-panel group relative mt-3 overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border">
                       <h3 className="font-display text-lg font-semibold text-[#FFFFFF]">{t.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{t.body}</p>
                     </div>
@@ -475,11 +475,11 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.05] hover-glow shine-sweep"
+              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.03] hover-glow shine-sweep chrome-border"
             >
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8]">
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] text-[#3B82F6]">
                     <Award className="size-5" />
                   </div>
                   <ExternalLink className="size-3.5 text-[#94A3B8] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -489,7 +489,7 @@ export function Certifications() {
                 {c.skills && (
                   <div className="mt-3 flex flex-wrap gap-1">
                     {c.skills.map((s) => (
-                      <span key={s} className="rounded-full bg-white/[0.04] border border-white/[0.06] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+                      <span key={s} className="rounded-full bg-white/[0.03] border border-white/[0.05] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
                         {s}
                       </span>
                     ))}
@@ -511,7 +511,7 @@ export function Achievements() {
     rocket: Rocket,
     sparkle: Sparkles,
   };
-  const colors = ["#E8E8E8", "#D9D9D9", "#C0C0C0"];
+  const colors = ["#3B82F6", "#6366F1", "#818CF8"];
 
   return (
     <section id="achievements" className="relative section-padding">
@@ -524,7 +524,7 @@ export function Achievements() {
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {achievements.map((a, i) => {
             const Icon = iconMap[a.icon] ?? Trophy;
-            const color = colors[i] ?? "#E8E8E8";
+            const color = colors[i] ?? "#3B82F6";
             return (
               <motion.div
                 key={a.label}
@@ -532,11 +532,11 @@ export function Achievements() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="cosmic-panel group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:bg-white/[0.05] hover-glow"
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
                 <div className="relative z-10">
                   <div className="flex justify-center mb-4">
-                    <div className="flex size-14 items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.03]" style={{ color }}>
+                    <div className="flex size-14 items-center justify-center rounded-2xl border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04]" style={{ color }}>
                       <Icon className="size-6" />
                     </div>
                   </div>
@@ -637,7 +637,7 @@ export function GithubStats() {
                   <img
                     src={user?.avatar_url ?? profile.image}
                     alt="GitHub avatar"
-                    className="size-14 rounded-full border-2 border-white/[0.08]"
+                    className="size-14 rounded-full border-2 border-[#3B82F6]/20"
                   />
                   <div>
                     <div className="font-display text-lg font-semibold text-[#FFFFFF]">@{profile.github.split("/").pop()}</div>
@@ -645,7 +645,7 @@ export function GithubStats() {
                       href={profile.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-[#A8A8A8] hover:text-[#E8E8E8] transition-colors"
+                      className="inline-flex items-center gap-1 text-sm text-[#A8A8A8] hover:text-[#3B82F6] transition-colors"
                     >
                       <GithubIcon className="size-3.5" /> {profile.github.split("/").slice(-2).join("/")}
                     </a>
@@ -699,7 +699,7 @@ export function GithubStats() {
                         </span>
                         <span className="text-[#A8A8A8]">{l.pct}%</span>
                       </div>
-                      <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
+                      <div className="h-1.5 rounded-full bg-white/[0.03] overflow-hidden">
                         <motion.div
                           className="h-full rounded-full"
                           style={{ backgroundColor: LANG_COLORS[l.name] ?? "#888" }}
@@ -735,7 +735,7 @@ export function GithubStats() {
                   <div className="mt-4 flex flex-wrap gap-2 justify-center text-[10px] text-[#A8A8A8]">
                     <span>Less</span>
                     {[0.15, 0.25, 0.40, 0.55, 0.75].map((o, i) => (
-                      <span key={i} className="size-3 rounded-sm" style={{ backgroundColor: `rgba(232, 232, 232, ${o})` }} />
+                      <span key={i} className="size-3 rounded-sm" style={{ backgroundColor: `rgba(59, 130, 246, ${o})` }} />
                     ))}
                     <span>More</span>
                   </div>
@@ -756,7 +756,7 @@ export function GithubStats() {
             >
               <div className="flex items-center justify-between">
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Recent Repositories</div>
-                <a href={profile.github} target="_blank" rel="noreferrer" className="text-xs text-[#E8E8E8] hover:underline">
+                <a href={profile.github} target="_blank" rel="noreferrer" className="text-xs text-[#3B82F6] hover:underline">
                   View all on GitHub →
                 </a>
               </div>
@@ -775,7 +775,7 @@ export function GithubStats() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-30px" }}
                     transition={{ duration: 0.3, delay: i * 0.04 }}
-                    className="cosmic-panel group block rounded-xl p-4 transition-all duration-300 hover:bg-white/[0.06] border border-white/[0.04] hover:border-white/[0.08]"
+                    className="cosmic-panel group block rounded-xl p-4 transition-all duration-300 hover:bg-white/[0.04] border border-white/[0.03] hover:border-[#3B82F6]/10"
                   >
                     <div className="flex items-center gap-2 font-medium text-sm text-[#FFFFFF] truncate">
                       <BookOpen className="size-3.5 shrink-0 text-[#A8A8A8]" />
@@ -807,7 +807,7 @@ export function GithubStats() {
 
 const MiniStat = memo(function MiniStat({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-3">
+    <div className="rounded-xl border border-white/[0.05] bg-white/[0.02] p-3">
       <div className="font-display text-xl font-bold text-[#FFFFFF]">{value}</div>
       <div className="text-[10px] uppercase tracking-wider text-[#B5B5B5] mt-0.5">{label}</div>
     </div>

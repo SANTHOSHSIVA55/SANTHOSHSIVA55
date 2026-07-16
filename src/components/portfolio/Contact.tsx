@@ -25,7 +25,7 @@ export function Contact() {
         >
           {/* Background glow */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(232,232,232,0.04)_0%,transparent_70%)]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.04)_0%,transparent_70%)]" />
           </div>
 
           <div className="relative z-10">
@@ -45,7 +45,11 @@ export function Contact() {
             <div className="mt-8 flex flex-wrap items-center gap-4 justify-center">
               <a
                 href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`}
-                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-10 py-5 text-base font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_50px_rgba(232,232,232,0.2)] hover:scale-[1.03] overflow-hidden group"
+                className="inline-flex items-center gap-3 rounded-2xl px-10 py-5 text-base font-semibold text-[#FFFFFF] transition-all duration-300 hover:scale-[1.03] overflow-hidden group"
+                style={{
+                  background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                  boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3), 0 4px 20px rgba(59, 130, 246, 0.2)",
+                }}
               >
                 <Mail className="size-5" />
                 <span>Get In Touch</span>
@@ -55,7 +59,7 @@ export function Contact() {
                 href={profile.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-2xl border border-white/[0.1] bg-white/[0.04] px-8 py-5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.08] hover:border-white/[0.15]"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.03] px-8 py-5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.1]"
               >
                 <GithubIcon className="size-4" /> GitHub
               </a>
@@ -70,14 +74,14 @@ export function Contact() {
             icon={<Mail className="size-5" />}
             label="Email"
             value={profile.email}
-            color="#E8E8E8"
+            color="#3B82F6"
           />
           <ContactRow
             href={profile.linkedin}
             icon={<LinkedinIcon className="size-5" />}
             label="LinkedIn"
             value="santhosh-t-s"
-            color="#D9D9D9"
+            color="#60A5FA"
           />
           <ContactRow
             href={profile.github}
@@ -118,7 +122,7 @@ function ContactRow({
   label,
   value,
   href,
-  color = "#E8E8E8",
+  color = "#3B82F6",
 }: {
   icon: React.ReactNode;
   label: string;
@@ -135,13 +139,13 @@ function ContactRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.4 }}
-      className="cosmic-panel group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.06] hover-glow border border-white/[0.04] hover:border-white/[0.10] chrome-border"
+      className="cosmic-panel group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.03] hover-glow border border-white/[0.03] hover:border-white/[0.06] chrome-border"
     >
       <div className="flex items-center gap-4 min-w-0">
         <span
-          className="flex size-11 shrink-0 items-center justify-center rounded-xl"
+          className="flex size-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300"
           style={{
-            background: `linear-gradient(135deg, ${color}20, ${color}08)`,
+            background: `linear-gradient(135deg, ${color}12, ${color}06)`,
             border: `1px solid ${color}15`,
             color: color,
           }}
@@ -154,7 +158,7 @@ function ContactRow({
         </div>
       </div>
       {href && (
-        <ArrowUpRight className="size-4 text-[#A8A8A8] transition-all duration-300 group-hover:text-[#E8E8E8] group-hover:translate-x-0.5 shrink-0" />
+        <ArrowUpRight className="size-4 text-[#A8A8A8] transition-all duration-300 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 shrink-0" />
       )}
     </motion.a>
   );
@@ -162,10 +166,10 @@ function ContactRow({
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.04] overflow-hidden">
+    <footer className="relative border-t border-white/[0.03] overflow-hidden">
       {/* Large decorative text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span className="font-display font-bold text-white/[0.015] whitespace-nowrap" style={{ fontSize: "clamp(6rem, 20vw, 18rem)" }}>
+        <span className="font-display font-bold text-white/[0.01] whitespace-nowrap" style={{ fontSize: "clamp(6rem, 20vw, 18rem)" }}>
           santhosh
         </span>
       </div>
@@ -175,7 +179,7 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-10">
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] shadow-[0_0_10px_rgba(232,232,232,0.3)]" />
+            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#6366F1] shadow-[0_0_10px_rgba(59,130,246,0.3)]" />
             <span className="font-display font-bold text-sm text-[#F8FAFC]">
               santhosh<span className="text-[#94A3B8] font-medium">.dev</span>
             </span>
@@ -193,7 +197,7 @@ export function Footer() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-xs text-[#A8A8A8] hover:text-[#E8E8E8] transition-colors"
+                className="text-xs text-[#A8A8A8] hover:text-[#3B82F6] transition-colors duration-300"
               >
                 {l.label}
               </a>
@@ -202,22 +206,22 @@ export function Footer() {
         </div>
 
         {/* Bottom row — copyright + social */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.03]">
           <span className="text-xs text-[#94A3B8]">
             &copy; {new Date().getFullYear()} {profile.name}. Developed by{" "}
             <span className="text-[#FFFFFF] font-medium">Santhosh T S</span>.
           </span>
           <div className="flex items-center gap-2">
-            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
+            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#3B82F6] transition-all duration-300 hover:scale-110 hover:bg-[#3B82F6]/[0.05]">
               <GithubIcon className="size-4" />
             </a>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#3B82F6] transition-all duration-300 hover:scale-110 hover:bg-[#3B82F6]/[0.05]">
               <LinkedinIcon className="size-4" />
             </a>
-            <a href={profile.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
+            <a href={profile.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#F59E0B] transition-all duration-300 hover:scale-110 hover:bg-[#F59E0B]/[0.05]">
               <LeetcodeIcon className="size-4" />
             </a>
-            <a href={`mailto:${profile.email}`} aria-label="Email" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110 hover:bg-white/[0.04]">
+            <a href={`mailto:${profile.email}`} aria-label="Email" className="flex size-11 items-center justify-center rounded-xl text-[#A8A8A8] hover:text-[#3B82F6] transition-all duration-300 hover:scale-110 hover:bg-[#3B82F6]/[0.05]">
               <Mail className="size-4" />
             </a>
           </div>
@@ -244,9 +248,14 @@ export function BackToTop() {
         opacity: show ? 1 : 0,
       }}
       transition={{ duration: 0.3 }}
-      className={`fixed bottom-6 right-6 z-40 glass-strong flex size-12 items-center justify-center rounded-xl border border-white/[0.06] transition-all duration-300 hover:bg-white/[0.08] hover-glow ${
+      className={`fixed bottom-6 right-6 z-40 flex size-12 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.06] hover-glow ${
         show ? "pointer-events-auto" : "pointer-events-none"
       }`}
+      style={{
+        background: "rgba(8, 8, 14, 0.6)",
+        backdropFilter: "blur(20px)",
+        border: "1px solid rgba(255, 255, 255, 0.05)",
+      }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
         <path d="M12 19V5M5 12l7-7 7 7" />

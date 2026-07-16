@@ -74,12 +74,13 @@ export function CustomCursor() {
       >
         <motion.div
           animate={{
-            width: isPressed ? 4 : 5,
-            height: isPressed ? 4 : 5,
+            width: isPressed ? 4 : isHovering ? 6 : 5,
+            height: isPressed ? 4 : isHovering ? 6 : 5,
             opacity: 1,
+            backgroundColor: isHovering ? "#3B82F6" : "#F8FAFC",
           }}
           transition={{ duration: 0.15 }}
-          className="rounded-full bg-[#F8FAFC]"
+          className="rounded-full"
         />
       </motion.div>
 
@@ -99,14 +100,14 @@ export function CustomCursor() {
             height: isHovering ? 56 : isPressed ? 36 : 40,
             borderWidth: isHovering ? 2 : 1,
             borderColor: isHovering
-              ? "rgba(232, 232, 232, 0.4)"
-              : "rgba(255, 255, 255, 0.15)",
+              ? "rgba(59, 130, 246, 0.5)"
+              : "rgba(255, 255, 255, 0.12)",
             backgroundColor: isHovering
-              ? "rgba(232, 232, 232, 0.04)"
+              ? "rgba(59, 130, 246, 0.05)"
               : "transparent",
           }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="rounded-full border border-[rgba(248,250,252,0.2)]"
+          className="rounded-full border border-[rgba(248,250,252,0.15)]"
         />
       </motion.div>
     </>

@@ -43,7 +43,7 @@ function AnimatedStat({ value, suffix, label, delay }: { value: number; suffix: 
       transition={{ duration: 0.5, delay: delay / 1000, ease: [0.16, 1, 0.3, 1] }}
       className="hero-stat-card group relative rounded-2xl px-4 py-3.5 text-center cursor-default"
     >
-      <div className="font-display text-2xl sm:text-3xl font-bold text-gradient tabular-nums">
+      <div className="font-display text-2xl sm:text-3xl font-bold text-accent-gradient tabular-nums">
         {display}{suffix}
       </div>
       <div className="text-[11px] sm:text-xs text-[#94A3B8] mt-1 leading-tight font-medium">{label}</div>
@@ -99,18 +99,18 @@ const techItems = [
 /* ─── Animations ─── */
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.07, delayChildren: 0.25 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } },
 };
 
 const wordReveal = {
-  hidden: { opacity: 0, y: "100%", filter: "blur(8px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { opacity: 0, y: "100%", filter: "blur(10px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
 };
 
 const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 18, filter: "blur(5px)" },
+  initial: { opacity: 0, y: 20, filter: "blur(6px)" },
   animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-  transition: { duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] },
 });
 
 /* ─── Hero ─── */
@@ -120,8 +120,8 @@ export function Hero() {
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rX = useSpring(useTransform(my, [-0.5, 0.5], [5, -5]), { stiffness: 150, damping: 20 });
-  const rY = useSpring(useTransform(mx, [-0.5, 0.5], [-5, 5]), { stiffness: 150, damping: 20 });
+  const rX = useSpring(useTransform(my, [-0.5, 0.5], [6, -6]), { stiffness: 150, damping: 20 });
+  const rY = useSpring(useTransform(mx, [-0.5, 0.5], [-6, 6]), { stiffness: 150, damping: 20 });
 
   const onMove = useCallback((e: React.MouseEvent) => {
     if (!cardRef.current) return;
@@ -146,9 +146,9 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       {/* Background glow blobs */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="absolute top-[12%] right-[10%] w-[500px] h-[500px] rounded-full bg-[#22D3EE]/[0.025] blur-[120px]" />
-        <div className="absolute bottom-[8%] left-[8%] w-[400px] h-[400px] rounded-full bg-[#3B82F6]/[0.02] blur-[100px]" />
-        <div className="absolute top-[45%] left-[35%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-[#8B5CF6]/[0.015] blur-[90px]" />
+        <div className="absolute top-[12%] right-[10%] w-[500px] h-[500px] rounded-full bg-[#3B82F6]/[0.03] blur-[120px]" />
+        <div className="absolute bottom-[8%] left-[8%] w-[400px] h-[400px] rounded-full bg-[#6366F1]/[0.025] blur-[100px]" />
+        <div className="absolute top-[45%] left-[35%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-[#8B5CF6]/[0.02] blur-[90px]" />
       </div>
 
       {/* ── Mobile layout (stacked, centered) ── */}
@@ -173,7 +173,7 @@ export function Hero() {
 
       {/* ── Desktop layout (side by side) ── */}
       <div className="hidden lg:flex min-h-screen items-center">
-        <div className="mx-auto w-full max-w-[1200px] px-8 relative z-10 flex items-center justify-between gap-16">
+        <div className="mx-auto w-full max-w-[1200px] px-8 relative z-10 flex items-center justify-between gap-20">
 
           {/* Text content — left on desktop */}
           <div className="flex-1 min-w-0 max-w-[620px] text-left">
@@ -198,7 +198,7 @@ export function Hero() {
 
 function Badge() {
   return (
-    <motion.div {...fadeUp(0.15)} className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-4 py-1.5">
+    <motion.div {...fadeUp(0.15)} className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.04] px-4 py-1.5">
       <span className="relative flex h-1.5 w-1.5">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
         <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
@@ -211,10 +211,10 @@ function Badge() {
 function Name() {
   const nameParts = profile.name.split(" ");
   return (
-    <div className="overflow-hidden mb-4">
+    <div className="overflow-hidden mb-5">
       <motion.h1
-        className="font-display font-bold leading-[0.92] tracking-[-0.04em] whitespace-nowrap"
-        style={{ fontSize: "clamp(2rem, 5vw, 4.25rem)" }}
+        className="font-display font-bold leading-[0.9] tracking-[-0.045em] whitespace-nowrap"
+        style={{ fontSize: "clamp(2.25rem, 5.5vw, 4.5rem)" }}
         initial="hidden"
         animate="visible"
         variants={stagger}
@@ -235,7 +235,7 @@ function Name() {
 
 function Typewriter({ typed }: { typed: string }) {
   return (
-    <motion.div {...fadeUp(0.4)} className="mb-5 h-10 sm:h-11 flex items-center justify-center overflow-hidden">
+    <motion.div {...fadeUp(0.4)} className="mb-5 h-10 sm:h-11 flex items-center justify-center lg:justify-start overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={typed}
@@ -248,14 +248,14 @@ function Typewriter({ typed }: { typed: string }) {
           {typed}
         </motion.span>
       </AnimatePresence>
-      <span className="hero-cursor inline-block h-6 sm:h-7 w-[2px] bg-[#E8E8E8] ml-1" />
+      <span className="hero-cursor inline-block h-6 sm:h-7 w-[2px] bg-[#3B82F6] ml-1" />
     </motion.div>
   );
 }
 
 function Bio() {
   return (
-    <motion.p {...fadeUp(0.5)} className="mb-7 max-w-[540px] text-[14px] sm:text-[15px] leading-[1.85] text-[#94A3B8] mx-auto">
+    <motion.p {...fadeUp(0.5)} className="mb-8 max-w-[540px] text-[14px] sm:text-[15px] leading-[1.85] text-[#94A3B8] mx-auto lg:mx-0">
       {profile.sub}
     </motion.p>
   );
@@ -263,15 +263,15 @@ function Bio() {
 
 function CTAs() {
   return (
-    <motion.div {...fadeUp(0.6)} className="mb-7 flex flex-wrap items-center gap-3 justify-center">
-      <MagneticBtn href="#projects" className="hero-btn-primary group relative inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-[#020202] overflow-hidden">
+    <motion.div {...fadeUp(0.6)} className="mb-8 flex flex-wrap items-center gap-3 justify-center lg:justify-start">
+      <MagneticBtn href="#projects" className="hero-btn-primary group relative inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-semibold text-[#FFFFFF] overflow-hidden">
         <span className="relative z-10">View Projects</span>
         <ArrowRight className="relative z-10 size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
       </MagneticBtn>
-      <MagneticBtn href="/resume.pdf" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF]">
+      <MagneticBtn href="/resume.pdf" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]">
         <Download className="size-4" /> Resume
       </MagneticBtn>
-      <MagneticBtn href={profile.github} target="_blank" rel="noreferrer" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF]">
+      <MagneticBtn href={profile.github} target="_blank" rel="noreferrer" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]">
         <GithubIcon className="size-4" /> GitHub
       </MagneticBtn>
     </motion.div>
@@ -280,7 +280,7 @@ function CTAs() {
 
 function Stats() {
   return (
-    <div className="mb-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div className="mb-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
       {heroStats.map((s, i) => (
         <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} delay={800 + i * 120} />
       ))}
@@ -290,17 +290,17 @@ function Stats() {
 
 function Social() {
   return (
-    <motion.div {...fadeUp(1.2)} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-[#94A3B8] justify-center">
+    <motion.div {...fadeUp(1.2)} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-[#94A3B8] justify-center lg:justify-start">
       <span className="inline-flex items-center gap-1.5">
         <MapPin className="size-3.5" /> {profile.location}
       </span>
-      <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
+      <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#3B82F6] transition-colors duration-300">
         <LinkedinIcon className="size-3.5" /> LinkedIn
       </a>
-      <a href={profile.leetcode} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
+      <a href={profile.leetcode} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#F59E0B] transition-colors duration-300">
         <LeetcodeIcon className="size-3.5" /> LeetCode
       </a>
-      <a href={profile.gfg} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
+      <a href={profile.gfg} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#22C55E] transition-colors duration-300">
         <GfgIcon className="size-3.5" /> GFG
       </a>
     </motion.div>
@@ -324,9 +324,9 @@ function ProfileImage({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.88, filter: "blur(12px)" }}
+      initial={{ opacity: 0, scale: 0.85, filter: "blur(16px)" }}
       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       className="relative shrink-0"
     >
       {/* Floating tech icons */}
@@ -335,7 +335,7 @@ function ProfileImage({
           key={t.name}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.45, delay: 0.7 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.8 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
           className="hero-tech-icon absolute z-10"
           style={{
             left: `calc(50% + ${t.x} * var(--hero-orbit) - 26px)`,
@@ -343,7 +343,7 @@ function ProfileImage({
             animationDelay: `${i * 0.6}s`,
           } as React.CSSProperties}
         >
-          <div className="flex items-center gap-1.5 rounded-full bg-[#0A0A0A]/80 backdrop-blur-md border border-white/[0.08] px-2.5 py-1 shadow-lg">
+          <div className="flex items-center gap-1.5 rounded-full bg-[#0A0A0F]/90 backdrop-blur-md border border-white/[0.06] px-2.5 py-1 shadow-lg">
             <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: t.color }} />
             <span className="text-[10px] font-medium text-[#D4D4D4] whitespace-nowrap">{t.name}</span>
           </div>
@@ -357,29 +357,34 @@ function ProfileImage({
         ))}
       </div>
 
-      {/* Glass card */}
+      {/* Glass card with floating animation */}
       <motion.div
-        ref={cardRef}
-        onMouseMove={onMove}
-        onMouseLeave={onLeave}
-        style={{ rotateX: rX, rotateY: rY, transformPerspective: 1200 }}
-        className="hero-glass-card relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[260px] md:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full cursor-default mx-auto"
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="hero-animated-border absolute -inset-[2px] rounded-full pointer-events-none" />
-        <div className="relative w-full h-full rounded-full overflow-hidden bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/[0.06]">
-          <img
-            src={profile.image}
-            alt={`${profile.name}, Software Engineer & Full Stack Developer`}
-            loading="eager"
-            decoding="async"
-            className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 hover:scale-105"
-          />
-          <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.2)] pointer-events-none sm:shadow-[inset_0_0_30px_rgba(0,0,0,0.3)] lg:shadow-[inset_0_0_50px_rgba(0,0,0,0.4)]" />
-        </div>
+        <motion.div
+          ref={cardRef}
+          onMouseMove={onMove}
+          onMouseLeave={onLeave}
+          style={{ rotateX: rX, rotateY: rY, transformPerspective: 1200 }}
+          className="hero-glass-card relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[260px] md:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full cursor-default mx-auto group"
+        >
+          <div className="hero-animated-border absolute -inset-[2px] rounded-full pointer-events-none" />
+          <div className="relative w-full h-full rounded-full overflow-hidden bg-[#0A0A0F]/70 backdrop-blur-xl border border-white/[0.05]">
+            <img
+              src={profile.image}
+              alt={`${profile.name}, Software Engineer & Full Stack Developer`}
+              loading="eager"
+              decoding="async"
+              className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.2)] pointer-events-none sm:shadow-[inset_0_0_30px_rgba(0,0,0,0.3)] lg:shadow-[inset_0_0_50px_rgba(0,0,0,0.4)]" />
+          </div>
+        </motion.div>
       </motion.div>
 
-      {/* Ambient glow */}
-      <div className="absolute -inset-12 -z-10 rounded-full bg-[#22D3EE]/[0.04] blur-[70px] pointer-events-none" />
+      {/* Ambient glow - blue accent */}
+      <div className="absolute -inset-16 -z-10 rounded-full bg-[#3B82F6]/[0.04] blur-[80px] pointer-events-none" />
     </motion.div>
   );
 }

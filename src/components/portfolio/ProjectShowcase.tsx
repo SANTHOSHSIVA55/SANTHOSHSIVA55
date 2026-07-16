@@ -45,20 +45,20 @@ function LaptopMockup({
   return (
     <div className={`relative ${className}`}>
       <svg viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-        <rect x="40" y="10" width="720" height="440" rx="12" fill="#0A0A0A" />
-        <rect x="44" y="14" width="712" height="432" rx="10" fill="#111111" />
-        <rect x="44" y="14" width="712" height="36" rx="10" fill="rgba(18,18,18,0.95)" />
-        <rect x="44" y="40" width="712" height="6" fill="rgba(18,18,18,0.95)" />
+        <rect x="40" y="10" width="720" height="440" rx="12" fill="#08080e" />
+        <rect x="44" y="14" width="712" height="432" rx="10" fill="#0e0e16" />
+        <rect x="44" y="14" width="712" height="36" rx="10" fill="rgba(14,14,22,0.95)" />
+        <rect x="44" y="40" width="712" height="6" fill="rgba(14,14,22,0.95)" />
         <circle cx="68" cy="32" r="5" fill="#FF5F57" opacity="0.8" />
         <circle cx="86" cy="32" r="5" fill="#FFBD2E" opacity="0.8" />
         <circle cx="104" cy="32" r="5" fill="#28C840" opacity="0.8" />
-        <rect x="130" y="24" width="540" height="16" rx="8" fill="rgba(255,255,255,0.05)" />
-        <rect x="40" y="450" width="720" height="60" rx="0" fill="#0D0D0D" />
-        <rect x="40" y="450" width="720" height="1" fill="rgba(255,255,255,0.06)" />
-        <rect x="350" y="468" width="100" height="6" rx="3" fill="rgba(255,255,255,0.08)" />
-        <rect x="36" y="456" width="728" height="54" rx="6" fill="#0D0D0D" />
-        <rect x="36" y="456" width="728" height="54" rx="6" stroke="rgba(255,255,255,0.04)" strokeWidth="1" fill="none" />
-        <rect x="44" y="14" width="712" height="200" rx="10" fill="url(#laptopReflection)" opacity="0.03" />
+        <rect x="130" y="24" width="540" height="16" rx="8" fill="rgba(255,255,255,0.03)" />
+        <rect x="40" y="450" width="720" height="60" rx="0" fill="#0a0a10" />
+        <rect x="40" y="450" width="720" height="1" fill="rgba(255,255,255,0.04)" />
+        <rect x="350" y="468" width="100" height="6" rx="3" fill="rgba(255,255,255,0.06)" />
+        <rect x="36" y="456" width="728" height="54" rx="6" fill="#0a0a10" />
+        <rect x="36" y="456" width="728" height="54" rx="6" stroke="rgba(255,255,255,0.03)" strokeWidth="1" fill="none" />
+        <rect x="44" y="14" width="712" height="200" rx="10" fill="url(#laptopReflection)" opacity="0.02" />
         <defs>
           <linearGradient id="laptopReflection" x1="44" y1="14" x2="44" y2="214" gradientUnits="userSpaceOnUse">
             <stop offset="0" stopColor="white" />
@@ -87,9 +87,9 @@ function LaptopMockup({
             />
           </>
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[#181818] to-[#0D0D0D] flex items-center justify-center flex-col gap-3">
-            <Monitor className="size-12 text-white/10" />
-            <span className="text-sm text-white/15 font-[Inter,sans-serif]">Preview</span>
+          <div className="w-full h-full bg-gradient-to-br from-[#12121a] to-[#0a0a10] flex items-center justify-center flex-col gap-3">
+            <Monitor className="size-12 text-white/8" />
+            <span className="text-sm text-white/10 font-[Inter,sans-serif]">Preview</span>
           </div>
         )}
       </div>
@@ -142,8 +142,8 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
         className="cosmic-panel-strong group relative overflow-hidden rounded-3xl transition-shadow duration-500 shine-sweep chrome-border"
       >
         {/* Enlarged mockup showcase area */}
-        <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#0D0D0D] to-[#181818] px-4 pt-12 pb-0 sm:px-8 sm:pt-16 md:px-12 md:pt-20">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,232,232,0.03)_0%,transparent_60%)] pointer-events-none" />
+        <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#0a0a10] to-[#12121a] px-4 pt-12 pb-0 sm:px-8 sm:pt-16 md:px-12 md:pt-20">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.03)_0%,transparent_60%)] pointer-events-none" />
 
           <div className="relative flex items-end justify-center">
             <motion.div
@@ -172,7 +172,11 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
               href={project.homepage}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-6 py-3.5 text-sm font-semibold text-[#020202] transition-transform hover:scale-105 min-h-[44px]"
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold text-[#FFFFFF] transition-transform hover:scale-105 min-h-[44px]"
+              style={{
+                background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3)",
+              }}
             >
               <ExternalLink className="size-4" /> Live Demo
             </a>
@@ -181,7 +185,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
             href={project.github}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/[0.15] bg-white/[0.06] px-6 py-3.5 text-sm font-medium text-[#FFFFFF] backdrop-blur-md transition-transform hover:scale-105 min-h-[44px]"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.06] px-6 py-3.5 text-sm font-medium text-[#FFFFFF] backdrop-blur-md transition-transform hover:scale-105 min-h-[44px]"
           >
             <GithubIcon className="size-4" /> View Code
           </a>
@@ -198,9 +202,9 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="cosmic-panel inline-flex size-11 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.08] shrink-0 border border-white/[0.06]"
+              className="cosmic-panel inline-flex size-11 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.06] shrink-0 border border-white/[0.05]"
             >
-              <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#E8E8E8] transition-colors" />
+              <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#3B82F6] transition-colors" />
             </a>
           </div>
 
@@ -210,7 +214,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
               {project.features.map((f: string) => (
                 <div key={f} className="flex items-center gap-2 text-sm text-[#A8A8A8]">
-                  <span className="size-1.5 rounded-full bg-[#E8E8E8] shrink-0" /> {f}
+                  <span className="size-1.5 rounded-full bg-[#3B82F6] shrink-0" /> {f}
                 </div>
               ))}
             </div>
@@ -232,7 +236,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
 
           <div className="mt-4 flex flex-wrap gap-2">
             {project.stack.map((s: string) => (
-              <span key={s} className="rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-xs text-[#A8A8A8]">
+              <span key={s} className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1 text-xs text-[#A8A8A8]">
                 {s}
               </span>
             ))}
@@ -288,8 +292,8 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
         className="cosmic-panel-strong group relative overflow-hidden rounded-3xl transition-shadow duration-500 shine-sweep chrome-border"
       >
         {/* Enlarged mockup preview area */}
-        <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#0D0D0D] to-[#181818] px-4 pt-10 pb-0 sm:px-6 sm:pt-12">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,232,232,0.02)_0%,transparent_60%)] pointer-events-none" />
+        <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#0a0a10] to-[#12121a] px-4 pt-10 pb-0 sm:px-6 sm:pt-12">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.02)_0%,transparent_60%)] pointer-events-none" />
 
           <div className="relative flex items-end justify-center">
             <motion.div
@@ -314,7 +318,12 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-[#020202]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3 z-20">
           {project.homepage && (
-            <a href={project.homepage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-5 py-3 text-xs font-semibold text-[#020202] transition-transform hover:scale-105 min-h-[44px]">
+            <a href={project.homepage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs font-semibold text-[#FFFFFF] transition-transform hover:scale-105 min-h-[44px]"
+              style={{
+                background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3)",
+              }}
+            >
               <ExternalLink className="size-3.5" /> Live Demo
             </a>
           )}
@@ -331,8 +340,8 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
               <h3 className="mt-1 font-display text-lg font-semibold text-[#FFFFFF] capitalize">{project.title}</h3>
             </div>
             <a href={project.github} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`}
-              className="cosmic-panel inline-flex size-10 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.08] shrink-0 border border-white/[0.06]">
-              <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#E8E8E8] transition-colors" />
+              className="cosmic-panel inline-flex size-10 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.06] shrink-0 border border-white/[0.05]">
+              <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#3B82F6] transition-colors" />
             </a>
           </div>
 
@@ -342,7 +351,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
             <ul className="mt-3 space-y-1.5 text-xs text-[#A8A8A8]">
               {project.features.slice(0, 3).map((f: string) => (
                 <li key={f} className="flex items-start gap-2">
-                  <span className="mt-1.5 size-1 rounded-full bg-[#E8E8E8] shrink-0" /> {f}
+                  <span className="mt-1.5 size-1 rounded-full bg-[#3B82F6] shrink-0" /> {f}
                 </li>
               ))}
             </ul>
@@ -358,7 +367,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
 
           <div className="mt-3 flex flex-wrap gap-1.5">
             {project.stack.map((s: string) => (
-              <span key={s} className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+              <span key={s} className="rounded-lg border border-white/[0.05] bg-white/[0.02] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
                 {s}
               </span>
             ))}

@@ -86,22 +86,22 @@ export function Navbar() {
         className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4"
       >
         <nav
-          className={`relative flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 transition-all duration-500 border border-white/[0.12] ${
-            !atTop ? "shadow-elevated py-2" : ""
-          } ${scrolled ? "backdrop-blur-xl" : ""}`}
+          className={`relative flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 transition-all duration-500 border ${
+            !atTop ? "border-white/[0.06] shadow-elevated py-2" : "border-white/[0.04]"
+          } ${scrolled ? "backdrop-blur-2xl" : "backdrop-blur-xl"}`}
           style={{
-            background: scrolled ? "rgba(5, 5, 5, 0.88)" : "rgba(5, 5, 5, 0.75)",
-            backdropFilter: "blur(24px) saturate(160%)",
-            WebkitBackdropFilter: "blur(24px) saturate(160%)",
+            background: scrolled ? "rgba(2, 2, 6, 0.82)" : "rgba(2, 2, 6, 0.7)",
+            backdropFilter: "blur(28px) saturate(180%)",
+            WebkitBackdropFilter: "blur(28px) saturate(180%)",
           }}
         >
           {/* Scroll progress bar at bottom of nav */}
           <motion.div
-            className="absolute bottom-0 left-0 h-[1px] origin-left"
+            className="absolute bottom-0 left-0 h-[1.5px] origin-left"
             style={{
               scaleX,
               width: "100%",
-              background: "linear-gradient(90deg, rgba(232,232,232,0.4), rgba(192,192,192,0.2))",
+              background: "linear-gradient(90deg, rgba(59,130,246,0.6), rgba(99,102,241,0.4), rgba(139,92,246,0.3))",
             }}
           />
 
@@ -112,8 +112,8 @@ export function Navbar() {
             className="flex items-center gap-2 font-display font-bold tracking-tight shrink-0 group"
           >
             <div className="relative">
-              <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] transition-shadow group-hover:shadow-[0_0_15px_rgba(232,232,232,0.3)]" />
-              <div className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] blur-md opacity-40" />
+              <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#6366F1] transition-shadow group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]" />
+              <div className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#6366F1] blur-md opacity-40" />
             </div>
             <span className="text-sm sm:text-base text-[#F8FAFC]">
               santhosh
@@ -130,16 +130,19 @@ export function Navbar() {
                   <a
                     href={l.href}
                     onClick={(e) => handleClick(e, l.href)}
-                    className={`relative rounded-xl px-3 py-1.5 text-sm transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8] ${
+                    className={`relative rounded-xl px-3 py-1.5 text-sm transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6] ${
                       isActive
-                        ? "text-[#E8E8E8]"
-                        : "text-[#A8A8A8] hover:text-[#FFFFFF] hover:bg-white/[0.04]"
+                        ? "text-[#F8FAFC]"
+                        : "text-[#A8A8A8] hover:text-[#FFFFFF] hover:bg-white/[0.03]"
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="navbar-active"
-                        className="absolute inset-0 rounded-xl bg-white/[0.06] border border-white/[0.08]"
+                        className="absolute inset-0 rounded-xl border border-[#3B82F6]/10"
+                        style={{
+                          background: "rgba(59, 130, 246, 0.05)",
+                        }}
                         transition={{ type: "spring", stiffness: 350, damping: 30 }}
                       />
                     )}
@@ -155,10 +158,14 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={(e) => handleClick(e, "#contact")}
-              className="group relative rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-2 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_25px_rgba(232,232,232,0.15)] hover:scale-[1.03] overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
+              className="group relative rounded-xl px-4 py-2 text-sm font-semibold text-[#FFFFFF] transition-all duration-300 overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
+              style={{
+                background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3), 0 2px 8px rgba(59, 130, 246, 0.15)",
+              }}
             >
               <span className="relative z-10">Let&apos;s talk</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#C0C0C0] to-[#E8E8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
           </div>
 
@@ -167,7 +174,7 @@ export function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
-            className="md:hidden flex items-center justify-center size-11 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
+            className="md:hidden flex items-center justify-center size-11 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               {open ? (
@@ -195,7 +202,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[49] md:hidden"
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[49] md:hidden"
               onClick={() => setOpen(false)}
             />
             <motion.div
@@ -210,10 +217,10 @@ export function Navbar() {
               <div
                 className="rounded-2xl p-3 shadow-elevated"
                 style={{
-                  background: "rgba(5, 5, 5, 0.92)",
-                  backdropFilter: "blur(24px) saturate(160%)",
-                  WebkitBackdropFilter: "blur(24px) saturate(160%)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  background: "rgba(2, 2, 6, 0.94)",
+                  backdropFilter: "blur(28px) saturate(180%)",
+                  WebkitBackdropFilter: "blur(28px) saturate(180%)",
+                  border: "1px solid rgba(255, 255, 255, 0.06)",
                 }}
               >
                 <ul className="flex flex-col gap-0.5">
@@ -222,18 +229,21 @@ export function Navbar() {
                       <a
                         href={l.href}
                         onClick={(e) => handleClick(e, l.href)}
-                        className="flex items-center rounded-xl px-4 py-3.5 text-sm font-medium text-[#94A3B8] hover:bg-white/[0.06] hover:text-[#F8FAFC] active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
+                        className="flex items-center rounded-xl px-4 py-3.5 text-sm font-medium text-[#94A3B8] hover:bg-white/[0.04] hover:text-[#F8FAFC] active:scale-[0.98] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
                       >
                         {l.label}
                       </a>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-2 border-t border-white/[0.06] pt-2">
+                <div className="mt-2 border-t border-white/[0.04] pt-2">
                   <a
                     href="#contact"
                     onClick={(e) => handleClick(e, "#contact")}
-                    className="flex items-center justify-center rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-3.5 text-sm font-semibold text-[#020202] active:scale-[0.98] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8E8E8]"
+                    className="flex items-center justify-center rounded-xl px-4 py-3.5 text-sm font-semibold text-[#FFFFFF] active:scale-[0.98] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
+                    style={{
+                      background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                    }}
                   >
                     Let&apos;s talk
                   </a>

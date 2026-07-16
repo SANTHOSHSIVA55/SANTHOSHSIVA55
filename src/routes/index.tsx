@@ -78,13 +78,21 @@ function Index() {
         <Navbar />
         <main>
           <Hero />
+          <div className="section-divider my-0" />
           <About />
+          <div className="section-divider my-0" />
           <Skills />
+          <div className="section-divider my-0" />
           <Projects />
+          <div className="section-divider my-0" />
           <Journey />
+          <div className="section-divider my-0" />
           <Certifications />
+          <div className="section-divider my-0" />
           <Achievements />
+          <div className="section-divider my-0" />
           <GithubStats />
+          <div className="section-divider my-0" />
           <Contact />
         </main>
         <Footer />

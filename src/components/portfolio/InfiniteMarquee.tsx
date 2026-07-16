@@ -51,7 +51,7 @@ export function InfiniteMarquee() {
             {doubled.slice(setIdx * allSkills.length, (setIdx + 1) * allSkills.length).map((skill, i) => (
               <span
                 key={`${setIdx}-${i}`}
-                className="shrink-0 rounded-full border border-white/[0.06] bg-white/[0.03] px-5 py-2 text-sm text-[#94A3B8] hover:text-[#E8E8E8] hover:border-[#E8E8E8]/20 hover:bg-white/[0.06] transition-all duration-300 cursor-default whitespace-nowrap"
+                className="shrink-0 rounded-full border border-[#3B82F6]/8 bg-[#3B82F6]/[0.03] px-5 py-2 text-sm text-[#94A3B8] hover:text-[#F8FAFC] hover:border-[#3B82F6]/25 hover:bg-[#3B82F6]/[0.06] transition-all duration-300 cursor-default whitespace-nowrap"
               >
                 {skill}
               </span>

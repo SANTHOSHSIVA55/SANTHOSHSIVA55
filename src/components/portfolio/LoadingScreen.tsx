@@ -43,8 +43,8 @@ export function LoadingScreen() {
         >
           {/* Background aurora blobs */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[#D9D9D9]/[0.02] blur-[120px] animate-aurora" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#C0C0C0]/[0.015] blur-[100px] animate-aurora-delayed" />
+            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[#3B82F6]/[0.02] blur-[120px] animate-aurora" />
+            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#6366F1]/[0.015] blur-[100px] animate-aurora-delayed" />
           </div>
 
           {/* Center content */}
@@ -60,11 +60,11 @@ export function LoadingScreen() {
             </div>
 
             {/* Thin progress line */}
-            <div className="mt-6 w-64 h-[1px] bg-white/[0.06] overflow-hidden rounded-full">
+            <div className="mt-6 w-64 h-[1.5px] bg-white/[0.04] overflow-hidden rounded-full">
               <motion.div
                 className="h-full rounded-full"
                 style={{
-                  background: "linear-gradient(90deg, #E8E8E8, #C0C0C0, #E8E8E8)",
+                  background: "linear-gradient(90deg, #3B82F6, #6366F1, #3B82F6)",
                   width: `${progress}%`,
                 }}
                 transition={{ duration: 0.1 }}
