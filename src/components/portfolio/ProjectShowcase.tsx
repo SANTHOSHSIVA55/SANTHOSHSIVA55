@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useMemo } from "react";
+import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ExternalLink, ArrowUpRight, Star, GitFork, Monitor, Clock, Users } from "lucide-react";
 import { GithubIcon } from "./icons";
@@ -21,6 +21,12 @@ function useScreenshot(url: string | null) {
 
   const src = useMemo(() => getScreenshotUrl(url), [url]);
 
+  useEffect(() => {
+    if (!src) return;
+    const timeout = setTimeout(() => setError(true), 12000);
+    return () => clearTimeout(timeout);
+  }, [src]);
+
   return { src, loaded, error, setLoaded, setError };
 }
 
@@ -28,6 +34,7 @@ function useScreenshot(url: string | null) {
 function LaptopMockup({
   src,
   alt,
+  title,
   loaded,
   error,
   onLoad,
@@ -36,6 +43,7 @@ function LaptopMockup({
 }: {
   src: string | null;
   alt: string;
+  title?: string;
   loaded: boolean;
   error: boolean;
   onLoad: () => void;
@@ -89,7 +97,7 @@ function LaptopMockup({
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#12121a] to-[#0a0a10] flex items-center justify-center flex-col gap-3">
             <Monitor className="size-12 text-white/8" />
-            <span className="text-sm text-white/10 font-[Inter,sans-serif]">Preview</span>
+            <span className="text-sm text-white/10 font-[Inter,sans-serif]">{title || "Preview"}</span>
           </div>
         )}
       </div>
@@ -157,6 +165,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
               <LaptopMockup
                 src={src}
                 alt={`${project.title} - Desktop Preview`}
+                title={project.title}
                 loaded={loaded}
                 error={error}
                 onLoad={() => setLoaded(true)}
@@ -329,6 +338,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
               <LaptopMockup
                 src={src}
                 alt={`${project.title} - Desktop Preview`}
+                title={project.title}
                 loaded={loaded}
                 error={error}
                 onLoad={() => setLoaded(true)}
