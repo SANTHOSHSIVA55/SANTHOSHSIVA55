@@ -45,10 +45,6 @@ export const skills = [
     group: "Tools",
     items: ["Git", "GitHub", "Docker", "Figma"],
   },
-  {
-    group: "Computer Science",
-    items: ["DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design"],
-  },
 ];
 
 export const projects = [

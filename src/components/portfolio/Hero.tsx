@@ -148,7 +148,7 @@ export function Hero() {
   );
 
   return (
-    <section id="top" className="relative min-h-[90dvh] flex items-center overflow-hidden">
+    <section id="top" className="relative min-h-[85dvh] flex items-center overflow-hidden">
       {/* ── Hero glow blobs ── */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-[15%] right-[15%] w-[420px] h-[420px] rounded-full bg-[#22D3EE]/[0.035] blur-[110px]" />
@@ -157,13 +157,13 @@ export function Hero() {
       </div>
 
       <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start sm:justify-between gap-10 sm:gap-12 lg:gap-16">
+        <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start sm:justify-between gap-8 sm:gap-10 lg:gap-14">
 
           {/* ════════ Text content ════════ */}
           <div className="flex-1 min-w-0 max-w-[580px] text-center sm:text-left">
 
             {/* Badge */}
-            <motion.div {...fadeUp(0.15)} className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-3.5 py-1.5">
+            <motion.div {...fadeUp(0.15)} className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-3.5 py-1.5">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
@@ -193,7 +193,7 @@ export function Hero() {
             </div>
 
             {/* Typewriter */}
-            <motion.div {...fadeUp(0.45)} className="mb-5 flex items-center justify-center sm:justify-start gap-1">
+            <motion.div {...fadeUp(0.45)} className="mb-4 flex items-center justify-center sm:justify-start gap-1">
               <span className="font-display text-base sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] font-medium">
                 {typed}
               </span>
@@ -201,12 +201,12 @@ export function Hero() {
             </motion.div>
 
             {/* Bio */}
-            <motion.p {...fadeUp(0.55)} className="mb-7 max-w-[520px] text-[14px] sm:text-[15px] leading-[1.8] text-[#94A3B8] mx-auto sm:mx-0">
+            <motion.p {...fadeUp(0.55)} className="mb-6 max-w-[520px] text-[14px] sm:text-[15px] leading-[1.8] text-[#94A3B8] mx-auto sm:mx-0">
               {profile.sub}
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div {...fadeUp(0.65)} className="mb-7 flex flex-wrap items-center gap-2.5 justify-center sm:justify-start">
+            <motion.div {...fadeUp(0.65)} className="mb-6 flex flex-wrap items-center gap-2.5 justify-center sm:justify-start">
               <MagneticBtn href="#projects" className="hero-btn-primary group relative inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 sm:px-6 sm:py-3.5 text-sm font-semibold text-[#020202] overflow-hidden">
                 <span className="relative z-10">View Projects</span>
                 <ArrowRight className="relative z-10 size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -220,7 +220,7 @@ export function Hero() {
             </motion.div>
 
             {/* Quick stats */}
-            <motion.div {...fadeUp(0.75)} className="mb-7 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <motion.div {...fadeUp(0.75)} className="mb-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {heroStats.map((s, i) => (
                 <motion.div
                   key={s.label}
@@ -299,13 +299,13 @@ export function Hero() {
               onMouseMove={onMove}
               onMouseLeave={onLeave}
               style={{ rotateX: rX, rotateY: rY, transformPerspective: 1200 }}
-              className="hero-glass-card relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] lg:w-[280px] lg:h-[280px] rounded-3xl cursor-default"
+              className="hero-glass-card relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] lg:w-[280px] lg:h-[280px] rounded-full cursor-default"
             >
               {/* Animated gradient border */}
-              <div className="hero-animated-border absolute -inset-[2px] rounded-3xl pointer-events-none" />
+              <div className="hero-animated-border absolute -inset-[2px] rounded-full pointer-events-none" />
 
               {/* Inner card */}
-              <div className="relative w-full h-full rounded-3xl overflow-hidden bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/[0.06]">
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/[0.06]">
                 <img
                   src={profile.image}
                   alt={`${profile.name}, Full Stack Developer & Data Analyst`}
@@ -313,12 +313,12 @@ export function Hero() {
                   decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 rounded-3xl shadow-[inset_0_0_50px_rgba(0,0,0,0.4)] pointer-events-none" />
+                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_50px_rgba(0,0,0,0.4)] pointer-events-none" />
               </div>
             </motion.div>
 
             {/* Ambient glow */}
-            <div className="absolute -inset-10 -z-10 rounded-3xl bg-[#22D3EE]/[0.05] blur-[60px] pointer-events-none" />
+            <div className="absolute -inset-10 -z-10 rounded-full bg-[#22D3EE]/[0.05] blur-[60px] pointer-events-none" />
           </motion.div>
         </div>
       </div>
