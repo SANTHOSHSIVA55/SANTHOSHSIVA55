@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Starfield } from "./Starfield";
-import { Sun } from "./Sun";
 import { Planet } from "./Planet";
 import { OrbitRing } from "./OrbitRing";
 import { Nebula } from "./Nebula";
@@ -39,9 +38,6 @@ export function SolarSystem({ scrollProgress }: SolarSystemProps) {
           <Starfield />
           <CosmicDust />
           <Nebula />
-
-          {/* Sun */}
-          <Sun />
 
           {/* Orbit rings */}
           <OrbitRing radius={8} opacity={0.06} />

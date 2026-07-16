@@ -87,11 +87,16 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4"
     >
       <nav
-        className={`flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2 sm:py-2.5 transition-all duration-500 ${
+        className={`flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2 sm:py-2.5 transition-all duration-500 border border-white/[0.12] ${
           !atTop
-            ? "cosmic-panel-strong shadow-elevated py-1.5 sm:py-2"
-            : "cosmic-panel"
+            ? "shadow-elevated py-1.5 sm:py-2"
+            : ""
         }`}
+        style={{
+          background: "rgba(5, 5, 5, 0.85)",
+          backdropFilter: "blur(24px) saturate(160%)",
+          WebkitBackdropFilter: "blur(24px) saturate(160%)",
+        }}
       >
         {/* Logo */}
         <a
