@@ -106,11 +106,11 @@ export function Hero() {
   return (
     <section ref={sectionRef} id="top" className="relative min-h-[100dvh] flex items-center overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 w-full pt-28 pb-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-20">
+        <div className="flex flex-row items-center gap-4 lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-20">
           {/* Left: Text content */}
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             {/* Availability badge */}
-            <motion.div {...fadeUp(0.3)} className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-4 py-1.5">
+            <motion.div {...fadeUp(0.3)} className="mb-4 sm:mb-8 inline-flex items-center gap-2.5 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-3 sm:px-4 py-1 sm:py-1.5">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22C55E]" />
@@ -123,7 +123,7 @@ export function Hero() {
             {/* Name - Massive display typography */}
             <div className="overflow-hidden">
               <motion.h1
-                className="font-display font-bold leading-[0.9] tracking-[-0.04em] whitespace-nowrap"
+                className="font-display font-bold leading-[0.9] tracking-[-0.04em] lg:whitespace-nowrap"
                 style={{ fontSize: "clamp(2.25rem, 5.5vw, 4.5rem)" }}
                 initial="hidden"
                 animate="visible"
@@ -146,27 +146,27 @@ export function Hero() {
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 h-[1px] w-32 origin-left bg-gradient-to-r from-[#E8E8E8] to-transparent"
+              className="mt-4 sm:mt-6 h-[1px] w-20 sm:w-32 origin-left bg-gradient-to-r from-[#E8E8E8] to-transparent"
             />
 
             {/* Role switcher */}
             <motion.div {...fadeUp(0.6)} className="mt-5 flex items-center gap-2.5">
-              <span className="font-display text-xl sm:text-2xl md:text-3xl text-[#94A3B8] font-medium">
+              <span className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#94A3B8] font-medium">
                 {typed}
               </span>
               <span className="inline-block h-7 w-[2px] bg-gradient-to-b from-[#E8E8E8] to-[#A8A8A8] animate-pulse" />
             </motion.div>
 
             {/* Bio */}
-            <motion.p {...fadeUp(0.7)} className="mt-7 max-w-lg text-base sm:text-lg leading-[1.8] text-[#94A3B8]">
+            <motion.p {...fadeUp(0.7)} className="mt-4 sm:mt-7 max-w-lg text-sm sm:text-base md:text-lg leading-[1.8] text-[#94A3B8]">
               {profile.sub}
             </motion.p>
 
             {/* CTA buttons */}
-            <motion.div {...fadeUp(0.8)} className="mt-10 flex flex-wrap items-center gap-3">
+            <motion.div {...fadeUp(0.8)} className="mt-6 sm:mt-10 flex flex-wrap items-center gap-2.5 sm:gap-3">
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-7 py-3.5 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_40px_rgba(232,232,232,0.15)] hover:scale-[1.02] overflow-hidden"
+                className="group relative inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-5 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_40px_rgba(232,232,232,0.15)] hover:scale-[1.02] overflow-hidden"
               >
                 <span className="relative z-10">View Projects</span>
                 <ArrowRight className="relative z-10 size-4 transition-transform group-hover:translate-x-1" />
@@ -174,7 +174,7 @@ export function Hero() {
               </a>
               <a
                 href="/resume.pdf"
-                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.15]"
+                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.15]"
               >
                 <Download className="size-4" /> Resume
               </a>
@@ -182,14 +182,14 @@ export function Hero() {
                 href={profile.github}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.07]"
+                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.07]"
               >
                 <GithubIcon className="size-4" /> GitHub
               </a>
             </motion.div>
 
             {/* Social links */}
-            <motion.div {...fadeIn(1.0)} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#94A3B8]">
+            <motion.div {...fadeIn(1.0)} className="mt-5 sm:mt-8 flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-xs sm:text-sm text-[#94A3B8]">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="size-3.5" /> {profile.location}
               </span>
@@ -210,7 +210,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[300px] mx-auto lg:mx-0 lg:max-w-none lg:justify-self-end"
+            className="relative shrink-0 lg:w-full lg:mx-0 lg:max-w-none lg:justify-self-end"
           >
             <motion.div
               ref={cardRef}
@@ -224,7 +224,7 @@ export function Hero() {
               className="relative group"
             >
               {/* Circular glass frame */}
-              <div className="relative mx-auto w-[min(260px,70vw)] h-[min(260px,70vw)] sm:w-[260px] sm:h-[260px] lg:w-[300px] lg:h-[300px]">
+              <div className="relative mx-auto w-[70px] h-[70px] sm:w-[85px] sm:h-[85px] md:w-[110px] md:h-[110px] min-[900px]:w-[130px] min-[900px]:h-[130px] lg:w-[300px] lg:h-[300px]">
                 {/* Metallic border ring */}
                 <div className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[#F2F2F2]/40 via-[#C0C0C0]/20 to-[#A8A8A8]/30 group-hover:from-[#F2F2F2]/60 group-hover:via-[#C0C0C0]/35 group-hover:to-[#A8A8A8]/50 transition-all duration-700" />
                 {/* Glass ring */}
@@ -243,7 +243,7 @@ export function Hero() {
               </div>
 
               {/* Bottom info card */}
-              <motion.div {...fadeUp(0.9)} className="mt-6 cosmic-panel rounded-2xl px-5 py-3.5 mx-auto max-w-[280px]">
+              <motion.div {...fadeUp(0.9)} className="mt-6 cosmic-panel rounded-2xl px-5 py-3.5 mx-auto max-w-[280px] hidden lg:block">
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-[9px] text-[#94A3B8] tracking-[0.2em] uppercase font-medium">Currently</div>
