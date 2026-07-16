@@ -4,6 +4,60 @@ import { ArrowRight, Download, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, GfgIcon } from "./icons";
 import { profile, heroRoles, heroStats } from "./data";
 
+/* ─── Data Visualization Motif ─── */
+function DataVisualization() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
+      <svg
+        viewBox="0 0 1200 600"
+        fill="none"
+        className="absolute inset-0 w-full h-full"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        {/* Line 1 — primary trend */}
+        <path
+          d="M0,420 C150,380 200,340 350,300 C500,260 550,320 700,250 C850,180 900,220 1050,160 C1100,140 1150,150 1200,130"
+          stroke="rgba(59,130,246,0.07)"
+          strokeWidth="1.5"
+          className="data-viz-line"
+          strokeDasharray="2400"
+          strokeDashoffset="2400"
+        />
+        {/* Line 2 — secondary series */}
+        <path
+          d="M0,480 C100,460 250,400 400,430 C550,460 600,380 750,350 C900,320 950,370 1100,300 C1150,280 1180,290 1200,270"
+          stroke="rgba(99,102,241,0.05)"
+          strokeWidth="1"
+          className="data-viz-line data-viz-line--delayed"
+          strokeDasharray="2400"
+          strokeDashoffset="2400"
+        />
+        {/* Line 3 — tertiary / baseline */}
+        <path
+          d="M0,520 C200,510 300,490 500,500 C700,510 800,480 1000,470 C1100,465 1150,475 1200,460"
+          stroke="rgba(139,92,246,0.04)"
+          strokeWidth="0.75"
+          className="data-viz-line data-viz-line--delayed-2"
+          strokeDasharray="2400"
+          strokeDashoffset="2400"
+        />
+        {/* Data point dots */}
+        <circle cx="350" cy="300" r="2.5" fill="rgba(59,130,246,0.12)" className="data-viz-dot" />
+        <circle cx="700" cy="250" r="2.5" fill="rgba(59,130,246,0.12)" className="data-viz-dot data-viz-dot--delayed" />
+        <circle cx="1050" cy="160" r="2.5" fill="rgba(59,130,246,0.12)" className="data-viz-dot data-viz-dot--delayed-2" />
+        {/* Vertical grid lines */}
+        {[200, 400, 600, 800, 1000].map((x) => (
+          <line key={x} x1={x} y1="100" x2={x} y2="560" stroke="rgba(255,255,255,0.015)" strokeWidth="0.5" />
+        ))}
+        {/* Horizontal grid lines */}
+        {[200, 300, 400, 500].map((y) => (
+          <line key={y} x1="0" y1={y} x2="1200" y2={y} stroke="rgba(255,255,255,0.012)" strokeWidth="0.5" />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 /* ─── Smooth Fade Typewriter ─── */
 function useFadeTypewriter(words: string[], interval = 2800) {
   const [idx, setIdx] = useState(0);
@@ -136,6 +190,9 @@ export function Hero() {
         <div className="absolute bottom-[8%] left-[8%] w-[400px] h-[400px] rounded-full bg-[#6366F1]/[0.025] blur-[100px]" />
         <div className="absolute top-[45%] left-[35%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-[#8B5CF6]/[0.02] blur-[90px]" />
       </div>
+
+      {/* Data visualization motif */}
+      <DataVisualization />
 
       {/* ── Mobile layout (stacked, centered) ── */}
       <div className="lg:hidden pt-24 pb-12 sm:pt-28 sm:pb-16">

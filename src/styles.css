@@ -700,7 +700,39 @@ button:focus-visible {
   top: 12px;
 }
 
+/* Data Visualization Motif */
+.data-viz-line {
+  animation: data-viz-draw 4s ease-out forwards;
+}
+.data-viz-line--delayed {
+  animation-delay: 0.6s;
+}
+.data-viz-line--delayed-2 {
+  animation-delay: 1.2s;
+}
+
+@keyframes data-viz-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.data-viz-dot {
+  animation: data-viz-pulse 3s ease-in-out infinite;
+}
+.data-viz-dot--delayed {
+  animation-delay: 0.8s;
+}
+.data-viz-dot--delayed-2 {
+  animation-delay: 1.6s;
+}
+
+@keyframes data-viz-pulse {
+  0%, 100% { opacity: 0; r: 2; }
+  50% { opacity: 1; r: 3.5; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .data-viz-line { animation: none; stroke-dashoffset: 0; }
+  .data-viz-dot { animation: none; opacity: 0.08; }
   .hero-cursor { animation: none; opacity: 1; }
   .hero-orbit-dot { animation: none; display: none; }
   .hero-btn-primary,
