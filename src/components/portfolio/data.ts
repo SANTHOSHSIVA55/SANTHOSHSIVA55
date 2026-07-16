@@ -88,24 +88,6 @@ export const projects = [
     website: "https://aqua-bloom-v2.vercel.app",
     accent: "from-cyan-400/30 to-blue-500/20",
   },
-  {
-    title: "E-commerce Analytics Dashboard",
-    tag: "Full Stack · Analytics",
-    description:
-      "A comprehensive analytics dashboard for e-commerce platforms with real-time sales data, customer insights, and inventory tracking.",
-    problem: "E-commerce sellers lack centralized visibility into sales trends, customer behavior, and inventory health.",
-    solution: "An analytics dashboard that aggregates sales, customer, and inventory data into actionable visualizations and reports.",
-    stack: ["React", "Node.js", "MongoDB", "Chart.js"],
-    features: [
-      "Real-time sales tracking",
-      "Customer behavior insights",
-      "Inventory management",
-      "Custom report generation",
-    ],
-    github: "https://github.com/SANTHOSHSIVA55",
-    website: "",
-    accent: "from-amber-400/30 to-orange-500/20",
-  },
 ];
 
 export const timeline = [
