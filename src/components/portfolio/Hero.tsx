@@ -132,7 +132,7 @@ export function Hero() {
                 {nameParts.map((part, i) => (
                   <motion.span
                     key={i}
-                    className={`inline-block ${i === 0 ? "text-[#F8FAFC]" : "text-gradient"}`}
+                    className={`inline-block mr-[0.3em] ${i === 0 ? "text-[#F8FAFC]" : "text-gradient"}`}
                     variants={wordReveal}
                   >
                     {part}
