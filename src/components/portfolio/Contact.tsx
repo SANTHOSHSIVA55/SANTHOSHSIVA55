@@ -47,7 +47,7 @@ export function Contact() {
                 href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`}
                 className="inline-flex items-center gap-3 rounded-2xl px-10 py-5 text-base font-semibold text-[#FFFFFF] transition-all duration-300 hover:scale-[1.03] overflow-hidden group"
                 style={{
-                  background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                  background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                   boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3), 0 4px 20px rgba(59, 130, 246, 0.2)",
                 }}
               >

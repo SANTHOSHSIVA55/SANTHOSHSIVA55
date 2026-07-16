@@ -60,12 +60,15 @@ export function Navbar() {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
+      const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+      window.addEventListener("keydown", onKey);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", onKey);
+      };
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [open]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -86,6 +89,7 @@ export function Navbar() {
         className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4"
       >
         <nav
+          aria-label="Main navigation"
           className={`relative flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 transition-all duration-500 border ${
             !atTop ? "border-white/[0.06] shadow-elevated py-2" : "border-white/[0.04]"
           } ${scrolled ? "backdrop-blur-2xl" : "backdrop-blur-xl"}`}
@@ -160,7 +164,7 @@ export function Navbar() {
               onClick={(e) => handleClick(e, "#contact")}
               className="group relative rounded-xl px-4 py-2 text-sm font-semibold text-[#FFFFFF] transition-all duration-300 overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
               style={{
-                background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                 boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3), 0 2px 8px rgba(59, 130, 246, 0.15)",
               }}
             >
@@ -242,7 +246,7 @@ export function Navbar() {
                     onClick={(e) => handleClick(e, "#contact")}
                     className="flex items-center justify-center rounded-xl px-4 py-3.5 text-sm font-semibold text-[#FFFFFF] active:scale-[0.98] transition-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
                     style={{
-                      background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                      background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                     }}
                   >
                     Let&apos;s talk

@@ -559,7 +559,7 @@
 
 /* Primary button - Blue accent */
 .hero-btn-primary {
-  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
   box-shadow:
     0 0 0 1px rgba(59, 130, 246, 0.3),
     0 4px 16px rgba(59, 130, 246, 0.2);
@@ -571,7 +571,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, #60A5FA, #3B82F6);
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
   opacity: 0;
   transition: opacity 0.35s ease;
 }

@@ -184,7 +184,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold text-[#FFFFFF] transition-transform hover:scale-105 min-h-[44px]"
               style={{
-                background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                 boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3)",
               }}
             >
@@ -212,6 +212,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
               href={project.github}
               target="_blank"
               rel="noreferrer"
+              aria-label={`${project.title} on GitHub`}
               className="cosmic-panel inline-flex size-11 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.06] shrink-0 border border-white/[0.05]"
             >
               <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#3B82F6] transition-colors" />
@@ -353,7 +354,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
           {project.homepage && (
             <a href={project.homepage} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs font-semibold text-[#FFFFFF] transition-transform hover:scale-105 min-h-[44px]"
               style={{
-                background: "linear-gradient(135deg, #3B82F6, #2563EB)",
+                background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                 boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3)",
               }}
             >
@@ -373,7 +374,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
               <h3 className="mt-1 font-display text-lg font-semibold text-[#FFFFFF] capitalize">{project.title}</h3>
             </div>
             <a href={project.github} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`}
-              className="cosmic-panel inline-flex size-10 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.06] shrink-0 border border-white/[0.05]">
+              className="cosmic-panel inline-flex size-11 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.06] shrink-0 border border-white/[0.05]">
               <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#3B82F6] transition-colors" />
             </a>
           </div>
