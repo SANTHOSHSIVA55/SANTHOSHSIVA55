@@ -86,16 +86,6 @@ function MagneticBtn({ children, className = "", ...props }: { children: React.R
   );
 }
 
-/* ─── Config ─── */
-const techItems = [
-  { name: "React", color: "#61DAFB", angle: -40 },
-  { name: "Node.js", color: "#68A063", angle: 30 },
-  { name: "Python", color: "#FFD43B", angle: 100 },
-  { name: "SQL", color: "#E8E8E8", angle: 160 },
-  { name: "Power BI", color: "#F2C811", angle: 220 },
-  { name: "Figma", color: "#A259FF", angle: 290 },
-];
-
 /* ─── Animations ─── */
 const stagger = {
   hidden: {},
@@ -134,14 +124,6 @@ export function Hero() {
 
   const nameParts = useMemo(() => profile.name.split(" "), []);
 
-  const techPositions = useMemo(
-    () => techItems.map((t) => {
-      const rad = (t.angle * Math.PI) / 180;
-      return { ...t, x: Math.cos(rad), y: Math.sin(rad) };
-    }),
-    [],
-  );
-
   return (
     <section id="top" className="relative overflow-hidden">
       {/* Background glow blobs */}
@@ -156,7 +138,7 @@ export function Hero() {
         <div className="mx-auto w-full max-w-[480px] px-5 sm:px-6 relative z-10 flex flex-col items-center gap-8">
 
           {/* Profile image — top on mobile */}
-          <ProfileImage cardRef={cardRef} onMove={onMove} onLeave={onLeave} rX={rX} rY={rY} techPositions={techPositions} />
+          <ProfileImage cardRef={cardRef} onMove={onMove} onLeave={onLeave} rX={rX} rY={rY} />
 
           {/* Text content — below on mobile */}
           <div className="w-full text-center">
@@ -187,7 +169,7 @@ export function Hero() {
           </div>
 
           {/* Profile image — right on desktop */}
-          <ProfileImage cardRef={cardRef} onMove={onMove} onLeave={onLeave} rX={rX} rY={rY} techPositions={techPositions} />
+          <ProfileImage cardRef={cardRef} onMove={onMove} onLeave={onLeave} rX={rX} rY={rY} />
         </div>
       </div>
     </section>
@@ -313,14 +295,12 @@ function ProfileImage({
   onLeave,
   rX,
   rY,
-  techPositions,
 }: {
   cardRef: React.RefObject<HTMLDivElement | null>;
   onMove: (e: React.MouseEvent) => void;
   onLeave: () => void;
   rX: ReturnType<typeof useSpring>;
   rY: ReturnType<typeof useSpring>;
-  techPositions: Array<{ name: string; color: string; x: number; y: number }>;
 }) {
   return (
     <motion.div
@@ -329,27 +309,6 @@ function ProfileImage({
       transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       className="relative shrink-0"
     >
-      {/* Floating tech icons */}
-      {techPositions.map((t, i) => (
-        <motion.div
-          key={t.name}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="hero-tech-icon absolute z-10"
-          style={{
-            left: `calc(50% + ${t.x} * var(--hero-orbit) - 26px)`,
-            top: `calc(50% + ${t.y} * var(--hero-orbit) - 11px)`,
-            animationDelay: `${i * 0.6}s`,
-          } as React.CSSProperties}
-        >
-          <div className="flex items-center gap-1.5 rounded-full bg-[#0A0A0F]/90 backdrop-blur-md border border-white/[0.06] px-2.5 py-1 shadow-lg">
-            <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: t.color }} />
-            <span className="text-[10px] font-medium text-[#D4D4D4] whitespace-nowrap">{t.name}</span>
-          </div>
-        </motion.div>
-      ))}
-
       {/* Orbiting particles */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         {[0, 1, 2, 3, 4, 5].map((i) => (

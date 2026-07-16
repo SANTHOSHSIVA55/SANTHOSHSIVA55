@@ -622,16 +622,6 @@
   box-shadow: 0 0 30px -8px rgba(59, 130, 246, 0.1);
 }
 
-/* Floating tech icons */
-.hero-tech-icon {
-  animation: hero-float 4.5s ease-in-out infinite;
-}
-
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
 /* Orbiting particles */
 .hero-orbit-dot {
   position: absolute;
@@ -712,7 +702,6 @@ button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-cursor { animation: none; opacity: 1; }
-  .hero-tech-icon { animation: none; }
   .hero-orbit-dot { animation: none; display: none; }
   .hero-btn-primary,
   .hero-btn-ghost { transition: none; }
