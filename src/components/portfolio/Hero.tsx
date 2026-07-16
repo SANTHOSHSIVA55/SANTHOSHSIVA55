@@ -7,12 +7,10 @@ import { profile, heroRoles, heroStats } from "./data";
 /* ─── Smooth Fade Typewriter ─── */
 function useFadeTypewriter(words: string[], interval = 2800) {
   const [idx, setIdx] = useState(0);
-
   useEffect(() => {
     const t = setInterval(() => setIdx((i) => (i + 1) % words.length), interval);
     return () => clearInterval(t);
   }, [words.length, interval]);
-
   return words[idx];
 }
 
@@ -145,7 +143,7 @@ export function Hero() {
   );
 
   return (
-    <section id="top" className="relative min-h-[88dvh] flex items-center overflow-hidden">
+    <section id="top" className="relative overflow-hidden">
       {/* Background glow blobs */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-[12%] right-[10%] w-[500px] h-[500px] rounded-full bg-[#22D3EE]/[0.025] blur-[120px]" />
@@ -153,163 +151,235 @@ export function Hero() {
         <div className="absolute top-[45%] left-[35%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-[#8B5CF6]/[0.015] blur-[90px]" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center lg:items-center lg:justify-between gap-10 lg:gap-16">
+      {/* ── Mobile layout (stacked, centered) ── */}
+      <div className="lg:hidden pt-24 pb-12 sm:pt-28 sm:pb-16">
+        <div className="mx-auto w-full max-w-[480px] px-5 sm:px-6 relative z-10 flex flex-col items-center gap-8">
 
-          {/* Text content */}
-          <div className="flex-1 min-w-0 max-w-[620px] text-center lg:text-left">
+          {/* Profile image — top on mobile */}
+          <ProfileImage cardRef={cardRef} onMove={onMove} onLeave={onLeave} rX={rX} rY={rY} techPositions={techPositions} />
 
-            {/* Badge */}
-            <motion.div {...fadeUp(0.15)} className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-4 py-1.5">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
-              </span>
-              <span className="text-[11px] font-medium text-[#22C55E] tracking-wide">Open to opportunities</span>
-            </motion.div>
+          {/* Text content — below on mobile */}
+          <div className="w-full text-center">
+            <Badge />
+            <Name />
+            <Typewriter typed={typed} />
+            <Bio />
+            <CTAs />
+            <Stats />
+            <Social />
+          </div>
+        </div>
+      </div>
 
-            {/* Name */}
-            <div className="overflow-hidden mb-4">
-              <motion.h1
-                className="font-display font-bold leading-[0.92] tracking-[-0.04em] whitespace-nowrap"
-                style={{ fontSize: "clamp(2rem, 5vw, 4.25rem)" }}
-                initial="hidden"
-                animate="visible"
-                variants={stagger}
-              >
-                {nameParts.map((part, i) => (
-                  <motion.span
-                    key={i}
-                    className={`inline-block mr-[0.3em] ${i === 0 ? "text-[#F8FAFC]" : "text-gradient"}`}
-                    variants={wordReveal}
-                  >
-                    {part}
-                  </motion.span>
-                ))}
-              </motion.h1>
-            </div>
+      {/* ── Desktop layout (side by side) ── */}
+      <div className="hidden lg:flex min-h-screen items-center">
+        <div className="mx-auto w-full max-w-[1200px] px-8 relative z-10 flex items-center justify-between gap-16">
 
-            {/* Fade typewriter */}
-            <motion.div {...fadeUp(0.4)} className="mb-5 h-10 sm:h-11 flex items-center justify-center lg:justify-start overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={typed}
-                  initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display text-lg sm:text-xl md:text-2xl text-[#94A3B8] font-medium"
-                >
-                  {typed}
-                </motion.span>
-              </AnimatePresence>
-              <span className="hero-cursor inline-block h-6 sm:h-7 w-[2px] bg-[#E8E8E8] ml-1" />
-            </motion.div>
-
-            {/* Bio */}
-            <motion.p {...fadeUp(0.5)} className="mb-7 max-w-[540px] text-[14px] sm:text-[15px] leading-[1.85] text-[#94A3B8] mx-auto lg:mx-0">
-              {profile.sub}
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div {...fadeUp(0.6)} className="mb-7 flex flex-wrap items-center gap-3 justify-center lg:justify-start">
-              <MagneticBtn href="#projects" className="hero-btn-primary group relative inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-[#020202] overflow-hidden">
-                <span className="relative z-10">View Projects</span>
-                <ArrowRight className="relative z-10 size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-              </MagneticBtn>
-              <MagneticBtn href="/resume.pdf" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF]">
-                <Download className="size-4" /> Resume
-              </MagneticBtn>
-              <MagneticBtn href={profile.github} target="_blank" rel="noreferrer" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF]">
-                <GithubIcon className="size-4" /> GitHub
-              </MagneticBtn>
-            </motion.div>
-
-            {/* Animated stat cards */}
-            <div className="mb-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {heroStats.map((s, i) => (
-                <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} delay={800 + i * 120} />
-              ))}
-            </div>
-
-            {/* Social */}
-            <motion.div {...fadeUp(1.2)} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-[#94A3B8] justify-center lg:justify-start">
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="size-3.5" /> {profile.location}
-              </span>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
-                <LinkedinIcon className="size-3.5" /> LinkedIn
-              </a>
-              <a href={profile.leetcode} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
-                <LeetcodeIcon className="size-3.5" /> LeetCode
-              </a>
-              <a href={profile.gfg} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
-                <GfgIcon className="size-3.5" /> GFG
-              </a>
-            </motion.div>
+          {/* Text content — left on desktop */}
+          <div className="flex-1 min-w-0 max-w-[620px] text-left">
+            <Badge />
+            <Name />
+            <Typewriter typed={typed} />
+            <Bio />
+            <CTAs />
+            <Stats />
+            <Social />
           </div>
 
-          {/* Profile image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.88, filter: "blur(12px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative shrink-0 self-center lg:self-center"
-          >
-            {/* Floating tech icons */}
-            {techPositions.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.45, delay: 0.7 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="hero-tech-icon absolute z-10"
-                style={{
-                  left: `calc(50% + ${t.x} * var(--hero-orbit) - 26px)`,
-                  top: `calc(50% + ${t.y} * var(--hero-orbit) - 11px)`,
-                  animationDelay: `${i * 0.6}s`,
-                } as React.CSSProperties}
-              >
-                <div className="flex items-center gap-1.5 rounded-full bg-[#0A0A0A]/80 backdrop-blur-md border border-white/[0.08] px-2.5 py-1 shadow-lg">
-                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: t.color }} />
-                  <span className="text-[10px] font-medium text-[#D4D4D4] whitespace-nowrap">{t.name}</span>
-                </div>
-              </motion.div>
-            ))}
-
-            {/* Orbiting particles */}
-            <div className="absolute inset-0 pointer-events-none" aria-hidden>
-              {[0, 1, 2, 3, 4, 5].map((i) => (
-                <span key={i} className="hero-orbit-dot" style={{ animationDuration: `${7 + i * 1.5}s`, animationDelay: `${i * 0.9}s` }} />
-              ))}
-            </div>
-
-            {/* Glass card */}
-            <motion.div
-              ref={cardRef}
-              onMouseMove={onMove}
-              onMouseLeave={onLeave}
-              style={{ rotateX: rX, rotateY: rY, transformPerspective: 1200 }}
-              className="hero-glass-card relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] lg:w-[300px] lg:h-[300px] rounded-full cursor-default"
-            >
-              <div className="hero-animated-border absolute -inset-[2px] rounded-full pointer-events-none" />
-              <div className="relative w-full h-full rounded-full overflow-hidden bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/[0.06]">
-                <img
-                  src={profile.image}
-                  alt={`${profile.name}, Software Engineer & Full Stack Developer`}
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_30px_rgba(0,0,0,0.25)] pointer-events-none sm:shadow-[inset_0_0_40px_rgba(0,0,0,0.35)] lg:shadow-[inset_0_0_60px_rgba(0,0,0,0.45)]" />
-              </div>
-            </motion.div>
-
-            {/* Ambient glow */}
-            <div className="absolute -inset-12 -z-10 rounded-full bg-[#22D3EE]/[0.04] blur-[70px] pointer-events-none" />
-          </motion.div>
+          {/* Profile image — right on desktop */}
+          <ProfileImage cardRef={cardRef} onMove={onMove} onLeave={onLeave} rX={rX} rY={rY} techPositions={techPositions} />
         </div>
       </div>
     </section>
+  );
+}
+
+/* ─── Shared sub-components ─── */
+
+function Badge() {
+  return (
+    <motion.div {...fadeUp(0.15)} className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-4 py-1.5">
+      <span className="relative flex h-1.5 w-1.5">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
+      </span>
+      <span className="text-[11px] font-medium text-[#22C55E] tracking-wide">Open to opportunities</span>
+    </motion.div>
+  );
+}
+
+function Name() {
+  const nameParts = profile.name.split(" ");
+  return (
+    <div className="overflow-hidden mb-4">
+      <motion.h1
+        className="font-display font-bold leading-[0.92] tracking-[-0.04em] whitespace-nowrap"
+        style={{ fontSize: "clamp(2rem, 5vw, 4.25rem)" }}
+        initial="hidden"
+        animate="visible"
+        variants={stagger}
+      >
+        {nameParts.map((part, i) => (
+          <motion.span
+            key={i}
+            className={`inline-block mr-[0.3em] ${i === 0 ? "text-[#F8FAFC]" : "text-gradient"}`}
+            variants={wordReveal}
+          >
+            {part}
+          </motion.span>
+        ))}
+      </motion.h1>
+    </div>
+  );
+}
+
+function Typewriter({ typed }: { typed: string }) {
+  return (
+    <motion.div {...fadeUp(0.4)} className="mb-5 h-10 sm:h-11 flex items-center justify-center overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={typed}
+          initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display text-lg sm:text-xl md:text-2xl text-[#94A3B8] font-medium"
+        >
+          {typed}
+        </motion.span>
+      </AnimatePresence>
+      <span className="hero-cursor inline-block h-6 sm:h-7 w-[2px] bg-[#E8E8E8] ml-1" />
+    </motion.div>
+  );
+}
+
+function Bio() {
+  return (
+    <motion.p {...fadeUp(0.5)} className="mb-7 max-w-[540px] text-[14px] sm:text-[15px] leading-[1.85] text-[#94A3B8] mx-auto">
+      {profile.sub}
+    </motion.p>
+  );
+}
+
+function CTAs() {
+  return (
+    <motion.div {...fadeUp(0.6)} className="mb-7 flex flex-wrap items-center gap-3 justify-center">
+      <MagneticBtn href="#projects" className="hero-btn-primary group relative inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-semibold text-[#020202] overflow-hidden">
+        <span className="relative z-10">View Projects</span>
+        <ArrowRight className="relative z-10 size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+      </MagneticBtn>
+      <MagneticBtn href="/resume.pdf" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF]">
+        <Download className="size-4" /> Resume
+      </MagneticBtn>
+      <MagneticBtn href={profile.github} target="_blank" rel="noreferrer" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 sm:px-7 sm:py-3.5 text-sm font-medium text-[#FFFFFF]">
+        <GithubIcon className="size-4" /> GitHub
+      </MagneticBtn>
+    </motion.div>
+  );
+}
+
+function Stats() {
+  return (
+    <div className="mb-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
+      {heroStats.map((s, i) => (
+        <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} delay={800 + i * 120} />
+      ))}
+    </div>
+  );
+}
+
+function Social() {
+  return (
+    <motion.div {...fadeUp(1.2)} className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-[#94A3B8] justify-center">
+      <span className="inline-flex items-center gap-1.5">
+        <MapPin className="size-3.5" /> {profile.location}
+      </span>
+      <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
+        <LinkedinIcon className="size-3.5" /> LinkedIn
+      </a>
+      <a href={profile.leetcode} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
+        <LeetcodeIcon className="size-3.5" /> LeetCode
+      </a>
+      <a href={profile.gfg} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
+        <GfgIcon className="size-3.5" /> GFG
+      </a>
+    </motion.div>
+  );
+}
+
+function ProfileImage({
+  cardRef,
+  onMove,
+  onLeave,
+  rX,
+  rY,
+  techPositions,
+}: {
+  cardRef: React.RefObject<HTMLDivElement | null>;
+  onMove: (e: React.MouseEvent) => void;
+  onLeave: () => void;
+  rX: ReturnType<typeof useSpring>;
+  rY: ReturnType<typeof useSpring>;
+  techPositions: Array<{ name: string; color: string; x: number; y: number }>;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.88, filter: "blur(12px)" }}
+      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      className="relative shrink-0"
+    >
+      {/* Floating tech icons */}
+      {techPositions.map((t, i) => (
+        <motion.div
+          key={t.name}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.45, delay: 0.7 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="hero-tech-icon absolute z-10"
+          style={{
+            left: `calc(50% + ${t.x} * var(--hero-orbit) - 26px)`,
+            top: `calc(50% + ${t.y} * var(--hero-orbit) - 11px)`,
+            animationDelay: `${i * 0.6}s`,
+          } as React.CSSProperties}
+        >
+          <div className="flex items-center gap-1.5 rounded-full bg-[#0A0A0A]/80 backdrop-blur-md border border-white/[0.08] px-2.5 py-1 shadow-lg">
+            <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: t.color }} />
+            <span className="text-[10px] font-medium text-[#D4D4D4] whitespace-nowrap">{t.name}</span>
+          </div>
+        </motion.div>
+      ))}
+
+      {/* Orbiting particles */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <span key={i} className="hero-orbit-dot" style={{ animationDuration: `${7 + i * 1.5}s`, animationDelay: `${i * 0.9}s` }} />
+        ))}
+      </div>
+
+      {/* Glass card */}
+      <motion.div
+        ref={cardRef}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        style={{ rotateX: rX, rotateY: rY, transformPerspective: 1200 }}
+        className="hero-glass-card relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[260px] md:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full cursor-default mx-auto"
+      >
+        <div className="hero-animated-border absolute -inset-[2px] rounded-full pointer-events-none" />
+        <div className="relative w-full h-full rounded-full overflow-hidden bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/[0.06]">
+          <img
+            src={profile.image}
+            alt={`${profile.name}, Software Engineer & Full Stack Developer`}
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 hover:scale-105"
+          />
+          <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.2)] pointer-events-none sm:shadow-[inset_0_0_30px_rgba(0,0,0,0.3)] lg:shadow-[inset_0_0_50px_rgba(0,0,0,0.4)]" />
+        </div>
+      </motion.div>
+
+      {/* Ambient glow */}
+      <div className="absolute -inset-12 -z-10 rounded-full bg-[#22D3EE]/[0.04] blur-[70px] pointer-events-none" />
+    </motion.div>
   );
 }
