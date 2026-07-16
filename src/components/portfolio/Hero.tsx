@@ -369,7 +369,6 @@ function ProfileImage({
           style={{ rotateX: rX, rotateY: rY, transformPerspective: 1200 }}
           className="hero-glass-card relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[260px] md:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full cursor-default mx-auto group"
         >
-          <div className="hero-animated-border absolute -inset-[2px] rounded-full pointer-events-none" />
           <div className="relative w-full h-full rounded-full overflow-hidden bg-[#0A0A0F]/70 backdrop-blur-xl border border-white/[0.05]">
             <img
               src={profile.image}
