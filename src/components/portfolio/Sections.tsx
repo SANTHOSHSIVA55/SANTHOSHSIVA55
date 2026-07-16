@@ -9,6 +9,7 @@ import {
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
 import { ProjectShowcaseCard, ProjectCardCompact } from "./ProjectShowcase";
+import { InfiniteMarquee } from "./InfiniteMarquee";
 
 /* ──────────── Section Header ──────────── */
 const SectionHeader = memo(function SectionHeader({ kicker, title, lead }: { kicker: string; title: string; lead?: string }) {
@@ -86,63 +87,55 @@ export function About() {
     "DSA", "OOP", "DBMS", "Operating Systems", "Computer Networks", "System Design",
   ];
 
-  const cards = [
-    {
-      icon: <Heart className="size-5" />,
-      title: "Who I Am",
-      content: `I'm ${profile.name} — a Computer Science Engineering student passionate about building scalable web applications and transforming data into meaningful insights.`,
-      gradient: "from-[#E8E8E8]/20 to-[#C0C0C0]/10",
-    },
-    {
-      icon: <Target className="size-5" />,
-      title: "Current Focus",
-      content: "Building production-grade full-stack applications, mastering data analytics, and preparing for Software Engineer / Full Stack Developer roles.",
-      gradient: "from-[#D9D9D9]/20 to-[#A8A8A8]/10",
-    },
-    {
-      icon: <Lightbulb className="size-5" />,
-      title: "Goals",
-      content: "I specialize in React, Node.js, Python, SQL, and data visualization — building full-stack applications, designing RESTful APIs, and creating data-driven dashboards.",
-      gradient: "from-[#F2F2F2]/20 to-[#E8E8E8]/10",
-    },
-    {
-      icon: <GraduationCap className="size-5" />,
-      title: "Education",
-      content: "CSE Undergrad in Chennai, India. 300+ DSA problems solved. Built production-grade software projects and analytics platforms.",
-      gradient: "from-[#C0C0C0]/20 to-[#D9D9D9]/10",
-    },
-    {
-      icon: <Zap className="size-5" />,
-      title: "Highlights",
-      content: "I've solved 300+ DSA problems, built 5+ major projects, and developed analytics platforms that turn raw data into actionable insights. Actively seeking internship and placement opportunities.",
-      gradient: "from-[#A8A8A8]/20 to-[#E8E8E8]/10",
-    },
-  ];
-
   return (
     <section id="about" className="relative section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader kicker="About" title="Aspiring Software Engineer & Builder" />
 
-        {/* Cards grid */}
-        <div className="mt-12 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card, i) => (
+        {/* Editorial large quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-14 max-w-4xl mx-auto"
+        >
+          <blockquote className="relative">
+            <div className="absolute -top-6 -left-4 text-[80px] sm:text-[120px] font-display font-bold text-white/[0.03] leading-none select-none pointer-events-none">
+              &ldquo;
+            </div>
+            <p className="font-display text-xl sm:text-2xl lg:text-3xl font-medium leading-[1.5] text-[#D9D9D9] relative z-10">
+              I&apos;m passionate about building{' '}
+              <span className="text-[#F8FAFC]">scalable web applications</span>{' '}
+              and transforming data into{' '}
+              <span className="text-gradient">meaningful insights</span>{' '}
+              — from first lines of code to production-grade engineering.
+            </p>
+          </blockquote>
+        </motion.div>
+
+        {/* Info cards */}
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: <Target className="size-5" />, title: "Current Focus", desc: "Building production-grade full-stack applications and mastering data analytics." },
+            { icon: <Lightbulb className="size-5" />, title: "Specialization", desc: "React, Node.js, Python, SQL, and data visualization tools." },
+            { icon: <GraduationCap className="size-5" />, title: "Education", desc: "CSE Undergrad in Chennai. 300+ DSA problems solved." },
+            { icon: <Zap className="size-5" />, title: "Seeking", desc: "Internship and placement opportunities in Software Engineering." },
+          ].map((card, i) => (
             <motion.div
               key={card.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className={`glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] ${
-                i === 0 ? "sm:col-span-2 lg:col-span-2" : ""
-              }`}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05]"
             >
               <div className="relative z-10">
                 <div className="flex size-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03] text-[#E8E8E8] mb-4">
                   {card.icon}
                 </div>
-                <h3 className="font-display text-lg font-semibold text-[#FFFFFF]">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{card.content}</p>
+                <h3 className="font-display text-base font-semibold text-[#FFFFFF]">{card.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#A8A8A8]">{card.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -154,9 +147,9 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8"
+          className="mt-10"
         >
-          <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8] mb-3">CS Fundamentals</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8] mb-4">CS Fundamentals</div>
           <div className="flex flex-wrap gap-2">
             {pills.map((p) => (
               <span
@@ -192,7 +185,13 @@ export function Skills() {
           title="Skills & Expertise"
           lead="Technologies and tools I use to build production-grade applications."
         />
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+        {/* Infinite marquee */}
+        <div className="mt-10">
+          <InfiniteMarquee />
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((g, i) => {
             const layout = skillLayouts[g.group] ?? { icon: Code2, color: "#E8E8E8", description: "" };
             const Icon = layout.icon;
@@ -206,7 +205,6 @@ export function Skills() {
                 className="glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.05] chrome-border"
               >
                 <div className="relative z-10">
-                  {/* Header */}
                   <div className="flex items-center gap-3 mb-4">
                     <div
                       className="flex size-11 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.03]"
@@ -219,8 +217,6 @@ export function Skills() {
                       <p className="text-[11px] text-[#A8A8A8]">{layout.description}</p>
                     </div>
                   </div>
-
-                  {/* Skills tags */}
                   <div className="flex flex-wrap gap-1.5">
                     {g.items.map((it) => (
                       <span
@@ -369,7 +365,6 @@ export function Projects() {
           <span>{err ? err : repos ? `Live · ${repos.length} latest projects` : "Fetching projects..."}</span>
         </div>
 
-        {/* Featured project - full width */}
         {!repos && !err && (
           <div className="mt-12 glass-strong h-[480px] animate-pulse rounded-3xl" />
         )}
@@ -379,7 +374,6 @@ export function Projects() {
           </div>
         )}
 
-        {/* Remaining projects grid */}
         {rest.length > 0 && (
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             {rest.map((p, i) => (

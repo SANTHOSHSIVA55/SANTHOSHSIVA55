@@ -15,29 +15,32 @@ export function Contact() {
           lead="Open to internships, Software Engineer roles, Full Stack Developer opportunities, and exciting engineering collaborations."
         />
 
-        {/* Large CTA */}
+        {/* Cinematic large CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-14 glass-strong relative overflow-hidden rounded-3xl p-8 sm:p-12 text-center"
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-14 glass-strong relative overflow-hidden rounded-3xl p-10 sm:p-16 text-center"
         >
           {/* Background glow */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(232,232,232,0.04)_0%,transparent_70%)]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(232,232,232,0.04)_0%,transparent_70%)]" />
           </div>
 
           <div className="relative z-10">
-            <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F8FAFC] leading-tight">
+            <h3
+              className="font-display font-bold text-[#F8FAFC] leading-tight"
+              style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+            >
               Ready to collaborate?
             </h3>
-            <p className="mt-4 text-base sm:text-lg text-[#94A3B8] max-w-lg mx-auto">
-              I'm always open to discussing new projects, creative ideas, and opportunities to be part of your vision.
+            <p className="mt-5 text-base sm:text-lg text-[#94A3B8] max-w-lg mx-auto">
+              I&apos;m always open to discussing new projects, creative ideas, and opportunities to be part of your vision.
             </p>
             <a
               href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`}
-              className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-8 py-4 text-base font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_40px_rgba(232,232,232,0.15)] hover:scale-[1.03] overflow-hidden group"
+              className="mt-10 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-10 py-5 text-base font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_50px_rgba(232,232,232,0.2)] hover:scale-[1.03] overflow-hidden group"
             >
               <Mail className="size-5" />
               <span>Get In Touch</span>
@@ -138,23 +141,30 @@ function ContactRow({
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.04] py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:px-6 text-sm text-[#A8A8A8] sm:flex-row">
-        <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8]" />
-          <span>
+    <footer className="relative border-t border-white/[0.04] py-12 overflow-hidden">
+      {/* Large decorative text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span className="font-display font-bold text-white/[0.015] whitespace-nowrap" style={{ fontSize: "clamp(6rem, 20vw, 18rem)" }}>
+          santhosh
+        </span>
+      </div>
+
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:px-6 sm:flex-row">
+        <div className="flex items-center gap-3">
+          <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] shadow-[0_0_10px_rgba(232,232,232,0.3)]" />
+          <span className="text-sm text-[#A8A8A8]">
             &copy; {new Date().getFullYear()} {profile.name}. Designed &amp; Developed by{" "}
             <span className="text-[#FFFFFF] font-medium">Santhosh T S</span>.
           </span>
         </div>
-        <div className="flex items-center gap-4">
-          <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-[#E8E8E8] transition-colors">
+        <div className="flex items-center gap-5">
+          <a href={profile.github} target="_blank" rel="noreferrer" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
             <GithubIcon className="size-4" />
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#E8E8E8] transition-colors">
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
             <LinkedinIcon className="size-4" />
           </a>
-          <a href={`mailto:${profile.email}`} className="hover:text-[#E8E8E8] transition-colors">
+          <a href={`mailto:${profile.email}`} className="text-[#A8A8A8] hover:text-[#E8E8E8] transition-all duration-300 hover:scale-110">
             <Mail className="size-4" />
           </a>
         </div>

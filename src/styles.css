@@ -454,6 +454,46 @@
     0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
+/* Smooth reveal mask */
+@keyframes reveal-up {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@utility animate-reveal {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Marquee mask gradient */
+@utility mask-fade-x {
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* Stacked glass layers */
+.glass-stack {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.2),
+    0 4px 16px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* Large display type */
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+}
+
+/* Subtle parallax depth */
+@utility depth-0 { transform: translateZ(0); }
+@utility depth-1 { transform: translateZ(-1px) scale(1.1); }
+
 /* Responsive cursor hide on mobile */
 @media (max-width: 768px) {
   body { cursor: auto; }

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const links = [
   { href: "#about", label: "About" },
@@ -11,23 +11,49 @@ const links = [
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#top");
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [atTop, setAtTop] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const onScroll = () => {
-      setScrolled(window.scrollY > 24);
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const delta = scrollY - lastScrollY.current;
+
+        if (scrollY < 60) {
+          setVisible(true);
+          setAtTop(true);
+        } else if (delta > 8) {
+          setVisible(false);
+          setAtTop(false);
+        } else if (delta < -8) {
+          setVisible(true);
+          setAtTop(false);
+        }
+
+        lastScrollY.current = scrollY;
 
         const sections = ["top", "about", "skills", "projects", "journey", "github", "contact"];
-      for (const id of [...sections].reverse()) {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= 150) {
-          setActiveSection("#" + id);
-          break;
+        for (const id of [...sections].reverse()) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 150) {
+            setActiveSection("#" + id);
+            break;
+          }
         }
-      }
+
+        ticking = false;
+      });
     };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -56,18 +82,18 @@ export function Navbar() {
   return (
     <motion.header
       initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
+      animate={{ y: visible ? 0 : -80, opacity: visible ? 1 : 0 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4"
     >
       <nav
         className={`flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2 sm:py-2.5 transition-all duration-500 ${
-          scrolled
+          !atTop
             ? "glass-strong shadow-elevated py-1.5 sm:py-2"
             : "glass"
         }`}
         style={{
-          border: scrolled
+          border: !atTop
             ? "1px solid rgba(232, 232, 232, 0.08)"
             : "1px solid rgba(255, 255, 255, 0.06)",
         }}

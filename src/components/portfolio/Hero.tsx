@@ -47,6 +47,33 @@ const roles = [
   "Problem Solver",
 ];
 
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } },
+};
+
+const wordReveal = {
+  hidden: { opacity: 0, y: "100%", filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 16, filter: "blur(6px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+  transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] },
+});
+
+const fadeIn = (delay: number) => ({
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.5, delay },
+});
+
 export function Hero() {
   const typed = useTypingEffect(roles);
   const sectionRef = useRef<HTMLElement>(null);
@@ -106,12 +133,7 @@ export function Hero() {
           {/* Left: Text content */}
           <div className="min-w-0">
             {/* Availability badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.5, delay: 1.5 }}
-              className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-4 py-1.5"
-            >
+            <motion.div {...fadeUp(0.3)} className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/[0.05] px-4 py-1.5">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22C55E]" />
@@ -121,31 +143,20 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Name - Massive display typography */}
+            {/* Name - Massive display typography with staggered reveal */}
             <div className="overflow-hidden">
               <motion.h1
                 className="font-display font-bold leading-[0.9] tracking-[-0.04em]"
                 style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)" }}
                 initial="hidden"
                 animate="visible"
-                variants={{
-                  hidden: {},
-                  visible: { transition: { staggerChildren: 0.12, delayChildren: 1.6 } },
-                }}
+                variants={stagger}
               >
                 {nameParts.map((part, i) => (
                   <motion.span
                     key={i}
                     className={`inline-block ${i === 0 ? "text-[#F8FAFC]" : "text-gradient"}`}
-                    variants={{
-                      hidden: { opacity: 0, y: "100%", filter: "blur(10px)" },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        filter: "blur(0px)",
-                        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-                      },
-                    }}
+                    variants={wordReveal}
                   >
                     {part}
                   </motion.span>
@@ -157,17 +168,12 @@ export function Hero() {
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6 h-[1px] w-32 origin-left bg-gradient-to-r from-[#E8E8E8] to-transparent"
             />
 
             {/* Role switcher */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 2.1 }}
-              className="mt-5 flex items-center gap-2.5"
-            >
+            <motion.div {...fadeUp(0.6)} className="mt-5 flex items-center gap-2.5">
               <span className="font-display text-xl sm:text-2xl md:text-3xl text-[#94A3B8] font-medium">
                 {typed}
               </span>
@@ -175,22 +181,12 @@ export function Hero() {
             </motion.div>
 
             {/* Bio */}
-            <motion.p
-              initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.5, delay: 2.2 }}
-              className="mt-7 max-w-lg text-base sm:text-lg leading-[1.8] text-[#94A3B8]"
-            >
+            <motion.p {...fadeUp(0.7)} className="mt-7 max-w-lg text-base sm:text-lg leading-[1.8] text-[#94A3B8]">
               {profile.sub}
             </motion.p>
 
             {/* CTA buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 2.3 }}
-              className="mt-10 flex flex-wrap items-center gap-3"
-            >
+            <motion.div {...fadeUp(0.8)} className="mt-10 flex flex-wrap items-center gap-3">
               <a
                 href="#projects"
                 className="group relative inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-7 py-3.5 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_40px_rgba(232,232,232,0.15)] hover:scale-[1.02] overflow-hidden"
@@ -216,12 +212,7 @@ export function Hero() {
             </motion.div>
 
             {/* Social links */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 2.5 }}
-              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#94A3B8]"
-            >
+            <motion.div {...fadeIn(1.0)} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#94A3B8]">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="size-3.5" /> {profile.location}
               </span>
@@ -239,9 +230,9 @@ export function Hero() {
 
           {/* Right: Profile card with 3D tilt */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, filter: "blur(12px)" }}
+            initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-[300px] mx-auto lg:mx-0 lg:max-w-[340px] lg:justify-self-end"
           >
             <motion.div
@@ -276,12 +267,7 @@ export function Hero() {
               </div>
 
               {/* Bottom info card */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 2.2 }}
-                className="mt-6 glass rounded-2xl px-5 py-3.5 border border-white/[0.06] mx-auto max-w-[280px]"
-              >
+              <motion.div {...fadeUp(0.9)} className="mt-6 glass rounded-2xl px-5 py-3.5 border border-white/[0.06] mx-auto max-w-[280px]">
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-[9px] text-[#94A3B8] tracking-[0.2em] uppercase font-medium">Currently</div>
@@ -304,18 +290,18 @@ export function Hero() {
 
         {/* Stats grid */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2.6 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
           className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
         >
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
+              transition={{ duration: 0.4, delay: 1.2 + i * 0.06 }}
               className="glass group rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.06]"
             >
               <div className="font-display text-3xl sm:text-4xl font-bold text-gradient">
