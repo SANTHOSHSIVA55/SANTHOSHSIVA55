@@ -306,7 +306,7 @@ export function Projects() {
       .then(({ repos }) => {
         if (cancelled) return;
         const cleaned = repos
-          .filter((r) => !r.archived)
+          .filter((r) => !r.archived && r.name.toLowerCase() !== "santhoshsiva55")
           .sort((a, b) => +new Date(b.pushed_at) - +new Date(a.pushed_at))
           .slice(0, 6);
         setRepos(cleaned);
