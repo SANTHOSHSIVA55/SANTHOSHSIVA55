@@ -651,7 +651,7 @@ export function GithubStats() {
         ) : (
           <div className="mt-12 space-y-6">
             {/* Profile + Activity */}
-            <div className="grid gap-5 md:grid-cols-[1fr_2fr]">
+            <div className="grid gap-5 sm:grid-cols-[1fr_2fr]">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -751,11 +751,11 @@ export function GithubStats() {
                 className="cosmic-panel-strong rounded-2xl p-6"
               >
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Contribution Graph</div>
-                <div className="mt-5">
+                <div className="mt-5 overflow-x-auto -mx-2 px-2">
                   <img
                     src="https://ghchart.rshah.org/SANTHOSHSIVA55"
                     alt="GitHub contribution chart"
-                    className="w-full rounded-lg"
+                    className="w-full min-w-[320px] rounded-lg"
                     loading="lazy"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = "none";

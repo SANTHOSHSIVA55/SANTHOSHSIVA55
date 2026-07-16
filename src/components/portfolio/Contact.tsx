@@ -129,7 +129,7 @@ function ContactRow({
         </span>
         <div className="min-w-0">
           <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A8A8]">{label}</div>
-          <div className="font-medium text-sm text-[#FFFFFF] truncate">{value}</div>
+          <div className="font-medium text-sm text-[#FFFFFF] truncate max-w-[180px] sm:max-w-none">{value}</div>
         </div>
       </div>
       {href && (

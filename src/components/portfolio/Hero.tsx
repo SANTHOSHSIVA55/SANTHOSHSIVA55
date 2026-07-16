@@ -210,7 +210,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[300px] mx-auto lg:mx-0 lg:max-w-[340px] lg:justify-self-end"
+            className="relative w-full max-w-[300px] mx-auto lg:mx-0 lg:max-w-none lg:justify-self-end"
           >
             <motion.div
               ref={cardRef}
@@ -224,9 +224,7 @@ export function Hero() {
               className="relative group"
             >
               {/* Circular glass frame */}
-              <div className="relative mx-auto w-[260px] h-[260px] lg:w-[300px] lg:h-[300px]">
-                {/* Sun glow behind */}
-                <div className="absolute inset-0 -m-10 rounded-full bg-[#FDB813]/[0.06] blur-[50px] animate-slow-pulse" />
+              <div className="relative mx-auto w-[min(260px,70vw)] h-[min(260px,70vw)] sm:w-[260px] sm:h-[260px] lg:w-[300px] lg:h-[300px]">
                 {/* Metallic border ring */}
                 <div className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-[#F2F2F2]/40 via-[#C0C0C0]/20 to-[#A8A8A8]/30 group-hover:from-[#F2F2F2]/60 group-hover:via-[#C0C0C0]/35 group-hover:to-[#A8A8A8]/50 transition-all duration-700" />
                 {/* Glass ring */}
