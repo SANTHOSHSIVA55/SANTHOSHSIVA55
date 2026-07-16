@@ -3,6 +3,47 @@ import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ExternalLink, ArrowUpRight, Star, GitFork, Monitor, Clock, Users } from "lucide-react";
 import { GithubIcon } from "./icons";
 
+/* ─── Stagger Variants for Dashboard Loading Effect ─── */
+const cardStagger = (i: number) => ({
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.07, delayChildren: i * 0.1 } },
+});
+
+const fadeSlideUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as number[] } },
+};
+
+const fadeSlideLeft = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as number[] } },
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4 } },
+};
+
+const fadeInShort = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.3 } },
+};
+
+const tagPop = (delay: number) => ({
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.25, delay: 0.3 + delay * 0.04, ease: [0.16, 1, 0.3, 1] as number[] } },
+});
+
+const itemSlide = (delay: number) => ({
+  hidden: { opacity: 0, x: -6 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, delay: delay * 0.05 } },
+});
+
+const impactSlide = (delay: number) => ({
+  hidden: { opacity: 0, x: -8 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, delay: delay * 0.06 } },
+});
+
 /* ─── Screenshot URL Generator ─── */
 function getScreenshotUrl(url: string | null): string | null {
   if (!url) return null;
@@ -312,10 +353,10 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      variants={cardStagger(i)}
     >
       <motion.div
         ref={cardRef}
@@ -325,17 +366,14 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
         className="cosmic-panel-strong group relative overflow-hidden rounded-3xl transition-shadow duration-500 shine-sweep chrome-border"
       >
         {/* Enlarged mockup preview area */}
-        <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#0a0a10] to-[#12121a] px-4 pt-10 pb-0 sm:px-6 sm:pt-12">
+        <motion.div
+          variants={fadeSlideUp}
+          className="relative w-full overflow-hidden bg-gradient-to-br from-[#0a0a10] to-[#12121a] px-4 pt-10 pb-0 sm:px-6 sm:pt-12"
+        >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.02)_0%,transparent_60%)] pointer-events-none" />
 
           <div className="relative flex items-end justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative w-full max-w-[400px] mockup-shadow rounded-t-lg overflow-hidden group-hover:scale-[1.03] transition-transform duration-500"
-            >
+            <div className="relative w-full max-w-[400px] mockup-shadow rounded-t-lg overflow-hidden group-hover:scale-[1.03] transition-transform duration-500">
               <LaptopMockup
                 src={src}
                 alt={`${project.title} - Desktop Preview`}
@@ -345,9 +383,9 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
                 onLoad={() => setLoaded(true)}
                 onError={() => setError(true)}
               />
-            </motion.div>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-[#020202]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3 z-20">
@@ -368,7 +406,8 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
 
         {/* Content */}
         <div className="p-6">
-          <div className="flex items-start justify-between gap-3">
+          <motion.div variants={fadeSlideLeft}
+            className="flex items-start justify-between gap-3">
             <div>
               <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A8A8]">{project.tag}</div>
               <h3 className="mt-1 font-display text-lg font-semibold text-[#FFFFFF] capitalize">{project.title}</h3>
@@ -377,54 +416,63 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
               className="cosmic-panel inline-flex size-11 items-center justify-center rounded-xl transition-all duration-300 hover:bg-white/[0.06] shrink-0 border border-white/[0.05]">
               <ArrowUpRight className="size-4 text-[#A8A8A8] group-hover:text-[#3B82F6] transition-colors" />
             </a>
-          </div>
+          </motion.div>
 
-          <p className="mt-2 text-sm text-[#A8A8A8] line-clamp-2 break-words">{project.description}</p>
+          <motion.p variants={fadeIn}
+            className="mt-2 text-sm text-[#A8A8A8] line-clamp-2 break-words">{project.description}</motion.p>
 
           {(project.duration || project.role) && (
-            <div className="mt-2 flex flex-wrap items-center gap-2.5 text-[11px] text-[#94A3B8]">
+            <motion.div variants={fadeInShort}
+              className="mt-2 flex flex-wrap items-center gap-2.5 text-[11px] text-[#94A3B8]">
               {project.duration && (
                 <span className="inline-flex items-center gap-1"><Clock className="size-3" /> {project.duration}</span>
               )}
               {project.role && (
                 <span className="inline-flex items-center gap-1"><Users className="size-3" /> {project.role}</span>
               )}
-            </div>
+            </motion.div>
           )}
 
           {project.impact && project.impact.length > 0 && (
             <div className="mt-2 space-y-1">
-              {project.impact.map((m: string) => (
-                <div key={m} className="flex items-start gap-1.5 text-[11px] text-[#A8A8A8]">
+              {project.impact.map((m: string, mi: number) => (
+                <motion.div key={m}
+                  variants={impactSlide(mi)}
+                  className="flex items-start gap-1.5 text-[11px] text-[#A8A8A8]">
                   <span className="mt-1 size-1 rounded-full bg-[#22C55E] shrink-0" /> {m}
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
 
           {project.features && (
             <ul className="mt-3 space-y-1.5 text-xs text-[#A8A8A8]">
-              {project.features.slice(0, 3).map((f: string) => (
-                <li key={f} className="flex items-start gap-2">
+              {project.features.slice(0, 3).map((f: string, fi: number) => (
+                <motion.li key={f}
+                  variants={itemSlide(fi)}
+                  className="flex items-start gap-2">
                   <span className="mt-1.5 size-1 rounded-full bg-[#3B82F6] shrink-0" /> {f}
-                </li>
+                </motion.li>
               ))}
             </ul>
           )}
 
           {(project.stars !== undefined || project.updated) && (
-            <div className="mt-3 flex flex-wrap items-center gap-3 text-[11px] text-[#A8A8A8]">
+            <motion.div variants={fadeInShort}
+              className="mt-3 flex flex-wrap items-center gap-3 text-[11px] text-[#A8A8A8]">
               {project.stars !== undefined && <span className="inline-flex items-center gap-1"><Star className="size-3" /> {project.stars}</span>}
               {project.forks !== undefined && <span className="inline-flex items-center gap-1"><GitFork className="size-3" /> {project.forks}</span>}
               {project.updated && <span>Updated {new Date(project.updated).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</span>}
-            </div>
+            </motion.div>
           )}
 
           <div className="mt-3 flex flex-wrap gap-1.5">
-            {project.stack.map((s: string) => (
-              <span key={s} className="rounded-lg border border-white/[0.05] bg-white/[0.02] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+            {project.stack.map((s: string, si: number) => (
+              <motion.span key={s}
+                variants={tagPop(si)}
+                className="rounded-lg border border-white/[0.05] bg-white/[0.02] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
                 {s}
-              </span>
+              </motion.span>
             ))}
           </div>
         </div>
