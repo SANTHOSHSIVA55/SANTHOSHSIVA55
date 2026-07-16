@@ -79,8 +79,8 @@ export function Navbar() {
           className="flex items-center gap-2 font-display font-bold tracking-tight shrink-0 group"
         >
           <div className="relative">
-            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#8B5CF6] transition-shadow group-hover:shadow-[0_0_15px_rgba(0,229,255,0.5)]" />
-            <div className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#8B5CF6] blur-md opacity-60" />
+            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] transition-shadow group-hover:shadow-[0_0_15px_rgba(232,232,232,0.3)]" />
+            <div className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] blur-md opacity-40" />
           </div>
           <span className="text-sm sm:text-base text-[#F8FAFC]">
             santhosh
@@ -99,14 +99,14 @@ export function Navbar() {
                   onClick={(e) => handleClick(e, l.href)}
                   className={`relative rounded-xl px-3 py-1.5 text-sm transition-all duration-300 ${
                     isActive
-                      ? "text-[#00E5FF]"
-                      : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04]"
+                      ? "text-[#E8E8E8]"
+                      : "text-[#A8A8A8] hover:text-[#FFFFFF] hover:bg-white/[0.04]"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="navbar-active"
-                      className="absolute inset-0 rounded-xl bg-[#00E5FF]/[0.08] border border-[#00E5FF]/[0.12]"
+                      className="absolute inset-0 rounded-xl bg-white/[0.06] border border-white/[0.08]"
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
@@ -122,10 +122,10 @@ export function Navbar() {
           <a
             href="#contact"
             onClick={(e) => handleClick(e, "#contact")}
-            className="group relative rounded-xl bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] px-4 py-2 text-sm font-semibold text-[#020617] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,229,255,0.35)] hover:scale-[1.03] overflow-hidden"
+            className="group relative rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-2 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_25px_rgba(232,232,232,0.15)] hover:scale-[1.03] overflow-hidden"
           >
             <span className="relative z-10">Let&apos;s talk</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#8B5CF6] to-[#00E5FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#C0C0C0] to-[#E8E8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </a>
         </div>
 
@@ -194,7 +194,7 @@ export function Navbar() {
                 <a
                   href="#contact"
                   onClick={(e) => handleClick(e, "#contact")}
-                  className="flex items-center justify-center rounded-xl bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] px-4 py-3 text-sm font-semibold text-[#020617]"
+                  className="flex items-center justify-center rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-3 text-sm font-semibold text-[#020202]"
                 >
                   Let&apos;s talk
                 </a>

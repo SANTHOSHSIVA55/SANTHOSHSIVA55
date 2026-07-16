@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Santhosh T S — Full Stack Developer & Data Analyst" },
       { name: "description", content: "Portfolio of Santhosh T S — Computer Science Engineering student, Full Stack Developer and Data Analyst in Chennai building scalable web applications and data-driven solutions." },
       { name: "author", content: "Santhosh T S" },
-      { name: "theme-color", content: "#020617" },
+      { name: "theme-color", content: "#020202" },
       { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
       { property: "og:description", content: "Building scalable full-stack applications, data-driven solutions, and modern software products using React, Node.js, Python, SQL, and analytics tools." },
       { property: "og:type", content: "website" },
@@ -116,7 +116,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-[#020617] text-[#F8FAFC]">
+      <body className="bg-[#020202] text-[#FFFFFF]">
         {children}
         <Scripts />
       </body>

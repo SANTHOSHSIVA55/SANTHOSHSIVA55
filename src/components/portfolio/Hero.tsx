@@ -39,10 +39,8 @@ function useTypingEffect(words: string[], speed = 75, deleteSpeed = 35, pause = 
 const roles = [
   "Software Engineer",
   "Full Stack Developer",
-  "Frontend Developer",
   "Data Analyst",
   "Problem Solver",
-  "AI Builder",
 ];
 
 export function Hero() {
@@ -91,14 +89,14 @@ export function Hero() {
         style={{ y: bgY }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-[15%] left-[10%] w-[500px] h-[500px] rounded-full bg-[#00E5FF]/[0.07] blur-[120px] animate-aurora" />
-        <div className="absolute top-[25%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#8B5CF6]/[0.06] blur-[100px] animate-aurora-delayed" />
-        <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] rounded-full bg-[#3B82F6]/[0.05] blur-[110px] animate-aurora-slow" />
+        <div className="absolute top-[15%] left-[10%] w-[500px] h-[500px] rounded-full bg-[#D9D9D9]/[0.04] blur-[120px] animate-aurora" />
+        <div className="absolute top-[25%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#C0C0C0]/[0.03] blur-[100px] animate-aurora-delayed" />
+        <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] rounded-full bg-[#A8A8A8]/[0.02] blur-[110px] animate-aurora-slow" />
       </motion.div>
 
       {/* Central radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.05)_0%,transparent_65%)] animate-slow-pulse" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,232,232,0.03)_0%,transparent_65%)] animate-slow-pulse" />
       </div>
 
       <motion.div style={{ y: textY, opacity }} className="mx-auto max-w-6xl px-4 sm:px-6 w-full pt-28 pb-20">
@@ -158,7 +156,7 @@ export function Hero() {
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ duration: 0.8, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 h-[1px] w-32 origin-left bg-gradient-to-r from-[#00E5FF] to-transparent"
+              className="mt-6 h-[1px] w-32 origin-left bg-gradient-to-r from-[#E8E8E8] to-transparent"
             />
 
             {/* Role switcher */}
@@ -171,7 +169,7 @@ export function Hero() {
               <span className="font-display text-xl sm:text-2xl md:text-3xl text-[#94A3B8] font-medium">
                 {typed}
               </span>
-              <span className="inline-block h-7 w-[2px] bg-gradient-to-b from-[#00E5FF] to-[#8B5CF6] animate-pulse" />
+              <span className="inline-block h-7 w-[2px] bg-gradient-to-b from-[#E8E8E8] to-[#A8A8A8] animate-pulse" />
             </motion.div>
 
             {/* Bio */}
@@ -193,15 +191,15 @@ export function Hero() {
             >
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] px-7 py-3.5 text-sm font-semibold text-[#020617] transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,229,255,0.3)] hover:scale-[1.02] overflow-hidden"
+                className="group relative inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-7 py-3.5 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_40px_rgba(232,232,232,0.15)] hover:scale-[1.02] overflow-hidden"
               >
                 <span className="relative z-10">View Projects</span>
                 <ArrowRight className="relative z-10 size-4 transition-transform group-hover:translate-x-1" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#8B5CF6] to-[#00E5FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#C0C0C0] to-[#E8E8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </a>
               <a
                 href="/resume.pdf"
-                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#F8FAFC] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.12]"
+                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.15]"
               >
                 <Download className="size-4" /> Resume
               </a>
@@ -209,7 +207,7 @@ export function Hero() {
                 href={profile.github}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#F8FAFC] transition-all duration-300 hover:bg-white/[0.07]"
+                className="group inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#FFFFFF] transition-all duration-300 hover:bg-white/[0.07]"
               >
                 <GithubIcon className="size-4" /> GitHub
               </a>
@@ -225,13 +223,13 @@ export function Hero() {
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="size-3.5" /> {profile.location}
               </span>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#00E5FF] transition-colors">
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
                 <LinkedinIcon className="size-3.5" /> LinkedIn
               </a>
-              <a href={profile.leetcode} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#00E5FF] transition-colors">
+              <a href={profile.leetcode} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
                 <LeetcodeIcon className="size-3.5" /> LeetCode
               </a>
-              <a href={profile.gfg} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#00E5FF] transition-colors">
+              <a href={profile.gfg} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-[#E8E8E8] transition-colors">
                 <GfgIcon className="size-3.5" /> GFG
               </a>
             </motion.div>
@@ -245,7 +243,7 @@ export function Hero() {
             className="relative w-full max-w-[300px] mx-auto lg:mx-0 lg:max-w-[340px] lg:justify-self-end"
           >
             {/* Animated glow behind card */}
-            <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-tr from-[#00E5FF]/15 via-[#8B5CF6]/10 to-transparent blur-3xl animate-slow-pulse" />
+            <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-tr from-[#E8E8E8]/[0.06] via-[#C0C0C0]/[0.04] to-transparent blur-3xl animate-slow-pulse" />
 
             <motion.div
               ref={cardRef}
@@ -259,7 +257,7 @@ export function Hero() {
               className="relative"
             >
               {/* Gradient border */}
-              <div className="absolute -inset-[1px] rounded-[2.2rem] bg-gradient-to-br from-[#00E5FF]/50 via-[#8B5CF6]/25 to-[#00E5FF]/15" />
+              <div className="absolute -inset-[1px] rounded-[2.2rem] bg-gradient-to-br from-[#E8E8E8]/30 via-[#C0C0C0]/15 to-[#A8A8A8]/10" />
 
               {/* Card body */}
               <div className="glass-strong relative overflow-hidden rounded-[2.1rem] p-3 shadow-elevated">

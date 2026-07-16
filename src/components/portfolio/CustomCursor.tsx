@@ -101,10 +101,10 @@ export function CustomCursor() {
             height: isHovering ? 56 : isPressed ? 36 : 40,
             borderWidth: isHovering ? 2 : 1,
             borderColor: isHovering
-              ? "rgba(0, 229, 255, 0.5)"
-              : "rgba(248, 250, 252, 0.2)",
+              ? "rgba(232, 232, 232, 0.4)"
+              : "rgba(255, 255, 255, 0.15)",
             backgroundColor: isHovering
-              ? "rgba(0, 229, 255, 0.05)"
+              ? "rgba(232, 232, 232, 0.04)"
               : "transparent",
           }}
           transition={{ duration: 0.2, ease: "easeOut" }}

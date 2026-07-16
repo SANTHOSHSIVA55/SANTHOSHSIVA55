@@ -7,21 +7,21 @@ export function AnimatedBackground() {
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(180deg, #020617 0%, #050816 30%, #071426 60%, #0B132B 100%)",
+          background: "linear-gradient(180deg, #020202 0%, #070707 30%, #0D0D0D 60%, #121212 100%)",
         }}
       />
 
       {/* Aurora blobs */}
       <div className="absolute inset-0">
-        <div className="absolute top-[-10%] left-[-5%] w-[60vw] h-[60vh] rounded-full bg-[#00E5FF]/[0.07] blur-[120px] animate-aurora" />
-        <div className="absolute top-[10%] right-[-10%] w-[50vw] h-[50vh] rounded-full bg-[#8B5CF6]/[0.06] blur-[100px] animate-aurora-delayed" />
-        <div className="absolute bottom-[-5%] left-[20%] w-[45vw] h-[40vh] rounded-full bg-[#3B82F6]/[0.05] blur-[110px] animate-aurora-slow" />
+        <div className="absolute top-[-10%] left-[-5%] w-[60vw] h-[60vh] rounded-full bg-[#D9D9D9]/[0.03] blur-[120px] animate-aurora" />
+        <div className="absolute top-[10%] right-[-10%] w-[50vw] h-[50vh] rounded-full bg-[#C0C0C0]/[0.02] blur-[100px] animate-aurora-delayed" />
+        <div className="absolute bottom-[-5%] left-[20%] w-[45vw] h-[40vh] rounded-full bg-[#A8A8A8]/[0.02] blur-[110px] animate-aurora-slow" />
       </div>
 
       {/* Radial light beams */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.06)_0%,transparent_70%)] animate-slow-pulse" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,232,232,0.03)_0%,transparent_70%)] animate-slow-pulse" />
         </div>
       </div>
 
@@ -51,7 +51,7 @@ export function AnimatedBackground() {
       />
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#020617] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#020202] to-transparent" />
     </div>
   );
 }
@@ -97,7 +97,7 @@ function FloatingParticles() {
         this.vy = (Math.random() - 0.5) * 0.15 - 0.05;
         this.size = Math.random() * 1.5 + 0.5;
         this.opacity = Math.random() * 0.3 + 0.1;
-        this.hue = Math.random() > 0.5 ? 187 : 270; // cyan or violet
+        this.hue = Math.random() > 0.5 ? 0 : 1; // silver or light gray
       }
 
       update() {
@@ -114,10 +114,10 @@ function FloatingParticles() {
       draw() {
         ctx!.beginPath();
         ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        if (this.hue === 187) {
-          ctx!.fillStyle = `rgba(0, 229, 255, ${this.opacity})`;
+        if (this.hue === 0) {
+          ctx!.fillStyle = `rgba(232, 232, 232, ${this.opacity})`;
         } else {
-          ctx!.fillStyle = `rgba(139, 92, 246, ${this.opacity})`;
+          ctx!.fillStyle = `rgba(192, 192, 192, ${this.opacity})`;
         }
         ctx!.fill();
       }
@@ -161,7 +161,7 @@ export function ScrollProgress() {
         id="scroll-progress-bar"
         className="h-full origin-left scale-x-0"
         style={{
-          background: "linear-gradient(90deg, #00E5FF, #8B5CF6, #00E5FF)",
+          background: "linear-gradient(90deg, #E8E8E8, #C0C0C0, #E8E8E8)",
           transition: "transform 0.1s linear",
         }}
       />

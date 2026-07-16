@@ -25,7 +25,7 @@ export function Contact() {
         >
           {/* Background glow */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.08)_0%,transparent_70%)]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(232,232,232,0.04)_0%,transparent_70%)]" />
           </div>
 
           <div className="relative z-10">
@@ -37,7 +37,7 @@ export function Contact() {
             </p>
             <a
               href={`mailto:${profile.email}?subject=Hello%20Santhosh&body=Hi%20Santhosh%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.`}
-              className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] px-8 py-4 text-base font-semibold text-[#020617] transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,229,255,0.35)] hover:scale-[1.03] overflow-hidden group"
+              className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-8 py-4 text-base font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_40px_rgba(232,232,232,0.15)] hover:scale-[1.03] overflow-hidden group"
             >
               <Mail className="size-5" />
               <span>Get In Touch</span>
@@ -111,7 +111,7 @@ function ContactRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.4 }}
-      className="glass group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.06] hover-glow border border-white/[0.04] hover:border-white/[0.08]"
+      className="glass group flex items-center justify-between gap-4 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.06] hover-glow border border-white/[0.04] hover:border-white/[0.10] chrome-border"
     >
       <div className="flex items-center gap-4 min-w-0">
         <span
@@ -125,12 +125,12 @@ function ContactRow({
           {icon}
         </span>
         <div className="min-w-0">
-          <div className="text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]">{label}</div>
-          <div className="font-medium text-sm text-[#F8FAFC] truncate">{value}</div>
+          <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A8A8]">{label}</div>
+          <div className="font-medium text-sm text-[#FFFFFF] truncate">{value}</div>
         </div>
       </div>
       {href && (
-        <ArrowUpRight className="size-4 text-[#94A3B8] transition-all duration-300 group-hover:text-[#00E5FF] group-hover:translate-x-0.5 shrink-0" />
+        <ArrowUpRight className="size-4 text-[#A8A8A8] transition-all duration-300 group-hover:text-[#E8E8E8] group-hover:translate-x-0.5 shrink-0" />
       )}
     </motion.a>
   );
@@ -139,22 +139,22 @@ function ContactRow({
 export function Footer() {
   return (
     <footer className="border-t border-white/[0.04] py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:px-6 text-sm text-[#94A3B8] sm:flex-row">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:px-6 text-sm text-[#A8A8A8] sm:flex-row">
         <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-gradient-to-br from-[#00E5FF] to-[#8B5CF6]" />
+          <div className="h-2 w-2 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8]" />
           <span>
             &copy; {new Date().getFullYear()} {profile.name}. Designed &amp; Developed by{" "}
-            <span className="text-[#F8FAFC] font-medium">Santhosh T S</span>.
+            <span className="text-[#FFFFFF] font-medium">Santhosh T S</span>.
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-[#00E5FF] transition-colors">
+          <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-[#E8E8E8] transition-colors">
             <GithubIcon className="size-4" />
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#00E5FF] transition-colors">
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#E8E8E8] transition-colors">
             <LinkedinIcon className="size-4" />
           </a>
-          <a href={`mailto:${profile.email}`} className="hover:text-[#00E5FF] transition-colors">
+          <a href={`mailto:${profile.email}`} className="hover:text-[#E8E8E8] transition-colors">
             <Mail className="size-4" />
           </a>
         </div>
