@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
-import { ProjectShowcaseCard, ProjectCardCompact } from "./ProjectShowcase";
+import { ProjectCardCompact } from "./ProjectShowcase";
 import { InfiniteMarquee } from "./InfiniteMarquee";
 
 /* ──────────── Section Header ──────────── */
@@ -349,9 +349,6 @@ export function Projects() {
     }));
   }, [repos]);
 
-  const featured = cards[0];
-  const rest = cards.slice(1);
-
   return (
     <section id="projects" className="relative section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -368,15 +365,9 @@ export function Projects() {
         {!repos && !err && (
           <div className="mt-12 glass-strong h-[480px] animate-pulse rounded-3xl" />
         )}
-        {featured && (
-          <div className="mt-12">
-            <ProjectShowcaseCard project={featured} />
-          </div>
-        )}
-
-        {rest.length > 0 && (
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            {rest.map((p, i) => (
+        {cards.length > 0 && (
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {cards.map((p, i) => (
               <ProjectCardCompact key={p.title} project={p} index={i} />
             ))}
           </div>
