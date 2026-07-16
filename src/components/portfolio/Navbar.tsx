@@ -14,9 +14,8 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("#top");
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
   const lastScrollY = useRef(0);
-  const mouseActive = useRef(false);
 
   useEffect(() => {
     let ticking = false;
@@ -32,10 +31,10 @@ export function Navbar() {
         if (scrollY < 60) {
           setVisible(true);
           setAtTop(true);
-        } else if (delta > 10) {
-          if (!mouseActive.current) setVisible(false);
+        } else if (delta > 8) {
+          setVisible(false);
           setAtTop(false);
-        } else if (delta < -10) {
+        } else if (delta < -8) {
           setVisible(true);
           setAtTop(false);
         }
@@ -60,14 +59,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onMouseMove = useCallback(() => {
-    mouseActive.current = true;
-    if (!atTop) setVisible(true);
-  }, [atTop]);
-
-  const onMouseLeave = useCallback(() => {
-    mouseActive.current = false;
-  }, []);
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -75,142 +76,154 @@ export function Navbar() {
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    setOpen(false);
   };
 
   return (
-    <motion.nav
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      initial={{ y: 40, opacity: 0, filter: "blur(12px)" }}
-      animate={{
-        y: visible ? 0 : 100,
-        opacity: visible ? 1 : 0,
-        filter: visible ? "blur(0px)" : "blur(12px)",
-      }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-2 py-2 max-w-[920px] w-[calc(100%-2rem)]"
-      style={{
-        background: "rgba(10,10,10,0.55)",
-        backdropFilter: "blur(28px) saturate(180%)",
-        WebkitBackdropFilter: "blur(28px) saturate(180%)",
-        border: "1px solid rgba(255,255,255,0.12)",
-        borderRadius: "9999px",
-        boxShadow:
-          "0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06)",
-        height: "64px",
-      }}
+    <motion.header
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: visible ? 0 : -80, opacity: visible ? 1 : 0 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4"
     >
-      {/* Nav links */}
-      <div className="flex items-center gap-0.5 flex-1 justify-center">
-        {links.map((l, i) => {
-          const isActive = activeSection === l.href;
-          const isHovered = hoveredIdx === i;
-
-          return (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => handleClick(e, l.href)}
-              onMouseEnter={() => setHoveredIdx(i)}
-              onMouseLeave={() => setHoveredIdx(null)}
-              className="relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300"
-              style={{
-                color: isActive ? "#FFFFFF" : isHovered ? "#FFFFFF" : "#A8A8A8",
-                transform: isHovered ? "scale(1.05) translateY(-1px)" : "scale(1) translateY(0)",
-                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
-            >
-              {/* Active background */}
-              {isActive && (
-                <motion.div
-                  layoutId="dock-active"
-                  className="absolute inset-0 rounded-full"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(192,192,192,0.25), rgba(242,242,242,0.15))",
-                    border: "1px solid rgba(232,232,232,0.2)",
-                    boxShadow: "0 0 20px rgba(232,232,232,0.08), inset 0 1px 0 rgba(255,255,255,0.1)",
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-
-              {/* Hover glow */}
-              {isHovered && !isActive && (
-                <div
-                  className="absolute inset-0 rounded-full"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    boxShadow: "0 0 16px rgba(232,232,232,0.06)",
-                  }}
-                />
-              )}
-
-              {/* Shine sweep on hover */}
-              {isHovered && (
-                <div
-                  className="absolute inset-0 rounded-full overflow-hidden pointer-events-none"
-                >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 48%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.06) 52%, transparent 60%)",
-                      animation: "dock-shine 0.6s ease forwards",
-                    }}
-                  />
-                </div>
-              )}
-
-              <span className="relative z-10">{l.label}</span>
-            </a>
-          );
-        })}
-      </div>
-
-      {/* Divider */}
-      <div className="w-px h-6 bg-white/[0.1] mx-1 shrink-0" />
-
-      {/* CTA Button */}
-      <a
-        href="#contact"
-        onClick={(e) => handleClick(e, "#contact")}
-        onMouseEnter={() => setHoveredIdx(-1)}
-        onMouseLeave={() => setHoveredIdx(null)}
-        className="relative shrink-0 px-5 py-2 text-sm font-semibold rounded-full overflow-hidden transition-all duration-300"
-        style={{
-          background: "linear-gradient(135deg, #C0C0C0, #E8E8E8, #F2F2F2)",
-          color: "#020202",
-          boxShadow: "0 2px 12px rgba(232,232,232,0.15), inset 0 1px 0 rgba(255,255,255,0.4)",
-          transform: hoveredIdx === -1 ? "scale(1.05) translateY(-1px)" : "scale(1) translateY(0)",
-        }}
+      <nav
+        className={`flex w-full max-w-4xl items-center justify-between rounded-2xl px-3 sm:px-5 py-2 sm:py-2.5 transition-all duration-500 ${
+          !atTop
+            ? "cosmic-panel-strong shadow-elevated py-1.5 sm:py-2"
+            : "cosmic-panel"
+        }`}
       >
-        {/* Glossy reflection */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%)",
-            borderRadius: "9999px",
-          }}
-        />
-        {/* Shine sweep on hover */}
-        {hoveredIdx === -1 && (
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.4) 48%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.4) 52%, transparent 65%)",
-              animation: "dock-shine 0.6s ease forwards",
-            }}
-          />
-        )}
-        <span className="relative z-10">Let's Talk</span>
-      </a>
+        {/* Logo */}
+        <a
+          href="#top"
+          onClick={(e) => handleClick(e, "#top")}
+          className="flex items-center gap-2 font-display font-bold tracking-tight shrink-0 group"
+        >
+          <div className="relative">
+            <div className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] transition-shadow group-hover:shadow-[0_0_15px_rgba(232,232,232,0.3)]" />
+            <div className="absolute inset-0 h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#E8E8E8] to-[#A8A8A8] blur-md opacity-40" />
+          </div>
+          <span className="text-sm sm:text-base text-[#F8FAFC]">
+            santhosh
+            <span className="text-[#94A3B8] font-medium">.dev</span>
+          </span>
+        </a>
 
-      {/* Keyframes injected via style tag */}
-      <style>{`
-        @keyframes dock-shine {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-      `}</style>
-    </motion.nav>
+        {/* Desktop links */}
+        <ul className="hidden items-center gap-0.5 md:flex">
+          {links.map((l) => {
+            const isActive = activeSection === l.href;
+            return (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={(e) => handleClick(e, l.href)}
+                  className={`relative rounded-xl px-3 py-1.5 text-sm transition-all duration-300 ${
+                    isActive
+                      ? "text-[#E8E8E8]"
+                      : "text-[#A8A8A8] hover:text-[#FFFFFF] hover:bg-white/[0.04]"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="navbar-active"
+                      className="absolute inset-0 rounded-xl bg-white/[0.06] border border-white/[0.08]"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{l.label}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center gap-2">
+          <a
+            href="#contact"
+            onClick={(e) => handleClick(e, "#contact")}
+            className="group relative rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-2 text-sm font-semibold text-[#020202] transition-all duration-300 hover:shadow-[0_0_25px_rgba(232,232,232,0.15)] hover:scale-[1.03] overflow-hidden"
+          >
+            <span className="relative z-10">Let&apos;s talk</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#C0C0C0] to-[#E8E8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          </a>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          aria-label="Toggle menu"
+          onClick={() => setOpen((o) => !o)}
+          className="md:hidden flex items-center justify-center size-10 rounded-xl text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04] transition-colors"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          >
+            {open ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </>
+            ) : (
+              <>
+                <line x1="4" y1="8" x2="20" y2="8" />
+                <line x1="4" y1="16" x2="16" y2="16" />
+              </>
+            )}
+          </svg>
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -12, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.97 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              className="absolute left-3 right-3 top-[64px] cosmic-panel-strong rounded-2xl p-3 md:hidden shadow-elevated"
+            >
+              <ul className="flex flex-col gap-0.5">
+                {links.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      onClick={(e) => handleClick(e, l.href)}
+                      className="flex items-center rounded-xl px-4 py-3 text-sm text-[#94A3B8] hover:bg-white/[0.04] hover:text-[#F8FAFC] transition-colors"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-2 border-t border-white/[0.06] pt-2">
+                <a
+                  href="#contact"
+                  onClick={(e) => handleClick(e, "#contact")}
+                  className="flex items-center justify-center rounded-xl bg-gradient-to-r from-[#E8E8E8] to-[#C0C0C0] px-4 py-3 text-sm font-semibold text-[#020202]"
+                >
+                  Let&apos;s talk
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

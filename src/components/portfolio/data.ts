@@ -89,24 +89,6 @@ export const projects = [
     accent: "from-cyan-400/30 to-blue-500/20",
   },
   {
-    title: "Portfolio",
-    tag: "Full Stack · Portfolio",
-    description:
-      "Modern Full Stack Developer portfolio showcasing web applications, technical skills, projects, and software engineering experience.",
-    problem: "Developers need a compelling online presence to showcase their work and attract opportunities.",
-    solution: "A modern, responsive portfolio built with TanStack Start and React, featuring glassmorphism design, live GitHub integration, and optimized for recruiter impact.",
-    stack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    features: [
-      "Responsive glassmorphism design",
-      "Live GitHub API integration",
-      "Smooth animations",
-      "SEO optimized",
-    ],
-    github: "https://github.com/SANTHOSHSIVA55/SANTHOSHSIVA55",
-    website: "https://santhosh-portfolio-plum.vercel.app",
-    accent: "from-sky-400/30 to-indigo-500/20",
-  },
-  {
     title: "E-commerce Analytics Dashboard",
     tag: "Full Stack · Analytics",
     description:
