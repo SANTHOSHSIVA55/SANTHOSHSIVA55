@@ -299,9 +299,9 @@ export function Hero() {
                   alt={`${profile.name}, Software Engineer & Full Stack Developer`}
                   loading="eager"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_60px_rgba(0,0,0,0.5)] pointer-events-none" />
+                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_30px_rgba(0,0,0,0.25)] pointer-events-none sm:shadow-[inset_0_0_40px_rgba(0,0,0,0.35)] lg:shadow-[inset_0_0_60px_rgba(0,0,0,0.45)]" />
               </div>
             </motion.div>
 
