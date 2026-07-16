@@ -123,7 +123,7 @@ export function Hero() {
             {/* Name - Massive display typography */}
             <div className="overflow-hidden">
               <motion.h1
-                className="font-display font-bold leading-[0.9] tracking-[-0.04em]"
+                className="font-display font-bold leading-[0.9] tracking-[-0.04em] whitespace-nowrap"
                 style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)" }}
                 initial="hidden"
                 animate="visible"
