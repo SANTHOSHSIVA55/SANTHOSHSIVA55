@@ -204,7 +204,7 @@ export function Footer() {
         {/* Bottom row — copyright + social */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
           <span className="text-xs text-[#94A3B8]">
-            &copy; {new Date().getFullYear()} {profile.name}. Designed &amp; Developed by{" "}
+            &copy; {new Date().getFullYear()} {profile.name}. Developed by{" "}
             <span className="text-[#FFFFFF] font-medium">Santhosh T S</span>.
           </span>
           <div className="flex items-center gap-2">
