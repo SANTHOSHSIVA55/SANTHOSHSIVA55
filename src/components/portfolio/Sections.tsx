@@ -162,6 +162,7 @@ const skillLayouts: Record<string, { icon: typeof Code2; color: string; descript
   "Backend": { icon: Code2, color: "#C0C0C0", description: "Scalable APIs and server architecture" },
   "Database": { icon: Database, color: "#A8A8A8", description: "Data modeling and query optimization" },
   "Tools": { icon: Wrench, color: "#F2F2F2", description: "Development workflow and collaboration" },
+  "Computer Science": { icon: Brain, color: "#E8E8E8", description: "Fundamental theory and problem solving" },
 };
 
 export function Skills() {
