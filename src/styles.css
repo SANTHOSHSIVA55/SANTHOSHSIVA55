@@ -521,6 +521,46 @@
   a, button { cursor: pointer; }
 }
 
+/* Hero profile photo — premium glass border ring */
+.hero-photo-ring {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(34, 211, 238, 0.12) 30%,
+    rgba(255, 255, 255, 0.06) 60%,
+    rgba(34, 211, 238, 0.08) 100%
+  );
+}
+
+.hero-photo-group:hover .hero-photo-ring {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(34, 211, 238, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 60%,
+    rgba(34, 211, 238, 0.15) 100%
+  );
+  transition: background 0.7s ease;
+}
+
+/* Hero profile photo — premium shadow with cyan tint */
+.hero-photo-shadow {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 30px -4px rgba(34, 211, 238, 0.12),
+    0 0 60px -8px rgba(34, 211, 238, 0.06),
+    0 20px 50px -10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-photo-group:hover .hero-photo-shadow {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 40px -4px rgba(34, 211, 238, 0.18),
+    0 0 80px -8px rgba(34, 211, 238, 0.1),
+    0 24px 60px -10px rgba(0, 0, 0, 0.55);
+  transition: box-shadow 0.7s ease;
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
