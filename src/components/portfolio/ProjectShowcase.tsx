@@ -47,55 +47,6 @@ function LaptopMockup({
       <svg viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
         <rect x="40" y="10" width="720" height="440" rx="12" fill="#0A0A0A" />
         <rect x="44" y="14" width="712" height="432" rx="10" fill="#111111" />
-
-        {src && !error ? (
-          <foreignObject x="44" y="14" width="712" height="432" className="rounded-[10px] overflow-hidden">
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{ width: "100%", height: "100%", position: "relative" }}>
-              {!loaded && (
-                <div style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: "linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.02) 75%)",
-                  backgroundSize: "200% 100%",
-                  animation: "shimmer 2s ease-in-out infinite",
-                }} />
-              )}
-              <img
-                src={src}
-                alt={alt}
-                onLoad={onLoad}
-                onError={onError}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "top",
-                  opacity: loaded ? 1 : 0,
-                  transition: "opacity 0.5s ease",
-                }}
-              />
-            </div>
-          </foreignObject>
-        ) : (
-          <foreignObject x="44" y="14" width="712" height="432" className="rounded-[10px] overflow-hidden">
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{
-              width: "100%",
-              height: "100%",
-              background: "linear-gradient(135deg, #181818 0%, #0D0D0D 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-              gap: "12px",
-            }}>
-              <Monitor style={{ width: 48, height: 48, color: "rgba(255,255,255,0.1)" }} />
-              <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.15)", fontFamily: "Inter, sans-serif" }}>
-                Preview
-              </span>
-            </div>
-          </foreignObject>
-        )}
-
         <rect x="44" y="14" width="712" height="36" rx="10" fill="rgba(18,18,18,0.95)" />
         <rect x="44" y="40" width="712" height="6" fill="rgba(18,18,18,0.95)" />
         <circle cx="68" cy="32" r="5" fill="#FF5F57" opacity="0.8" />
@@ -108,7 +59,6 @@ function LaptopMockup({
         <rect x="36" y="456" width="728" height="54" rx="6" fill="#0D0D0D" />
         <rect x="36" y="456" width="728" height="54" rx="6" stroke="rgba(255,255,255,0.04)" strokeWidth="1" fill="none" />
         <rect x="44" y="14" width="712" height="200" rx="10" fill="url(#laptopReflection)" opacity="0.03" />
-
         <defs>
           <linearGradient id="laptopReflection" x1="44" y1="14" x2="44" y2="214" gradientUnits="userSpaceOnUse">
             <stop offset="0" stopColor="white" />
@@ -116,6 +66,33 @@ function LaptopMockup({
           </linearGradient>
         </defs>
       </svg>
+
+      {/* Screenshot overlay positioned over the screen area (44/800=5.5%, 14/520=2.7%, 712/800=89%, 432/520=83%) */}
+      <div
+        className="absolute overflow-hidden rounded-[10px]"
+        style={{ left: "5.5%", top: "2.7%", width: "89%", height: "83.1%" }}
+      >
+        {src && !error ? (
+          <>
+            {!loaded && (
+              <div className="absolute inset-0 screenshot-shimmer" />
+            )}
+            <img
+              src={src}
+              alt={alt}
+              onLoad={onLoad}
+              onError={onError}
+              className="w-full h-full object-cover object-top"
+              style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.5s ease" }}
+            />
+          </>
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[#181818] to-[#0D0D0D] flex items-center justify-center flex-col gap-3">
+            <Monitor className="size-12 text-white/10" />
+            <span className="text-sm text-white/15 font-[Inter,sans-serif]">Preview</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
