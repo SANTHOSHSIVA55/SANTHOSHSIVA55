@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useState, useEffect } from "react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
-import { About, Skills, Projects, Journey, GithubStats, Certifications, Achievements } from "@/components/portfolio/Sections";
+import { About, Skills, Projects, Journey, GithubStats, Certifications, Now, Achievements } from "@/components/portfolio/Sections";
 import { Contact, Footer, BackToTop } from "@/components/portfolio/Contact";
 import { LoadingScreen } from "@/components/portfolio/LoadingScreen";
 import { CustomCursor } from "@/components/portfolio/CustomCursor";
@@ -88,6 +88,8 @@ function Index() {
           <Journey />
           <div className="section-divider my-0" />
           <Certifications />
+          <div className="section-divider my-0" />
+          <Now />
           <div className="section-divider my-0" />
           <Achievements />
           <div className="section-divider my-0" />

@@ -537,6 +537,69 @@ export function Certifications() {
   );
 }
 
+/* ──────────── Now ──────────── */
+export function Now() {
+  const items = [
+    {
+      icon: <BookOpen className="size-4" />,
+      label: "Learning",
+      title: "Advanced SQL & Database Design",
+      desc: "Window functions, query optimization, and schema design for analytics workloads.",
+      color: "#3B82F6",
+    },
+    {
+      icon: <Code2 className="size-4" />,
+      label: "Building",
+      title: "Real-time Data Pipeline",
+      desc: "Streaming ETL with Kafka and Python — processing live data into dashboards.",
+      color: "#6366F1",
+    },
+    {
+      icon: <Lightbulb className="size-4" />,
+      label: "Exploring",
+      title: "System Design Patterns",
+      desc: "Studying distributed systems, caching strategies, and scalable architecture.",
+      color: "#8B5CF6",
+    },
+  ];
+
+  return (
+    <section id="now" className="relative section-padding">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeader kicker="Now" title="What I'm Up To" lead="Currently focused on these three areas." />
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {items.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
+            >
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <div
+                    className="flex size-8 items-center justify-center rounded-lg border bg-opacity-10"
+                    style={{ borderColor: `${item.color}20`, backgroundColor: `${item.color}08`, color: item.color }}
+                  >
+                    {item.icon}
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-medium" style={{ color: item.color }}>
+                    {item.label}
+                  </span>
+                </div>
+                <h3 className="font-display text-sm font-semibold text-[#FFFFFF] leading-snug">{item.title}</h3>
+                <p className="mt-1.5 text-xs text-[#A8A8A8] leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ──────────── Achievements ──────────── */
 export function Achievements() {
   const iconMap: Record<string, typeof Code2> = {
