@@ -18,7 +18,7 @@ function useFadeTypewriter(words: string[], interval = 2800) {
 function AnimatedStat({ value, suffix, label, delay }: { value: number; suffix: string; label: string; delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState<number | null>(null);
 
   useEffect(() => {
     if (!isInView) return;
@@ -44,7 +44,11 @@ function AnimatedStat({ value, suffix, label, delay }: { value: number; suffix: 
       className="hero-stat-card group relative rounded-2xl px-4 py-3.5 text-center cursor-default"
     >
       <div className="font-display text-2xl sm:text-3xl font-bold text-accent-gradient tabular-nums">
-        {display}{suffix}
+        {display === null ? (
+          <span className="inline-block h-7 w-12 animate-pulse rounded-lg bg-white/[0.06]" />
+        ) : (
+          <>{display}{suffix}</>
+        )}
       </div>
       <div className="text-[11px] sm:text-xs text-[#94A3B8] mt-1 leading-tight font-medium">{label}</div>
     </motion.div>

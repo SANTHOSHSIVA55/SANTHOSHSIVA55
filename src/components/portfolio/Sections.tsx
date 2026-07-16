@@ -260,12 +260,23 @@ function fetchGitHubData() {
 
   const githubUser = profile.github.split("/").pop();
   _fetchPromise = Promise.all([
-    fetch(`https://api.github.com/users/${githubUser}`).then((r) => r.json()),
-    fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`).then((r) => r.json()),
+    fetch(`https://api.github.com/users/${githubUser}`).then((r) => {
+      if (r.status === 403) throw new Error("rate-limited");
+      if (!r.ok) throw new Error(`GitHub API error: ${r.status}`);
+      return r.json();
+    }),
+    fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`).then((r) => {
+      if (r.status === 403) throw new Error("rate-limited");
+      if (!r.ok) throw new Error(`GitHub API error: ${r.status}`);
+      return r.json();
+    }),
   ]).then(([u, r]: [User, Repo[]]) => {
     _cachedUser = u;
     _cachedRepos = (r ?? []).filter((x) => !x.fork);
     return { repos: _cachedRepos, user: _cachedUser };
+  }).catch((err) => {
+    _fetchPromise = null;
+    throw err;
   });
 
   return _fetchPromise;
@@ -293,7 +304,7 @@ export function Projects() {
           .slice(0, 6);
         setRepos(cleaned);
       })
-      .catch(() => !cancelled && setErr("Showing featured projects."));
+      .catch(() => !cancelled && setErr("Showing cached projects."));
     return () => { cancelled = true; };
   }, []);
 
@@ -340,12 +351,28 @@ export function Projects() {
           lead="Real-world applications spanning full-stack platforms, AI systems, and data-driven tools."
         />
         <div className="mt-5 flex items-center justify-center gap-2 text-xs text-[#A8A8A8]">
-          <RefreshCw className="size-3.5" />
-          <span>{err ? err : repos ? `Live · ${repos.length} latest projects` : "Fetching projects..."}</span>
+          <RefreshCw className={`size-3.5 ${!repos && !err ? "animate-spin" : ""}`} />
+          <span>{err ? err : repos ? `Live · ${repos.length} latest projects` : ""}</span>
         </div>
 
         {!repos && !err && (
-          <div className="mt-12 glass-strong h-[480px] animate-pulse rounded-3xl" />
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {Array.from({ length: 2 }).map((_, i) => (
+              <div key={i} className="glass-strong rounded-3xl overflow-hidden">
+                <div className="h-[280px] animate-pulse bg-white/[0.03]" />
+                <div className="p-6 space-y-3">
+                  <div className="h-5 w-3/4 animate-pulse rounded bg-white/[0.05]" />
+                  <div className="h-3 w-full animate-pulse rounded bg-white/[0.04]" />
+                  <div className="h-3 w-5/6 animate-pulse rounded bg-white/[0.04]" />
+                  <div className="flex gap-2 pt-2">
+                    {[1, 2, 3].map((j) => (
+                      <div key={j} className="h-5 w-16 animate-pulse rounded-full bg-white/[0.04]" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
         {cards.length > 0 && (
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -583,7 +610,9 @@ export function GithubStats() {
         setUser(user);
         setRepos(repos);
       })
-      .catch(() => !cancelled && setErr("Could not load GitHub data."));
+      .catch((err) => !cancelled && setErr(err?.message === "rate-limited"
+        ? "GitHub API rate limited — try again later."
+        : "Could not load GitHub data."));
     return () => { cancelled = true; };
   }, []);
 
@@ -603,10 +632,10 @@ export function GithubStats() {
       .slice(0, 6);
   }, [repos]);
 
-  const totalStars = useMemo(() => repos?.reduce((s, r) => s + r.stargazers_count, 0) ?? 0, [repos]);
-  const totalForks = useMemo(() => repos?.reduce((s, r) => s + r.forks_count, 0) ?? 0, [repos]);
+  const totalStars = useMemo(() => repos === null ? "—" : repos.reduce((s, r) => s + r.stargazers_count, 0), [repos]);
+  const totalForks = useMemo(() => repos === null ? "—" : repos.reduce((s, r) => s + r.forks_count, 0), [repos]);
   const recentCommits = useMemo(() => {
-    if (!repos) return 0;
+    if (!repos) return "—";
     const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
     return repos.filter((r) => new Date(r.pushed_at).getTime() > thirtyDaysAgo).length;
   }, [repos]);
@@ -687,8 +716,18 @@ export function GithubStats() {
               >
                 <div className="text-xs uppercase tracking-[0.2em] text-[#A8A8A8]">Top Languages</div>
                 <div className="mt-5 space-y-3.5">
-                  {langData.length === 0 && (
-                    <p className="text-sm text-[#A8A8A8]">Loading language data...</p>
+                  {langData.length === 0 && !err && (
+                    <div className="space-y-3">
+                      {Array.from({ length: 4 }).map((_, i) => (
+                        <div key={i} className="space-y-1.5">
+                          <div className="flex items-center justify-between">
+                            <div className="h-3 w-20 animate-pulse rounded bg-white/[0.05]" />
+                            <div className="h-3 w-8 animate-pulse rounded bg-white/[0.04]" />
+                          </div>
+                          <div className="h-1.5 w-full animate-pulse rounded-full bg-white/[0.04]" />
+                        </div>
+                      ))}
+                    </div>
                   )}
                   {langData.map((l) => (
                     <div key={l.name}>
@@ -806,9 +845,16 @@ export function GithubStats() {
 }
 
 const MiniStat = memo(function MiniStat({ label, value }: { label: string; value: number | string }) {
+  const isLoading = value === "—";
   return (
     <div className="rounded-xl border border-white/[0.05] bg-white/[0.02] p-3">
-      <div className="font-display text-xl font-bold text-[#FFFFFF]">{value}</div>
+      <div className="font-display text-xl font-bold text-[#FFFFFF]">
+        {isLoading ? (
+          <span className="inline-block h-5 w-10 animate-pulse rounded bg-white/[0.06]" />
+        ) : (
+          value
+        )}
+      </div>
       <div className="text-[10px] uppercase tracking-wider text-[#B5B5B5] mt-0.5">{label}</div>
     </div>
   );
