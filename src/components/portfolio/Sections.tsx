@@ -110,17 +110,25 @@ export function About() {
             </p>
 
             {/* Quick facts */}
-            <div className="mt-6 flex flex-wrap gap-3">
+            <motion.div
+              className="mt-6 flex flex-wrap gap-3"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-30px" }}
+              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+            >
               {[
                 { label: "4th Year CSE", icon: <GraduationCap className="size-3.5" /> },
                 { label: "300+ DSA", icon: <Code2 className="size-3.5" /> },
                 { label: "Open to Internships", icon: <Zap className="size-3.5" /> },
               ].map((f) => (
-                <span key={f.label} className="inline-flex items-center gap-1.5 rounded-full border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] px-3 py-1.5 text-xs text-[#A8A8A8]">
+                <motion.span key={f.label}
+                  variants={pillPop}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] px-3 py-1.5 text-xs text-[#A8A8A8]">
                   {f.icon} {f.label}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right — Animated cards */}
@@ -165,6 +173,26 @@ const skillLayouts: Record<string, { icon: typeof Code2; color: string; descript
   "Computer Science": { icon: Brain, color: "#3B82F6", description: "Fundamental theory and problem solving" },
 };
 
+const cardReveal = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as number[] } },
+};
+
+const cardRevealScale = {
+  hidden: { opacity: 0, y: 15, scale: 0.97 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as number[] } },
+};
+
+const tagRipple = (delay: number) => ({
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.25, delay: 0.2 + delay * 0.03, ease: [0.16, 1, 0.3, 1] as number[] } },
+});
+
+const pillPop = {
+  hidden: { opacity: 0, scale: 0.8, y: 8 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] as number[] } },
+};
+
 export function Skills() {
   return (
     <section id="skills" className="relative section-padding">
@@ -179,17 +207,20 @@ export function Skills() {
           <InfiniteMarquee />
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((g, i) => {
+        <motion.div
+          className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+        >
+          {skills.map((g) => {
             const layout = skillLayouts[g.group] ?? { icon: Code2, color: "#3B82F6", description: "" };
             const Icon = layout.icon;
             return (
               <motion.div
                 key={g.group}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
+                variants={cardReveal}
                 className="cosmic-panel group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.03] chrome-border hover-glow"
               >
                 <div className="relative z-10">
@@ -206,13 +237,14 @@ export function Skills() {
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
-                    {g.items.map((it) => (
-                      <span
+                    {g.items.map((it, ti) => (
+                      <motion.span
                         key={it}
+                        variants={tagRipple(ti)}
                         className="rounded-lg border border-white/[0.05] bg-white/[0.02] px-2.5 py-1 text-xs text-[#A8A8A8] transition-all duration-200 group-hover:text-[#FFFFFF] group-hover:border-white/[0.08] group-hover:bg-white/[0.04]"
                       >
                         {it}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                   {g.projects && g.projects.length > 0 && (
@@ -231,7 +263,7 @@ export function Skills() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -299,7 +331,7 @@ export function Projects() {
       .then(({ repos }) => {
         if (cancelled) return;
         const cleaned = repos
-          .filter((r) => !r.archived && r.name.toLowerCase() !== "santhoshsiva55")
+          .filter((r) => !r.archived && r.name.toLowerCase() !== "santhoshsiva55" && r.name.toLowerCase() !== "certificates")
           .sort((a, b) => +new Date(b.pushed_at) - +new Date(a.pushed_at))
           .slice(0, 6);
         setRepos(cleaned);
@@ -617,17 +649,20 @@ export function Achievements() {
           title="Achievements"
           lead="Key milestones that reflect my growth and dedication."
         />
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
-          {achievements.map((a, i) => {
+        <motion.div
+          className="mt-12 grid gap-4 sm:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+        >
+          {achievements.map((a) => {
             const Icon = iconMap[a.icon] ?? Trophy;
-            const color = colors[i] ?? "#3B82F6";
+            const color = colors[achievements.indexOf(a)] ?? "#3B82F6";
             return (
               <motion.div
                 key={a.label}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
+                variants={cardRevealScale}
                 className="cosmic-panel group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
                 <div className="relative z-10">
@@ -642,7 +677,7 @@ export function Achievements() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
