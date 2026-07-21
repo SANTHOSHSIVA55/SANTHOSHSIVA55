@@ -92,15 +92,6 @@ export function SolarSystem({ scrollProgress }: SolarSystemProps) {
             atmosphereColor="#C1440E"
           />
 
-          {/* Jupiter - Certificates */}
-          <Planet
-            position={[12, -110, -1]}
-            radius={2.8}
-            color="#C88B3A"
-            rotationSpeed={0.06}
-            orbitSpeed={0.03}
-          />
-
           {/* Saturn - Achievements */}
           <Planet
             position={[-10, -132, 2]}

@@ -12,7 +12,6 @@ const CAMERA_PATH: { y: number; z: number; lookAt: [number, number, number] }[] 
   { y: -44, z: 14, lookAt: [0, -44, 0] },    // Venus (Skills)
   { y: -66, z: 16, lookAt: [0, -66, 0] },    // Earth (Projects)
   { y: -88, z: 14, lookAt: [0, -88, 0] },    // Mars (Journey)
-  { y: -110, z: 18, lookAt: [0, -110, 0] },  // Jupiter (Certificates)
   { y: -132, z: 16, lookAt: [0, -132, 0] },  // Saturn (Achievements)
   { y: -154, z: 14, lookAt: [0, -154, 0] },  // Uranus (GitHub)
   { y: -176, z: 16, lookAt: [0, -176, 0] },  // Neptune (Contact)
