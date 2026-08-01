@@ -45,30 +45,48 @@ const impactSlide = (delay: number) => ({
 });
 
 /* ─── Screenshot URL Generator ─── */
-function getScreenshotUrl(url: string | null): string | null {
+function getScreenshotUrl(url: string | null, retry = 0): string | null {
   if (!url) return null;
   try {
     new URL(url);
   } catch {
     return null;
   }
-  return `https://image.thum.io/get/width/1600/crop/900/${url}`;
+  const base = `https://image.thum.io/get/width/1600/crop/900/no/animate/20/${url}`;
+  return retry > 0 ? `${base}&retry=${retry}&t=${Date.now()}` : base;
 }
 
 /* ─── Screenshot Hook ─── */
 function useScreenshot(url: string | null) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [retry, setRetry] = useState(0);
 
-  const src = useMemo(() => getScreenshotUrl(url), [url]);
+  const src = useMemo(() => getScreenshotUrl(url, retry), [url, retry]);
 
   useEffect(() => {
-    if (!src) return;
-    const timeout = setTimeout(() => setError(true), 12000);
+    if (!src || loaded) return;
+    const timeout = setTimeout(() => {
+      if (!loaded) setError(true);
+    }, 20000);
     return () => clearTimeout(timeout);
-  }, [src]);
+  }, [src, loaded]);
 
-  return { src, loaded, error, setLoaded, setError };
+  const handleLoad = useCallback(() => {
+    setLoaded(true);
+    setError(false);
+  }, []);
+
+  const handleError = useCallback(() => {
+    if (retry < 2) {
+      setRetry((r) => r + 1);
+      setError(false);
+    } else {
+      setError(true);
+    }
+  }, [retry]);
+
+  return { src, loaded, error, handleLoad, handleError };
 }
 
 /* ─── Laptop Mockup SVG ─── */
@@ -160,7 +178,7 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), { stiffness: 200, damping: 25 });
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-3, 3]), { stiffness: 200, damping: 25 });
 
-  const { src, loaded, error, setLoaded, setError } = useScreenshot(project.homepage ?? null);
+  const { src, loaded, error, handleLoad, handleError } = useScreenshot(project.homepage ?? null);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
@@ -209,8 +227,8 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
                 title={project.title}
                 loaded={loaded}
                 error={error}
-                onLoad={() => setLoaded(true)}
-                onError={() => setError(true)}
+                onLoad={handleLoad}
+                onError={handleError}
               />
             </motion.div>
           </div>
@@ -334,7 +352,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), { stiffness: 200, damping: 25 });
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), { stiffness: 200, damping: 25 });
 
-  const { src, loaded, error, setLoaded, setError } = useScreenshot(project.homepage ?? null);
+  const { src, loaded, error, handleLoad, handleError } = useScreenshot(project.homepage ?? null);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
@@ -380,8 +398,8 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
                 title={project.title}
                 loaded={loaded}
                 error={error}
-                onLoad={() => setLoaded(true)}
-                onError={() => setError(true)}
+                onLoad={handleLoad}
+                onError={handleError}
               />
             </div>
           </div>
