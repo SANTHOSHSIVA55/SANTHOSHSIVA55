@@ -3,7 +3,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   Code2, Layers, Sparkles,
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
-  Award, Trophy, Target, Zap, TrendingUp, CheckCircle2,
+  Award, Trophy, Target, Zap, CheckCircle2,
   Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
@@ -97,15 +97,15 @@ export function About() {
               <p className="font-display text-xl sm:text-2xl lg:text-[28px] font-medium leading-[1.55] text-[#D9D9D9] relative z-10">
                 I&apos;m passionate about building{' '}
                 <span className="text-[#F8FAFC]">scalable web applications</span>{' '}
-                and transforming data into{' '}
-                <span className="text-accent-gradient">meaningful insights</span>{' '}
+                and solving real-world problems with{' '}
+                <span className="text-accent-gradient">clean engineering</span>{' '}
                 — from first lines of code to production-grade engineering.
               </p>
             </blockquote>
 
             <p className="mt-6 text-sm sm:text-[15px] leading-[1.85] text-[#94A3B8] max-w-lg">
-              A Computer Science undergrad in Chennai with hands-on experience in full-stack development,
-              data analytics, and modern software engineering. I build products that solve real problems
+              A Computer Science undergrad in Chennai with hands-on experience in full-stack development
+              and modern software engineering. I build products that solve real problems
               and deliver measurable impact.
             </p>
 
@@ -134,8 +134,8 @@ export function About() {
           {/* Right — Animated cards */}
           <div className="grid gap-3 sm:grid-cols-2">
             {[
-              { icon: <Target className="size-5" />, title: "Current Focus", desc: "Building production-grade full-stack applications and mastering data analytics." },
-              { icon: <Lightbulb className="size-5" />, title: "Specialization", desc: "React, Node.js, Python, SQL, and data visualization tools." },
+              { icon: <Target className="size-5" />, title: "Current Focus", desc: "Building production-grade full-stack applications and mastering advanced engineering practices." },
+              { icon: <Lightbulb className="size-5" />, title: "Specialization", desc: "React, Node.js, Python, and modern web technologies." },
               { icon: <GraduationCap className="size-5" />, title: "Education", desc: "CSE Undergrad in Chennai. 300+ DSA problems solved." },
               { icon: <Zap className="size-5" />, title: "Seeking", desc: "Internship and placement opportunities in Software Engineering." },
             ].map((card, i) => (
@@ -165,7 +165,6 @@ export function About() {
 
 /* ──────────── Skills ──────────── */
 const skillLayouts: Record<string, { icon: typeof Code2; color: string; description: string }> = {
-  "Data Analytics": { icon: TrendingUp, color: "#3B82F6", description: "Transforming raw data into actionable insights" },
   "Frontend": { icon: Layers, color: "#60A5FA", description: "Building beautiful, responsive interfaces" },
   "Backend": { icon: Code2, color: "#818CF8", description: "Scalable APIs and server architecture" },
   "Database": { icon: Database, color: "#A78BFA", description: "Data modeling and query optimization" },
@@ -383,7 +382,7 @@ export function Projects() {
         <SectionHeader
           kicker="Featured Work"
           title="Projects I've Built"
-          lead="Real-world applications spanning full-stack platforms, AI systems, and data-driven tools."
+          lead="Real-world applications spanning full-stack platforms, AI systems, and modern web tools."
         />
         <div className="mt-5 flex items-center justify-center gap-2 text-xs text-[#A8A8A8]">
           <RefreshCw className={`size-3.5 ${!repos && !err ? "animate-spin" : ""}`} />
@@ -436,7 +435,7 @@ export function Journey() {
   return (
     <section id="journey" className="relative section-padding">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeader kicker="Journey" title="The Road So Far" lead="From first lines of code to building full-stack and data-driven applications." />
+        <SectionHeader kicker="Journey" title="The Road So Far" lead="From first lines of code to building production-grade full-stack applications." />
 
         <div className="relative mt-14">
           {/* Growing vertical line */}
@@ -576,7 +575,7 @@ export function Now() {
       icon: <BookOpen className="size-4" />,
       label: "Learning",
       title: "Advanced SQL & Database Design",
-      desc: "Window functions, query optimization, and schema design for analytics workloads.",
+      desc: "Window functions, query optimization, and schema design for high-scale workloads.",
       color: "#3B82F6",
     },
     {
