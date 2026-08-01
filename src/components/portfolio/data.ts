@@ -21,7 +21,7 @@ export const heroRoles = [
 export const heroStats = [
   { value: 300, suffix: "+", label: "DSA Problems" },
   { value: 3, suffix: "+", label: "Projects" },
-  { value: 7, suffix: "", label: "Certifications" },
+  { value: 14, suffix: "", label: "Certifications" },
   { value: 3, suffix: "+", label: "Years Coding" },
 ];
 
@@ -175,50 +175,106 @@ export const certifications = [
     title: "HTML Certification",
     issuer: "Simplilearn",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Html%20Simplilearn.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Html%20Simplilearn.png",
     skills: ["HTML"],
   },
   {
     title: "CSS Certification",
     issuer: "Simplilearn",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Css%20Simplilearn.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Css%20Simplilearn.png",
     skills: ["CSS"],
   },
   {
     title: "UI and UX Certification",
     issuer: "HCL GUVI",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/HCL%20GUVI%20Certification%20-%20UI%20And%20UX.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/HCL%20GUVI%20Certification%20-%20UI%20And%20UX.png",
     skills: ["UI/UX", "Design"],
   },
   {
     title: "AI for Beginners",
     issuer: "HP",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Hp%20Ai%20For%20beginners.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Hp%20Ai%20For%20beginners.png",
     skills: ["AI"],
   },
   {
     title: "Gemini in Google Docs",
     issuer: "Skillup",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Gemini%20in%20Google%20Docs%20Skillup.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Gemini%20in%20Google%20Docs%20Skillup.png",
     skills: ["Gemini", "Productivity"],
   },
   {
     title: "Prompt Engineering",
     issuer: "Expertisor Academy",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Expertisor%20acedemy%20prompt%20engineering.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Expertisor%20acedemy%20prompt%20engineering.png",
     skills: ["Prompt Engineering"],
   },
   {
     title: "Placement Preparation",
     issuer: "Let's Upgrade",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Placement%20Prep-Let%27s%20Upgrade.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Placement%20Prep-Let%27s%20Upgrade.png",
     skills: ["Placement Prep"],
+  },
+  {
+    title: "Python Full Course Online - Complete Beginner to Advanced",
+    issuer: "GeeksforGeeks",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/GFG%20Python%20course%20certificate.jpg",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/GFG%20Python%20course%20certificate.jpg",
+    skills: ["Python", "Programming"],
+  },
+  {
+    title: "Mastering AWS Serverless: Hands-On with Core AWS Services",
+    issuer: "Udemy",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/AWS%20Udemy%20Certificate.jpg",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/AWS%20Udemy%20Certificate.jpg",
+    skills: ["AWS", "Serverless", "Cloud"],
+  },
+  {
+    title: "Data Science Tools",
+    issuer: "Cognitive Class / IBM",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/data%20science%20tools-%20congintiveclass.ai.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/data%20science%20tools-%20congintiveclass.ai.png",
+    skills: ["Data Science", "Tools"],
+  },
+  {
+    title: "Data Analysis with Python",
+    issuer: "freeCodeCamp",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Freecodecamp%20Data%20Analysis%20with%20Python.jpeg",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Freecodecamp%20Data%20Analysis%20with%20Python.jpeg",
+    skills: ["Python", "Pandas", "Data Analysis"],
+  },
+  {
+    title: "Data Analytics Job Simulation",
+    issuer: "Deloitte Australia / Forage",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Deloitte%20Australia%20%E2%80%93%20Data%20Analytics%20Job%20Simulation.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Deloitte%20Australia%20%E2%80%93%20Data%20Analytics%20Job%20Simulation.png",
+    skills: ["Data Analytics", "Problem Solving"],
+  },
+  {
+    title: "GenAI Powered Data Analytics Job Simulation",
+    issuer: "TATA / Forage",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/GEN%20AI%20-%20POWER%20DATA%20ANALYTICS%20SIMULATION.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/GEN%20AI%20-%20POWER%20DATA%20ANALYTICS%20SIMULATION.png",
+    skills: ["GenAI", "Data Analytics"],
+  },
+  {
+    title: "Data Analysis: Visualisations in Excel",
+    issuer: "OpenLearn",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/data%20visualisations%20in%20execl-openlearn.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/data%20visualisations%20in%20execl-openlearn.png",
+    skills: ["Excel", "Data Visualization"],
   },
 ];
 
 export const achievements = [
   { value: 300, suffix: "+", label: "DSA Problems Solved", icon: "code" },
   { value: 3, suffix: "+", label: "Major Projects Built", icon: "rocket" },
-  { value: 7, suffix: "", label: "Certifications Earned", icon: "sparkle" },
+  { value: 14, suffix: "", label: "Certifications Earned", icon: "sparkle" },
 ];
 
 export const navLinks = [

@@ -3,7 +3,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   Code2, Layers, Sparkles,
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
-  Award, Trophy, Target, Zap, CheckCircle2,
+  Award, Trophy, Target, Zap, CheckCircle2, X,
   Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
@@ -517,6 +517,17 @@ export function Journey() {
 
 /* ──────────── Certifications ──────────── */
 export function Certifications() {
+  const [active, setActive] = useState<(typeof certifications)[number] | null>(null);
+
+  useEffect(() => {
+    if (!active) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [active]);
+
   return (
     <section id="certifications" className="relative section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -526,44 +537,102 @@ export function Certifications() {
           lead="Industry-recognized certifications that validate my expertise."
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {certifications.map((c, i) => {
-            const hasLink = c.link && c.link !== "#";
-            const Tag = hasLink ? motion.a : motion.div;
-            const linkProps = hasLink ? { href: c.link, target: "_blank", rel: "noreferrer" } : {};
-            return (
-              <Tag
-                key={c.title}
-                {...linkProps}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className={`cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.03] hover-glow shine-sweep chrome-border ${hasLink ? "cursor-pointer" : ""}`}
-              >
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex size-10 items-center justify-center rounded-xl border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] text-[#3B82F6]">
-                      <Award className="size-5" />
-                    </div>
-                    {hasLink && <ExternalLink className="size-3.5 text-[#94A3B8] opacity-0 group-hover:opacity-100 transition-opacity" />}
+          {certifications.map((c, i) => (
+            <motion.button
+              key={c.title}
+              type="button"
+              onClick={() => setActive(c)}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 hover:bg-white/[0.03] hover-glow shine-sweep chrome-border cursor-pointer"
+            >
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] text-[#3B82F6]">
+                    <Award className="size-5" />
                   </div>
-                  <h3 className="font-display text-sm font-semibold text-[#FFFFFF] leading-snug">{c.title}</h3>
-                  <p className="mt-1.5 text-xs text-[#A8A8A8]">{c.issuer}</p>
-                  {c.skills && (
-                    <div className="mt-3 flex flex-wrap gap-1">
-                      {c.skills.map((s) => (
-                        <span key={s} className="rounded-full bg-white/[0.03] border border-white/[0.05] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                  <ExternalLink className="size-3.5 text-[#94A3B8] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-              </Tag>
-            );
-          })}
+                <h3 className="font-display text-sm font-semibold text-[#FFFFFF] leading-snug">{c.title}</h3>
+                <p className="mt-1.5 text-xs text-[#A8A8A8]">{c.issuer}</p>
+                {c.skills && (
+                  <div className="mt-3 flex flex-wrap gap-1">
+                    {c.skills.map((s) => (
+                      <span key={s} className="rounded-full bg-white/[0.03] border border-white/[0.05] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </motion.button>
+          ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {active && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+            onClick={() => setActive(null)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-black/85 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.92, opacity: 0, y: 12 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 12 }}
+              transition={{ type: "spring", stiffness: 260, damping: 26 }}
+              className="cosmic-panel chrome-border relative w-full max-w-3xl overflow-hidden rounded-2xl"
+            >
+              <div className="flex items-center justify-between gap-4 border-b border-white/[0.06] p-4">
+                <div className="min-w-0">
+                  <h3 className="font-display text-sm font-semibold text-[#FFFFFF] leading-snug">{active.title}</h3>
+                  <p className="mt-0.5 text-xs text-[#A8A8A8]">{active.issuer}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setActive(null)}
+                  aria-label="Close certificate"
+                  className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/[0.05] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/10 hover:text-[#FFFFFF]"
+                >
+                  <X className="size-4" />
+                </button>
+              </div>
+              <div className="max-h-[65vh] overflow-auto bg-black/30">
+                <img src={active.image} alt={active.title} className="h-auto w-full" />
+              </div>
+              <div className="flex items-center justify-between border-t border-white/[0.06] p-4">
+                <a
+                  href={active.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-[#3B82F6] hover:underline"
+                >
+                  <ExternalLink className="size-3.5" /> View on GitHub
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setActive(null)}
+                  className="inline-flex items-center rounded-xl bg-[#3B82F6] px-4 py-2 text-xs font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
