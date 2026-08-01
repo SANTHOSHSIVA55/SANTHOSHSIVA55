@@ -7,7 +7,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/santhosh-t-s/",
   leetcode: "https://leetcode.com/u/santhoshts/",
   gfg: "https://www.geeksforgeeks.org/profile/santhoshts",
-  image: "https://cdn.corenexis.com/f/STjpKFS53V1.jpg",
+  image: "/profile.jpg",
   headline: "Software Engineer · Full Stack Developer · Data Analyst",
   sub: "Building scalable full-stack applications, AI-powered solutions, intuitive user experiences, and data-driven dashboards using React, Node.js, Python, SQL, Power BI, and modern cloud technologies.",
 };
