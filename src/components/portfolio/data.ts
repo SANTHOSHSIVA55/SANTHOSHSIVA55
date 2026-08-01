@@ -21,7 +21,7 @@ export const heroRoles = [
 export const heroStats = [
   { value: 300, suffix: "+", label: "DSA Problems" },
   { value: 3, suffix: "+", label: "Projects" },
-  { value: 3, suffix: "", label: "Certifications" },
+  { value: 7, suffix: "", label: "Certifications" },
   { value: 3, suffix: "+", label: "Years Coding" },
 ];
 
@@ -172,29 +172,53 @@ export const timeline = [
 
 export const certifications = [
   {
-    title: "Python Full Course Online - Complete Beginner to Advanced",
-    issuer: "GeeksforGeeks",
-    link: "#",
-    skills: ["Python", "Programming"],
+    title: "HTML Certification",
+    issuer: "Simplilearn",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Html%20Simplilearn.png",
+    skills: ["HTML"],
   },
   {
-    title: "Mastering AWS Serverless: Hands-On with Core AWS Services",
-    issuer: "Udemy",
-    link: "#",
-    skills: ["AWS", "Serverless", "Cloud"],
+    title: "CSS Certification",
+    issuer: "Simplilearn",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Css%20Simplilearn.png",
+    skills: ["CSS"],
   },
   {
-    title: "Data Science Tools",
-    issuer: "Cognitive Class / IBM",
-    link: "#",
-    skills: ["Data Science", "Tools"],
+    title: "UI and UX Certification",
+    issuer: "HCL GUVI",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/HCL%20GUVI%20Certification%20-%20UI%20And%20UX.png",
+    skills: ["UI/UX", "Design"],
+  },
+  {
+    title: "AI for Beginners",
+    issuer: "HP",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Hp%20Ai%20For%20beginners.png",
+    skills: ["AI"],
+  },
+  {
+    title: "Gemini in Google Docs",
+    issuer: "Skillup",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Gemini%20in%20Google%20Docs%20Skillup.png",
+    skills: ["Gemini", "Productivity"],
+  },
+  {
+    title: "Prompt Engineering",
+    issuer: "Expertisor Academy",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Expertisor%20acedemy%20prompt%20engineering.png",
+    skills: ["Prompt Engineering"],
+  },
+  {
+    title: "Placement Preparation",
+    issuer: "Let's Upgrade",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Placement%20Prep-Let%27s%20Upgrade.png",
+    skills: ["Placement Prep"],
   },
 ];
 
 export const achievements = [
   { value: 300, suffix: "+", label: "DSA Problems Solved", icon: "code" },
   { value: 3, suffix: "+", label: "Major Projects Built", icon: "rocket" },
-  { value: 3, suffix: "", label: "Certifications Earned", icon: "sparkle" },
+  { value: 7, suffix: "", label: "Certifications Earned", icon: "sparkle" },
 ];
 
 export const navLinks = [
