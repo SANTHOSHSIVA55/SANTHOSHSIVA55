@@ -21,7 +21,7 @@ export const heroRoles = [
 
 export const heroStats = [
   { value: 300, suffix: "+", label: "DSA Problems" },
-  { value: 15, suffix: "+", label: "Projects" },
+  { value: 3, suffix: "+", label: "Projects" },
   { value: 7, suffix: "", label: "Certifications" },
   { value: 3, suffix: "+", label: "Years Coding" },
 ];
@@ -227,7 +227,7 @@ export const certifications = [
 
 export const achievements = [
   { value: 300, suffix: "+", label: "DSA Problems Solved", icon: "code" },
-  { value: 15, suffix: "+", label: "Major Projects Built", icon: "rocket" },
+  { value: 3, suffix: "+", label: "Major Projects Built", icon: "rocket" },
   { value: 7, suffix: "", label: "Certifications Earned", icon: "sparkle" },
 ];
 
