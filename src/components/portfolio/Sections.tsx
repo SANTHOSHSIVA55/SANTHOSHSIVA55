@@ -1022,46 +1022,44 @@ export function Certifications() {
         )}
 
         {loading ? (
-          <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-2.5">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="cosmic-panel animate-pulse flex items-center gap-3.5 rounded-xl px-4 py-3">
-                <div className="size-10 shrink-0 rounded-full bg-white/[0.05]" />
-                <div className="flex-1">
-                  <div className="h-3 w-2/3 rounded bg-white/[0.05]" />
-                  <div className="mt-1.5 h-2.5 w-1/3 rounded bg-white/[0.04]" />
-                </div>
-                <div className="size-4 rounded bg-white/[0.04]" />
+              <div key={i} className="cosmic-panel animate-pulse rounded-2xl p-5">
+                <div className="size-12 rounded-2xl bg-white/[0.05]" />
+                <div className="mt-4 h-3.5 w-3/4 rounded bg-white/[0.05]" />
+                <div className="mt-2 h-3 w-1/2 rounded bg-white/[0.04]" />
               </div>
             ))}
           </div>
         ) : (
-          <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-2.5">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {display.map((c, i) => (
-              <motion.button
+              <motion.div
                 key={c.link}
-                type="button"
-                onClick={() => setIndex(i)}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.35, delay: Math.min(i * 0.04, 0.3) }}
-                aria-label={`View certificate: ${c.title}`}
-                className="cosmic-panel group flex w-full items-center gap-3.5 rounded-xl px-4 py-3 text-left transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
+                transition={{ duration: 0.45, delay: Math.min(i * 0.05, 0.3) }}
+                className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3B82F6] via-[#6366F1] to-[#A78BFA] text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110">
-                  <Award className="size-4" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="line-clamp-1 block font-display text-[13px] font-semibold leading-snug text-[#FFFFFF] transition-colors duration-200 group-hover:text-[#7CB3FF]">
+                <button
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`View certificate: ${c.title}`}
+                  className="block w-full text-left"
+                >
+                  <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#3B82F6] via-[#6366F1] to-[#A78BFA] text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110">
+                    <Award className="size-5" />
+                  </div>
+                  <h3 className="mt-4 line-clamp-2 font-display text-sm font-semibold leading-snug text-[#FFFFFF]">
                     {c.title}
-                  </span>
-                  <span className="mt-0.5 flex items-center gap-1 text-[11px] text-[#A8A8A8]">
-                    <BadgeCheck className="size-3 shrink-0 text-[#6366F1]" />
+                  </h3>
+                  <p className="mt-1.5 flex items-center gap-1.5 text-xs text-[#A8A8A8]">
+                    <BadgeCheck className="size-3.5 shrink-0 text-[#6366F1]" />
                     <span className="truncate">{c.issuer}</span>
-                  </span>
-                </span>
-                <ChevronRight className="size-4 shrink-0 text-[#64748B] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[#FFFFFF]" />
-              </motion.button>
+                  </p>
+                </button>
+              </motion.div>
             ))}
           </div>
         )}
