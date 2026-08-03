@@ -520,7 +520,7 @@ export function Journey() {
 /* ──────────── Certifications ──────────── */
 const CERT_REPO = "SANTHOSHSIVA55/Certificates";
 const CERT_IMG_EXT = /\.(png|jpe?g|webp|gif)$/i;
-const CERTS_CACHE_KEY = "portfolio:certs:v1";
+const CERTS_CACHE_KEY = "portfolio:certs:v2";
 const CERTS_CACHE_TTL = 30 * 60 * 1000;
 
 type Cert = {
@@ -949,21 +949,21 @@ export function Certifications() {
         )}
 
         {loading ? (
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="cosmic-panel animate-pulse rounded-2xl p-4">
-                <div className="aspect-[4/3] w-full rounded-xl bg-white/[0.04]" />
-                <div className="mt-3 h-3.5 w-3/4 rounded bg-white/[0.05]" />
-                <div className="mt-2 h-3 w-1/2 rounded bg-white/[0.04]" />
-                <div className="mt-4 flex items-center justify-between">
-                  <div className="h-7 w-24 rounded-lg bg-white/[0.04]" />
-                  <div className="size-7 rounded-lg bg-white/[0.04]" />
+              <div key={i} className="cosmic-panel animate-pulse rounded-2xl p-3">
+                <div className="aspect-[16/9] w-full rounded-xl bg-white/[0.04]" />
+                <div className="mt-2.5 h-3 w-3/4 rounded bg-white/[0.05]" />
+                <div className="mt-1.5 h-2.5 w-1/2 rounded bg-white/[0.04]" />
+                <div className="mt-3 flex items-center justify-between">
+                  <div className="h-6 w-20 rounded-lg bg-white/[0.04]" />
+                  <div className="size-6 rounded-lg bg-white/[0.04]" />
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {display.map((c, i) => (
               <motion.div
                 key={c.link}
@@ -971,13 +971,13 @@ export function Certifications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
-                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl p-4 transition-all duration-300 hover:bg-white/[0.03] hover-glow shine-sweep chrome-border"
+                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl p-3 transition-all duration-300 hover:bg-white/[0.03] hover-glow shine-sweep chrome-border"
               >
                 <button
                   type="button"
                   onClick={() => setActive(c)}
                   aria-label={`Preview ${c.title}`}
-                  className="relative block aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/[0.05] bg-black/30"
+                  className="relative block aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/[0.05] bg-black/30"
                 >
                   <img
                     src={c.image}
@@ -988,37 +988,37 @@ export function Certifications() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-[11px] font-medium text-white backdrop-blur-md">
-                      <Maximize2 className="size-3" /> Preview
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur-md">
+                      <Maximize2 className="size-2.5" /> Preview
                     </span>
                   </div>
                 </button>
 
-                <div className="mt-3 flex-1">
-                  <h3 className="line-clamp-2 font-display text-sm font-semibold leading-snug text-[#FFFFFF]">{c.title}</h3>
-                  <p className="mt-1 text-xs text-[#A8A8A8]">{c.issuer}</p>
+                <div className="mt-2.5 flex-1">
+                  <h3 className="line-clamp-2 font-display text-[13px] font-semibold leading-snug text-[#FFFFFF]">{c.title}</h3>
+                  <p className="mt-1 text-[11px] text-[#A8A8A8]">{c.issuer}</p>
                   {c.date && (
-                    <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#64748B]">
-                      <Calendar className="size-3" /> {formatCertDate(c.date)}
+                    <p className="mt-1 inline-flex items-center gap-1 text-[10px] text-[#64748B]">
+                      <Calendar className="size-2.5" /> {formatCertDate(c.date)}
                     </p>
                   )}
                 </div>
 
                 {c.skills && c.skills.length > 0 && (
-                  <div className="mt-2.5 flex flex-wrap gap-1">
+                  <div className="mt-2 flex flex-wrap gap-1">
                     {c.skills.slice(0, 3).map((s) => (
-                      <span key={s} className="rounded-full border border-white/[0.05] bg-white/[0.03] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+                      <span key={s} className="rounded-full border border-white/[0.05] bg-white/[0.03] px-1.5 py-0.5 text-[9px] text-[#A8A8A8]">
                         {s}
                       </span>
                     ))}
                   </div>
                 )}
 
-                <div className="mt-3.5 flex items-center gap-2 border-t border-white/[0.05] pt-3">
+                <div className="mt-2.5 flex items-center gap-1.5 border-t border-white/[0.05] pt-2.5">
                   <button
                     type="button"
                     onClick={() => setActive(c)}
-                    className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#3B82F6] px-3 py-2 text-[11px] font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
+                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg bg-[#3B82F6] px-2 py-1.5 text-[11px] font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
                   >
                     <ExternalLink className="size-3" /> View Certificate
                   </button>
@@ -1027,9 +1027,9 @@ export function Certifications() {
                     onClick={() => downloadImage(c.image, `${c.title}.png`)}
                     aria-label={`Download ${c.title}`}
                     title="Download"
-                    className="flex size-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
+                    className="flex size-6 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
                   >
-                    <Download className="size-3.5" />
+                    <Download className="size-3" />
                   </button>
                 </div>
               </motion.div>

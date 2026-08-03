@@ -224,13 +224,6 @@ export const certifications = [
     skills: ["Prompt Engineering"],
   },
   {
-    title: "Placement Preparation",
-    issuer: "Let's Upgrade",
-    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Placement%20Prep-Let%27s%20Upgrade.png",
-    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Placement%20Prep-Let%27s%20Upgrade.png",
-    skills: ["Placement Prep"],
-  },
-  {
     title: "Python Full Course Online - Complete Beginner to Advanced",
     issuer: "GeeksforGeeks",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/GFG%20Python%20course%20certificate.jpg",
