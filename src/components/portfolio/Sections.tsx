@@ -6,6 +6,7 @@ import {
   Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
   Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
   AlertCircle, Award, Calendar, Download, RotateCcw, ZoomIn, ZoomOut,
+  ArrowUpRight, BadgeCheck, ChevronLeft, ChevronRight, Expand, ImageOff, Images,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
@@ -682,12 +683,94 @@ function ToolbarBtn({ label, onClick, disabled, children }: { label: string; onC
   );
 }
 
-function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
+function CertImage({ cert, eager, className }: { cert: Cert; eager?: boolean; className?: string }) {
+  const [broken, setBroken] = useState(false);
+
+  useEffect(() => {
+    setBroken(false);
+  }, [cert.image]);
+
+  if (broken) {
+    return (
+      <div className={`flex flex-col items-center justify-center gap-2 ${className ?? ""}`}>
+        <ImageOff className="size-8 text-[#64748B]" />
+        <span className="text-xs text-[#64748B]">Preview unavailable</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={cert.image}
+      alt={`${cert.title} certificate issued by ${cert.issuer}`}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      draggable={false}
+      onError={() => setBroken(true)}
+      className={className}
+    />
+  );
+}
+
+function CertLightbox({
+  certs,
+  index,
+  onClose,
+  onNavigate,
+}: {
+  certs: Cert[];
+  index: number;
+  onClose: () => void;
+  onNavigate: (next: number) => void;
+}) {
+  const cert = certs[index];
   const areaRef = useRef<HTMLDivElement | null>(null);
+  const closeRef = useRef<HTMLButtonElement | null>(null);
+  const restoreFocusRef = useRef<HTMLElement | null>(null);
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const pinchDist = useRef(0);
   const dragStart = useRef<{ x: number; y: number } | null>(null);
+  const scaleRef = useRef(1);
   const [t, setT] = useState({ scale: 1, x: 0, y: 0 });
+
+  const prev = useCallback(
+    () => onNavigate((index - 1 + certs.length) % certs.length),
+    [certs.length, index, onNavigate],
+  );
+  const next = useCallback(
+    () => onNavigate((index + 1) % certs.length),
+    [certs.length, index, onNavigate],
+  );
+
+  useEffect(() => {
+    setT({ scale: 1, x: 0, y: 0 });
+  }, [cert.link]);
+
+  useEffect(() => {
+    scaleRef.current = t.scale;
+  }, [t.scale]);
+
+  useEffect(() => {
+    const a = certs[(index + 1) % certs.length];
+    const b = certs[(index - 1 + certs.length) % certs.length];
+    for (const c of [a, b]) {
+      if (c?.image) {
+        const img = new Image();
+        img.src = c.image;
+      }
+    }
+  }, [certs, index]);
+
+  useEffect(() => {
+    restoreFocusRef.current = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      restoreFocusRef.current?.focus();
+    };
+  }, []);
 
   const zoomBy = useCallback((factor: number, clientX?: number, clientY?: number) => {
     setT((cur) => {
@@ -723,13 +806,16 @@ function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "+" || e.key === "=") zoomBy(1.3);
+      if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft" && scaleRef.current <= 1.05) prev();
+      else if (e.key === "ArrowRight" && scaleRef.current <= 1.05) next();
+      else if (e.key === "+" || e.key === "=") zoomBy(1.3);
       else if (e.key === "-" || e.key === "_") zoomBy(1 / 1.3);
       else if (e.key === "0") reset();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [zoomBy, reset]);
+  }, [onClose, prev, next, zoomBy, reset]);
 
   const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
     e.currentTarget.setPointerCapture(e.pointerId);
@@ -785,7 +871,7 @@ function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
       exit={{ opacity: 0 }}
       role="dialog"
       aria-modal="true"
-      aria-label={cert.title}
+      aria-label={`${cert.title}, certificate ${index + 1} of ${certs.length}`}
     >
       <motion.div
         className="absolute inset-0 bg-black/85 backdrop-blur-md"
@@ -811,9 +897,13 @@ function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
                   <Calendar className="size-3" /> {formatCertDate(cert.date)}
                 </span>
               )}
+              <span className="tabular-nums text-[#64748B]">
+                {index + 1} / {certs.length}
+              </span>
             </p>
           </div>
           <button
+            ref={closeRef}
             type="button"
             onClick={onClose}
             aria-label="Close certificate"
@@ -823,44 +913,72 @@ function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
           </button>
         </div>
 
-        <div
-          ref={areaRef}
-          className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden bg-black/40"
-          style={{ touchAction: "none", cursor: t.scale > 1 ? "grab" : "zoom-in" }}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endPointer}
-          onPointerCancel={endPointer}
-          onDoubleClick={(e) => {
-            setT((cur) => {
-              if (cur.scale > 1.05) return { scale: 1, x: 0, y: 0 };
-              const rect = e.currentTarget.getBoundingClientRect();
-              const px = e.clientX - rect.left;
-              const py = e.clientY - rect.top;
-              const ratio = 2.5 / cur.scale;
-              return {
-                scale: 2.5,
-                x: (1 - ratio) * (px - rect.width / 2) + cur.x * ratio,
-                y: (1 - ratio) * (py - rect.height / 2) + cur.y * ratio,
-              };
-            });
-          }}
-        >
+        <div className="relative">
           <div
-            className="will-change-transform"
-            style={{
-              transform: `translate3d(${t.x}px, ${t.y}px, 0) scale(${t.scale})`,
+            ref={areaRef}
+            className="relative flex h-[55vh] w-full items-center justify-center overflow-hidden bg-black/40 sm:h-[60vh]"
+            style={{ touchAction: "none", cursor: t.scale > 1 ? "grab" : "zoom-in" }}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={endPointer}
+            onPointerCancel={endPointer}
+            onDoubleClick={(e) => {
+              setT((cur) => {
+                if (cur.scale > 1.05) return { scale: 1, x: 0, y: 0 };
+                const rect = e.currentTarget.getBoundingClientRect();
+                const px = e.clientX - rect.left;
+                const py = e.clientY - rect.top;
+                const ratio = 2.5 / cur.scale;
+                return {
+                  scale: 2.5,
+                  x: (1 - ratio) * (px - rect.width / 2) + cur.x * ratio,
+                  y: (1 - ratio) * (py - rect.height / 2) + cur.y * ratio,
+                };
+              });
             }}
           >
-            <img
-              src={cert.image}
-              alt={`${cert.title} certificate`}
-              decoding="async"
-              draggable={false}
-              className="max-h-[60vh] max-w-full select-none"
-              style={{ userSelect: "none" }}
-            />
+            <div
+              className="will-change-transform"
+              style={{
+                transform: `translate3d(${t.x}px, ${t.y}px, 0) scale(${t.scale})`,
+              }}
+            >
+              <CertImage
+                cert={cert}
+                eager
+                className="max-h-[55vh] max-w-full select-none sm:max-h-[60vh]"
+              />
+            </div>
           </div>
+
+          {certs.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prev();
+                }}
+                aria-label="Previous certificate"
+                title="Previous certificate"
+                className="absolute left-2 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.1] bg-black/50 text-[#D6D6D6] backdrop-blur transition-colors duration-200 hover:bg-black/70 hover:text-[#FFFFFF] sm:left-3"
+              >
+                <ChevronLeft className="size-5" />
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  next();
+                }}
+                aria-label="Next certificate"
+                title="Next certificate"
+                className="absolute right-2 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.1] bg-black/50 text-[#D6D6D6] backdrop-blur transition-colors duration-200 hover:bg-black/70 hover:text-[#FFFFFF] sm:right-3"
+              >
+                <ChevronRight className="size-5" />
+              </button>
+            </>
+          )}
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.06] p-3.5">
@@ -902,9 +1020,9 @@ function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
 }
 
 export function Certifications() {
-  const [active, setActive] = useState<Cert | null>(null);
   const [certs, setCerts] = useState<Cert[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
+  const [index, setIndex] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -912,23 +1030,16 @@ export function Certifications() {
       .then((list) => !cancelled && setCerts(list))
       .catch((e: unknown) => {
         if (cancelled) return;
-        setErr(e instanceof Error && e.message === "rate-limited"
-          ? "GitHub API rate limited — showing saved certificates."
-          : "Couldn't reach GitHub — showing saved certificates.");
+        setErr(
+          e instanceof Error && e.message === "rate-limited"
+            ? "GitHub API rate limited — showing saved certificates."
+            : "Couldn't reach GitHub — showing saved certificates.",
+        );
       });
     return () => {
       cancelled = true;
     };
   }, []);
-
-  useEffect(() => {
-    if (!active) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActive(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [active]);
 
   const display: Cert[] = certs ?? certifications;
   const loading = certs === null && !err;
@@ -942,6 +1053,25 @@ export function Certifications() {
           lead="Industry-recognized certifications that validate my expertise."
         />
 
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-2"
+        >
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#3B82F6]/15 bg-[#3B82F6]/[0.05] px-3 py-1.5 text-[11px] font-medium text-[#A8A8A8]">
+            <Images className="size-3.5 text-[#3B82F6]" />
+            {display.length} verified credentials
+          </span>
+          {certs && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 text-[11px] font-medium text-[#64748B]">
+              <RefreshCw className="size-3.5" />
+              Auto-synced from GitHub
+            </span>
+          )}
+        </motion.div>
+
         {err && (
           <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-2 rounded-xl border border-amber-400/20 bg-amber-400/[0.05] px-4 py-2.5 text-center text-xs text-amber-200/90">
             <AlertCircle className="size-3.5 shrink-0" /> {err}
@@ -949,85 +1079,106 @@ export function Certifications() {
         )}
 
         {loading ? (
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="cosmic-panel animate-pulse overflow-hidden rounded-2xl p-4">
-                <div className="flex flex-col items-center text-center">
-                  <div className="size-12 rounded-full bg-white/[0.05]" />
-                  <div className="mt-3.5 h-3 w-3/4 rounded bg-white/[0.05]" />
-                  <div className="mt-1.5 h-2.5 w-1/2 rounded bg-white/[0.04]" />
+              <div key={i} className="cosmic-panel animate-pulse overflow-hidden rounded-2xl">
+                <div className="aspect-[4/3] bg-white/[0.04]" />
+                <div className="p-4">
+                  <div className="h-3.5 w-3/4 rounded bg-white/[0.05]" />
+                  <div className="mt-2 h-2.5 w-1/2 rounded bg-white/[0.04]" />
                   <div className="mt-1.5 h-2 w-1/3 rounded bg-white/[0.03]" />
-                  <div className="mt-3 h-3.5 w-1/3 rounded-full bg-white/[0.03]" />
-                  <div className="mt-4 w-full border-t border-dashed border-white/[0.08]" />
-                  <div className="mt-3 flex w-full items-center gap-1.5">
-                    <div className="h-6 flex-1 rounded-lg bg-white/[0.04]" />
-                    <div className="size-6 rounded-lg bg-white/[0.04]" />
+                  <div className="mt-3 flex flex-wrap gap-1">
+                    <div className="h-4 w-12 rounded-full bg-white/[0.04]" />
+                    <div className="h-4 w-14 rounded-full bg-white/[0.04]" />
+                    <div className="h-4 w-12 rounded-full bg-white/[0.04]" />
                   </div>
+                </div>
+                <div className="flex items-center gap-2 border-t border-white/[0.05] px-4 py-3">
+                  <div className="h-6 flex-1 rounded-lg bg-white/[0.04]" />
+                  <div className="size-7 rounded-lg bg-white/[0.04]" />
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {display.map((c, i) => (
               <motion.div
                 key={c.link}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
-                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl p-4 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
+                transition={{ duration: 0.45, delay: Math.min(i * 0.06, 0.3) }}
+                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
-                <div className="flex flex-1 flex-col items-center text-center">
-                  <button
-                    type="button"
-                    onClick={() => setActive(c)}
-                    aria-label={`View ${c.title}`}
-                    className="flex flex-col items-center text-center"
-                  >
-                    <span className="relative flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-[#3B82F6] via-[#6366F1] to-[#A78BFA] text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110">
-                      <span className="absolute inset-0 rounded-full bg-[#6366F1]/40 blur-lg" />
-                      <Award className="relative size-5" />
+                <button
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`View certificate: ${c.title}`}
+                  className="block w-full text-left"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <CertImage
+                      cert={c}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-1 text-[9px] font-medium uppercase tracking-wider text-[#E2E8F0] backdrop-blur">
+                      <Award className="size-3 text-[#7CB3FF]" /> Credential
                     </span>
-                    <h3 className="mt-3.5 line-clamp-2 font-display text-[13px] font-semibold leading-snug text-[#FFFFFF]">{c.title}</h3>
-                    <p className="mt-1 text-[11px] text-[#A8A8A8]">{c.issuer}</p>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <span className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-black/40 text-[#FFFFFF] backdrop-blur">
+                        <Expand className="size-4" />
+                      </span>
+                    </span>
+                  </div>
+
+                  <div className="p-4">
+                    <h3 className="line-clamp-2 font-display text-[14px] font-semibold leading-snug text-[#FFFFFF] transition-colors duration-200 group-hover:text-[#7CB3FF]">
+                      {c.title}
+                    </h3>
+                    <p className="mt-1.5 flex items-center gap-1.5 text-[11px] text-[#A8A8A8]">
+                      <BadgeCheck className="size-3.5 shrink-0 text-[#6366F1]" />
+                      {c.issuer}
+                    </p>
                     {c.date && (
-                      <p className="mt-1 inline-flex items-center gap-1 text-[10px] text-[#64748B]">
-                        <Calendar className="size-2.5" /> {formatCertDate(c.date)}
+                      <p className="mt-1 flex items-center gap-1.5 text-[10px] text-[#64748B]">
+                        <Calendar className="size-3 shrink-0" />
+                        {formatCertDate(c.date)}
                       </p>
                     )}
-                  </button>
-
-                  {c.skills && c.skills.length > 0 && (
-                    <div className="mt-3 flex flex-wrap items-center justify-center gap-1">
-                      {c.skills.slice(0, 3).map((s) => (
-                        <span key={s} className="rounded-full border border-white/[0.05] bg-white/[0.03] px-1.5 py-0.5 text-[9px] text-[#A8A8A8]">
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <div className="mt-4 w-full border-t border-dashed border-white/[0.08]" />
-
-                  <div className="mt-3 flex w-full items-center gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => setActive(c)}
-                      className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-[#3B82F6]/25 bg-[#3B82F6]/[0.08] px-2 py-1.5 text-[11px] font-medium text-[#7CB3FF] transition-colors duration-200 hover:bg-[#3B82F6]/[0.15] hover:text-[#FFFFFF]"
-                    >
-                      <ExternalLink className="size-3" /> View Certificate
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => downloadImage(c.image, `${c.title}.png`)}
-                      aria-label={`Download ${c.title}`}
-                      title="Download"
-                      className="flex size-6 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
-                    >
-                      <Download className="size-3" />
-                    </button>
+                    {c.skills.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-1">
+                        {c.skills.slice(0, 3).map((s) => (
+                          <span
+                            key={s}
+                            className="rounded-full border border-white/[0.05] bg-white/[0.03] px-2 py-0.5 text-[9px] text-[#A8A8A8]"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
+                </button>
+
+                <div className="mt-auto flex items-center gap-2 border-t border-white/[0.05] px-4 py-3">
+                  <button
+                    type="button"
+                    onClick={() => setIndex(i)}
+                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-[#3B82F6]/25 bg-[#3B82F6]/[0.08] px-2 py-1.5 text-[11px] font-medium text-[#7CB3FF] transition-colors duration-200 hover:bg-[#3B82F6]/[0.15] hover:text-[#FFFFFF]"
+                  >
+                    View Certificate <ArrowUpRight className="size-3" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => downloadImage(c.image, `${c.title}.png`)}
+                    aria-label={`Download ${c.title}`}
+                    title="Download"
+                    className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
+                  >
+                    <Download className="size-3" />
+                  </button>
                 </div>
               </motion.div>
             ))}
@@ -1036,7 +1187,15 @@ export function Certifications() {
       </div>
 
       <AnimatePresence>
-        {active && <CertLightbox key={active.link} cert={active} onClose={() => setActive(null)} />}
+        {index !== null && display[index] && (
+          <CertLightbox
+            key={display[index].link}
+            certs={display}
+            index={index}
+            onClose={() => setIndex(null)}
+            onNavigate={setIndex}
+          />
+        )}
       </AnimatePresence>
     </section>
   );
