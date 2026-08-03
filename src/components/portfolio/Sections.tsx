@@ -4,8 +4,8 @@ import {
   Code2, Layers, Sparkles,
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
   Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
-  Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
-  AlertCircle, Calendar, Download, RotateCcw, ZoomIn, ZoomOut,
+  Database, Wrench, GraduationCap, Heart, Lightbulb,
+  AlertCircle, Calendar, RotateCcw, ZoomIn, ZoomOut,
   BadgeCheck, ChevronLeft, ChevronRight, Expand, ImageOff, Images,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
@@ -651,23 +651,6 @@ function fetchCertificates(): Promise<Cert[]> {
   return _certsPromise;
 }
 
-async function downloadImage(url: string, filename: string) {
-  try {
-    const res = await fetch(url);
-    const blob = await res.blob();
-    const objectUrl = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = objectUrl;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(objectUrl);
-  } catch {
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
-}
-
 function ToolbarBtn({ label, onClick, disabled, children }: { label: string; onClick: () => void; disabled?: boolean; children: ReactNode }) {
   return (
     <button
@@ -864,157 +847,124 @@ function CertLightbox({
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[100]"
       onClick={onClose}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.22 }}
       role="dialog"
       aria-modal="true"
       aria-label={`${cert.title}, certificate ${index + 1} of ${certs.length}`}
     >
       <motion.div
-        className="absolute inset-0 bg-black/85 backdrop-blur-md"
+        className="absolute inset-0 bg-black/90"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.22 }}
       />
-      <motion.div
-        onClick={(e) => e.stopPropagation()}
-        initial={{ scale: 0.94, opacity: 0, y: 14 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.94, opacity: 0, y: 14 }}
-        transition={{ type: "spring", stiffness: 280, damping: 28 }}
-        className="relative flex w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0B0B12]/95 shadow-2xl"
+
+      <button
+        ref={closeRef}
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        aria-label="Close viewer"
+        title="Close viewer"
+        className="absolute right-3 top-3 z-30 flex size-10 items-center justify-center rounded-full border border-white/10 bg-black/40 text-[#FFFFFF] backdrop-blur transition-colors duration-200 hover:bg-black/70 sm:right-5 sm:top-5"
       >
-        <div className="flex items-center justify-between gap-4 border-b border-white/[0.06] p-4">
-          <div className="min-w-0">
-            <h3 className="font-display text-sm font-semibold leading-snug text-[#FFFFFF]">{cert.title}</h3>
-            <p className="mt-0.5 flex flex-wrap items-center gap-x-3 text-xs text-[#A8A8A8]">
-              <span>{cert.issuer}</span>
-              {cert.date && (
-                <span className="inline-flex items-center gap-1 text-[#64748B]">
-                  <Calendar className="size-3" /> {formatCertDate(cert.date)}
-                </span>
-              )}
-              <span className="tabular-nums text-[#64748B]">
-                {index + 1} / {certs.length}
-              </span>
-            </p>
-          </div>
+        <X className="size-5" />
+      </button>
+
+      {certs.length > 1 && (
+        <>
           <button
-            ref={closeRef}
             type="button"
-            onClick={onClose}
-            aria-label="Close certificate"
-            className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/[0.05] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/10 hover:text-[#FFFFFF]"
-          >
-            <X className="size-4" />
-          </button>
-        </div>
-
-        <div className="relative">
-          <div
-            ref={areaRef}
-            className="relative flex h-[55vh] w-full items-center justify-center overflow-hidden bg-black/40 sm:h-[60vh]"
-            style={{ touchAction: "none", cursor: t.scale > 1 ? "grab" : "zoom-in" }}
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={endPointer}
-            onPointerCancel={endPointer}
-            onDoubleClick={(e) => {
-              setT((cur) => {
-                if (cur.scale > 1.05) return { scale: 1, x: 0, y: 0 };
-                const rect = e.currentTarget.getBoundingClientRect();
-                const px = e.clientX - rect.left;
-                const py = e.clientY - rect.top;
-                const ratio = 2.5 / cur.scale;
-                return {
-                  scale: 2.5,
-                  x: (1 - ratio) * (px - rect.width / 2) + cur.x * ratio,
-                  y: (1 - ratio) * (py - rect.height / 2) + cur.y * ratio,
-                };
-              });
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
             }}
+            aria-label="Previous certificate"
+            title="Previous certificate"
+            className="absolute left-2 top-1/2 z-30 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 text-[#D6D6D6] backdrop-blur transition-colors duration-200 hover:bg-black/70 hover:text-[#FFFFFF] sm:left-5 sm:size-12"
           >
-            <div
-              className="will-change-transform"
-              style={{
-                transform: `translate3d(${t.x}px, ${t.y}px, 0) scale(${t.scale})`,
-              }}
-            >
-              <CertImage
-                cert={cert}
-                eager
-                className="max-h-[55vh] max-w-full select-none sm:max-h-[60vh]"
-              />
-            </div>
-          </div>
+            <ChevronLeft className="size-5 sm:size-6" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
+            aria-label="Next certificate"
+            title="Next certificate"
+            className="absolute right-2 top-1/2 z-30 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 text-[#D6D6D6] backdrop-blur transition-colors duration-200 hover:bg-black/70 hover:text-[#FFFFFF] sm:right-5 sm:size-12"
+          >
+            <ChevronRight className="size-5 sm:size-6" />
+          </button>
+        </>
+      )}
 
-          {certs.length > 1 && (
-            <>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  prev();
-                }}
-                aria-label="Previous certificate"
-                title="Previous certificate"
-                className="absolute left-2 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.1] bg-black/50 text-[#D6D6D6] backdrop-blur transition-colors duration-200 hover:bg-black/70 hover:text-[#FFFFFF] sm:left-3"
-              >
-                <ChevronLeft className="size-5" />
-              </button>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  next();
-                }}
-                aria-label="Next certificate"
-                title="Next certificate"
-                className="absolute right-2 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.1] bg-black/50 text-[#D6D6D6] backdrop-blur transition-colors duration-200 hover:bg-black/70 hover:text-[#FFFFFF] sm:right-3"
-              >
-                <ChevronRight className="size-5" />
-              </button>
-            </>
-          )}
-        </div>
-
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.06] p-3.5">
-          <div className="flex items-center gap-1.5">
-            <ToolbarBtn label="Zoom out" onClick={() => zoomBy(1 / 1.3)} disabled={t.scale <= 1}>
-              <ZoomOut className="size-4" />
-            </ToolbarBtn>
-            <ToolbarBtn label="Zoom in" onClick={() => zoomBy(1.3)} disabled={t.scale >= 4}>
-              <ZoomIn className="size-4" />
-            </ToolbarBtn>
-            <ToolbarBtn label="Reset zoom" onClick={reset} disabled={t.scale === 1 && t.x === 0 && t.y === 0}>
-              <RotateCcw className="size-4" />
-            </ToolbarBtn>
-            <span className="ml-1 hidden min-w-12 text-center text-[11px] tabular-nums text-[#64748B] sm:block">
-              {Math.round(t.scale * 100)}%
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <a
-              href={cert.link}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-[11px] font-medium text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
-            >
-              <ExternalLink className="size-3.5" /> GitHub
-            </a>
-            <button
-              type="button"
-              onClick={() => downloadImage(cert.image, `${cert.title}.png`)}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-[#3B82F6] px-3 py-2 text-[11px] font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
-            >
-              <Download className="size-3.5" /> Download
-            </button>
-          </div>
+      <motion.div
+        initial={{ scale: 0.96, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.96, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 26 }}
+        className="absolute inset-0 z-10 flex items-center justify-center p-3 sm:p-8"
+      >
+        <div
+          ref={areaRef}
+          className="relative will-change-transform"
+          style={{
+            transform: `translate3d(${t.x}px, ${t.y}px, 0) scale(${t.scale})`,
+            touchAction: "none",
+            cursor: t.scale > 1 ? "grab" : "zoom-in",
+          }}
+          onClick={(e) => e.stopPropagation()}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endPointer}
+          onPointerCancel={endPointer}
+          onDoubleClick={(e) => {
+            setT((cur) => {
+              if (cur.scale > 1.05) return { scale: 1, x: 0, y: 0 };
+              const rect = e.currentTarget.getBoundingClientRect();
+              const px = e.clientX - rect.left;
+              const py = e.clientY - rect.top;
+              const ratio = 2.5 / cur.scale;
+              return {
+                scale: 2.5,
+                x: (1 - ratio) * (px - rect.width / 2) + cur.x * ratio,
+                y: (1 - ratio) * (py - rect.height / 2) + cur.y * ratio,
+              };
+            });
+          }}
+        >
+          <CertImage
+            cert={cert}
+            eager
+            className="max-h-[85vh] max-w-[90vw] select-none object-contain sm:max-h-[88vh]"
+          />
         </div>
       </motion.div>
+
+      <div className="absolute bottom-4 left-1/2 z-30 flex -translate-x-1/2 items-center gap-1 rounded-full border border-white/10 bg-black/50 p-1.5 backdrop-blur">
+        <ToolbarBtn label="Zoom out" onClick={() => zoomBy(1 / 1.3)} disabled={t.scale <= 1}>
+          <ZoomOut className="size-4" />
+        </ToolbarBtn>
+        <ToolbarBtn label="Zoom in" onClick={() => zoomBy(1.3)} disabled={t.scale >= 4}>
+          <ZoomIn className="size-4" />
+        </ToolbarBtn>
+        <ToolbarBtn label="Reset zoom" onClick={reset} disabled={t.scale === 1 && t.x === 0 && t.y === 0}>
+          <RotateCcw className="size-4" />
+        </ToolbarBtn>
+        <span className="hidden min-w-12 text-center text-[11px] tabular-nums text-[#A8A8A8] sm:block">
+          {Math.round(t.scale * 100)}%
+        </span>
+      </div>
     </motion.div>
   );
 }
