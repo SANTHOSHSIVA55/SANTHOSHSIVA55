@@ -80,7 +80,7 @@ export function About() {
   return (
     <section id="about" className="relative section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeader kicker="About" title="Aspiring Software Engineer & Builder" />
+        <SectionHeader kicker="About" title="Aspiring Software Engineer, Developer & Data Analyst" />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-start">
           {/* Left — Editorial summary */}

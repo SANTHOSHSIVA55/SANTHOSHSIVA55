@@ -1,6 +1,6 @@
 export const profile = {
   name: "Santhosh T S",
-  role: "Software Engineer · Full Stack Developer",
+  role: "Software Engineer · Full Stack Developer · Data Analyst",
   location: "Chennai, India",
   email: "shaisanthoshsiva2006@gmail.com",
   github: "https://github.com/SANTHOSHSIVA55",
@@ -30,7 +30,7 @@ export const stats = [
   { value: "300+", label: "DSA Problems Solved" },
   { value: "5+", label: "Major Projects Built" },
   { value: "3+", label: "Data & Software Projects Built" },
-  { value: "CSE", label: "Student · Developer" },
+  { value: "CSE", label: "Student · Developer · Data Analyst" },
 ];
 
 export const skills = [

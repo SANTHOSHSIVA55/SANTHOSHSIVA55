@@ -392,7 +392,7 @@ function ProfileImage({
           <div className="relative w-full h-full rounded-full overflow-hidden bg-[#0A0A0F]/70 backdrop-blur-xl border border-white/[0.05]">
             <img
               src={profile.image}
-              alt={`${profile.name}, Software Engineer & Full Stack Developer`}
+              alt={`${profile.name}, Software Engineer, Full Stack Developer & Data Analyst`}
               loading="eager"
               decoding="async"
               className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
