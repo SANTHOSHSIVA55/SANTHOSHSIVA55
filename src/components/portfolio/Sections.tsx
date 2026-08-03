@@ -951,15 +951,15 @@ export function Certifications() {
         {loading ? (
           <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="cosmic-panel animate-pulse overflow-hidden rounded-2xl">
-                <div className="h-1.5 w-full bg-white/[0.06]" />
-                <div className="flex flex-col items-center px-4 pb-4 pt-5 text-center">
-                  <div className="size-11 rounded-xl bg-white/[0.05]" />
-                  <div className="mt-3 h-3 w-3/4 rounded bg-white/[0.05]" />
+              <div key={i} className="cosmic-panel animate-pulse overflow-hidden rounded-2xl p-4">
+                <div className="flex flex-col items-center text-center">
+                  <div className="size-12 rounded-full bg-white/[0.05]" />
+                  <div className="mt-3.5 h-3 w-3/4 rounded bg-white/[0.05]" />
                   <div className="mt-1.5 h-2.5 w-1/2 rounded bg-white/[0.04]" />
                   <div className="mt-1.5 h-2 w-1/3 rounded bg-white/[0.03]" />
-                  <div className="mt-2.5 h-3.5 w-1/3 rounded-full bg-white/[0.03]" />
-                  <div className="mt-3.5 flex w-full items-center gap-1.5 border-t border-white/[0.05] pt-3">
+                  <div className="mt-3 h-3.5 w-1/3 rounded-full bg-white/[0.03]" />
+                  <div className="mt-4 w-full border-t border-dashed border-white/[0.08]" />
+                  <div className="mt-3 flex w-full items-center gap-1.5">
                     <div className="h-6 flex-1 rounded-lg bg-white/[0.04]" />
                     <div className="size-6 rounded-lg bg-white/[0.04]" />
                   </div>
@@ -976,21 +976,20 @@ export function Certifications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
-                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
+                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl p-4 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
-                <div className="h-1.5 w-full bg-gradient-to-r from-[#3B82F6] via-[#6366F1] to-[#A78BFA]" />
-
-                <div className="flex flex-1 flex-col items-center px-4 pb-4 pt-4 text-center">
+                <div className="flex flex-1 flex-col items-center text-center">
                   <button
                     type="button"
                     onClick={() => setActive(c)}
                     aria-label={`View ${c.title}`}
                     className="flex flex-col items-center text-center"
                   >
-                    <span className="flex size-11 items-center justify-center rounded-xl border border-[#3B82F6]/15 bg-[#3B82F6]/[0.06] text-[#3B82F6] transition-transform duration-300 group-hover:scale-110">
-                      <Award className="size-5" />
+                    <span className="relative flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-[#3B82F6] via-[#6366F1] to-[#A78BFA] text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110">
+                      <span className="absolute inset-0 rounded-full bg-[#6366F1]/40 blur-lg" />
+                      <Award className="relative size-5" />
                     </span>
-                    <h3 className="mt-3 line-clamp-2 font-display text-[13px] font-semibold leading-snug text-[#FFFFFF]">{c.title}</h3>
+                    <h3 className="mt-3.5 line-clamp-2 font-display text-[13px] font-semibold leading-snug text-[#FFFFFF]">{c.title}</h3>
                     <p className="mt-1 text-[11px] text-[#A8A8A8]">{c.issuer}</p>
                     {c.date && (
                       <p className="mt-1 inline-flex items-center gap-1 text-[10px] text-[#64748B]">
@@ -1000,7 +999,7 @@ export function Certifications() {
                   </button>
 
                   {c.skills && c.skills.length > 0 && (
-                    <div className="mt-2.5 flex flex-wrap items-center justify-center gap-1">
+                    <div className="mt-3 flex flex-wrap items-center justify-center gap-1">
                       {c.skills.slice(0, 3).map((s) => (
                         <span key={s} className="rounded-full border border-white/[0.05] bg-white/[0.03] px-1.5 py-0.5 text-[9px] text-[#A8A8A8]">
                           {s}
@@ -1009,11 +1008,13 @@ export function Certifications() {
                     </div>
                   )}
 
-                  <div className="mt-3.5 flex w-full items-center gap-1.5 border-t border-white/[0.05] pt-3">
+                  <div className="mt-4 w-full border-t border-dashed border-white/[0.08]" />
+
+                  <div className="mt-3 flex w-full items-center gap-1.5">
                     <button
                       type="button"
                       onClick={() => setActive(c)}
-                      className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg bg-[#3B82F6] px-2 py-1.5 text-[11px] font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
+                      className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-[#3B82F6]/25 bg-[#3B82F6]/[0.08] px-2 py-1.5 text-[11px] font-medium text-[#7CB3FF] transition-colors duration-200 hover:bg-[#3B82F6]/[0.15] hover:text-[#FFFFFF]"
                     >
                       <ExternalLink className="size-3" /> View Certificate
                     </button>
