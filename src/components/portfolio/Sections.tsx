@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState, useRef, memo } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, memo, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   Code2, Layers, Sparkles,
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
-  Award, Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
+  Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
   Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
+  AlertCircle, Calendar, Download, Maximize2, RotateCcw, ZoomIn, ZoomOut,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
@@ -519,6 +520,8 @@ export function Journey() {
 /* ──────────── Certifications ──────────── */
 const CERT_REPO = "SANTHOSHSIVA55/Certificates";
 const CERT_IMG_EXT = /\.(png|jpe?g|webp|gif)$/i;
+const CERTS_CACHE_KEY = "portfolio:certs:v1";
+const CERTS_CACHE_TTL = 30 * 60 * 1000;
 
 type Cert = {
   title: string;
@@ -526,64 +529,393 @@ type Cert = {
   skills: string[];
   image: string;
   link: string;
+  date?: string;
 };
 
 const certMetaByFile = new Map<string, { title: string; issuer: string; skills: string[] }>(
   certifications.map((c) => [decodeURIComponent(c.image.split("/").pop() ?? ""), c]),
 );
 
-function certFromFile(name: string): Cert {
+function certFromFile(name: string, date?: string): Cert {
   const meta = certMetaByFile.get(name);
-  const title = meta?.title ?? name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim();
+  const title = meta?.title ?? name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
   return {
     title,
     issuer: meta?.issuer ?? "GitHub",
     skills: meta?.skills ?? [],
     image: `https://raw.githubusercontent.com/${CERT_REPO}/main/${encodeURIComponent(name)}`,
     link: `https://github.com/${CERT_REPO}/blob/main/${encodeURIComponent(name)}`,
+    date,
   };
+}
+
+function formatCertDate(iso?: string): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
 }
 
 let _cachedCerts: Cert[] | null = null;
 let _certsPromise: Promise<Cert[]> | null = null;
 
+function readCertCache(): Cert[] | null {
+  try {
+    const raw = localStorage.getItem(CERTS_CACHE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { fetchedAt?: number; certs?: Cert[] };
+    if (!parsed || typeof parsed.fetchedAt !== "number" || !Array.isArray(parsed.certs) || !parsed.certs.length) return null;
+    if (Date.now() - parsed.fetchedAt > CERTS_CACHE_TTL) return null;
+    return parsed.certs;
+  } catch {
+    return null;
+  }
+}
+
+function writeCertCache(certs: Cert[]) {
+  try {
+    localStorage.setItem(CERTS_CACHE_KEY, JSON.stringify({ fetchedAt: Date.now(), certs }));
+  } catch {
+    return;
+  }
+}
+
+type CertFileEntry = { type: string; name: string };
+type CertCommitItem = { sha: string; commit: { committer?: { date?: string }; author?: { date?: string } } };
+type CertCommitDetail = {
+  commit: { committer?: { date?: string }; author?: { date?: string } };
+  files?: { filename: string }[];
+};
+
+async function fetchCertDates(files: string[]): Promise<Map<string, string>> {
+  const map = new Map<string, string>();
+  try {
+    const res = await fetch(`https://api.github.com/repos/${CERT_REPO}/commits?per_page=100`);
+    if (res.status === 403 || !res.ok) return map;
+    const commits: CertCommitItem[] = await res.json();
+    for (const c of (commits ?? []).slice(0, 25)) {
+      const missing = files.filter((f) => !map.has(f));
+      if (!missing.length) break;
+      const detailRes = await fetch(`https://api.github.com/repos/${CERT_REPO}/commits/${c.sha}`);
+      if (detailRes.status === 403) break;
+      if (!detailRes.ok) continue;
+      const detail: CertCommitDetail = await detailRes.json();
+      const date = detail.commit?.committer?.date ?? detail.commit?.author?.date;
+      if (!date) continue;
+      for (const f of detail.files ?? []) {
+        if (!map.has(f.filename)) map.set(f.filename, date);
+      }
+    }
+  } catch {
+    return map;
+  }
+  return map;
+}
+
 function fetchCertificates(): Promise<Cert[]> {
   if (_cachedCerts) return Promise.resolve(_cachedCerts);
   if (_certsPromise) return _certsPromise;
 
-  _certsPromise = fetch(`https://api.github.com/repos/${CERT_REPO}/contents`)
-    .then((r) => {
-      if (r.status === 403) throw new Error("rate-limited");
-      if (!r.ok) throw new Error(`GitHub API error: ${r.status}`);
-      return r.json();
-    })
-    .then((files: { type: string; name: string }[]) => {
-      const names = (files ?? [])
-        .filter((f) => f.type === "file" && CERT_IMG_EXT.test(f.name))
-        .map((f) => f.name)
-        .sort((a, b) => a.localeCompare(b));
-      if (!names.length) throw new Error("no certificate files");
-      _cachedCertFiles = names;
-      _cachedCerts = names.map(certFromFile);
-      return _cachedCerts;
-    })
-    .catch((err) => {
-      _certsPromise = null;
-      throw err;
-    });
+  const cached = readCertCache();
+  if (cached) {
+    _cachedCerts = cached;
+    return Promise.resolve(cached);
+  }
 
+  _certsPromise = (async () => {
+    const res = await fetch(`https://api.github.com/repos/${CERT_REPO}/contents`);
+    if (res.status === 403) throw new Error("rate-limited");
+    if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+    const entries: CertFileEntry[] = await res.json();
+
+    const names = (entries ?? [])
+      .filter((e) => e.type === "file" && CERT_IMG_EXT.test(e.name))
+      .map((e) => e.name);
+
+    if (!names.length) throw new Error("no certificate files");
+
+    const dates = await fetchCertDates(names);
+    const certs = names
+      .map((n) => certFromFile(n, dates.get(n)))
+      .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? "") || a.title.localeCompare(b.title));
+
+    _cachedCerts = certs;
+    writeCertCache(certs);
+    return certs;
+  })();
+
+  _certsPromise.catch(() => {
+    _certsPromise = null;
+  });
   return _certsPromise;
+}
+
+async function downloadImage(url: string, filename: string) {
+  try {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = objectUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(objectUrl);
+  } catch {
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+}
+
+function ToolbarBtn({ label, onClick, disabled, children }: { label: string; onClick: () => void; disabled?: boolean; children: ReactNode }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      title={label}
+      disabled={disabled}
+      className="flex size-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF] disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      {children}
+    </button>
+  );
+}
+
+function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
+  const areaRef = useRef<HTMLDivElement | null>(null);
+  const pointers = useRef(new Map<number, { x: number; y: number }>());
+  const pinchDist = useRef(0);
+  const dragStart = useRef<{ x: number; y: number } | null>(null);
+  const [t, setT] = useState({ scale: 1, x: 0, y: 0 });
+
+  const zoomBy = useCallback((factor: number, clientX?: number, clientY?: number) => {
+    setT((cur) => {
+      const rect = areaRef.current?.getBoundingClientRect();
+      if (!rect) return cur;
+      const px = clientX !== undefined ? clientX - rect.left : rect.width / 2;
+      const py = clientY !== undefined ? clientY - rect.top : rect.height / 2;
+      const ns = Math.min(4, Math.max(1, cur.scale * factor));
+      if (ns === cur.scale) return cur;
+      const ratio = ns / cur.scale;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      return {
+        scale: ns,
+        x: (1 - ratio) * (px - cx) + cur.x * ratio,
+        y: (1 - ratio) * (py - cy) + cur.y * ratio,
+      };
+    });
+  }, []);
+
+  const reset = useCallback(() => setT({ scale: 1, x: 0, y: 0 }), []);
+
+  useEffect(() => {
+    const el = areaRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      zoomBy(e.deltaY < 0 ? 1.15 : 1 / 1.15, e.clientX, e.clientY);
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [zoomBy]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "+" || e.key === "=") zoomBy(1.3);
+      else if (e.key === "-" || e.key === "_") zoomBy(1 / 1.3);
+      else if (e.key === "0") reset();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomBy, reset]);
+
+  const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.current.size === 1) {
+      dragStart.current = { x: e.clientX, y: e.clientY };
+    } else if (pointers.current.size === 2) {
+      dragStart.current = null;
+      const [p1, p2] = [...pointers.current.values()];
+      pinchDist.current = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+    }
+  };
+
+  const onPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const prev = pointers.current.get(e.pointerId);
+    if (!prev) return;
+    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.current.size === 2) {
+      const [p1, p2] = [...pointers.current.values()];
+      const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+      if (pinchDist.current > 0 && dist > 0) {
+        zoomBy(dist / pinchDist.current, (p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
+      }
+      pinchDist.current = dist;
+      return;
+    }
+
+    if (pointers.current.size === 1 && dragStart.current) {
+      setT((cur) => {
+        if (cur.scale <= 1) return cur;
+        return {
+          ...cur,
+          x: cur.x + (e.clientX - prev.x),
+          y: cur.y + (e.clientY - prev.y),
+        };
+      });
+    }
+  };
+
+  const endPointer = (e: ReactPointerEvent<HTMLDivElement>) => {
+    pointers.current.delete(e.pointerId);
+    dragStart.current = null;
+    pinchDist.current = 0;
+  };
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={cert.title}
+    >
+      <motion.div
+        className="absolute inset-0 bg-black/85 backdrop-blur-md"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      />
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        initial={{ scale: 0.94, opacity: 0, y: 14 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.94, opacity: 0, y: 14 }}
+        transition={{ type: "spring", stiffness: 280, damping: 28 }}
+        className="relative flex w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0B0B12]/95 shadow-2xl"
+      >
+        <div className="flex items-center justify-between gap-4 border-b border-white/[0.06] p-4">
+          <div className="min-w-0">
+            <h3 className="font-display text-sm font-semibold leading-snug text-[#FFFFFF]">{cert.title}</h3>
+            <p className="mt-0.5 flex flex-wrap items-center gap-x-3 text-xs text-[#A8A8A8]">
+              <span>{cert.issuer}</span>
+              {cert.date && (
+                <span className="inline-flex items-center gap-1 text-[#64748B]">
+                  <Calendar className="size-3" /> {formatCertDate(cert.date)}
+                </span>
+              )}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close certificate"
+            className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/[0.05] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/10 hover:text-[#FFFFFF]"
+          >
+            <X className="size-4" />
+          </button>
+        </div>
+
+        <div
+          ref={areaRef}
+          className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden bg-black/40"
+          style={{ touchAction: "none", cursor: t.scale > 1 ? "grab" : "zoom-in" }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endPointer}
+          onPointerCancel={endPointer}
+          onDoubleClick={(e) => {
+            setT((cur) => {
+              if (cur.scale > 1.05) return { scale: 1, x: 0, y: 0 };
+              const rect = e.currentTarget.getBoundingClientRect();
+              const px = e.clientX - rect.left;
+              const py = e.clientY - rect.top;
+              const ratio = 2.5 / cur.scale;
+              return {
+                scale: 2.5,
+                x: (1 - ratio) * (px - rect.width / 2) + cur.x * ratio,
+                y: (1 - ratio) * (py - rect.height / 2) + cur.y * ratio,
+              };
+            });
+          }}
+        >
+          <div
+            className="will-change-transform"
+            style={{
+              transform: `translate3d(${t.x}px, ${t.y}px, 0) scale(${t.scale})`,
+            }}
+          >
+            <img
+              src={cert.image}
+              alt={`${cert.title} certificate`}
+              decoding="async"
+              draggable={false}
+              className="max-h-[60vh] max-w-full select-none"
+              style={{ userSelect: "none" }}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.06] p-3.5">
+          <div className="flex items-center gap-1.5">
+            <ToolbarBtn label="Zoom out" onClick={() => zoomBy(1 / 1.3)} disabled={t.scale <= 1}>
+              <ZoomOut className="size-4" />
+            </ToolbarBtn>
+            <ToolbarBtn label="Zoom in" onClick={() => zoomBy(1.3)} disabled={t.scale >= 4}>
+              <ZoomIn className="size-4" />
+            </ToolbarBtn>
+            <ToolbarBtn label="Reset zoom" onClick={reset} disabled={t.scale === 1 && t.x === 0 && t.y === 0}>
+              <RotateCcw className="size-4" />
+            </ToolbarBtn>
+            <span className="ml-1 hidden min-w-12 text-center text-[11px] tabular-nums text-[#64748B] sm:block">
+              {Math.round(t.scale * 100)}%
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <a
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-[11px] font-medium text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
+            >
+              <ExternalLink className="size-3.5" /> GitHub
+            </a>
+            <button
+              type="button"
+              onClick={() => downloadImage(cert.image, `${cert.title}.png`)}
+              className="inline-flex items-center gap-1.5 rounded-lg bg-[#3B82F6] px-3 py-2 text-[11px] font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
+            >
+              <Download className="size-3.5" /> Download
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
 }
 
 export function Certifications() {
   const [active, setActive] = useState<Cert | null>(null);
   const [certs, setCerts] = useState<Cert[] | null>(null);
+  const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     fetchCertificates()
       .then((list) => !cancelled && setCerts(list))
-      .catch(() => !cancelled && setCerts(null));
+      .catch((e: unknown) => {
+        if (cancelled) return;
+        setErr(e instanceof Error && e.message === "rate-limited"
+          ? "GitHub API rate limited — showing saved certificates."
+          : "Couldn't reach GitHub — showing saved certificates.");
+      });
     return () => {
       cancelled = true;
     };
@@ -598,7 +930,8 @@ export function Certifications() {
     return () => window.removeEventListener("keydown", onKey);
   }, [active]);
 
-  const display = certs ?? certifications;
+  const display: Cert[] = certs ?? certifications;
+  const loading = certs === null && !err;
 
   return (
     <section id="certifications" className="relative section-padding">
@@ -608,102 +941,105 @@ export function Certifications() {
           title="Certifications"
           lead="Industry-recognized certifications that validate my expertise."
         />
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {display.map((c, i) => (
-            <motion.button
-              key={c.title}
-              type="button"
-              onClick={() => setActive(c)}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 hover:bg-white/[0.03] hover-glow shine-sweep chrome-border cursor-pointer"
-            >
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex size-10 items-center justify-center rounded-xl border border-[#3B82F6]/10 bg-[#3B82F6]/[0.04] text-[#3B82F6]">
-                    <Award className="size-5" />
-                  </div>
-                  <ExternalLink className="size-3.5 text-[#94A3B8] opacity-0 group-hover:opacity-100 transition-opacity" />
+
+        {err && (
+          <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-2 rounded-xl border border-amber-400/20 bg-amber-400/[0.05] px-4 py-2.5 text-center text-xs text-amber-200/90">
+            <AlertCircle className="size-3.5 shrink-0" /> {err}
+          </div>
+        )}
+
+        {loading ? (
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="cosmic-panel animate-pulse rounded-2xl p-4">
+                <div className="aspect-[4/3] w-full rounded-xl bg-white/[0.04]" />
+                <div className="mt-3 h-3.5 w-3/4 rounded bg-white/[0.05]" />
+                <div className="mt-2 h-3 w-1/2 rounded bg-white/[0.04]" />
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="h-7 w-24 rounded-lg bg-white/[0.04]" />
+                  <div className="size-7 rounded-lg bg-white/[0.04]" />
                 </div>
-                <h3 className="font-display text-sm font-semibold text-[#FFFFFF] leading-snug">{c.title}</h3>
-                <p className="mt-1.5 text-xs text-[#A8A8A8]">{c.issuer}</p>
-                {c.skills && (
-                  <div className="mt-3 flex flex-wrap gap-1">
-                    {c.skills.map((s) => (
-                      <span key={s} className="rounded-full bg-white/[0.03] border border-white/[0.05] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {display.map((c, i) => (
+              <motion.div
+                key={c.link}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
+                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl p-4 transition-all duration-300 hover:bg-white/[0.03] hover-glow shine-sweep chrome-border"
+              >
+                <button
+                  type="button"
+                  onClick={() => setActive(c)}
+                  aria-label={`Preview ${c.title}`}
+                  className="relative block aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/[0.05] bg-black/30"
+                >
+                  <img
+                    src={c.image}
+                    alt={`${c.title} certificate`}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-[11px] font-medium text-white backdrop-blur-md">
+                      <Maximize2 className="size-3" /> Preview
+                    </span>
+                  </div>
+                </button>
+
+                <div className="mt-3 flex-1">
+                  <h3 className="line-clamp-2 font-display text-sm font-semibold leading-snug text-[#FFFFFF]">{c.title}</h3>
+                  <p className="mt-1 text-xs text-[#A8A8A8]">{c.issuer}</p>
+                  {c.date && (
+                    <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#64748B]">
+                      <Calendar className="size-3" /> {formatCertDate(c.date)}
+                    </p>
+                  )}
+                </div>
+
+                {c.skills && c.skills.length > 0 && (
+                  <div className="mt-2.5 flex flex-wrap gap-1">
+                    {c.skills.slice(0, 3).map((s) => (
+                      <span key={s} className="rounded-full border border-white/[0.05] bg-white/[0.03] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
                         {s}
                       </span>
                     ))}
                   </div>
                 )}
-              </div>
-            </motion.button>
-          ))}
-        </div>
+
+                <div className="mt-3.5 flex items-center gap-2 border-t border-white/[0.05] pt-3">
+                  <button
+                    type="button"
+                    onClick={() => setActive(c)}
+                    className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#3B82F6] px-3 py-2 text-[11px] font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
+                  >
+                    <ExternalLink className="size-3" /> View Certificate
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => downloadImage(c.image, `${c.title}.png`)}
+                    aria-label={`Download ${c.title}`}
+                    title="Download"
+                    className="flex size-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
+                  >
+                    <Download className="size-3.5" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
-        {active && (
-          <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
-            onClick={() => setActive(null)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-black/85 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-            <motion.div
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.92, opacity: 0, y: 12 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.92, opacity: 0, y: 12 }}
-              transition={{ type: "spring", stiffness: 260, damping: 26 }}
-              className="cosmic-panel chrome-border relative w-full max-w-3xl overflow-hidden rounded-2xl"
-            >
-              <div className="flex items-center justify-between gap-4 border-b border-white/[0.06] p-4">
-                <div className="min-w-0">
-                  <h3 className="font-display text-sm font-semibold text-[#FFFFFF] leading-snug">{active.title}</h3>
-                  <p className="mt-0.5 text-xs text-[#A8A8A8]">{active.issuer}</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setActive(null)}
-                  aria-label="Close certificate"
-                  className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/[0.05] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/10 hover:text-[#FFFFFF]"
-                >
-                  <X className="size-4" />
-                </button>
-              </div>
-              <div className="max-h-[65vh] overflow-auto bg-black/30">
-                <img src={active.image} alt={active.title} className="h-auto w-full" />
-              </div>
-              <div className="flex items-center justify-between border-t border-white/[0.06] p-4">
-                <a
-                  href={active.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-[#3B82F6] hover:underline"
-                >
-                  <ExternalLink className="size-3.5" /> View on GitHub
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setActive(null)}
-                  className="inline-flex items-center rounded-xl bg-[#3B82F6] px-4 py-2 text-xs font-medium text-[#FFFFFF] transition-colors duration-200 hover:bg-[#2563EB]"
-                >
-                  Close
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
+        {active && <CertLightbox key={active.link} cert={active} onClose={() => setActive(null)} />}
       </AnimatePresence>
     </section>
   );
