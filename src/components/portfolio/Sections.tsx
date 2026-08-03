@@ -6,7 +6,7 @@ import {
   Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
   Database, Wrench, GraduationCap, Heart, Lightbulb,
   AlertCircle, Award, RotateCcw, ZoomIn, ZoomOut,
-  BadgeCheck, ChevronLeft, ChevronRight, ImageOff, Images,
+  BadgeCheck, ChevronLeft, ChevronRight, ImageOff, Images, Expand,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
@@ -1022,25 +1022,25 @@ export function Certifications() {
         )}
 
         {loading ? (
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="cosmic-panel animate-pulse rounded-2xl p-5">
-                <div className="aspect-[4/3] w-full rounded-xl bg-white/[0.05]" />
-                <div className="mt-4 h-3.5 w-3/4 rounded bg-white/[0.05]" />
-                <div className="mt-2 h-3 w-1/2 rounded bg-white/[0.04]" />
+              <div key={i} className="cosmic-panel animate-pulse rounded-xl p-2.5">
+                <div className="aspect-[4/3] w-full rounded-lg bg-white/[0.05]" />
+                <div className="mt-2.5 h-3 w-3/4 rounded bg-white/[0.05]" />
+                <div className="mt-2 h-2.5 w-1/2 rounded bg-white/[0.04]" />
               </div>
             ))}
           </div>
         ) : (
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
             {display.map((c, i) => (
               <motion.div
                 key={c.link}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.45, delay: Math.min(i * 0.05, 0.3) }}
-                className="cosmic-panel group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
+                transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.3) }}
+                className="cosmic-panel group relative overflow-hidden rounded-xl p-2.5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.03] hover-glow chrome-border shine-sweep"
               >
                 <button
                   type="button"
@@ -1048,14 +1048,20 @@ export function Certifications() {
                   aria-label={`View certificate: ${c.title}`}
                   className="block w-full text-left"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/[0.04]">
-                    <CertImage cert={c} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-white/[0.04]">
+                    <CertImage cert={c} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <span className="flex size-8 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+                        <Expand className="size-4 text-[#FFFFFF]" />
+                      </span>
+                    </div>
+                    <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-white/10" />
                   </div>
-                  <h3 className="mt-4 line-clamp-2 font-display text-sm font-semibold leading-snug text-[#FFFFFF]">
+                  <h3 title={c.title} className="mt-2.5 line-clamp-1 text-[13px] font-display font-semibold leading-snug text-[#FFFFFF] transition-colors duration-200 group-hover:text-[#7CB3FF]">
                     {c.title}
                   </h3>
-                  <p className="mt-1.5 flex items-center gap-1.5 text-xs text-[#A8A8A8]">
-                    <BadgeCheck className="size-3.5 shrink-0 text-[#6366F1]" />
+                  <p className="mt-1 flex items-center gap-1 text-[11px] text-[#A8A8A8]">
+                    <BadgeCheck className="size-3 shrink-0 text-[#6366F1]" />
                     <span className="truncate">{c.issuer}</span>
                   </p>
                 </button>
