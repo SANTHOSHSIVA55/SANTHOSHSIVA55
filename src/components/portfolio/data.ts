@@ -50,7 +50,7 @@ export const skills = [
   },
   {
     group: "Backend",
-    items: ["Node.js", "Express.js", "FastAPI", "REST APIs"],
+    items: ["Django", "Flask", "FastAPI", "REST APIs"],
     projects: ["GenAI BI Platform"],
   },
   {
