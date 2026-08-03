@@ -5,8 +5,8 @@ import {
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
   Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
   Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
-  AlertCircle, Award, Calendar, Download, RotateCcw, ZoomIn, ZoomOut,
-  ArrowUpRight, BadgeCheck, ChevronLeft, ChevronRight, Expand, ImageOff, Images,
+  AlertCircle, Calendar, Download, RotateCcw, ZoomIn, ZoomOut,
+  BadgeCheck, ChevronLeft, ChevronRight, Expand, ImageOff, Images,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
@@ -1079,37 +1079,28 @@ export function Certifications() {
         )}
 
         {loading ? (
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="cosmic-panel animate-pulse overflow-hidden rounded-2xl">
+          <div className="mt-10 grid gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div key={i} className="cosmic-panel animate-pulse overflow-hidden rounded-xl">
                 <div className="aspect-[4/3] bg-white/[0.04]" />
-                <div className="p-4">
-                  <div className="h-3.5 w-3/4 rounded bg-white/[0.05]" />
-                  <div className="mt-2 h-2.5 w-1/2 rounded bg-white/[0.04]" />
-                  <div className="mt-1.5 h-2 w-1/3 rounded bg-white/[0.03]" />
-                  <div className="mt-3 flex flex-wrap gap-1">
-                    <div className="h-4 w-12 rounded-full bg-white/[0.04]" />
-                    <div className="h-4 w-14 rounded-full bg-white/[0.04]" />
-                    <div className="h-4 w-12 rounded-full bg-white/[0.04]" />
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 border-t border-white/[0.05] px-4 py-3">
-                  <div className="h-6 flex-1 rounded-lg bg-white/[0.04]" />
-                  <div className="size-7 rounded-lg bg-white/[0.04]" />
+                <div className="p-2.5">
+                  <div className="h-3 w-3/4 rounded bg-white/[0.05]" />
+                  <div className="mt-1.5 h-2.5 w-1/2 rounded bg-white/[0.04]" />
+                  <div className="mt-1 h-2 w-1/3 rounded bg-white/[0.03]" />
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-10 grid gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {display.map((c, i) => (
               <motion.div
                 key={c.link}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.45, delay: Math.min(i * 0.06, 0.3) }}
-                className="cosmic-panel group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
+                transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.25) }}
+                className="cosmic-panel group relative overflow-hidden rounded-xl transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
                 <button
                   type="button"
@@ -1120,66 +1111,32 @@ export function Certifications() {
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <CertImage
                       cert={c}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-                    <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/40 px-2 py-1 text-[9px] font-medium uppercase tracking-wider text-[#E2E8F0] backdrop-blur">
-                      <Award className="size-3 text-[#7CB3FF]" /> Credential
-                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <span className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-black/40 text-[#FFFFFF] backdrop-blur">
-                        <Expand className="size-4" />
+                      <span className="flex size-9 items-center justify-center rounded-full border border-white/20 bg-black/50 text-[#FFFFFF] backdrop-blur">
+                        <Expand className="size-3.5" />
                       </span>
                     </span>
                   </div>
 
-                  <div className="p-4">
-                    <h3 className="line-clamp-2 font-display text-[14px] font-semibold leading-snug text-[#FFFFFF] transition-colors duration-200 group-hover:text-[#7CB3FF]">
+                  <div className="p-2.5">
+                    <h3 className="line-clamp-1 font-display text-xs font-semibold leading-snug text-[#FFFFFF]">
                       {c.title}
                     </h3>
-                    <p className="mt-1.5 flex items-center gap-1.5 text-[11px] text-[#A8A8A8]">
-                      <BadgeCheck className="size-3.5 shrink-0 text-[#6366F1]" />
-                      {c.issuer}
+                    <p className="mt-1 flex items-center gap-1 text-[10px] text-[#A8A8A8]">
+                      <BadgeCheck className="size-3 shrink-0 text-[#6366F1]" />
+                      <span className="truncate">{c.issuer}</span>
                     </p>
                     {c.date && (
-                      <p className="mt-1 flex items-center gap-1.5 text-[10px] text-[#64748B]">
-                        <Calendar className="size-3 shrink-0" />
+                      <p className="mt-0.5 flex items-center gap-1 text-[9px] text-[#64748B]">
+                        <Calendar className="size-2.5 shrink-0" />
                         {formatCertDate(c.date)}
                       </p>
                     )}
-                    {c.skills.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-1">
-                        {c.skills.slice(0, 3).map((s) => (
-                          <span
-                            key={s}
-                            className="rounded-full border border-white/[0.05] bg-white/[0.03] px-2 py-0.5 text-[9px] text-[#A8A8A8]"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </button>
-
-                <div className="mt-auto flex items-center gap-2 border-t border-white/[0.05] px-4 py-3">
-                  <button
-                    type="button"
-                    onClick={() => setIndex(i)}
-                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-lg border border-[#3B82F6]/25 bg-[#3B82F6]/[0.08] px-2 py-1.5 text-[11px] font-medium text-[#7CB3FF] transition-colors duration-200 hover:bg-[#3B82F6]/[0.15] hover:text-[#FFFFFF]"
-                  >
-                    View Certificate <ArrowUpRight className="size-3" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => downloadImage(c.image, `${c.title}.png`)}
-                    aria-label={`Download ${c.title}`}
-                    title="Download"
-                    className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
-                  >
-                    <Download className="size-3" />
-                  </button>
-                </div>
               </motion.div>
             ))}
           </div>
