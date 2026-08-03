@@ -17,13 +17,13 @@ const LazySolarSystem = lazy(() =>
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Santhosh T S — Full Stack Developer" },
+      { title: "Santhosh T S — Full Stack Developer & Data Analyst" },
       {
         name: "description",
         content:
-          "Portfolio of Santhosh T S — Computer Science Engineering student and Full Stack Developer in Chennai building scalable web applications and modern software solutions.",
+          "Portfolio of Santhosh T S — Computer Science Engineering student, Full Stack Developer and Data Analyst in Chennai building scalable web applications and modern software solutions.",
       },
-      { property: "og:title", content: "Santhosh T S — Full Stack Developer" },
+      { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
       {
         property: "og:description",
         content: "Building scalable full-stack applications and modern software products using React, Node.js, Python, SQL, and modern cloud technologies.",

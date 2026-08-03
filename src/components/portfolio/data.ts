@@ -8,13 +8,14 @@ export const profile = {
   leetcode: "https://leetcode.com/u/santhoshts/",
   gfg: "https://www.geeksforgeeks.org/profile/santhoshts",
   image: "/profile.jpg",
-  headline: "Software Engineer · Full Stack Developer",
+  headline: "Software Engineer · Full Stack Developer · Data Analyst",
   sub: "Building scalable full-stack applications, AI-powered solutions, and intuitive user experiences using React, Node.js, Python, and modern cloud technologies.",
 };
 
 export const heroRoles = [
   "Software Engineer",
   "Full Stack Developer",
+  "Data Analyst",
   "UI/UX Designer",
 ];
 

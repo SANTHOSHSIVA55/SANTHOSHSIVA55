@@ -516,8 +516,77 @@ export function Journey() {
 }
 
 /* ──────────── Certifications ──────────── */
+const CERT_REPO = "SANTHOSHSIVA55/Certificates";
+const CERT_IMG_EXT = /\.(png|jpe?g|webp|gif)$/i;
+
+type Cert = {
+  title: string;
+  issuer: string;
+  skills: string[];
+  image: string;
+  link: string;
+};
+
+const certMetaByFile = new Map<string, { title: string; issuer: string; skills: string[] }>(
+  certifications.map((c) => [decodeURIComponent(c.image.split("/").pop() ?? ""), c]),
+);
+
+function certFromFile(name: string): Cert {
+  const meta = certMetaByFile.get(name);
+  const title = meta?.title ?? name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim();
+  return {
+    title,
+    issuer: meta?.issuer ?? "GitHub",
+    skills: meta?.skills ?? [],
+    image: `https://raw.githubusercontent.com/${CERT_REPO}/main/${encodeURIComponent(name)}`,
+    link: `https://github.com/${CERT_REPO}/blob/main/${encodeURIComponent(name)}`,
+  };
+}
+
+let _cachedCerts: Cert[] | null = null;
+let _certsPromise: Promise<Cert[]> | null = null;
+
+function fetchCertificates(): Promise<Cert[]> {
+  if (_cachedCerts) return Promise.resolve(_cachedCerts);
+  if (_certsPromise) return _certsPromise;
+
+  _certsPromise = fetch(`https://api.github.com/repos/${CERT_REPO}/contents`)
+    .then((r) => {
+      if (r.status === 403) throw new Error("rate-limited");
+      if (!r.ok) throw new Error(`GitHub API error: ${r.status}`);
+      return r.json();
+    })
+    .then((files: { type: string; name: string }[]) => {
+      const names = (files ?? [])
+        .filter((f) => f.type === "file" && CERT_IMG_EXT.test(f.name))
+        .map((f) => f.name)
+        .sort((a, b) => a.localeCompare(b));
+      if (!names.length) throw new Error("no certificate files");
+      _cachedCertFiles = names;
+      _cachedCerts = names.map(certFromFile);
+      return _cachedCerts;
+    })
+    .catch((err) => {
+      _certsPromise = null;
+      throw err;
+    });
+
+  return _certsPromise;
+}
+
 export function Certifications() {
-  const [active, setActive] = useState<(typeof certifications)[number] | null>(null);
+  const [active, setActive] = useState<Cert | null>(null);
+  const [certs, setCerts] = useState<Cert[] | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchCertificates()
+      .then((list) => !cancelled && setCerts(list))
+      .catch(() => !cancelled && setCerts(null));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (!active) return;
@@ -528,6 +597,8 @@ export function Certifications() {
     return () => window.removeEventListener("keydown", onKey);
   }, [active]);
 
+  const display = certs ?? certifications;
+
   return (
     <section id="certifications" className="relative section-padding">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -537,7 +608,7 @@ export function Certifications() {
           lead="Industry-recognized certifications that validate my expertise."
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {certifications.map((c, i) => (
+          {display.map((c, i) => (
             <motion.button
               key={c.title}
               type="button"
