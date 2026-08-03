@@ -12,7 +12,7 @@ export function Contact() {
         <SectionHeader
           kicker="Get In Touch"
           title="Let's Build Something Amazing"
-          lead="Open to internships, Software Engineer roles, Full Stack Developer opportunities, and exciting engineering collaborations."
+          lead="Open to internships, Software Engineer roles, Full Stack Developer opportunities, Data Analyst positions, and exciting engineering collaborations."
         />
 
         {/* Cinematic large CTA */}

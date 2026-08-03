@@ -21,12 +21,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Santhosh T S — Computer Science Engineering student, Full Stack Developer and Data Analyst in Chennai building scalable web applications and modern software solutions.",
+          "Portfolio of Santhosh T S — Computer Science Engineering student, Full Stack Developer and Data Analyst in Chennai building scalable web applications, data-driven dashboards, and modern software solutions.",
       },
       { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
       {
         property: "og:description",
-        content: "Building scalable full-stack applications and modern software products using React, Node.js, Python, SQL, and modern cloud technologies.",
+        content: "Building scalable full-stack applications, data-driven dashboards, and modern software products using React, Node.js, Python, SQL, Power BI, and modern cloud technologies.",
       },
       { property: "og:image", content: "/profile.jpg" },
       { name: "twitter:image", content: "/profile.jpg" },
