@@ -5,7 +5,7 @@ import {
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
   Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
   Database, Wrench, GraduationCap, Heart, Lightbulb, ExternalLink,
-  AlertCircle, Calendar, Download, Maximize2, RotateCcw, ZoomIn, ZoomOut,
+  AlertCircle, Award, Calendar, Download, Maximize2, RotateCcw, ZoomIn, ZoomOut,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
@@ -952,10 +952,16 @@ export function Certifications() {
           <div className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="cosmic-panel animate-pulse rounded-2xl p-3">
-                <div className="aspect-[16/9] w-full rounded-xl bg-white/[0.04]" />
-                <div className="mt-2.5 h-3 w-3/4 rounded bg-white/[0.05]" />
-                <div className="mt-1.5 h-2.5 w-1/2 rounded bg-white/[0.04]" />
-                <div className="mt-3 flex items-center justify-between">
+                <div className="flex items-center gap-3 rounded-xl border border-white/[0.05] bg-white/[0.02] p-3">
+                  <div className="size-9 shrink-0 rounded-lg bg-white/[0.05]" />
+                  <div className="flex-1">
+                    <div className="h-3 w-3/4 rounded bg-white/[0.05]" />
+                    <div className="mt-1.5 h-2.5 w-1/2 rounded bg-white/[0.04]" />
+                    <div className="mt-1.5 h-2 w-1/3 rounded bg-white/[0.03]" />
+                  </div>
+                </div>
+                <div className="mt-2 h-3.5 w-1/3 rounded-full bg-white/[0.03]" />
+                <div className="mt-2.5 flex items-center justify-between border-t border-white/[0.05] pt-2.5">
                   <div className="h-6 w-20 rounded-lg bg-white/[0.04]" />
                   <div className="size-6 rounded-lg bg-white/[0.04]" />
                 </div>
@@ -976,33 +982,23 @@ export function Certifications() {
                 <button
                   type="button"
                   onClick={() => setActive(c)}
-                  aria-label={`Preview ${c.title}`}
-                  className="relative block aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/[0.05] bg-black/30"
+                  aria-label={`View ${c.title}`}
+                  className="flex w-full items-center gap-3 rounded-xl border border-white/[0.05] bg-white/[0.02] p-3 text-left transition-colors duration-300 hover:border-[#3B82F6]/20 hover:bg-white/[0.04]"
                 >
-                  <img
-                    src={c.image}
-                    alt={`${c.title} certificate`}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur-md">
-                      <Maximize2 className="size-2.5" /> Preview
-                    </span>
-                  </div>
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-[#3B82F6]/15 bg-[#3B82F6]/[0.06] text-[#3B82F6] transition-transform duration-300 group-hover:scale-105">
+                    <Award className="size-4" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="line-clamp-2 block font-display text-[13px] font-semibold leading-snug text-[#FFFFFF]">{c.title}</span>
+                    <span className="mt-0.5 block text-[11px] text-[#A8A8A8]">{c.issuer}</span>
+                    {c.date && (
+                      <span className="mt-0.5 flex items-center gap-1 text-[10px] text-[#64748B]">
+                        <Calendar className="size-2.5" /> {formatCertDate(c.date)}
+                      </span>
+                    )}
+                  </span>
+                  <Maximize2 className="size-3.5 shrink-0 text-[#A8A8A8] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </button>
-
-                <div className="mt-2.5 flex-1">
-                  <h3 className="line-clamp-2 font-display text-[13px] font-semibold leading-snug text-[#FFFFFF]">{c.title}</h3>
-                  <p className="mt-1 text-[11px] text-[#A8A8A8]">{c.issuer}</p>
-                  {c.date && (
-                    <p className="mt-1 inline-flex items-center gap-1 text-[10px] text-[#64748B]">
-                      <Calendar className="size-2.5" /> {formatCertDate(c.date)}
-                    </p>
-                  )}
-                </div>
 
                 {c.skills && c.skills.length > 0 && (
                   <div className="mt-2 flex flex-wrap gap-1">
