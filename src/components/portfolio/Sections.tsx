@@ -5,7 +5,7 @@ import {
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
   Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
   Database, Wrench, GraduationCap, Heart, Lightbulb,
-  AlertCircle, Award, RotateCcw, ZoomIn, ZoomOut,
+  AlertCircle, Medal, RotateCcw, ZoomIn, ZoomOut,
   BadgeCheck, ChevronLeft, ChevronRight, ImageOff, Images,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
@@ -1049,7 +1049,7 @@ export function Certifications() {
                   className="block w-full text-left"
                 >
                   <div className="flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#3B82F6] via-[#6366F1] to-[#A78BFA] text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110">
-                    <Award className="size-5" />
+                    <Medal className="size-5" />
                   </div>
                   <h3 className="mt-4 line-clamp-2 font-display text-sm font-semibold leading-snug text-[#FFFFFF]">
                     {c.title}
