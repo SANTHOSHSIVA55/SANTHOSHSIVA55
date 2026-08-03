@@ -5,7 +5,7 @@ import {
   Star, GitFork, RefreshCw, Code, Brain, Rocket, BookOpen,
   Trophy, Target, Zap, CheckCircle2, X, TrendingUp,
   Database, Wrench, GraduationCap, Heart, Lightbulb,
-  AlertCircle, Award, Calendar, RotateCcw, ZoomIn, ZoomOut,
+  AlertCircle, Award, RotateCcw, ZoomIn, ZoomOut,
   BadgeCheck, ChevronLeft, ChevronRight, ImageOff, Images,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
@@ -550,13 +550,6 @@ function certFromFile(name: string, date?: string): Cert {
   };
 }
 
-function formatCertDate(iso?: string): string {
-  if (!iso) return "";
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "";
-  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-}
-
 let _cachedCerts: Cert[] | null = null;
 let _certsPromise: Promise<Cert[]> | null = null;
 
@@ -1029,51 +1022,46 @@ export function Certifications() {
         )}
 
         {loading ? (
-          <div className="mt-10 grid gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div key={i} className="cosmic-panel animate-pulse rounded-xl p-3 text-center">
-                <div className="mx-auto size-10 rounded-full bg-white/[0.05]" />
-                <div className="mx-auto mt-2.5 h-3 w-3/4 rounded bg-white/[0.05]" />
-                <div className="mx-auto mt-1.5 h-2.5 w-1/2 rounded bg-white/[0.04]" />
-                <div className="mx-auto mt-1 h-2 w-1/3 rounded bg-white/[0.03]" />
+          <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-2.5">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="cosmic-panel animate-pulse flex items-center gap-3.5 rounded-xl px-4 py-3">
+                <div className="size-10 shrink-0 rounded-full bg-white/[0.05]" />
+                <div className="flex-1">
+                  <div className="h-3 w-2/3 rounded bg-white/[0.05]" />
+                  <div className="mt-1.5 h-2.5 w-1/3 rounded bg-white/[0.04]" />
+                </div>
+                <div className="size-4 rounded bg-white/[0.04]" />
               </div>
             ))}
           </div>
         ) : (
-          <div className="mt-10 grid gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-2.5">
             {display.map((c, i) => (
-              <motion.div
+              <motion.button
                 key={c.link}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                type="button"
+                onClick={() => setIndex(i)}
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.25) }}
-                className="cosmic-panel group relative overflow-hidden rounded-xl p-3 text-center transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
+                transition={{ duration: 0.35, delay: Math.min(i * 0.04, 0.3) }}
+                aria-label={`View certificate: ${c.title}`}
+                className="cosmic-panel group flex w-full items-center gap-3.5 rounded-xl px-4 py-3 text-left transition-all duration-300 hover:bg-white/[0.03] hover-glow chrome-border"
               >
-                <button
-                  type="button"
-                  onClick={() => setIndex(i)}
-                  aria-label={`View certificate: ${c.title}`}
-                  className="flex w-full flex-col items-center text-center"
-                >
-                  <span className="flex size-10 items-center justify-center rounded-full bg-gradient-to-br from-[#3B82F6] via-[#6366F1] to-[#A78BFA] text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110">
-                    <Award className="size-4" />
-                  </span>
-                  <h3 className="mt-2 line-clamp-2 font-display text-xs font-semibold leading-snug text-[#FFFFFF]">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3B82F6] via-[#6366F1] to-[#A78BFA] text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110">
+                  <Award className="size-4" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="line-clamp-1 block font-display text-[13px] font-semibold leading-snug text-[#FFFFFF] transition-colors duration-200 group-hover:text-[#7CB3FF]">
                     {c.title}
-                  </h3>
-                  <p className="mt-1 flex items-center justify-center gap-1 text-[10px] text-[#A8A8A8]">
+                  </span>
+                  <span className="mt-0.5 flex items-center gap-1 text-[11px] text-[#A8A8A8]">
                     <BadgeCheck className="size-3 shrink-0 text-[#6366F1]" />
                     <span className="truncate">{c.issuer}</span>
-                  </p>
-                  {c.date && (
-                    <p className="mt-0.5 flex items-center justify-center gap-1 text-[9px] text-[#64748B]">
-                      <Calendar className="size-2.5 shrink-0" />
-                      {formatCertDate(c.date)}
-                    </p>
-                  )}
-                </button>
-              </motion.div>
+                  </span>
+                </span>
+                <ChevronRight className="size-4 shrink-0 text-[#64748B] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[#FFFFFF]" />
+              </motion.button>
             ))}
           </div>
         )}
