@@ -852,7 +852,7 @@ export function GithubStats() {
       .then(({ repos, user }) => {
         if (cancelled) return;
         setUser(user);
-        setRepos(repos);
+        setRepos(repos.filter((r) => r.name.toLowerCase() !== "santhoshsiva55" && r.name.toLowerCase() !== "certificates"));
       })
       .catch((err) => !cancelled && setErr(err?.message === "rate-limited"
         ? "GitHub API rate limited — try again later."
