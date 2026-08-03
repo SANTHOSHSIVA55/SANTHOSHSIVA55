@@ -210,13 +210,6 @@ export const certifications = [
     skills: ["AI"],
   },
   {
-    title: "Gemini in Google Docs",
-    issuer: "Skillup",
-    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Gemini%20in%20Google%20Docs%20Skillup.png",
-    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Gemini%20in%20Google%20Docs%20Skillup.png",
-    skills: ["Gemini", "Productivity"],
-  },
-  {
     title: "Prompt Engineering",
     issuer: "Expertisor Academy",
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Expertisor%20acedemy%20prompt%20engineering.png",

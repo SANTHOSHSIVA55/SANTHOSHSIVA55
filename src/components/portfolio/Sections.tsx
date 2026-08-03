@@ -521,7 +521,8 @@ export function Journey() {
 /* ──────────── Certifications ──────────── */
 const CERT_REPO = "SANTHOSHSIVA55/Certificates";
 const CERT_IMG_EXT = /\.(png|jpe?g|webp|gif)$/i;
-const CERTS_CACHE_KEY = "portfolio:certs:v2";
+const CERT_EXCLUDED = new Set(["Gemini in Google Docs Skillup.png"]);
+const CERTS_CACHE_KEY = "portfolio:certs:v3";
 const CERTS_CACHE_TTL = 30 * 60 * 1000;
 
 type Cert = {
@@ -624,7 +625,8 @@ function fetchCertificates(): Promise<Cert[]> {
 
     const names = (entries ?? [])
       .filter((e) => e.type === "file" && CERT_IMG_EXT.test(e.name))
-      .map((e) => e.name);
+      .map((e) => e.name)
+      .filter((n) => !CERT_EXCLUDED.has(n));
 
     if (!names.length) throw new Error("no certificate files");
 
