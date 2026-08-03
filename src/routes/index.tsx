@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
       {
         property: "og:description",
-        content: "Building scalable full-stack applications, data-driven dashboards, and modern software products using React, Node.js, Python, SQL, Power BI, and modern cloud technologies.",
+        content: "Building scalable full-stack applications, data-driven dashboards, and modern software products using React, Python (Django, FastAPI), SQL, Power BI, and modern cloud technologies.",
       },
       { property: "og:image", content: "/profile.jpg" },
       { name: "twitter:image", content: "/profile.jpg" },

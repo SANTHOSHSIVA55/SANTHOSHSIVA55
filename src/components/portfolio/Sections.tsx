@@ -135,7 +135,7 @@ export function About() {
           <div className="grid gap-3 sm:grid-cols-2">
             {[
               { icon: <Target className="size-5" />, title: "Current Focus", desc: "Building production-grade full-stack applications and mastering data analytics." },
-              { icon: <Lightbulb className="size-5" />, title: "Specialization", desc: "React, Node.js, Python, SQL, and data visualization tools." },
+              { icon: <Lightbulb className="size-5" />, title: "Specialization", desc: "React, Python (Django, FastAPI), SQL, and data visualization tools." },
               { icon: <GraduationCap className="size-5" />, title: "Education", desc: "CSE Undergrad in Chennai. 300+ DSA problems solved." },
               { icon: <Zap className="size-5" />, title: "Seeking", desc: "Internship and placement opportunities in Software Engineering and Data Analytics." },
             ].map((card, i) => (

@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Santhosh T S" },
       { name: "theme-color", content: "#020202" },
       { property: "og:title", content: "Santhosh T S — Full Stack Developer & Data Analyst" },
-      { property: "og:description", content: "Building scalable full-stack applications, data-driven dashboards, and modern software products using React, Node.js, Python, SQL, Power BI, and modern cloud technologies." },
+      { property: "og:description", content: "Building scalable full-stack applications, data-driven dashboards, and modern software products using React, Python (Django, FastAPI), SQL, Power BI, and modern cloud technologies." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@santhosh_ts" },

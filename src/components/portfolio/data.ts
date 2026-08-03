@@ -9,7 +9,7 @@ export const profile = {
   gfg: "https://www.geeksforgeeks.org/profile/santhoshts",
   image: "/profile.jpg",
   headline: "Software Engineer · Full Stack Developer · Data Analyst",
-  sub: "Building scalable full-stack applications, AI-powered solutions, intuitive user experiences, and data-driven dashboards using React, Node.js, Python, SQL, Power BI, and modern cloud technologies.",
+  sub: "Building scalable full-stack applications, AI-powered solutions, intuitive user experiences, and data-driven dashboards using React, Python (Django, FastAPI), SQL, Power BI, and modern cloud technologies.",
 };
 
 export const heroRoles = [
@@ -78,7 +78,7 @@ export const projects = [
       "An analytics platform that converts business questions into database insights, generates dashboards, and helps users understand data through interactive visualizations.",
     problem: "Business users struggle to extract insights from databases without SQL knowledge.",
     solution: "A full-stack analytics platform that accepts natural language questions, translates them into SQL queries, and renders interactive dashboards with data-driven insights.",
-    stack: ["Python", "SQL", "React", "Node.js", "PostgreSQL"],
+    stack: ["Python", "SQL", "React", "FastAPI", "PostgreSQL"],
     features: [
       "Natural language to SQL query translation",
       "Interactive data dashboards",
@@ -162,7 +162,7 @@ export const timeline = [
   },
   {
     title: "Full Stack Development",
-    body: "Learned full stack web development with React, Node.js, and databases. Built my first complete web applications and deployed them live.",
+    body: "Learned full stack web development with React, Python, and databases. Built my first complete web applications and deployed them live.",
     year: "2024",
     icon: "stack",
   },
