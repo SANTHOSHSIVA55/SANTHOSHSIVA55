@@ -7,7 +7,6 @@ import {
   Database, Wrench, GraduationCap, Heart, Lightbulb,
   AlertCircle, Award, RotateCcw, ZoomIn, ZoomOut,
   BadgeCheck, ChevronLeft, ChevronRight, ImageOff, Images,
-  BarChart3, Braces, BrainCircuit, Cloud, FlaskConical, LineChart, Palette, PenTool, Table2, Wand2,
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
@@ -660,24 +659,6 @@ function ToolbarBtn({ label, onClick, disabled, children }: { label: string; onC
   );
 }
 
-function certVisual(cert: Cert) {
-  const hay = `${cert.title} ${cert.skills.join(" ")}`.toLowerCase();
-  const pick = (Icon: typeof Code2, gradient: string) => ({ Icon, gradient });
-  if (hay.includes("genai")) return pick(BrainCircuit, "from-[#7C3AED] to-[#A78BFA]");
-  if (hay.includes("html")) return pick(Braces, "from-[#3B82F6] to-[#60A5FA]");
-  if (hay.includes("css")) return pick(Palette, "from-[#EC4899] to-[#F472B6]");
-  if (hay.includes("ui/ux") || hay.includes("ui and ux") || hay.includes("design")) return pick(PenTool, "from-[#8B5CF6] to-[#A78BFA]");
-  if (hay.includes("ai")) return pick(Brain, "from-[#6366F1] to-[#818CF8]");
-  if (hay.includes("gemini")) return pick(Sparkles, "from-[#F59E0B] to-[#FBBF24]");
-  if (hay.includes("prompt")) return pick(Wand2, "from-[#14B8A6] to-[#2DD4BF]");
-  if (hay.includes("excel") || hay.includes("visualisation")) return pick(Table2, "from-[#22C55E] to-[#4ADE80]");
-  if (hay.includes("data analytics") || hay.includes("data analysis") || hay.includes("pandas")) return pick(BarChart3, "from-[#4F46E5] to-[#6366F1]");
-  if (hay.includes("data science") || hay.includes("tools")) return pick(FlaskConical, "from-[#10B981] to-[#34D399]");
-  if (hay.includes("aws") || hay.includes("serverless") || hay.includes("cloud")) return pick(Cloud, "from-[#F97316] to-[#FB923C]");
-  if (hay.includes("python")) return pick(Code2, "from-[#0EA5E9] to-[#38BDF8]");
-  if (hay.includes("data")) return pick(LineChart, "from-[#06B6D4] to-[#22D3EE]");
-  return pick(Award, "from-[#3B82F6] via-[#6366F1] to-[#A78BFA]");
-}
 function CertImage({ cert, eager, className }: { cert: Cert; eager?: boolean; className?: string }) {
   const [broken, setBroken] = useState(false);
 
@@ -1044,7 +1025,7 @@ export function Certifications() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 8 }).map((_, i) => (
               <div key={i} className="cosmic-panel animate-pulse rounded-2xl p-5">
-                <div className="size-12 rounded-2xl bg-white/[0.05]" />
+                <div className="aspect-[4/3] w-full rounded-xl bg-white/[0.05]" />
                 <div className="mt-4 h-3.5 w-3/4 rounded bg-white/[0.05]" />
                 <div className="mt-2 h-3 w-1/2 rounded bg-white/[0.04]" />
               </div>
@@ -1052,9 +1033,7 @@ export function Certifications() {
           </div>
         ) : (
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {display.map((c, i) => {
-              const { Icon, gradient } = certVisual(c);
-              return (
+            {display.map((c, i) => (
               <motion.div
                 key={c.link}
                 initial={{ opacity: 0, y: 18 }}
@@ -1069,8 +1048,8 @@ export function Certifications() {
                   aria-label={`View certificate: ${c.title}`}
                   className="block w-full text-left"
                 >
-                  <div className={`flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-[#FFFFFF] shadow-lg shadow-[#6366F1]/25 transition-transform duration-300 group-hover:scale-110`}>
-                    <Icon className="size-5" />
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/[0.04]">
+                    <CertImage cert={c} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" />
                   </div>
                   <h3 className="mt-4 line-clamp-2 font-display text-sm font-semibold leading-snug text-[#FFFFFF]">
                     {c.title}
@@ -1081,8 +1060,7 @@ export function Certifications() {
                   </p>
                 </button>
               </motion.div>
-              );
-            })}
+            ))}
           </div>
         )}
       </div>
