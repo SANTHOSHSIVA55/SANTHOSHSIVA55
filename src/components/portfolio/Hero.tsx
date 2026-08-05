@@ -311,7 +311,7 @@ function CTAs() {
         <span className="relative z-10">View Projects</span>
         <ArrowRight className="relative z-10 size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
       </MagneticBtn>
-      <MagneticBtn href="/resume.pdf" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]">
+      <MagneticBtn href="/resume.pdf" download="Santhosh_Resume.pdf" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]">
         <Download className="size-4" /> Resume
       </MagneticBtn>
       <MagneticBtn href={profile.github} target="_blank" rel="noreferrer" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]">
