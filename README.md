@@ -1,165 +1,237 @@
+# 👋 Hi, I'm Santhosh T S
 
-<div align="center">
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=25&duration=3000&pause=1000&color=00F7FF&center=true&vCenter=true&width=800&lines=Software+Engineer+%7C+Full+Stack+Developer;Data+Analyst+%7C+Python+Developer;DSA+%7C+System+Design+%7C+Problem+Solving;Building+Scalable+%26+Data-Driven+Solutions" />
+</p>
 
-# Hi there 👋, I'm Santhosh T S
-
-### 🚀 Software Engineer • 💻 Full Stack Developer
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=1000&center=true&vCenter=true&width=900&lines=Building+Scalable+Software+Systems;Creating+Production-Ready+Applications;Solving+Problems+Through+Code;Full+Stack+Developer+%26+Software+Engineer;Always+Learning+Always+Building" />
-
-<br>
-
-<a href="https://www.linkedin.com/in/santhosh-t-s/">
-<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-
-<a href="mailto:shaisanthoshsiva2006@gmail.com">
-<img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-
-<a href="https://github.com/SANTHOSHSIVA55">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-
-<a href="https://leetcode.com/u/santhoshts/">
-<img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=white"/>
-</a>
-
-<a href="https://www.geeksforgeeks.org/user/santhoshts/">
-<img src="https://img.shields.io/badge/GeeksforGeeks-14A800?style=for-the-badge&logo=geeksforgeeks&logoColor=white"/>
-</a>
-
-<br><br>
-
-<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=for-the-badge"/>
-
-</div>
+<p align="center">
+  <a href="YOUR_PORTFOLIO">🌐 Portfolio</a> •
+  <a href="YOUR_LINKEDIN">💼 LinkedIn</a> •
+  <a href="https://github.com/SANTHOSHSIVA55">💻 GitHub</a>
+</p>
 
 ---
 
-# 💫 About Me
+## 🚀 Who Am I?
 
-🎓 Computer Science Engineering Student
+```python
+class Santhosh:
 
-💻 Passionate about Software Engineering and Full Stack Development
+    role = [
+        "Software Engineer",
+        "Full Stack Developer",
+        "Data Analyst"
+    ]
 
-🚀 Building scalable applications that solve real-world problems.
+    currently_learning = [
+        "DSA",
+        "System Design",
+        "Full Stack Development",
+        "Data Analytics",
+        "Machine Learning"
+    ]
 
-⚡ Strong foundation in Data Structures, Algorithms, and Computer Science fundamentals.
+    building = [
+        "Scalable Applications",
+        "Data-Driven Products",
+        "AI-Powered Solutions"
+    ]
 
-### 🎯 Current Focus
+    goal = "Become a top-tier Software Engineer"
+```
 
-- Data Structures & Algorithms
-- Full Stack Development
-- System Design
-- SQL & Database Systems
-- Production-Level Projects
+🎓 **Computer Science Engineering Student**
+
+💻 I enjoy turning ideas into **scalable software products**.
+
+📊 I transform raw data into **insights, visualizations, and decisions**.
+
+🧠 I continuously sharpen my problem-solving skills through **DSA and system design**.
+
+🚀 Currently focused on becoming a **production-ready Software Engineer + Data Analyst**.
 
 ---
 
-# 🚀 Featured Projects
+# ⚡ My Core Domains
 
 <table>
 <tr>
+<td width="33%" align="center">
 
-<td width="50%" valign="top">
+### 💻 Software Engineering
 
-<div align="center">
-
-## 🌊 AquaBloom AI
-
-AI-powered aquaculture monitoring platform designed to predict harmful algal blooms and support sustainable fish farming.
-
-<br>
-
-<a href="https://aqua-bloom-v2.vercel.app/">
-<img src="https://img.shields.io/badge/🚀_Launch_Project-00C853?style=for-the-badge"/>
-</a>
-
-</div>
-
-### ✨ Features
-
-- Real-Time Risk Monitoring
-- Machine Learning Predictions
-- REST APIs
-- Responsive Design
-- End-to-End Product Development
-
-### 🛠️ Tech Stack
-
-React • FastAPI • Python • Machine Learning • REST APIs
+DSA
+Python
+OOP
+DBMS
+OS
+Computer Networks
+System Design
 
 </td>
 
-<td width="50%" valign="top">
+<td width="33%" align="center">
 
-<div align="center">
+### 🌐 Full Stack Development
 
-## 🤖 GenAI Platform
-
-AI-powered platform that transforms natural language into intelligent workflows and actionable insights.
-
-<br>
-
-<a href="https://genaibi.vercel.app/">
-<img src="https://img.shields.io/badge/🚀_Launch_Project-00C853?style=for-the-badge"/>
-</a>
-
-</div>
-
-### ✨ Features
-
-- Natural Language Processing
-- Secure Authentication
-- Dynamic Visualizations
-- Scalable Architecture
-- AI-Powered Query Engine
-
-### 🛠️ Tech Stack
-
-React • Node.js • Python • SQL • JWT Authentication
+React
+FastAPI
+REST APIs
+Authentication
+SQL
+Tailwind CSS
+Git & GitHub
 
 </td>
 
+<td width="33%" align="center">
+
+### 📊 Data Analytics
+
+Python
+Pandas
+NumPy
+SQL
+Excel
+Power BI
+Data Visualization
+
+</td>
 </tr>
 </table>
 
 ---
 
-# ⚡ Tech Stack
+# 🛠️ Tech Arsenal
 
-### 💻 Programming
+### 💻 Languages
 
-<img src="https://skillicons.dev/icons?i=python,java,javascript,typescript,mysql"/>
+<p>
+<img src="https://skillicons.dev/icons?i=python,c,js,html,css" />
+</p>
 
 ### 🌐 Frontend
 
-<img src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,tailwind"/>
+<p>
+<img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind" />
+</p>
 
 ### ⚙️ Backend
 
-<img src="https://skillicons.dev/icons?i=nodejs,express,fastapi"/>
+<p>
+<img src="https://skillicons.dev/icons?i=python,fastapi,django" />
+</p>
 
 ### 🗄️ Databases
 
-<img src="https://skillicons.dev/icons?i=mysql,postgres,mongodb"/>
+<p>
+<img src="https://skillicons.dev/icons?i=mysql,postgresql,mongodb" />
+</p>
 
-### ☁️ Tools
+### 📊 Data & Analytics
 
-<img src="https://skillicons.dev/icons?i=git,github,docker,vscode,figma"/>
+`Python` `Pandas` `NumPy` `Matplotlib` `Excel` `Power BI` `SQL`
+
+### ☁️ Tools & Platforms
+
+<p>
+<img src="https://skillicons.dev/icons?i=git,github,vscode,figma,postman,vercel" />
+</p>
 
 ---
 
-# 🏆 Coding Profiles
+# 🚀 Featured Projects
 
-<div align="center">
+## 🌊 AquaBloom AI
 
-<a href="https://leetcode.com/u/santhoshts/">
-<img src="https://leetcard.jacoblin.cool/santhoshts?theme=dark&font=Nunito"/>
-</a>
+> AI-powered aquaculture monitoring platform for predicting harmful algal blooms and supporting sustainable fish farming.
 
-</div>
+### 🔥 Highlights
+
+* 🌊 Real-time aquaculture monitoring
+* 🤖 Machine learning predictions
+* 📊 Data visualization
+* ⚡ REST API architecture
+* 📱 Responsive interface
+* 🔐 End-to-end application development
+
+### 🧰 Stack
+
+`React` `FastAPI` `Python` `Machine Learning` `REST APIs`
+
+**[🔗 View Project](YOUR_AQUABLOOM_REPO)**
+
+---
+
+## 🤖 GenAI Intelligence Platform
+
+> AI-powered platform that converts natural-language questions into intelligent workflows and actionable insights.
+
+### 🔥 Highlights
+
+* 🧠 Natural language processing
+* 🔎 AI-powered query engine
+* 📊 Dynamic data visualizations
+* 🔐 JWT authentication
+* ⚡ REST APIs
+* 🏗️ Scalable architecture
+
+### 🧰 Stack
+
+`React` `Python` `SQL` `JWT` `REST APIs`
+
+**[🔗 View Project](YOUR_GENAI_REPO)**
+
+---
+
+## 📊 Data Analytics Portfolio
+
+> Practical analytics projects focused on transforming raw datasets into meaningful business insights.
+
+### 🔥 What I Work On
+
+* 🧹 Data Cleaning
+* 🔍 Exploratory Data Analysis
+* 🗄️ SQL Analysis
+* 📈 Dashboard Development
+* 📊 KPI Tracking
+* 💡 Business Insights
+* 📑 Excel Analysis
+
+### 🧰 Stack
+
+`Python` `Pandas` `SQL` `Excel` `Power BI` `Matplotlib`
+
+**[🔗 Explore Analytics Projects](YOUR_ANALYTICS_REPO)**
+
+---
+
+# 🧠 DSA Journey
+
+<p align="center">
+
+| 🎯 Target          | 📚 Focus                        |
+| ------------------ | ------------------------------- |
+| **500+ Problems**  | Arrays • Strings • Linked Lists |
+| **Advanced DSA**   | Trees • Graphs • DP             |
+| **Interview Prep** | Problem Solving • Patterns      |
+| **Goal**           | Top Product-Based Companies     |
+
+</p>
+
+### 🏋️ Current Grind
+
+```text
+DSA
+ ├── Arrays
+ ├── Strings
+ ├── Recursion
+ ├── Linked Lists
+ ├── Stack & Queue
+ ├── Trees
+ ├── Graphs
+ └── Dynamic Programming
+```
 
 ---
 
@@ -167,68 +239,179 @@ React • Node.js • Python • SQL • JWT Authentication
 
 <p align="center">
 
-<img height="170em" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&theme=tokyonight"/>
+<img src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="180"/>
 
-<img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&theme=tokyonight"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&theme=tokyonight&hide_border=true" height="180"/>
 
 </p>
+
+---
+
+# 🔥 Contribution Streak
 
 <p align="center">
 
-<img src="https://streak-stats.demolab.com?user=SANTHOSHSIVA55&theme=tokyonight"/>
+<img src="https://streak-stats.demolab.com/?user=SANTHOSHSIVA55&theme=tokyonight&hide_border=true"/>
 
 </p>
 
 ---
 
-# 📈 Contribution Activity
+# 🐍 Contribution Snake
 
 <p align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=SANTHOSHSIVA55&theme=tokyo-night"/>
+<img src="https://raw.githubusercontent.com/SANTHOSHSIVA55/SANTHOSHSIVA55/output/github-contribution-grid-snake.svg" />
 
 </p>
 
 ---
 
-# 🎯 2026 Goals
+# 📈 My Developer Journey
 
-✅ Solve 500+ DSA Problems
-
-✅ Build 5+ Production-Level Projects
-
-✅ Master Full Stack Development
-
-✅ Learn System Design & Distributed Systems
-
-✅ Contribute to Open Source
-
-✅ Secure a Software Engineering Role
-
----
-
-# 📬 Connect With Me
-
-<div align="center">
-
-<a href="https://www.linkedin.com/in/santhosh-t-s/">
-<img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-
-<a href="mailto:shaisanthoshsiva2006@gmail.com">
-<img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-
-<a href="https://github.com/SANTHOSHSIVA55">
-<img src="https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-
-</div>
+```text
+2024
+ │
+ ├── Programming Foundations
+ └── Computer Science Fundamentals
+        ↓
+2025
+ │
+ ├── Web Development
+ ├── Python Development
+ └── Project Building
+        ↓
+2026
+ │
+ ├── Advanced DSA
+ ├── Full Stack Development
+ ├── Data Analytics
+ ├── System Design
+ ├── AI / ML
+ └── Production-Level Projects
+        ↓
+NEXT
+ │
+ └── 🚀 Software Engineer
+```
 
 ---
 
-<div align="center">
+# 🎯 2026 Mission
 
-### ⚡ Building scalable software, solving real-world problems, and continuously learning.
+| Goal                         | Status         |
+| ---------------------------- | -------------- |
+| 🧠 500+ DSA Problems         | 🔄 In Progress |
+| 💻 5+ Production Projects    | 🔄 In Progress |
+| 🌐 Full Stack Mastery        | 🔄 In Progress |
+| 📊 Data Analytics Portfolio  | 🔄 In Progress |
+| 🗄️ Advanced SQL             | 🔄 In Progress |
+| 🏗️ System Design            | 🔄 In Progress |
+| 🌍 Open Source Contributions | 🔄 In Progress |
+| 🎯 Software Engineering Role | 🔥 Target      |
 
-</div>
+---
+
+# 📚 Currently Learning
+
+```text
+🐍 Python
+🧠 DSA
+🌐 React + FastAPI
+🗄️ SQL & Database Systems
+📊 Data Analytics
+📈 Power BI
+🏗️ System Design
+🤖 Machine Learning
+☁️ Cloud & DevOps
+```
+
+---
+
+# 🏆 Coding Profiles
+
+<p align="center">
+
+<a href="YOUR_LEETCODE">
+<img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=yellow"/>
+</a>
+
+<a href="YOUR_GFG">
+<img src="https://img.shields.io/badge/GeeksforGeeks-0F9D58?style=for-the-badge&logo=geeksforgeeks&logoColor=white"/>
+</a>
+
+<a href="YOUR_CODECHEF">
+<img src="https://img.shields.io/badge/CodeChef-5B4638?style=for-the-badge&logo=codechef&logoColor=white"/>
+</a>
+
+</p>
+
+---
+
+# 🏅 Certifications & Achievements
+
+🎓 Computer Science Engineering
+
+🏆 Technical Certifications
+
+💻 DSA & Programming Practice
+
+📊 Data Analytics Projects
+
+🚀 Full Stack Projects
+
+> More achievements coming soon...
+
+---
+
+# 🌐 Let's Connect
+
+<p align="center">
+
+<a href="YOUR_LINKEDIN">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="YOUR_PORTFOLIO">
+<img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
+</a>
+
+<a href="mailto:YOUR_EMAIL">
+<img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+</p>
+
+---
+
+# 💡 Developer Philosophy
+
+> **Build. Break. Learn. Improve. Repeat.**
+
+I believe the best way to learn software engineering is to **build real products, solve difficult problems, analyze real data, and continuously improve.**
+
+---
+
+<p align="center">
+
+### ⚡ Building scalable software.
+
+### 📊 Turning data into insights.
+
+### 🧠 Solving problems every day.
+
+### 🚀 Becoming better than yesterday.
+
+<br>
+
+<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&label=Profile%20Views&color=0e75b6&style=flat" />
+
+</p>
+
+---
+
+<p align="center">
+
+⭐ **If you find my work interesting, consider starring my repositories!**
+
+</p>
