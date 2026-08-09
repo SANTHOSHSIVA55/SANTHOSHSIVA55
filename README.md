@@ -26,7 +26,7 @@
 
 <div align="center">
 
-| [`ABOUT`](#-0️⃣1-about) | [`ROLES`](#-0️⃣2-roles) | [`FOCUS`](#-0️⃣3-current-focus) | [`ENGINEERING`](#-0️⃣4-software-engineering) | [`DATA`](#-0️⃣5-data-analytics) | [`ARSENAL`](#-0️⃣6-technical-arsenal) | [`PROJECTS`](#-0️⃣7-featured-projects) | [`ANALYTICS`](#-0️⃣8-github-analytics) | [`CREDENTIALS`](#-0️⃣9-credentials) | [`CONNECT`](#-1️⃣0-connect) |
+| [`ABOUT`](#01-about) | [`ROLES`](#02-roles) | [`FOCUS`](#03-current-focus) | [`ENGINEERING`](#04-software-engineering) | [`DATA`](#05-data-analytics) | [`ARSENAL`](#06-technical-arsenal) | [`PROJECTS`](#07-featured-projects) | [`ANALYTICS`](#08-github-analytics) | [`CREDENTIALS`](#09-credentials) | [`CONNECT`](#10-connect) |
 |---|---|---|---|---|---|---|---|---|---|
 
 </div>
@@ -35,7 +35,7 @@
 
 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMzOEJERjgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNBNzhCRkEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGNDcyQjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
 
-## `0️⃣1` About
+## 01. About
 
 <table width="100%">
 <tr>
@@ -70,7 +70,7 @@
 
 <br/>
 
-## `0️⃣2` Roles
+## 02. Roles
 
 <table width="100%">
 <tr>
@@ -123,7 +123,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <br/>
 
-## `0️⃣3` Current Focus
+## 03. Current Focus
 
 <table width="100%">
 <tr><td width="55%"><b>Data Structures & Algorithms</b></td><td width="45%"><code>■■■■■■■■■■■□□□</code> Active</td></tr>
@@ -142,7 +142,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMzOEJERjgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNBNzhCRkEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGNDcyQjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
 
-## `0️⃣4` Software Engineering
+## 04. Software Engineering
 
 <table width="100%">
 <tr>
@@ -156,7 +156,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <br/>
 
-## `0️⃣5` Data Analytics
+## 05. Data Analytics
 
 <div align="center">
 
@@ -178,7 +178,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <br/>
 
-## `0️⃣6` Technical Arsenal
+## 06. Technical Arsenal
 
 <div align="center">
 
@@ -216,7 +216,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMzOEJERjgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNBNzhCRkEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGNDcyQjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
 
-## `0️⃣7` Featured Projects
+## 07. Featured Projects
 
 <table width="100%">
 <tr>
@@ -316,36 +316,28 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMzOEJERjgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNBNzhCRkEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGNDcyQjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
 
-## `0️⃣8` GitHub Analytics
+## 08. GitHub Analytics
 
 <p align="center">
-<img height="165em" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0F1420&title_color=38BDF8&text_color=C9D1D9&icon_color=A78BFA"/>
-<img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0F1420&title_color=38BDF8&text_color=C9D1D9"/>
+<img height="165em" alt="Santhosh's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0F1420&title_color=38BDF8&text_color=C9D1D9&icon_color=A78BFA"/>
+<img height="165em" alt="Santhosh's most used languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0F1420&title_color=38BDF8&text_color=C9D1D9"/>
 </p>
 
 <p align="center">
-<img src="https://streak-stats.demolab.com?user=SANTHOSHSIVA55&hide_border=true&background=0F1420&ring=38BDF8&fire=A78BFA&currStreakLabel=38BDF8&sideLabels=C9D1D9&sideNums=C9D1D9&dates=7C8AA5"/>
+<img alt="Santhosh's GitHub streak" src="https://streak-stats.demolab.com?user=SANTHOSHSIVA55&hide_border=true&background=0F1420&ring=38BDF8&fire=A78BFA&currStreakLabel=38BDF8&sideLabels=C9D1D9&sideNums=C9D1D9&dates=7C8AA5"/>
 </p>
 
 <p align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=SANTHOSHSIVA55&bg_color=0F1420&color=38BDF8&line=A78BFA&point=ffffff&hide_border=true"/>
+<img alt="Santhosh's contribution activity graph" src="https://github-readme-activity-graph.vercel.app/graph?username=SANTHOSHSIVA55&bg_color=0F1420&color=38BDF8&line=A78BFA&point=ffffff&hide_border=true"/>
 </p>
 
 <p align="center">
-<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=flat-square&color=38BDF8"/>
+<img alt="Profile view count" src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=flat-square&color=38BDF8"/>
 </p>
 
 <div align="center">
 
-**Contribution Snake**
-
-<sub>The animated snake graph and the auto-updating activity feed below both require a small GitHub Actions workflow file — which can't be embedded inside a single README. Since this file is self-contained, they're included here as ready-to-use badges instead. If you'd like the fully animated versions, ask and I'll hand you the two workflow files separately to drop into <code>.github/workflows/</code>.</sub>
-
-<br/><br/>
-
-**Recent Activity**
-
-<sub>Static snapshot — for a live auto-refreshing feed, the same note above applies.</sub>
+<sub>An animated contribution-snake graph and a live auto-updating activity feed are both possible, but require a small GitHub Actions workflow file living at <code>.github/workflows/</code> — that can't be embedded inside a single self-contained README. Ask if you'd like those two workflow files as a separate follow-up.</sub>
 
 <br/><br/>
 
@@ -357,7 +349,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <br/>
 
-## `0️⃣9` Credentials
+## 09. Credentials
 
 **Certifications**
 
@@ -371,7 +363,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMzOEJERjgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNBNzhCRkEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGNDcyQjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEYxNDIwIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
 
-## `1️⃣0` Connect
+## 10. Connect
 
 <div align="center">
 
