@@ -1,247 +1,151 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Hi%20There,%20I'm%20Santhosh%20T%20S&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Software%20Engineer%20•%20Full%20Stack%20Developer%20•%20Data%20Analyst&descAlignY=55&descSize=18"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,100:16213e&height=180&section=header&text=Santhosh%20T%20S&fontSize=46&fontColor=ffffff&fontAlignY=45&desc=Software%20Engineer%20|%20Full%20Stack%20Developer%20|%20Data%20Analyst&descAlignY=62&descSize=16&animation=fadeIn"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&pause=1000&color=6C63FF&center=true&vCenter=true&width=900&lines=Building+Scalable+Software+Systems;Turning+Raw+Data+Into+Real+Insights;Creating+Production-Ready+Applications;Solving+Problems+Through+Code;Always+Learning+%2C+Always+Building" />
-
-<br>
-
-<a href="https://www.linkedin.com/in/santhosh-t-s/">
-<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-<a href="mailto:shaisanthoshsiva2006@gmail.com">
-<img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-<a href="https://github.com/SANTHOSHSIVA55">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-<a href="https://leetcode.com/u/santhoshts/">
-<img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=white"/>
-</a>
-<a href="https://www.geeksforgeeks.org/user/santhoshts/">
-<img src="https://img.shields.io/badge/GeeksforGeeks-14A800?style=for-the-badge&logo=geeksforgeeks&logoColor=white"/>
-</a>
-
-<br><br>
-
-<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=for-the-badge&color=6C63FF"/>
+<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-1a1a2e?style=flat-square&logo=linkedin&logoColor=white"/></a>
+<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-1a1a2e?style=flat-square&logo=gmail&logoColor=white"/></a>
+<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-1a1a2e?style=flat-square&logo=github&logoColor=white"/></a>
+<a href="https://leetcode.com/u/santhoshts/"><img src="https://img.shields.io/badge/LeetCode-1a1a2e?style=flat-square&logo=leetcode&logoColor=white"/></a>
+<a href="https://www.geeksforgeeks.org/user/santhoshts/"><img src="https://img.shields.io/badge/GeeksforGeeks-1a1a2e?style=flat-square&logo=geeksforgeeks&logoColor=white"/></a>
 
 </div>
 
----
+<br>
 
-## 💫 About Me
+## Summary
 
-```yaml
-role: [Software Engineer, Full Stack Developer, Data Analyst]
-education: "Computer Science Engineering Student"
-focus:
-  - Building scalable, production-ready applications
-  - Turning raw data into actionable business insights
-  - Strong fundamentals in DSA, SQL, and System Design
-currently_exploring: ["System Design", "Distributed Systems", "Data Visualization"]
-fun_fact: "I debug with print statements and I'm not ashamed 🐛"
-```
+Computer Science Engineering student with a strong foundation in Data Structures & Algorithms, full stack development, and data analysis. Experienced in designing and shipping end-to-end applications — from REST APIs and responsive interfaces to ML-driven features — and in translating raw data into clear, actionable insight. Currently focused on system design, distributed systems, and data visualization.
+
+<br>
+
+## Core Competencies
 
 <table>
 <tr>
-<td width="33%" align="center">🎓<br><b>CSE Student</b><br><sub>Computer Science Engineering</sub></td>
-<td width="33%" align="center">💻<br><b>Full Stack Dev</b><br><sub>React • Node.js • FastAPI</sub></td>
-<td width="34%" align="center">📊<br><b>Data Analyst</b><br><sub>SQL • Python • BI Tools</sub></td>
+<td valign="top" width="33%">
+
+**Software Engineering**
+- Data Structures & Algorithms
+- System Design fundamentals
+- REST API design & development
+- Git-based version control workflows
+
+</td>
+<td valign="top" width="33%">
+
+**Full Stack Development**
+- React, Next.js, Tailwind CSS
+- Node.js, Express, FastAPI
+- MySQL, PostgreSQL, MongoDB
+- JWT authentication & security
+
+</td>
+<td valign="top" width="34%">
+
+**Data Analysis**
+- SQL querying & data modeling
+- Python (Pandas, NumPy)
+- Data visualization (Matplotlib, Power BI)
+- Reporting in Excel
+
+</td>
 </tr>
 </table>
 
-### 🎯 Current Focus
+<br>
 
-<img src="https://img.shields.io/badge/Data%20Structures%20%26%20Algorithms-6C63FF?style=flat-square"/>
-<img src="https://img.shields.io/badge/Full%20Stack%20Development-00C853?style=flat-square"/>
-<img src="https://img.shields.io/badge/System%20Design-FFA116?style=flat-square"/>
-<img src="https://img.shields.io/badge/SQL%20%26%20Databases-336791?style=flat-square"/>
-<img src="https://img.shields.io/badge/Data%20Analysis%20%26%20Visualization-E97627?style=flat-square"/>
-<img src="https://img.shields.io/badge/Production%20Level%20Projects-D14836?style=flat-square"/>
+## Technical Skills
+
+<div align="center">
+
+| Category | Technologies |
+|---|---|
+| Languages | ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white) ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=openjdk&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) |
+| Frontend | ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white) ![Tailwind](https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white) |
+| Backend | ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express&logoColor=white) ![FastAPI](https://img.shields.io/badge/-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) |
+| Databases | ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) |
+| Data & Analytics | ![Pandas](https://img.shields.io/badge/-Pandas-150458?style=flat-square&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/-NumPy-013243?style=flat-square&logo=numpy&logoColor=white) ![Power BI](https://img.shields.io/badge/-Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black) ![Excel](https://img.shields.io/badge/-Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white) |
+| Tools | ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![VS Code](https://img.shields.io/badge/-VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white) ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white) |
+
+</div>
+
+<br>
+
+## Featured Projects
+
+### AquaBloom AI
+AI-powered aquaculture monitoring platform that predicts harmful algal blooms to support sustainable fish farming.
+
+- Built real-time risk monitoring with machine learning-based bloom prediction
+- Designed and documented REST APIs for data ingestion and model inference
+- Delivered a fully responsive interface, taken end-to-end from concept to deployment
+
+**Stack:** React · FastAPI · Python · Machine Learning
+**Live:** [aqua-bloom-v2.vercel.app](https://aqua-bloom-v2.vercel.app/)
 
 ---
 
-## 🚀 Featured Projects
+### GenAI Platform
+Platform that converts natural language input into structured, actionable workflows and insights.
 
-<table>
-<tr>
+- Engineered a natural language query engine to drive dynamic workflows
+- Implemented secure authentication using JWT
+- Built dynamic visualizations backed by a scalable backend architecture
 
-<td width="50%" valign="top">
+**Stack:** React · Node.js · Python · SQL · JWT
+**Live:** [genaibi.vercel.app](https://genaibi.vercel.app/)
 
-<div align="center">
-
-### 🌊 AquaBloom AI
-
-AI-powered aquaculture monitoring platform that predicts harmful algal blooms and supports sustainable fish farming.
-
-<a href="https://aqua-bloom-v2.vercel.app/">
-<img src="https://img.shields.io/badge/🚀_Launch_Project-00C853?style=for-the-badge"/>
-</a>
-
-</div>
-
-**✨ Highlights**
-- Real-time risk monitoring dashboard
-- Machine learning-based bloom prediction
-- REST APIs with clean, documented endpoints
-- Fully responsive, end-to-end product
-
-**🛠️ Stack**
 <br>
-<img src="https://skillicons.dev/icons?i=react,fastapi,py"/>
 
-</td>
-
-<td width="50%" valign="top">
-
-<div align="center">
-
-### 🤖 GenAI Platform
-
-AI platform that transforms natural language into intelligent workflows and actionable insights.
-
-<a href="https://genaibi.vercel.app/">
-<img src="https://img.shields.io/badge/🚀_Launch_Project-00C853?style=for-the-badge"/>
-</a>
-
-</div>
-
-**✨ Highlights**
-- Natural language → workflow query engine
-- Secure JWT-based authentication
-- Dynamic, data-driven visualizations
-- Scalable backend architecture
-
-**🛠️ Stack**
-<br>
-<img src="https://skillicons.dev/icons?i=react,nodejs,py,mysql"/>
-
-</td>
-
-</tr>
-</table>
-
-<div align="center">
-<sub>💡 Want to see a data project here next? I'm actively building analytics dashboards — check back soon!</sub>
-</div>
-
----
-
-## ⚡ Tech Stack
-
-<div align="center">
-
-**💻 Programming**
-<br>
-<img src="https://skillicons.dev/icons?i=python,java,javascript,typescript,mysql"/>
-
-**🌐 Frontend**
-<br>
-<img src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,tailwind"/>
-
-**⚙️ Backend**
-<br>
-<img src="https://skillicons.dev/icons?i=nodejs,express,fastapi"/>
-
-**🗄️ Databases**
-<br>
-<img src="https://skillicons.dev/icons?i=mysql,postgres,mongodb"/>
-
-**📊 Data Analysis & Visualization**
-<br>
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
-<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
-<img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=plotly&logoColor=white"/>
-<img src="https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
-<img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white"/>
-<img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
-
-**☁️ Tools & Platforms**
-<br>
-<img src="https://skillicons.dev/icons?i=git,github,docker,vscode,figma"/>
-
-</div>
-
----
-
-## 🏆 Coding Profiles
-
-<div align="center">
-
-<a href="https://leetcode.com/u/santhoshts/">
-<img src="https://leetcard.jacoblin.cool/santhoshts?theme=dark&font=Nunito"/>
-</a>
-
-</div>
-
----
-
-## 📊 GitHub Analytics
+## GitHub Overview
 
 <p align="center">
-<img height="170em" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&theme=tokyonight&count_private=true&include_all_commits=true"/>
-<img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&theme=tokyonight"/>
+<img height="165em" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&theme=default&hide_border=true&count_private=true&include_all_commits=true&title_color=1a1a2e&icon_color=1a1a2e&text_color=333333"/>
+<img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&theme=default&hide_border=true&title_color=1a1a2e&text_color=333333"/>
 </p>
 
 <p align="center">
-<img src="https://streak-stats.demolab.com?user=SANTHOSHSIVA55&theme=tokyonight"/>
+<img src="https://streak-stats.demolab.com?user=SANTHOSHSIVA55&theme=default&hide_border=true&ring=1a1a2e&fire=1a1a2e&currStreakLabel=1a1a2e"/>
 </p>
-
-## 📈 Contribution Activity
 
 <p align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=SANTHOSHSIVA55&theme=tokyo-night"/>
+<img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=SANTHOSHSIVA55&theme=minimal&hide_border=true&color=1a1a2e&line=1a1a2e&point=333333"/>
 </p>
 
----
+<div align="center">
+<a href="https://leetcode.com/u/santhoshts/"><img src="https://leetcard.jacoblin.cool/santhoshts?theme=light&font=Nunito&ext=heatmap"/></a>
+</div>
 
-## 🎯 2026 Goals
-
-<table>
-<tr><td>✅</td><td>Solve <b>500+</b> DSA Problems</td></tr>
-<tr><td>✅</td><td>Build <b>5+</b> Production-Level Projects</td></tr>
-<tr><td>✅</td><td>Master Full Stack Development</td></tr>
-<tr><td>✅</td><td>Build strong Data Analysis & Visualization skills</td></tr>
-<tr><td>✅</td><td>Learn System Design & Distributed Systems</td></tr>
-<tr><td>✅</td><td>Contribute to Open Source</td></tr>
-<tr><td>✅</td><td>Secure a Software Engineering / Data Analyst Role</td></tr>
-</table>
-
----
-
-<details>
-<summary>💬 <b>Ask me about...</b> (click to expand)</summary>
 <br>
 
-- ⚡ Full Stack architecture with React, Node.js & FastAPI
-- 📊 Turning messy datasets into clean dashboards & insights
-- 🧠 Data Structures, Algorithms & Problem Solving
-- 🗄️ SQL query optimization and database design
-- 🚀 Deploying end-to-end AI/ML powered products
+## 2026 Objectives
 
-</details>
+| Status | Objective |
+|---|---|
+| ✅ | Solve 500+ Data Structures & Algorithms problems |
+| ✅ | Ship 5+ production-level projects |
+| ✅ | Deepen expertise in full stack development |
+| ✅ | Build strong data analysis & visualization capability |
+| ✅ | Learn system design & distributed systems |
+| ✅ | Contribute to open source |
+| ✅ | Secure a Software Engineering / Data Analyst role |
 
----
+<br>
 
-## 📬 Connect With Me
+## Contact
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/santhosh-t-s/">
-<img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-<a href="mailto:shaisanthoshsiva2006@gmail.com">
-<img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-<a href="https://github.com/SANTHOSHSIVA55">
-<img src="https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
+<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/Connect_on_LinkedIn-1a1a2e?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Send_an_Email-1a1a2e?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/View_GitHub-1a1a2e?style=for-the-badge&logo=github&logoColor=white"/></a>
 
 <br><br>
 
-### ⚡ Building scalable software, uncovering insights from data, and continuously learning.
+<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=flat-square&color=1a1a2e&label=Profile+Views"/>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer"/>
+<br><br>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,100:16213e&height=100&section=footer"/>
 
 </div>
