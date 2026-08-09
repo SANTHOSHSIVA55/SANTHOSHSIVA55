@@ -190,77 +190,122 @@ I treat data analysis the same way I treat software: ***the output isn't the cha
 
 ## Projects
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:1e3a5f,100:0f0c29&height=90&section=header&text=AquaBloom%20AI&fontSize=32&fontColor=ffffff&fontAlignY=60"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=110&section=header&text=FEATURED%20WORK&fontSize=38&fontColor=ffffff&fontAlignY=62&desc=Software%20engineering%20%2B%20data%20analytics%2C%20shipped%20end-to-end&descAlignY=82&descSize=13"/>
 
-**AI-powered early warning system for harmful algal blooms**, supporting sustainable aquaculture through a Netflix-style dark glassmorphism dashboard.
+<br>
 
-> **Problem solved** — fish farmers lack early, reliable warning of the bloom conditions that threaten yields. AquaBloom AI surfaces risk *before* it becomes loss.
+<table width="100%">
+<tr>
+<td width="33.3%" valign="top">
 
-**Key features**
-- ⚡ Real-time telemetry monitoring
-- 📡 72-hour bloom risk forecasting
-- 🌐 Interactive 3D digital twin simulation
-- 🗺️ Pond risk maps with a glassmorphism dashboard UI
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:1e3a5f,100:0f0c29&height=70&section=header&text=AquaBloom%20AI&fontSize=20&fontColor=ffffff&fontAlignY=60"/>
 
-**Stack** — `React` `FastAPI` `Python` `Scikit-learn` `Machine Learning`
+<sub>AI-powered early warning system for harmful algal blooms, with a Netflix-style glassmorphism dashboard.</sub>
 
-<div align="center">
+<img width="130" src="https://img.shields.io/badge/PROBLEM-1e3a5f?style=for-the-badge"/>
+<br><sub>Fish farmers lack early warning of bloom conditions — AquaBloom AI surfaces risk *before* it becomes loss.</sub>
+
+<img width="130" src="https://img.shields.io/badge/FEATURES-1e3a5f?style=for-the-badge"/>
+<br>
+<sub>
+⚡ Real-time telemetry monitoring<br>
+📡 72-hour bloom risk forecasting<br>
+🌐 Interactive 3D digital twin<br>
+🗺️ Glassmorphism pond risk maps
+</sub>
+
+<img width="90" src="https://img.shields.io/badge/STACK-1e3a5f?style=for-the-badge"/>
+<br>
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white"/>
+
+<br><br>
 
 <a href="https://aqua-bloom-v2.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white"/></a>
+<br><br>
 <a href="https://github.com/SANTHOSHSIVA55/aqua-bloom-ai"><img src="https://img.shields.io/badge/Source%20Code-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
 
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=SANTHOSHSIVA55&repo=aqua-bloom-ai&theme=radical&hide_border=true&bg_color=0d1117&title_color=A78BFA&icon_color=A78BFA"/>
+<br><br>
 
-</div>
+<img width="100%" src="https://github-readme-stats.vercel.app/api/pin/?username=SANTHOSHSIVA55&repo=aqua-bloom-ai&theme=radical&hide_border=true&bg_color=0d1117&title_color=A78BFA&icon_color=A78BFA"/>
 
+</td>
+<td width="33.3%" valign="top">
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=70&section=header&text=GenAI%20BI%20Platform&fontSize=20&fontColor=ffffff&fontAlignY=60"/>
+
+<sub>A GenAI Business Intelligence platform that turns natural language queries into SQL database insights.</sub>
+
+<img width="130" src="https://img.shields.io/badge/PROBLEM-302b63?style=for-the-badge"/>
+<br><sub>Turning plain-English questions into reliable, structured database insight without hand-written SQL each time.</sub>
+
+<img width="130" src="https://img.shields.io/badge/FEATURES-302b63?style=for-the-badge"/>
 <br>
+<sub>
+🧠 Natural language → SQL engine<br>
+📊 Dynamic, auto-generated charts<br>
+🔐 Secure JWT authentication<br>
+🖥️ Interactive 3D UI
+</sub>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=90&section=header&text=GenAI%20BI%20Platform&fontSize=32&fontColor=ffffff&fontAlignY=60"/>
+<img width="90" src="https://img.shields.io/badge/STACK-302b63?style=for-the-badge"/>
+<br>
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white"/>
+<img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+<img src="https://img.shields.io/badge/JWT-black?style=flat-square&logo=jsonwebtokens&logoColor=white"/>
 
-**A modern GenAI Business Intelligence platform** that translates natural language queries into SQL database insights.
-
-> **Problem solved** — turning plain-English questions into reliable, structured database insight without hand-written SQL for every query.
-
-**Key features**
-- 🧠 Natural language → SQL query engine
-- 📊 Dynamic, auto-generated charts
-- 🔐 Secure JWT-based authentication
-- 🖥️ Interactive 3D UI
-
-**Stack** — `React` `Node.js` `Python` `SQL` `JWT`
-
-<div align="center">
+<br><br>
 
 <a href="https://genaibi.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white"/></a>
+<br><br>
 <a href="https://github.com/SANTHOSHSIVA55/genai-bi-platform"><img src="https://img.shields.io/badge/Source%20Code-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
 
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=SANTHOSHSIVA55&repo=genai-bi-platform&theme=radical&hide_border=true&bg_color=0d1117&title_color=A78BFA&icon_color=A78BFA"/>
+<br><br>
 
-</div>
+<img width="100%" src="https://github-readme-stats.vercel.app/api/pin/?username=SANTHOSHSIVA55&repo=genai-bi-platform&theme=radical&hide_border=true&bg_color=0d1117&title_color=A78BFA&icon_color=A78BFA"/>
 
+</td>
+<td width="33.3%" valign="top">
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:1b4332,100:0f0c29&height=70&section=header&text=Data%20Analysis%20Portfolio&fontSize=18&fontColor=ffffff&fontAlignY=60"/>
+
+<sub>A collection of mini data analysis projects built with Excel, SQL, Python, Pandas, Matplotlib, and Power BI.</sub>
+
+<img width="130" src="https://img.shields.io/badge/PROBLEM-1b4332?style=for-the-badge"/>
+<br><sub>Each project takes a raw, real-world dataset through cleaning and exploration to a clear, actionable insight.</sub>
+
+<img width="150" src="https://img.shields.io/badge/WHAT'S%20INSIDE-1b4332?style=for-the-badge"/>
 <br>
+<sub>
+🧹 Data cleaning & preprocessing<br>
+🔍 Exploratory data analysis (EDA)<br>
+🗄️ SQL-based analysis<br>
+📈 Power BI / Matplotlib dashboards
+</sub>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:1b4332,100:0f0c29&height=90&section=header&text=Data%20Analysis%20Portfolio&fontSize=32&fontColor=ffffff&fontAlignY=60"/>
+<img width="90" src="https://img.shields.io/badge/STACK-1b4332?style=for-the-badge"/>
+<br>
+<img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white"/>
+<img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+<img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white"/>
+<img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=black"/>
 
-**A collection of mini data analysis projects** built with Excel, SQL, Python, Pandas, Matplotlib, and Power BI.
+<br><br>
 
-> **Problem solved** — each project takes a raw, real-world dataset through cleaning, exploration, and visualization to a clear, actionable business insight.
-
-**What's inside**
-- 🧹 Data cleaning & preprocessing workflows
-- 🔍 Exploratory data analysis (EDA)
-- 🗄️ SQL-based analysis and aggregation
-- 📈 Power BI / Matplotlib dashboards and visual reports
-
-**Stack** — `Excel` `SQL` `Python` `Pandas` `Matplotlib` `Power BI`
-
-<div align="center">
-
+<img src="https://img.shields.io/badge/Live%20Demo-2b2b2b?style=for-the-badge"/>
+<br><br>
 <a href="https://github.com/SANTHOSHSIVA55/data-analysis-portfolio"><img src="https://img.shields.io/badge/Source%20Code-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
 
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=SANTHOSHSIVA55&repo=data-analysis-portfolio&theme=radical&hide_border=true&bg_color=0d1117&title_color=A78BFA&icon_color=A78BFA"/>
+<br><br>
 
-</div>
+<img width="100%" src="https://github-readme-stats.vercel.app/api/pin/?username=SANTHOSHSIVA55&repo=data-analysis-portfolio&theme=radical&hide_border=true&bg_color=0d1117&title_color=A78BFA&icon_color=A78BFA"/>
+
+</td>
+</tr>
+</table>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f0c29,100:24243e&height=3"/>
 
