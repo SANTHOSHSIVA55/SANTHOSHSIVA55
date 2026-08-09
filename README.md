@@ -7,7 +7,13 @@
 <br>
 
 <p>
-<a href="#about"><b>ABOUT</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#skills"><b>SKILLS</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#analytics"><b>ANALYTICS</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#projects"><b>PROJECTS</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#journey"><b>JOURNEY</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#github"><b>GITHUB</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#connect"><b>CONNECT</b></a>
+<a href="#about"><img src="https://img.shields.io/badge/●_ABOUT-0d1117?style=for-the-badge&labelColor=0d1117&color=A78BFA"/></a>
+<a href="#skills"><img src="https://img.shields.io/badge/●_SKILLS-0d1117?style=for-the-badge&labelColor=0d1117&color=A78BFA"/></a>
+<a href="#analytics"><img src="https://img.shields.io/badge/●_ANALYTICS-0d1117?style=for-the-badge&labelColor=0d1117&color=A78BFA"/></a>
+<a href="#projects"><img src="https://img.shields.io/badge/●_PROJECTS-0d1117?style=for-the-badge&labelColor=0d1117&color=A78BFA"/></a>
+<a href="#journey"><img src="https://img.shields.io/badge/●_JOURNEY-0d1117?style=for-the-badge&labelColor=0d1117&color=A78BFA"/></a>
+<a href="#github"><img src="https://img.shields.io/badge/●_GITHUB-0d1117?style=for-the-badge&labelColor=0d1117&color=A78BFA"/></a>
+<a href="#connect"><img src="https://img.shields.io/badge/●_CONNECT-0d1117?style=for-the-badge&labelColor=0d1117&color=A78BFA"/></a>
 </p>
 
 <a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-302b63?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
@@ -27,7 +33,9 @@
 
 ## About
 
-<img width="220" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=48&section=header&text=WHO%20I%20AM&fontSize=16&fontColor=ffffff&fontAlignY=62"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=130&section=header&text=WHO%20I%20AM&fontSize=48&fontColor=ffffff&fontAlignY=60&desc=The%20person%20behind%20the%20commits&descAlignY=82&descSize=15"/>
+
+<br>
 
 I build software **and** I build understanding of data — and I've stopped treating those as two separate skillsets.
 
@@ -43,7 +51,7 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 <tr>
 <td width="25%" align="center" valign="top">
 
-<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:1e3a5f,100:0f0c29&height=42&text=01&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+<img width="180" src="https://capsule-render.vercel.app/api?type=soft&color=0:1e3a5f,100:0f0c29&height=64&text=⚙️%2001&fontSize=22&fontColor=A78BFA&fontAlignY=68"/>
 
 **Software Engineering**
 <br><sub>Designing reliable backends, clean APIs, and systems that hold up under real usage — not just demo conditions.</sub>
@@ -51,7 +59,7 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 </td>
 <td width="25%" align="center" valign="top">
 
-<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=42&text=02&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+<img width="180" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=64&text=🖥️%2002&fontSize=22&fontColor=A78BFA&fontAlignY=68"/>
 
 **Full-Stack Development**
 <br><sub>Taking a product from database schema to a deployed, polished interface — owning the full path in between.</sub>
@@ -59,7 +67,7 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 </td>
 <td width="25%" align="center" valign="top">
 
-<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:1b4332,100:0f0c29&height=42&text=03&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+<img width="180" src="https://capsule-render.vercel.app/api?type=soft&color=0:1b4332,100:0f0c29&height=64&text=📊%2003&fontSize=22&fontColor=A78BFA&fontAlignY=68"/>
 
 **Data Analytics**
 <br><sub>Turning raw, unstructured data into cleaned datasets, clear visuals, and insights someone can act on.</sub>
@@ -67,7 +75,7 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 </td>
 <td width="25%" align="center" valign="top">
 
-<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:5f1e3a,100:0f0c29&height=42&text=04&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+<img width="180" src="https://capsule-render.vercel.app/api?type=soft&color=0:5f1e3a,100:0f0c29&height=64&text=🧠%2004&fontSize=22&fontColor=A78BFA&fontAlignY=68"/>
 
 **Problem Solving**
 <br><sub>Data structures, algorithms, and CS fundamentals as the base layer under everything else I build.</sub>
@@ -82,13 +90,13 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 
 <div align="center">
 
-<img width="260" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=LANGUAGES&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<img width="320" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=58&text=💬%20LANGUAGES&fontSize=22&fontColor=ffffff&fontAlignY=66"/>
 <br><br>
 <img src="https://skillicons.dev/icons?i=python,javascript,typescript,java,mysql,postgres&theme=dark&perline=6"/>
 
 <br><br>
 
-<img width="420" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=SOFTWARE%20ENGINEERING%20FOUNDATIONS&fontSize=15&fontColor=ffffff&fontAlignY=64"/>
+<img width="480" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=58&text=🧩%20SOFTWARE%20ENGINEERING%20FOUNDATIONS&fontSize=18&fontColor=ffffff&fontAlignY=66"/>
 <br><br>
 <img src="https://img.shields.io/badge/Data%20Structures%20%26%20Algorithms-1a1a2e?style=for-the-badge&logoColor=white"/>
 <img src="https://img.shields.io/badge/Object%20Oriented%20Programming-1a1a2e?style=for-the-badge&logoColor=white"/>
@@ -100,7 +108,7 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 
 <br><br>
 
-<img width="320" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=BACKEND%20%26%20DATABASES&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<img width="360" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=58&text=🛠️%20BACKEND%20%26%20DATABASES&fontSize=19&fontColor=ffffff&fontAlignY=66"/>
 <br><br>
 <img src="https://skillicons.dev/icons?i=fastapi,django,nodejs,express,mysql,postgresql&theme=dark&perline=6"/>
 <br>
@@ -109,13 +117,13 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 
 <br><br>
 
-<img width="220" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=FRONTEND&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<img width="260" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=58&text=🎨%20FRONTEND&fontSize=22&fontColor=ffffff&fontAlignY=66"/>
 <br><br>
 <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,html,css&theme=dark&perline=5"/>
 
 <br><br>
 
-<img width="260" src="https://capsule-render.vercel.app/api?type=rect&color=0:1b4332,100:0f0c29&height=44&text=DATA%20ANALYTICS&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<img width="320" src="https://capsule-render.vercel.app/api?type=soft&color=0:1b4332,100:0f0c29&height=58&text=📈%20DATA%20ANALYTICS&fontSize=22&fontColor=ffffff&fontAlignY=66"/>
 <br><br>
 <img src="https://skillicons.dev/icons?i=py&theme=dark"/>
 <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
@@ -132,7 +140,7 @@ I'm a **Computer Science Engineering student**, and right now I'm deliberately b
 
 <br><br>
 
-<img width="180" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=TOOLS&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<img width="220" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=58&text=🧰%20TOOLS&fontSize=22&fontColor=ffffff&fontAlignY=66"/>
 <br><br>
 <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,figma,docker&theme=dark&perline=6"/>
 
@@ -342,6 +350,10 @@ INTERVIEW READINESS
 ## Connect
 
 <div align="center">
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:302b63,100:0f0c29&height=120&section=header&text=LET'S%20TALK&fontSize=44&fontColor=ffffff&fontAlignY=58&desc=Open%20to%20Software%20Engineering%20%26%20Data%20Analyst%20opportunities&descAlignY=80&descSize=14"/>
+
+<br><br>
 
 <a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-302b63?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 <a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-302b63?style=for-the-badge&logo=gmail&logoColor=white"/></a>
