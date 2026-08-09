@@ -7,13 +7,12 @@
 <br>
 
 <p>
-<a href="#about"><b>About</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#skills"><b>Skills</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#analytics"><b>Analytics</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#projects"><b>Projects</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#journey"><b>Journey</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#github"><b>GitHub</b></a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#connect"><b>Connect</b></a>
+<a href="#about"><b>ABOUT</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#skills"><b>SKILLS</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#analytics"><b>ANALYTICS</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#projects"><b>PROJECTS</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#journey"><b>JOURNEY</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#github"><b>GITHUB</b></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#connect"><b>CONNECT</b></a>
 </p>
 
 <a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-302b63?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 <a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-302b63?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 <a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-302b63?style=for-the-badge&logo=vercel&logoColor=white"/></a>
-<a href="[RESUME_LINK]"><img src="https://img.shields.io/badge/Resume-302b63?style=for-the-badge&logo=readdotcv&logoColor=white"/></a>
 <a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-302b63?style=for-the-badge&logo=github&logoColor=white"/></a>
 
 <br><br>
@@ -21,7 +20,6 @@
 <img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=for-the-badge&color=A78BFA&label=PROFILE+VIEWS"/>
 <img src="https://img.shields.io/github/followers/SANTHOSHSIVA55?style=for-the-badge&color=A78BFA&label=FOLLOWERS&logo=github&logoColor=white"/>
 <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=A78BFA&label=PUBLIC%20REPOS&query=%24.public_repos&url=https%3A%2F%2Fapi.github.com%2Fusers%2FSANTHOSHSIVA55"/>
-<img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=A78BFA&label=STARS%20EARNED&query=%24.public_repos&url=https%3A%2F%2Fapi.github.com%2Fusers%2FSANTHOSHSIVA55"/>
 
 </div>
 
@@ -29,13 +27,15 @@
 
 ## About
 
-I build software and I build understanding of data — and I've stopped treating those as two separate skillsets.
+<img width="220" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=48&section=header&text=WHO%20I%20AM&fontSize=16&fontColor=ffffff&fontAlignY=62"/>
 
-On one side, that means designing APIs, architecting full-stack applications, and reasoning through data structures and system design until a solution is not just working, but *correct*. On the other, it means sitting with a raw, messy dataset until it tells a story — cleaning it, querying it, visualizing it, and turning it into something a decision can actually be based on.
+I build software **and** I build understanding of data — and I've stopped treating those as two separate skillsets.
 
-I'm a Computer Science Engineering student, and right now I'm deliberately building at the intersection of both: applications that are engineered well *and* informed by data, not just built and shipped blind. I'm sharpening my system design fundamentals, going deeper into SQL and analytical tooling, and pushing myself to ship fewer toy projects and more production-shaped ones — like a real-time forecasting dashboard with a 3D digital twin, or a natural-language interface over structured data.
+On one side, that means designing APIs, architecting full-stack applications, and reasoning through data structures and system design until a solution is not just *working*, but ***correct***. On the other, it means sitting with a raw, messy dataset until it tells a story — cleaning it, querying it, visualizing it, and turning it into something a decision can actually be based on.
 
-I'm currently oriented toward **Software Engineering** and **Data Analyst** roles — anywhere the work involves building real systems or making sense of real data, ideally both.
+I'm a **Computer Science Engineering student**, and right now I'm deliberately building at the intersection of both: applications that are engineered well *and* informed by data, not just built and shipped blind. I'm sharpening my system design fundamentals, going deeper into SQL and analytical tooling, and pushing myself to ship fewer toy projects and more production-shaped ones — like a real-time forecasting dashboard with a 3D digital twin, or a natural-language interface over structured data.
+
+> I'm currently oriented toward **Software Engineering** and **Data Analyst** roles — anywhere the work involves building real systems or making sense of real data, ideally both.
 
 <br>
 
@@ -43,30 +43,34 @@ I'm currently oriented toward **Software Engineering** and **Data Analyst** role
 <tr>
 <td width="25%" align="center" valign="top">
 
-### `01`
-### Software Engineering
-Designing reliable backends, clean APIs, and systems that hold up under real usage — not just demo conditions.
+<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:1e3a5f,100:0f0c29&height=42&text=01&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+
+**Software Engineering**
+<br><sub>Designing reliable backends, clean APIs, and systems that hold up under real usage — not just demo conditions.</sub>
 
 </td>
 <td width="25%" align="center" valign="top">
 
-### `02`
-### Full-Stack Development
-Taking a product from database schema to a deployed, animated interface — owning the full path in between.
+<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=42&text=02&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+
+**Full-Stack Development**
+<br><sub>Taking a product from database schema to a deployed, polished interface — owning the full path in between.</sub>
 
 </td>
 <td width="25%" align="center" valign="top">
 
-### `03`
-### Data Analytics
-Turning raw, unstructured data into cleaned datasets, clear visuals, and insights someone can act on.
+<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:1b4332,100:0f0c29&height=42&text=03&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+
+**Data Analytics**
+<br><sub>Turning raw, unstructured data into cleaned datasets, clear visuals, and insights someone can act on.</sub>
 
 </td>
 <td width="25%" align="center" valign="top">
 
-### `04`
-### Problem Solving
-Data structures, algorithms, and CS fundamentals as the base layer under everything else I build.
+<img width="140" src="https://capsule-render.vercel.app/api?type=rect&color=0:5f1e3a,100:0f0c29&height=42&text=04&fontSize=18&fontColor=A78BFA&fontAlignY=65"/>
+
+**Problem Solving**
+<br><sub>Data structures, algorithms, and CS fundamentals as the base layer under everything else I build.</sub>
 
 </td>
 </tr>
@@ -78,10 +82,14 @@ Data structures, algorithms, and CS fundamentals as the base layer under everyth
 
 <div align="center">
 
-### Languages
+<img width="260" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=LANGUAGES&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<br><br>
 <img src="https://skillicons.dev/icons?i=python,javascript,typescript,java,mysql,postgres&theme=dark&perline=6"/>
 
-### Software Engineering Foundations
+<br><br>
+
+<img width="420" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=SOFTWARE%20ENGINEERING%20FOUNDATIONS&fontSize=15&fontColor=ffffff&fontAlignY=64"/>
+<br><br>
 <img src="https://img.shields.io/badge/Data%20Structures%20%26%20Algorithms-1a1a2e?style=for-the-badge&logoColor=white"/>
 <img src="https://img.shields.io/badge/Object%20Oriented%20Programming-1a1a2e?style=for-the-badge&logoColor=white"/>
 <img src="https://img.shields.io/badge/DBMS-1a1a2e?style=for-the-badge&logoColor=white"/>
@@ -90,16 +98,25 @@ Data structures, algorithms, and CS fundamentals as the base layer under everyth
 <img src="https://img.shields.io/badge/Computer%20Networks-1a1a2e?style=for-the-badge&logoColor=white"/>
 <img src="https://img.shields.io/badge/System%20Design-1a1a2e?style=for-the-badge&logoColor=white"/>
 
-### Backend & Databases
+<br><br>
+
+<img width="320" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=BACKEND%20%26%20DATABASES&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<br><br>
 <img src="https://skillicons.dev/icons?i=fastapi,django,nodejs,express,mysql,postgresql&theme=dark&perline=6"/>
 <br>
 <img src="https://img.shields.io/badge/REST%20APIs-302b63?style=flat-square"/>
 <img src="https://img.shields.io/badge/JWT%20Authentication-302b63?style=flat-square"/>
 
-### Frontend
+<br><br>
+
+<img width="220" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=FRONTEND&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<br><br>
 <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,html,css&theme=dark&perline=5"/>
 
-### Data Analytics
+<br><br>
+
+<img width="260" src="https://capsule-render.vercel.app/api?type=rect&color=0:1b4332,100:0f0c29&height=44&text=DATA%20ANALYTICS&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<br><br>
 <img src="https://skillicons.dev/icons?i=py&theme=dark"/>
 <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
 <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
@@ -108,12 +125,15 @@ Data structures, algorithms, and CS fundamentals as the base layer under everyth
 <img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white"/>
 <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
 <br>
-<img src="https://img.shields.io/badge/Data%20Cleaning-302b63?style=flat-square"/>
-<img src="https://img.shields.io/badge/Exploratory%20Data%20Analysis-302b63?style=flat-square"/>
-<img src="https://img.shields.io/badge/Dashboarding-302b63?style=flat-square"/>
-<img src="https://img.shields.io/badge/Business%20Insights-302b63?style=flat-square"/>
+<img src="https://img.shields.io/badge/Data%20Cleaning-1b4332?style=flat-square"/>
+<img src="https://img.shields.io/badge/Exploratory%20Data%20Analysis-1b4332?style=flat-square"/>
+<img src="https://img.shields.io/badge/Dashboarding-1b4332?style=flat-square"/>
+<img src="https://img.shields.io/badge/Business%20Insights-1b4332?style=flat-square"/>
 
-### Tools
+<br><br>
+
+<img width="180" src="https://capsule-render.vercel.app/api?type=rect&color=0:302b63,100:0f0c29&height=44&text=TOOLS&fontSize=16&fontColor=ffffff&fontAlignY=64"/>
+<br><br>
 <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,figma,docker&theme=dark&perline=6"/>
 
 </div>
@@ -125,34 +145,38 @@ Data structures, algorithms, and CS fundamentals as the base layer under everyth
 Data work follows a consistent path for me, from a raw file to a decision someone can actually act on:
 
 ```text
-   Raw Data
+   RAW DATA
       │
       ▼
-   Data Cleaning         →   handling nulls, duplicates, inconsistent formats
+   DATA CLEANING          →   handling nulls, duplicates, inconsistent formats
       │
       ▼
-   Exploratory Analysis   →   distributions, trends, outliers, first hypotheses
+   EXPLORATORY ANALYSIS    →   distributions, trends, outliers, first hypotheses
       │
       ▼
-   SQL Analysis            →   structured querying, joins, aggregation
+   SQL ANALYSIS             →   structured querying, joins, aggregation
       │
       ▼
-   Visualization             →   translating numbers into readable charts
+   VISUALIZATION              →   translating numbers into readable charts
       │
       ▼
-   Dashboard                  →   a single view stakeholders can actually use
+   DASHBOARD                   →   a single view stakeholders can actually use
       │
       ▼
-   Business Insight            →   a recommendation, not just a number
+   BUSINESS INSIGHT              →   a recommendation, not just a number
 ```
 
 <div align="center">
 
-`Python`  →  `Pandas`  →  `SQL`  →  `Excel`  →  `Power BI`  →  `Visualization`
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/> ➜
+<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/> ➜
+<img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/> ➜
+<img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white"/> ➜
+<img src="https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
 
 </div>
 
-I treat data analysis the same way I treat software: the output isn't the chart, it's the decision the chart enables. My focus is on getting to a clean, defensible insight — not just a pretty dashboard. My **[Data Analysis Portfolio](https://github.com/SANTHOSHSIVA55/data-analysis-portfolio)** collects mini analytics projects built with Excel, SQL, Python, Pandas, Matplotlib, and Power BI — each one focused on cleaning, exploring, visualizing, and extracting a real business insight from a dataset.
+I treat data analysis the same way I treat software: ***the output isn't the chart, it's the decision the chart enables.*** My focus is on getting to a clean, defensible insight — not just a pretty dashboard. My **[Data Analysis Portfolio](https://github.com/SANTHOSHSIVA55/data-analysis-portfolio)** collects mini analytics projects built with Excel, SQL, Python, Pandas, Matplotlib, and Power BI — each one focused on cleaning, exploring, visualizing, and extracting a real business insight from a dataset.
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f0c29,100:24243e&height=3"/>
 
@@ -160,17 +184,17 @@ I treat data analysis the same way I treat software: the output isn't the chart,
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=soft&color=0:1e3a5f,100:0f0c29&height=90&section=header&text=AquaBloom%20AI&fontSize=32&fontColor=ffffff&fontAlignY=60"/>
 
-**AI-powered early warning system for harmful algal blooms**, supporting sustainable aquaculture with a Netflix-style dark glassmorphism dashboard.
+**AI-powered early warning system for harmful algal blooms**, supporting sustainable aquaculture through a Netflix-style dark glassmorphism dashboard.
 
-*Problem solved:* Fish farmers lack early, reliable warning of the bloom conditions that threaten yields — AquaBloom AI surfaces risk before it becomes loss.
+> **Problem solved** — fish farmers lack early, reliable warning of the bloom conditions that threaten yields. AquaBloom AI surfaces risk *before* it becomes loss.
 
 **Key features**
-- Real-time telemetry monitoring
-- 72-hour bloom risk forecasting
-- Interactive 3D digital twin simulation
-- Pond risk maps with a glassmorphism dashboard UI
+- ⚡ Real-time telemetry monitoring
+- 📡 72-hour bloom risk forecasting
+- 🌐 Interactive 3D digital twin simulation
+- 🗺️ Pond risk maps with a glassmorphism dashboard UI
 
-**Stack:** `React` `FastAPI` `Python` `Scikit-learn` `Machine Learning`
+**Stack** — `React` `FastAPI` `Python` `Scikit-learn` `Machine Learning`
 
 <div align="center">
 
@@ -187,15 +211,15 @@ I treat data analysis the same way I treat software: the output isn't the chart,
 
 **A modern GenAI Business Intelligence platform** that translates natural language queries into SQL database insights.
 
-*Problem solved:* Turning plain-English questions into reliable, structured database insight without hand-written SQL for every query.
+> **Problem solved** — turning plain-English questions into reliable, structured database insight without hand-written SQL for every query.
 
 **Key features**
-- Natural language → SQL query engine
-- Dynamic, auto-generated charts
-- Secure JWT-based authentication
-- Interactive 3D UI
+- 🧠 Natural language → SQL query engine
+- 📊 Dynamic, auto-generated charts
+- 🔐 Secure JWT-based authentication
+- 🖥️ Interactive 3D UI
 
-**Stack:** `React` `Node.js` `Python` `SQL` `JWT`
+**Stack** — `React` `Node.js` `Python` `SQL` `JWT`
 
 <div align="center">
 
@@ -212,15 +236,15 @@ I treat data analysis the same way I treat software: the output isn't the chart,
 
 **A collection of mini data analysis projects** built with Excel, SQL, Python, Pandas, Matplotlib, and Power BI.
 
-*Problem solved:* Each project takes a raw, real-world dataset through cleaning, exploration, and visualization to a clear, actionable business insight.
+> **Problem solved** — each project takes a raw, real-world dataset through cleaning, exploration, and visualization to a clear, actionable business insight.
 
 **What's inside**
-- Data cleaning & preprocessing workflows
-- Exploratory data analysis (EDA)
-- SQL-based analysis and aggregation
-- Power BI / Matplotlib dashboards and visual reports
+- 🧹 Data cleaning & preprocessing workflows
+- 🔍 Exploratory data analysis (EDA)
+- 🗄️ SQL-based analysis and aggregation
+- 📈 Power BI / Matplotlib dashboards and visual reports
 
-**Stack:** `Excel` `SQL` `Python` `Pandas` `Matplotlib` `Power BI`
+**Stack** — `Excel` `SQL` `Python` `Pandas` `Matplotlib` `Power BI`
 
 <div align="center">
 
@@ -235,11 +259,11 @@ I treat data analysis the same way I treat software: the output isn't the chart,
 ## Currently Building
 
 ```text
-01 ─ DSA & Problem Solving         ██████████████████░░  active
-02 ─ Backend Engineering           ██████████████████░░  active
-03 ─ Full-Stack Applications       ████████████████░░░░  active
-04 ─ Data Analytics                ████████████████░░░░  active
-05 ─ System Design                 ████████████░░░░░░░░  in progress
+01 ─ DSA & Problem Solving         ██████████████████░░  ACTIVE
+02 ─ Backend Engineering           ██████████████████░░  ACTIVE
+03 ─ Full-Stack Applications       ████████████████░░░░  ACTIVE
+04 ─ Data Analytics                ████████████████░░░░  ACTIVE
+05 ─ System Design                 ████████████░░░░░░░░  IN PROGRESS
 ```
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f0c29,100:24243e&height=3"/>
@@ -247,35 +271,41 @@ I treat data analysis the same way I treat software: the output isn't the chart,
 ## Journey
 
 ```text
-Foundation
+FOUNDATION
    │
    ▼
-DSA + CS Fundamentals
+DSA + CS FUNDAMENTALS
    │
    ▼
-Backend Engineering
+BACKEND ENGINEERING
    │
    ▼
-Full-Stack Development
+FULL-STACK DEVELOPMENT
    │
    ▼
-Data Analytics
+DATA ANALYTICS
    │
    ▼
-System Design
+SYSTEM DESIGN
    │
    ▼
-Production-Grade Projects
+PRODUCTION-GRADE PROJECTS
    │
    ▼
-Interview Readiness
+INTERVIEW READINESS
 ```
 
 <br>
 
 <table width="100%">
-<tr><td width="50%">Working code is a first draft. I'm not satisfied until it's <b>correct, readable, and reproducible.</b></td><td width="50%">A chart without a decision behind it is just decoration — <b>every dashboard should answer a question.</b></td></tr>
-<tr><td width="50%">I'd rather deeply understand one system than shallowly know ten frameworks.</td><td width="50%">Data doesn't lie, but it does mislead if you stop questioning it too early.</td></tr>
+<tr>
+<td width="50%">💭&nbsp;&nbsp;Working code is a first draft. I'm not satisfied until it's **correct, readable, and reproducible.**</td>
+<td width="50%">📊&nbsp;&nbsp;A chart without a decision behind it is just decoration — **every dashboard should answer a question.**</td>
+</tr>
+<tr>
+<td width="50%">🎯&nbsp;&nbsp;I'd rather deeply understand *one* system than shallowly know *ten* frameworks.</td>
+<td width="50%">🔍&nbsp;&nbsp;Data doesn't lie, but it does mislead if you stop questioning it too early.</td>
+</tr>
 </table>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f0c29,100:24243e&height=3"/>
@@ -317,7 +347,6 @@ Interview Readiness
 <a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-302b63?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 <a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-302b63?style=for-the-badge&logo=github&logoColor=white"/></a>
 <a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-302b63?style=for-the-badge&logo=vercel&logoColor=white"/></a>
-<a href="[RESUME_LINK]"><img src="https://img.shields.io/badge/Resume-302b63?style=for-the-badge&logo=readdotcv&logoColor=white"/></a>
 
 </div>
 
@@ -325,11 +354,7 @@ Interview Readiness
 
 <div align="center">
 
-```text
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   BUILD SYSTEMS.  READ DATA.  SHIP OFTEN.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+<img width="480" src="https://capsule-render.vercel.app/api?type=rect&color=0:0f0c29,100:24243e&height=54&text=BUILD%20SYSTEMS%20•%20READ%20DATA%20•%20SHIP%20OFTEN&fontSize=15&fontColor=A78BFA&fontAlignY=65"/>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=140&section=footer"/>
 
