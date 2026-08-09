@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from "framer-motion";
-import { ArrowRight, Download, MapPin } from "lucide-react";
+import { ArrowRight, Download, MapPin, FileText, X } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, GfgIcon } from "./icons";
 import { profile, heroRoles, heroStats } from "./data";
 
@@ -161,10 +161,99 @@ const fadeUp = (delay: number) => ({
   transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] },
 });
 
+/* ─── Resume Preview Modal ─── */
+function ResumeModal({ onClose }: { onClose: () => void }) {
+  const closeRef = useRef<HTMLButtonElement | null>(null);
+  const restoreFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    restoreFocusRef.current = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      restoreFocusRef.current?.focus();
+    };
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Resume preview"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <motion.div
+        className="absolute inset-0 bg-black/85"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        onClick={onClose}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 12 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.96, y: 12 }}
+        transition={{ type: "spring", stiffness: 260, damping: 26 }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 flex w-full max-w-3xl max-h-[90vh] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A0A0F] shadow-elevated"
+      >
+        <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
+          <div className="flex min-w-0 items-center gap-2 text-sm font-medium text-[#FFFFFF]">
+            <FileText className="size-4 shrink-0 text-[#3B82F6]" />
+            <span className="truncate">Resume</span>
+          </div>
+          <div className="flex shrink-0 items-center gap-2">
+            <a
+              href="/resume.pdf"
+              download="Santhosh_Resume.pdf"
+              className="inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-semibold text-[#FFFFFF] transition-transform hover:scale-[1.03]"
+              style={{
+                background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+                boxShadow: "0 0 0 1px rgba(59, 130, 246, 0.3)",
+              }}
+            >
+              <Download className="size-3.5" /> Download
+            </a>
+            <button
+              ref={closeRef}
+              type="button"
+              onClick={onClose}
+              aria-label="Close resume preview"
+              title="Close"
+              className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-[#A8A8A8] transition-colors duration-200 hover:bg-white/[0.08] hover:text-[#FFFFFF]"
+            >
+              <X className="size-4" />
+            </button>
+          </div>
+        </div>
+        <div className="relative h-[72vh] w-full bg-[#0A0A0F] sm:h-[78vh]">
+          <iframe src="/resume.pdf" title="Resume preview" className="h-full w-full border-0" />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 /* ─── Hero ─── */
 export function Hero() {
   const typed = useFadeTypewriter(heroRoles, 2800);
   const cardRef = useRef<HTMLDivElement>(null);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -183,7 +272,8 @@ export function Hero() {
   const nameParts = useMemo(() => profile.name.split(" "), []);
 
   return (
-    <section id="top" className="relative overflow-hidden">
+    <>
+      <section id="top" className="relative overflow-hidden">
       {/* Background glow blobs */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-[12%] right-[10%] w-[500px] h-[500px] rounded-full bg-[#3B82F6]/[0.03] blur-[120px]" />
@@ -207,7 +297,7 @@ export function Hero() {
             <Name />
             <Typewriter typed={typed} />
             <Bio />
-            <CTAs />
+            <CTAs onOpenResume={() => setResumeOpen(true)} />
             <Stats />
             <Social />
           </div>
@@ -224,7 +314,7 @@ export function Hero() {
             <Name />
             <Typewriter typed={typed} />
             <Bio />
-            <CTAs />
+            <CTAs onOpenResume={() => setResumeOpen(true)} />
             <Stats />
             <Social />
           </div>
@@ -233,7 +323,12 @@ export function Hero() {
           <ProfileImage cardRef={cardRef} onMove={onMove} onLeave={onLeave} rX={rX} rY={rY} />
         </div>
       </div>
-    </section>
+      </section>
+
+      <AnimatePresence>
+        {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
+      </AnimatePresence>
+    </>
   );
 }
 
@@ -304,14 +399,23 @@ function Bio() {
   );
 }
 
-function CTAs() {
+function CTAs({ onOpenResume }: { onOpenResume: () => void }) {
   return (
     <motion.div {...fadeUp(0.6)} className="mb-8 flex flex-wrap items-center gap-3 justify-center lg:justify-start">
       <MagneticBtn href="#projects" className="hero-btn-primary group relative inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-semibold text-[#FFFFFF] overflow-hidden">
         <span className="relative z-10">View Projects</span>
         <ArrowRight className="relative z-10 size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
       </MagneticBtn>
-      <MagneticBtn href="/resume.pdf" download="Santhosh_Resume.pdf" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]">
+      <MagneticBtn
+        href="#resume"
+        role="button"
+        aria-haspopup="dialog"
+        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+          e.preventDefault();
+          onOpenResume();
+        }}
+        className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]"
+      >
         <Download className="size-4" /> Resume
       </MagneticBtn>
       <MagneticBtn href={profile.github} target="_blank" rel="noreferrer" className="hero-btn-ghost group inline-flex items-center justify-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-medium text-[#FFFFFF]">

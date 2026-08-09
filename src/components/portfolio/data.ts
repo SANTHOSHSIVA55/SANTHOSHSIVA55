@@ -182,18 +182,11 @@ export const timeline = [
 
 export const certifications = [
   {
-    title: "HTML Certification",
-    issuer: "Simplilearn",
-    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Html%20Simplilearn.png",
-    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Html%20Simplilearn.png",
-    skills: ["HTML"],
-  },
-  {
-    title: "CSS Certification",
-    issuer: "Simplilearn",
-    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Css%20Simplilearn.png",
-    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Css%20Simplilearn.png",
-    skills: ["CSS"],
+    title: "Santhosh TS Internship Completion Certificate 1",
+    issuer: "GitHub",
+    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Santhosh%20%20TS%20Internship%20Completion%20%20Certificate-1.png",
+    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Santhosh%20%20TS%20Internship%20Completion%20%20Certificate-1.png",
+    skills: [],
   },
   {
     title: "UI and UX Certification",
@@ -201,20 +194,6 @@ export const certifications = [
     link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/HCL%20GUVI%20Certification%20-%20UI%20And%20UX.png",
     image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/HCL%20GUVI%20Certification%20-%20UI%20And%20UX.png",
     skills: ["UI/UX", "Design"],
-  },
-  {
-    title: "AI for Beginners",
-    issuer: "HP",
-    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Hp%20Ai%20For%20beginners.png",
-    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Hp%20Ai%20For%20beginners.png",
-    skills: ["AI"],
-  },
-  {
-    title: "Prompt Engineering",
-    issuer: "Expertisor Academy",
-    link: "https://github.com/SANTHOSHSIVA55/Certificates/blob/main/Expertisor%20acedemy%20prompt%20engineering.png",
-    image: "https://raw.githubusercontent.com/SANTHOSHSIVA55/Certificates/main/Expertisor%20acedemy%20prompt%20engineering.png",
-    skills: ["Prompt Engineering"],
   },
   {
     title: "Python Full Course Online - Complete Beginner to Advanced",

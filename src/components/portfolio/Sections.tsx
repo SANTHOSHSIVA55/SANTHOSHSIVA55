@@ -284,6 +284,8 @@ type User = {
   avatar_url: string; name: string | null; bio: string | null; public_gists?: number;
 };
 
+const HIDDEN_REPO_NAMES = new Set(["santhoshsiva55", "certificates", "data-analysis-portfolio"]);
+
 let _cachedRepos: Repo[] | null = null;
 let _cachedUser: User | null = null;
 let _fetchPromise: Promise<{ repos: Repo[]; user: User }> | null = null;
@@ -333,7 +335,7 @@ export function Projects() {
       .then(({ repos }) => {
         if (cancelled) return;
         const cleaned = repos
-          .filter((r) => !r.archived && r.name.toLowerCase() !== "santhoshsiva55" && r.name.toLowerCase() !== "certificates")
+          .filter((r) => !r.archived && !HIDDEN_REPO_NAMES.has(r.name.toLowerCase()))
           .sort((a, b) => +new Date(b.pushed_at) - +new Date(a.pushed_at))
           .slice(0, 6);
         setRepos(cleaned);
@@ -521,8 +523,14 @@ export function Journey() {
 /* ──────────── Certifications ──────────── */
 const CERT_REPO = "SANTHOSHSIVA55/Certificates";
 const CERT_IMG_EXT = /\.(png|jpe?g|webp|gif)$/i;
-const CERT_EXCLUDED = new Set(["Gemini in Google Docs Skillup.png"]);
-const CERTS_CACHE_KEY = "portfolio:certs:v3";
+const CERT_EXCLUDED = new Set([
+  "Gemini in Google Docs Skillup.png",
+  "Html Simplilearn.png",
+  "Css Simplilearn.png",
+  "Hp Ai For beginners.png",
+  "Expertisor acedemy prompt engineering.png",
+]);
+const CERTS_CACHE_KEY = "portfolio:certs:v4";
 const CERTS_CACHE_TTL = 30 * 60 * 1000;
 
 type Cert = {
@@ -1231,7 +1239,7 @@ export function GithubStats() {
       .then(({ repos, user }) => {
         if (cancelled) return;
         setUser(user);
-        setRepos(repos.filter((r) => r.name.toLowerCase() !== "santhoshsiva55" && r.name.toLowerCase() !== "certificates"));
+        setRepos(repos.filter((r) => !HIDDEN_REPO_NAMES.has(r.name.toLowerCase())));
       })
       .catch((err) => !cancelled && setErr(err?.message === "rate-limited"
         ? "GitHub API rate limited — try again later."
