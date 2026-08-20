@@ -323,7 +323,18 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 </p>
 
 <p align="center">
+<img alt="Santhosh's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&icon_color=FB923C&text_color=E2E8F0&ring_color=2DD4BF"/>&nbsp;
+<img alt="Santhosh's top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&text_color=E2E8F0"/>
+</p>
+
+<p align="center">
 <img alt="Santhosh's contribution activity graph" src="https://github-readme-activity-graph.vercel.app/graph?username=SANTHOSHSIVA55&bg_color=0B1F1D&color=2DD4BF&line=FB923C&point=ffffff&hide_border=true"/>
+</p>
+
+**Daily Contribution Heatmap**
+
+<p align="center">
+<img alt="Santhosh's daily contribution heatmap" src="https://ghchart.rshah.org/2DD4BF/SANTHOSHSIVA55" width="100%"/>
 </p>
 
 <p align="center">
