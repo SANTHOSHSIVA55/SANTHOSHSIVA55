@@ -323,8 +323,8 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 </p>
 
 <p align="center">
-<img alt="Santhosh's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&icon_color=FB923C&text_color=E2E8F0&ring_color=2DD4BF"/>&nbsp;
-<img alt="Santhosh's top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&text_color=E2E8F0"/>
+<img alt="Santhosh's GitHub stats" src="https://github-stats-extended.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&icon_color=FB923C&text_color=E2E8F0&ring_color=2DD4BF"/>&nbsp;
+<img alt="Santhosh's top languages" src="https://github-stats-extended.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&text_color=E2E8F0"/>
 </p>
 
 <p align="center">
@@ -338,7 +338,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 </p>
 
 <p align="center">
-<img alt="Santhosh's GitHub trophies" src="https://github-profile-trophy.vercel.app/?username=SANTHOSHSIVA55&theme=darkhub&no-frame=true&column=4&margin-w=8&margin-h=8"/>
+<img alt="Santhosh's GitHub trophies" src="https://github-profile-trophy-liard-delta.vercel.app/?username=SANTHOSHSIVA55&theme=darkhub&no-frame=true&column=4&margin-w=8&margin-h=8"/>
 </p>
 
 <p align="center">
