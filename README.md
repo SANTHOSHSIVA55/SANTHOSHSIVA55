@@ -8,18 +8,18 @@
 
 <br/>
 
-<img src="https://img.shields.io/badge/Status-Open_to_SDE_Roles_2026-2DD4BF?style=for-the-badge&labelColor=0B1F1D"/>&nbsp;
-<img src="https://img.shields.io/badge/Based_in-Chennai%2C_India-FB923C?style=for-the-badge&labelColor=0B1F1D"/>&nbsp;
-<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=for-the-badge&color=FB7185&label=Profile+Views&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/Status-Open_to_SDE_Roles_2026-2DD4BF?style=flat&labelColor=0B1F1D"/>&nbsp;
+<img src="https://img.shields.io/badge/Based_in-Chennai%2C_India-FB923C?style=flat&labelColor=0B1F1D"/>&nbsp;
+<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=flat&color=FB7185&label=Profile+Views&labelColor=0B1F1D"/>
 
 <br/><br/>
 
-<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>&nbsp;
-<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>&nbsp;
-<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white"/></a>&nbsp;
-<a href="https://leetcode.com/u/santhoshts/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=white"/></a>&nbsp;
-<a href="https://www.geeksforgeeks.org/user/santhoshts/"><img src="https://img.shields.io/badge/GfG-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white"/></a>&nbsp;
-<a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-0F766E?style=for-the-badge&logo=vercel&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white"/></a>&nbsp;
+<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white"/></a>&nbsp;
+<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-171515?style=flat&logo=github&logoColor=white"/></a>&nbsp;
+<a href="https://leetcode.com/u/santhoshts/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=flat&logo=leetcode&logoColor=white"/></a>&nbsp;
+<a href="https://www.geeksforgeeks.org/user/santhoshts/"><img src="https://img.shields.io/badge/GfG-2F8D46?style=flat&logo=geeksforgeeks&logoColor=white"/></a>&nbsp;
+<a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-0F766E?style=flat&logo=vercel&logoColor=white"/></a>
 
 </div>
 
@@ -28,16 +28,16 @@
 <!-- ================= QUICK NAV ================= -->
 <div align="center">
 
-<a href="#01-about"><img src="https://img.shields.io/badge/01-ABOUT-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
-<a href="#02-roles"><img src="https://img.shields.io/badge/02-ROLES-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
-<a href="#03-software-engineering"><img src="https://img.shields.io/badge/03-ENGINEERING-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
-<a href="#04-data-analytics"><img src="https://img.shields.io/badge/04-DATA-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#01-about"><img src="https://img.shields.io/badge/01-ABOUT-0B1F1D?style=flat&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#02-roles"><img src="https://img.shields.io/badge/02-ROLES-0B1F1D?style=flat&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#03-software-engineering"><img src="https://img.shields.io/badge/03-ENGINEERING-0B1F1D?style=flat&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#04-data-analytics"><img src="https://img.shields.io/badge/04-DATA-0B1F1D?style=flat&labelColor=FB923C&logoColor=0B1F1D"/></a>
 <br/>
-<a href="#05-technical-arsenal"><img src="https://img.shields.io/badge/05-ARSENAL-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
-<a href="#06-featured-projects"><img src="https://img.shields.io/badge/06-PROJECTS-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
-<a href="#07-github-analytics"><img src="https://img.shields.io/badge/07-ANALYTICS-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
-<a href="#08-credentials"><img src="https://img.shields.io/badge/08-CREDENTIALS-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
-<a href="#09-connect"><img src="https://img.shields.io/badge/09-CONNECT-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#05-technical-arsenal"><img src="https://img.shields.io/badge/05-ARSENAL-0B1F1D?style=flat&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#06-featured-projects"><img src="https://img.shields.io/badge/06-PROJECTS-0B1F1D?style=flat&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#07-github-analytics"><img src="https://img.shields.io/badge/07-ANALYTICS-0B1F1D?style=flat&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#08-credentials"><img src="https://img.shields.io/badge/08-CREDENTIALS-0B1F1D?style=flat&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#09-connect"><img src="https://img.shields.io/badge/09-CONNECT-0B1F1D?style=flat&labelColor=FB7185&logoColor=0B1F1D"/></a>
 
 </div>
 
@@ -67,10 +67,10 @@
 
 <sub>💬 <b>Ask me about</b></sub>
 <br/>
-<img src="https://img.shields.io/badge/System_Design-2DD4BF?style=flat-square&labelColor=0B1F1D"/>
-<img src="https://img.shields.io/badge/Generative_AI-FB923C?style=flat-square&labelColor=0B1F1D"/>
-<img src="https://img.shields.io/badge/SQL_%26_BI-FB7185?style=flat-square&labelColor=0B1F1D"/>
-<img src="https://img.shields.io/badge/React_%26_Node.js-2DD4BF?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/System_Design-2DD4BF?style=flat&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/Generative_AI-FB923C?style=flat&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/SQL_%26_BI-FB7185?style=flat&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/React_%26_Node.js-2DD4BF?style=flat&labelColor=0B1F1D"/>
 
 </div>
 
@@ -101,7 +101,7 @@
 <tr>
 <td align="center" width="25%">
 
-<img src="https://img.shields.io/badge/💻-2DD4BF?style=flat-square&labelColor=2DD4BF"/>
+<img src="https://img.shields.io/badge/💻-2DD4BF?style=flat&labelColor=2DD4BF"/>
 <br/>
 <b>Software Engineer</b>
 <br/>
@@ -110,7 +110,7 @@
 </td>
 <td align="center" width="25%">
 
-<img src="https://img.shields.io/badge/🧩-FB923C?style=flat-square&labelColor=FB923C"/>
+<img src="https://img.shields.io/badge/🧩-FB923C?style=flat&labelColor=FB923C"/>
 <br/>
 <b>Full Stack Developer</b>
 <br/>
@@ -119,7 +119,7 @@
 </td>
 <td align="center" width="25%">
 
-<img src="https://img.shields.io/badge/📊-FB7185?style=flat-square&labelColor=FB7185"/>
+<img src="https://img.shields.io/badge/📊-FB7185?style=flat&labelColor=FB7185"/>
 <br/>
 <b>Data Analyst</b>
 <br/>
@@ -128,7 +128,7 @@
 </td>
 <td align="center" width="25%">
 
-<img src="https://img.shields.io/badge/🤖-2DD4BF?style=flat-square&labelColor=2DD4BF"/>
+<img src="https://img.shields.io/badge/🤖-2DD4BF?style=flat&labelColor=2DD4BF"/>
 <br/>
 <b>AI / ML Builder</b>
 <br/>
@@ -264,7 +264,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 <td width="72%">
 
 ### 🌊 AquaBloom AI — Smart Aquaculture Monitoring
-<img src="https://img.shields.io/badge/AI%2FGenAI-2DD4BF?style=flat-square&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Software_Engineering-FB923C?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/AI%2FGenAI-2DD4BF?style=flat&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Software_Engineering-FB923C?style=flat&labelColor=0B1F1D"/>
 
 <img src="https://api.microlink.io/?url=https%3A%2F%2Faqua-bloom-v2.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url" width="100%" alt="AquaBloom AI live preview"/>
 
@@ -286,14 +286,14 @@ AI-powered early warning system for **harmful algal blooms**, built to predict r
 
 <br/>
 
-<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white"/>
 
 </td>
 <td width="28%" align="center">
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-00C853?style=for-the-badge)](https://aqua-bloom-v2.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-00C853?style=flat)](https://aqua-bloom-v2.vercel.app/)
 <br/><br/>
-[![Source](https://img.shields.io/badge/📂_Source-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/aqua-bloom-ai)
+[![Source](https://img.shields.io/badge/📂_Source-171515?style=flat&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/aqua-bloom-ai)
 
 </td>
 </tr>
@@ -304,7 +304,7 @@ AI-powered early warning system for **harmful algal blooms**, built to predict r
 <td width="72%">
 
 ### 🤖 GenAI BI Platform — Watch Your Insights
-<img src="https://img.shields.io/badge/AI%2FGenAI-2DD4BF?style=flat-square&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Data_Analytics-FB7185?style=flat-square&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Software_Engineering-FB923C?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/AI%2FGenAI-2DD4BF?style=flat&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Data_Analytics-FB7185?style=flat&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Software_Engineering-FB923C?style=flat&labelColor=0B1F1D"/>
 
 <img src="https://api.microlink.io/?url=https%3A%2F%2Fgenaibi.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url" width="100%" alt="GenAI BI Platform live preview"/>
 
@@ -325,14 +325,14 @@ A modern **Generative AI Business Intelligence platform** that translates **natu
 
 <br/>
 
-<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white"/>
 
 </td>
 <td width="28%" align="center">
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-00C853?style=for-the-badge)](https://genaibi.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-00C853?style=flat)](https://genaibi.vercel.app/)
 <br/><br/>
-[![Source](https://img.shields.io/badge/📂_Source-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/genai-bi-platform)
+[![Source](https://img.shields.io/badge/📂_Source-171515?style=flat&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/genai-bi-platform)
 
 </td>
 </tr>
@@ -343,7 +343,7 @@ A modern **Generative AI Business Intelligence platform** that translates **natu
 <td width="72%">
 
 ### 📊 Data Analysis Portfolio
-<img src="https://img.shields.io/badge/Data_Analytics-FB7185?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/Data_Analytics-FB7185?style=flat&labelColor=0B1F1D"/>
 
 A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas, Matplotlib, and Power BI — each focused on **data cleaning, exploratory analysis, visualization**, and extracting **actionable business insights**.
 
@@ -355,12 +355,12 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 </div>
 
-<img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white"/> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white"/> <img src="https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black"/>
+<img src="https://img.shields.io/badge/Excel-217346?style=flat&logo=microsoftexcel&logoColor=white"/> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white"/> <img src="https://img.shields.io/badge/Power_BI-F2C811?style=flat&logo=powerbi&logoColor=black"/>
 
 </td>
 <td width="28%" align="center">
 
-[![Source](https://img.shields.io/badge/📂_Source-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/data-analysis-portfolio)
+[![Source](https://img.shields.io/badge/📂_Source-171515?style=flat&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/data-analysis-portfolio)
 
 </td>
 </tr>
@@ -370,7 +370,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 **🌐 Personal Portfolio** — Santhosh T S, Full Stack Developer & Data Analyst
 
-[![Explore Portfolio](https://img.shields.io/badge/✨_Explore_My_Portfolio-0D9488?style=for-the-badge)](https://santhosh-portfolio-plum.vercel.app/)
+[![Explore Portfolio](https://img.shields.io/badge/✨_Explore_My_Portfolio-0D9488?style=flat)](https://santhosh-portfolio-plum.vercel.app/)
 
 </div>
 
@@ -427,7 +427,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 **🎓 Certifications**
 
-<img src="https://img.shields.io/badge/Frame_Ready-0B1F1D?style=flat-square&labelColor=6E938C"/>
+<img src="https://img.shields.io/badge/Frame_Ready-0B1F1D?style=flat&labelColor=6E938C"/>
 
 <sub>No certifications are listed yet — this is a placeholder frame. Drop in certificate names, issuing bodies, and links and they'll render in this same card layout.</sub>
 
@@ -436,7 +436,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 **💼 Experience**
 
-<img src="https://img.shields.io/badge/Frame_Ready-0B1F1D?style=flat-square&labelColor=6E938C"/>
+<img src="https://img.shields.io/badge/Frame_Ready-0B1F1D?style=flat&labelColor=6E938C"/>
 
 <sub>No internships or work experience are listed yet — this card is ready for a role title, company, dates, and a 1–2 line impact summary whenever there's one to add.</sub>
 
@@ -452,10 +452,10 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <div align="center">
 
-<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-Profile-171515?style=for-the-badge&logo=github&logoColor=white"/></a>
-<a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-Visit_Site-0D9488?style=for-the-badge&logo=vercel&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white"/></a>
+<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-EA4335?style=flat&logo=gmail&logoColor=white"/></a>
+<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-Profile-171515?style=flat&logo=github&logoColor=white"/></a>
+<a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-Visit_Site-0D9488?style=flat&logo=vercel&logoColor=white"/></a>
 
 <br/><br/>
 
