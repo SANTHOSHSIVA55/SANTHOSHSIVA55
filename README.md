@@ -1,19 +1,24 @@
+<a name="top"></a>
+
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:0B1F1D,55:123330,100:1B4640&height=200&section=header&text=SANTHOSH%20T%20S&fontSize=42&fontColor=2DD4BF&fontAlignY=35&desc=Software%20Engineer%20%20%20Full%20Stack%20Developer%20%20%20Data%20Analyst&descSize=17&descColor=E2E8F0&descAlignY=55" alt="Santhosh T S — Software Engineer · Full Stack Developer · Data Analyst" width="100%">
-
-<br/><br/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1F1D,55:123330,100:1B4640&height=210&section=header&text=SANTHOSH%20T%20S&fontSize=44&fontColor=2DD4BF&fontAlignY=32&animation=fadeIn&desc=Software%20Engineer%20%20%20Full%20Stack%20Developer%20%20%20Data%20Analyst&descSize=17&descColor=E2E8F0&descAlignY=52" alt="Santhosh T S — Software Engineer · Full Stack Developer · Data Analyst" width="100%">
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=3200&pause=1200&color=FB923C&center=true&vCenter=true&width=820&lines=Building+Scalable+Software+Systems;Turning+Raw+Data+Into+Business+Insight;Software+Engineer+%2B+Full+Stack+%2B+Data+Analyst" />
 
 <br/>
 
-<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white"/></a>&nbsp;
-<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white"/></a>&nbsp;
-<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-171515?style=flat&logo=github&logoColor=white"/></a>&nbsp;
-<a href="https://leetcode.com/u/santhoshts/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=flat&logo=leetcode&logoColor=white"/></a>&nbsp;
-<a href="https://www.geeksforgeeks.org/user/santhoshts/"><img src="https://img.shields.io/badge/GfG-2F8D46?style=flat&logo=geeksforgeeks&logoColor=white"/></a>&nbsp;
-<a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-0F766E?style=flat&logo=vercel&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/Status-Open_to_SDE_Roles_2026-2DD4BF?style=for-the-badge&labelColor=0B1F1D"/>&nbsp;
+<img src="https://img.shields.io/badge/Based_in-Chennai%2C_India-FB923C?style=for-the-badge&labelColor=0B1F1D"/>
+
+<br/><br/>
+
+<a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>&nbsp;
+<a href="mailto:shaisanthoshsiva2006@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>&nbsp;
+<a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white"/></a>&nbsp;
+<a href="https://leetcode.com/u/santhoshts/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=white"/></a>&nbsp;
+<a href="https://www.geeksforgeeks.org/user/santhoshts/"><img src="https://img.shields.io/badge/GfG-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white"/></a>&nbsp;
+<a href="https://santhosh-portfolio-plum.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-0F766E?style=for-the-badge&logo=vercel&logoColor=white"/></a>
 
 </div>
 
@@ -22,7 +27,7 @@
 <div align="center">
 
 | [`ABOUT`](#01-about) | [`ROLES`](#02-roles) | [`FOCUS`](#03-current-focus) | [`ENGINEERING`](#04-software-engineering) | [`DATA`](#05-data-analytics) | [`ARSENAL`](#06-technical-arsenal) | [`PROJECTS`](#07-featured-projects) | [`ANALYTICS`](#08-github-analytics) | [`CREDENTIALS`](#09-credentials) | [`CONNECT`](#10-connect) |
-|---|---|---|---|---|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 
 </div>
 
@@ -133,7 +138,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 `Solve 500+ DSA Problems` → `Build 5+ Production-Level Projects` → `Master Full Stack Development` → `Learn System Design & Distributed Systems` → `Contribute to Open Source` → `Secure a Software Engineering Role`
 
-<br/>
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
@@ -207,7 +212,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 </div>
 
-<br/>
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
@@ -307,16 +312,11 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 </div>
 
-<br/>
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
 ## 08. GitHub Analytics
-
-<p align="center">
-<img height="165em" alt="Santhosh's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&text_color=E2E8F0&icon_color=FB923C"/>
-<img height="165em" alt="Santhosh's most used languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&text_color=E2E8F0"/>
-</p>
 
 <p align="center">
 <img alt="Santhosh's GitHub streak" src="https://streak-stats.demolab.com?user=SANTHOSHSIVA55&hide_border=true&background=0B1F1D&ring=2DD4BF&fire=FB923C&currStreakLabel=2DD4BF&sideLabels=E2E8F0&sideNums=E2E8F0&dates=6E938C"/>
@@ -324,6 +324,10 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <p align="center">
 <img alt="Santhosh's contribution activity graph" src="https://github-readme-activity-graph.vercel.app/graph?username=SANTHOSHSIVA55&bg_color=0B1F1D&color=2DD4BF&line=FB923C&point=ffffff&hide_border=true"/>
+</p>
+
+<p align="center">
+<img alt="Santhosh's GitHub trophies" src="https://github-profile-trophy.vercel.app/?username=SANTHOSHSIVA55&theme=darkhub&no-frame=true&column=4&margin-w=8&margin-h=8"/>
 </p>
 
 <p align="center">
@@ -354,7 +358,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 > No internships or work experience are listed in the source README yet — this frame is ready for a role title, company, dates, and 1-2 line impact summary whenever there's one to add.
 
-<br/>
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
@@ -374,7 +378,9 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 <br/><br/>
 
 <sub>
-<b>Note:</b> this is a single self-contained README — the banner and dividers are generated on the fly via <a href="https://github.com/kyechan99/capsule-render">capsule-render</a>, a hosted image API, so there's no base64 blob and no <code>assets/</code> folder to maintain. Each is just a normal <code>&lt;img src="https://capsule-render.vercel.app/api?...">&lt;/img&gt;</code> tag. The Certifications/Experience sections are intentionally left as labeled placeholders rather than filled with invented content.
+<b>Note:</b> this is a single self-contained README — the banner, footer, and dividers are all generated on the fly via <a href="https://github.com/kyechan99/capsule-render">capsule-render</a>, a hosted image API, so there's no base64 blob and no <code>assets/</code> folder to maintain. Each is just a normal <code>&lt;img src="https://capsule-render.vercel.app/api?...">&lt;/img&gt;</code> tag. The Certifications/Experience sections are intentionally left as labeled placeholders rather than filled with invented content.
 </sub>
 
 </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1F1D,55:123330,100:1B4640&height=120&section=footer&animation=fadeIn" width="100%"/>
