@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDkwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnRGFyayIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwQjFGMUQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiMxMjMzMzAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMUI0NjQwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ0ZXh0RGFyayIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMkRENEJGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZCOTIzQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSIyMDAiIHJ4PSIxNCIgZmlsbD0idXJsKCNiZ0RhcmspIi8+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9Ijg5OCIgaGVpZ2h0PSIxOTgiIHJ4PSIxMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkM1QjU0IiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9Ijg0NSIgY3k9IjM1IiByPSIzIiBmaWxsPSIjMkRENEJGIiBvcGFjaXR5PSIwLjc1Ii8+CiAgPGNpcmNsZSBjeD0iODI1IiBjeT0iMzUiIHI9IjMiIGZpbGw9IiNGQjkyM0MiIG9wYWNpdHk9IjAuNzUiLz4KICA8Y2lyY2xlIGN4PSI4MDUiIGN5PSIzNSIgcj0iMyIgZmlsbD0iI0ZCNzE4NSIgb3BhY2l0eT0iMC43NSIvPgogIDx0ZXh0IHg9IjUwIiB5PSI5MiIgZm9udC1mYW1pbHk9IidGaXJhIENvZGUnLCAnQ291cmllciBOZXcnLCBtb25vc3BhY2UiIGZvbnQtc2l6ZT0iNDIiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9InVybCgjdGV4dERhcmspIj5TQU5USE9TSCBUIFM8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjEyOCIgZm9udC1mYW1pbHk9IidGaXJhIENvZGUnLCAnQ291cmllciBOZXcnLCBtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI1MDAiIGZpbGw9IiNFMkU4RjAiPlNvZnR3YXJlIEVuZ2luZWVyIMK3IEZ1bGwgU3RhY2sgRGV2ZWxvcGVyIMK3IERhdGEgQW5hbHlzdDwvdGV4dD4KICA8dGV4dCB4PSI1MCIgeT0iMTYwIiBmb250LWZhbWlseT0iJ0ZpcmEgQ29kZScsICdDb3VyaWVyIE5ldycsIG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzdGQTY5RSI+Q2hlbm5haSwgSW5kaWEgwrcgQi5FIENvbXB1dGVyIFNjaWVuY2UgRW5naW5lZXJpbmc8L3RleHQ+CiAgPGxpbmUgeDE9IjUwIiB5MT0iMTcyIiB4Mj0iMzAwIiB5Mj0iMTcyIiBzdHJva2U9InVybCgjdGV4dERhcmspIiBzdHJva2Utd2lkdGg9IjIiLz4KPC9zdmc+Cg==" alt="Santhosh T S — Software Engineer · Full Stack Developer · Data Analyst" width="100%">
+<img src="https://capsule-render.vercel.app/api?type=rounded&color=0:0B1F1D,55:123330,100:1B4640&height=200&section=header&text=SANTHOSH%20T%20S&fontSize=42&fontColor=2DD4BF&fontAlignY=35&desc=Software%20Engineer%20%20%20Full%20Stack%20Developer%20%20%20Data%20Analyst&descSize=17&descColor=E2E8F0&descAlignY=55" alt="Santhosh T S — Software Engineer · Full Stack Developer · Data Analyst" width="100%">
 
 <br/><br/>
 
@@ -28,7 +28,7 @@
 
 <br/>
 
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMyREQ0QkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGQjkyM0MiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGQjcxODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
 ## 01. About
 
@@ -135,7 +135,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <br/>
 
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMyREQ0QkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGQjkyM0MiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGQjcxODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
 ## 04. Software Engineering
 
@@ -209,7 +209,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <br/>
 
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMyREQ0QkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGQjkyM0MiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGQjcxODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
 ## 07. Featured Projects
 
@@ -309,7 +309,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <br/>
 
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMyREQ0QkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGQjkyM0MiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGQjcxODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
 ## 08. GitHub Analytics
 
@@ -356,7 +356,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <br/>
 
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYiIHZpZXdCb3g9IjAgMCA5MDAgNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGl2R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxNSUiIHN0b3AtY29sb3I9IiMyREQ0QkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNGQjkyM0MiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiIHN0b3AtY29sb3I9IiNGQjcxODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEIxRjFEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9InVybCgjZGl2R3JhZCkiLz4KPC9zdmc+Cg==" width="100%" height="6"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
 ## 10. Connect
 
@@ -374,7 +374,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 <br/><br/>
 
 <sub>
-<b>Note:</b> this is a single self-contained README — the banner and dividers are inlined as base64 SVG data URIs (no external <code>assets/</code> folder needed). A plain <code>&lt;img&gt;</code> tag is used (not <code>&lt;picture&gt;</code>/<code>&lt;source&gt;</code>), since GitHub's markdown sanitizer strips those wrapper tags when they point to a data URI, which would otherwise break the banner entirely. The Certifications/Experience sections are intentionally left as labeled placeholders rather than filled with invented content.
+<b>Note:</b> this is a single self-contained README — the banner and dividers are generated on the fly via <a href="https://github.com/kyechan99/capsule-render">capsule-render</a>, a hosted image API, so there's no base64 blob and no <code>assets/</code> folder to maintain. Each is just a normal <code>&lt;img src="https://capsule-render.vercel.app/api?...">&lt;/img&gt;</code> tag. The Certifications/Experience sections are intentionally left as labeled placeholders rather than filled with invented content.
 </sub>
 
 </div>
