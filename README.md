@@ -405,9 +405,6 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 <img alt="Santhosh's daily contribution heatmap" src="https://ghchart.rshah.org/2DD4BF/SANTHOSHSIVA55" width="100%"/>
 </p>
 
-<p align="center">
-<img alt="Santhosh's GitHub trophies" src="https://github-profile-trophy-liard-delta.vercel.app/?username=SANTHOSHSIVA55&theme=darkhub&no-frame=true&column=4&margin-w=8&margin-h=8"/>
-</p>
 
 <p align="center">
 <img alt="Profile view count" src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=flat&color=2DD4BF"/>
