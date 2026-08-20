@@ -2,14 +2,15 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1F1D,55:123330,100:1B4640&height=210&section=header&text=SANTHOSH%20T%20S&fontSize=44&fontColor=2DD4BF&fontAlignY=32&animation=fadeIn&desc=Software%20Engineer%20%20%20Full%20Stack%20Developer%20%20%20Data%20Analyst&descSize=17&descColor=E2E8F0&descAlignY=52" alt="Santhosh T S — Software Engineer · Full Stack Developer · Data Analyst" width="100%">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1F1D,55:123330,100:1B4640&height=220&section=header&text=SANTHOSH%20T%20S&fontSize=46&fontColor=2DD4BF&fontAlignY=32&animation=fadeIn&desc=Software%20Engineer%20%20%20Full%20Stack%20Developer%20%20%20Data%20Analyst&descSize=17&descColor=E2E8F0&descAlignY=54" alt="Santhosh T S — Software Engineer · Full Stack Developer · Data Analyst" width="100%">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=3200&pause=1200&color=FB923C&center=true&vCenter=true&width=820&lines=Building+Scalable+Software+Systems;Turning+Raw+Data+Into+Business+Insight;Software+Engineer+%2B+Full+Stack+%2B+Data+Analyst" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=17&duration=3000&pause=1100&color=FB923C&center=true&vCenter=true&width=860&lines=Building+Scalable+Software+Systems;Turning+Raw+Data+Into+Business+Insight;Designing+AI-Powered+Products;Software+Engineer+%2B+Full+Stack+%2B+Data+Analyst" />
 
 <br/>
 
 <img src="https://img.shields.io/badge/Status-Open_to_SDE_Roles_2026-2DD4BF?style=for-the-badge&labelColor=0B1F1D"/>&nbsp;
-<img src="https://img.shields.io/badge/Based_in-Chennai%2C_India-FB923C?style=for-the-badge&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/Based_in-Chennai%2C_India-FB923C?style=for-the-badge&labelColor=0B1F1D"/>&nbsp;
+<img src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=for-the-badge&color=FB7185&label=Profile+Views&labelColor=0B1F1D"/>
 
 <br/><br/>
 
@@ -24,19 +25,19 @@
 
 <br/>
 
+<!-- ================= QUICK NAV ================= -->
 <div align="center">
 
 <a href="#01-about"><img src="https://img.shields.io/badge/01-ABOUT-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
 <a href="#02-roles"><img src="https://img.shields.io/badge/02-ROLES-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
-<a href="#03-current-focus"><img src="https://img.shields.io/badge/03-FOCUS-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
-<a href="#04-software-engineering"><img src="https://img.shields.io/badge/04-ENGINEERING-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
-<a href="#05-data-analytics"><img src="https://img.shields.io/badge/05-DATA-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#03-software-engineering"><img src="https://img.shields.io/badge/03-ENGINEERING-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#04-data-analytics"><img src="https://img.shields.io/badge/04-DATA-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
 <br/>
-<a href="#06-technical-arsenal"><img src="https://img.shields.io/badge/06-ARSENAL-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
-<a href="#07-featured-projects"><img src="https://img.shields.io/badge/07-PROJECTS-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
-<a href="#08-github-analytics"><img src="https://img.shields.io/badge/08-ANALYTICS-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
-<a href="#09-credentials"><img src="https://img.shields.io/badge/09-CREDENTIALS-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
-<a href="#10-connect"><img src="https://img.shields.io/badge/10-CONNECT-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#05-technical-arsenal"><img src="https://img.shields.io/badge/05-ARSENAL-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#06-featured-projects"><img src="https://img.shields.io/badge/06-PROJECTS-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#07-github-analytics"><img src="https://img.shields.io/badge/07-ANALYTICS-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#08-credentials"><img src="https://img.shields.io/badge/08-CREDENTIALS-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#09-connect"><img src="https://img.shields.io/badge/09-CONNECT-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
 
 </div>
 
@@ -48,7 +49,7 @@
 
 <table align="center" width="100%">
 <tr>
-<td width="62%" valign="top">
+<td width="60%" valign="top">
 
 > 🎓 **Computer Science Engineering Student**, building at the intersection of software and data.
 >
@@ -60,8 +61,21 @@
 >
 > 🧠 Not boxed into one label — my work spans **product engineering, AI systems, and data-driven decision making.**
 
+<br/>
+
+<div align="center">
+
+<sub>💬 <b>Ask me about</b></sub>
+<br/>
+<img src="https://img.shields.io/badge/System_Design-2DD4BF?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/Generative_AI-FB923C?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/SQL_%26_BI-FB7185?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/React_%26_Node.js-2DD4BF?style=flat-square&labelColor=0B1F1D"/>
+
+</div>
+
 </td>
-<td width="38%" align="center" valign="top">
+<td width="40%" align="center" valign="top">
 
 <b>📌 Snapshot</b>
 
@@ -77,6 +91,8 @@
 </tr>
 </table>
 
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
+
 <br/>
 
 ## 02. Roles
@@ -87,7 +103,7 @@
 
 <img src="https://img.shields.io/badge/💻-2DD4BF?style=flat-square&labelColor=2DD4BF"/>
 <br/>
-**Software Engineer**
+<b>Software Engineer</b>
 <br/>
 <sub>Building production systems</sub>
 
@@ -96,7 +112,7 @@
 
 <img src="https://img.shields.io/badge/🧩-FB923C?style=flat-square&labelColor=FB923C"/>
 <br/>
-**Full Stack Developer**
+<b>Full Stack Developer</b>
 <br/>
 <sub>React · Node.js · APIs</sub>
 
@@ -105,7 +121,7 @@
 
 <img src="https://img.shields.io/badge/📊-FB7185?style=flat-square&labelColor=FB7185"/>
 <br/>
-**Data Analyst**
+<b>Data Analyst</b>
 <br/>
 <sub>SQL · Python · Power BI</sub>
 
@@ -114,7 +130,7 @@
 
 <img src="https://img.shields.io/badge/🤖-2DD4BF?style=flat-square&labelColor=2DD4BF"/>
 <br/>
-**AI / ML Builder**
+<b>AI / ML Builder</b>
 <br/>
 <sub>GenAI · Predictive Models</sub>
 
@@ -130,56 +146,13 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 </div>
 
-<br/>
-
-## 03. Current Focus
-
-<table align="center" width="100%">
-<tr>
-<td width="45%" align="right"><b>Data Structures & Algorithms</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
-<td width="55%" align="left"><img src="https://progress-bar.xyz/78/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
-</tr>
-<tr>
-<td align="right"><b>Full Stack Development</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
-<td align="left"><img src="https://progress-bar.xyz/95/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
-</tr>
-<tr>
-<td align="right"><b>System Design</b> &nbsp;<img src="https://img.shields.io/badge/Learning-FB923C?style=flat-square"/></td>
-<td align="left"><img src="https://progress-bar.xyz/60/?title=&width=220&color=FB923C&suffix=%25&style=flat-square"/></td>
-</tr>
-<tr>
-<td align="right"><b>SQL & Database Systems</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
-<td align="left"><img src="https://progress-bar.xyz/85/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
-</tr>
-<tr>
-<td align="right"><b>Data Analytics & BI</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
-<td align="left"><img src="https://progress-bar.xyz/72/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
-</tr>
-<tr>
-<td align="right"><b>Production-Level Projects</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
-<td align="left"><img src="https://progress-bar.xyz/95/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
-</tr>
-</table>
-
-<div align="center">
-
-**🗺️ 2026 Roadmap**
-
-<img src="https://img.shields.io/badge/1-Solve_500%2B_DSA_Problems-2DD4BF?style=flat-square&labelColor=0B1F1D"/> →
-<img src="https://img.shields.io/badge/2-Build_5%2B_Production_Projects-2DD4BF?style=flat-square&labelColor=0B1F1D"/> →
-<img src="https://img.shields.io/badge/3-Master_Full_Stack-FB923C?style=flat-square&labelColor=0B1F1D"/>
-<br/>
-<img src="https://img.shields.io/badge/4-Learn_System_Design-FB923C?style=flat-square&labelColor=0B1F1D"/> →
-<img src="https://img.shields.io/badge/5-Contribute_to_Open_Source-FB7185?style=flat-square&labelColor=0B1F1D"/> →
-<img src="https://img.shields.io/badge/6-Secure_an_SDE_Role-FB7185?style=flat-square&labelColor=0B1F1D"/>
-
-</div>
-
 <div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
+
+<br/>
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
-## 04. Software Engineering
+## 03. Software Engineering
 
 <table align="center" width="100%">
 <tr>
@@ -191,9 +164,11 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 </tr>
 </table>
 
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
+
 <br/>
 
-## 05. Data Analytics
+## 04. Data Analytics
 
 <div align="center">
 
@@ -213,47 +188,66 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 </tr>
 </table>
 
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
+
 <br/>
 
-## 06. Technical Arsenal
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
+
+## 05. Technical Arsenal
 
 <div align="center">
 
-**Programming**
+<sub><b>Programming</b></sub>
 <br/>
 <img src="https://skillicons.dev/icons?i=python,java,javascript,typescript,mysql"/>
 
-**Frontend**
+<sub><b>Frontend</b></sub>
 <br/>
 <img src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,tailwind"/>
 
-**Backend**
+<sub><b>Backend</b></sub>
 <br/>
 <img src="https://skillicons.dev/icons?i=nodejs,express,fastapi"/>
 
-**Databases**
+<sub><b>Databases</b></sub>
 <br/>
 <img src="https://skillicons.dev/icons?i=mysql,postgres,mongodb"/>
 
-**Tools & Platforms**
+<sub><b>Tools & Platforms</b></sub>
 <br/>
 <img src="https://skillicons.dev/icons?i=git,github,docker,vscode,figma"/>
 
-**Data Analytics**
+<br/>
+
+<table align="center" width="100%">
+<tr>
+<td width="50%" valign="top">
+
+**📊 Data Analytics**
 
 `Excel` `SQL` `Python` `Pandas` `NumPy` `Matplotlib` `Power BI` `Data Cleaning` `EDA` `Data Visualization` `Business Intelligence` `Dashboard Development` `Data Storytelling`
 
-**AI / ML**
+</td>
+<td width="50%" valign="top">
+
+**🤖 AI / ML**
 
 `Scikit-learn` `Generative AI` `Machine Learning` `REST APIs`
+
+</td>
+</tr>
+</table>
 
 </div>
 
 <div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
 
+<br/>
+
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
-## 07. Featured Projects
+## 06. Featured Projects
 
 <table align="center" width="100%">
 <tr>
@@ -384,7 +378,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
-## 08. GitHub Analytics
+## 07. GitHub Analytics
 
 <p align="center">
 <img alt="Santhosh's GitHub streak" src="https://streak-stats.demolab.com?user=SANTHOSHSIVA55&hide_border=true&background=0B1F1D&ring=2DD4BF&fire=FB923C&currStreakLabel=2DD4BF&sideLabels=E2E8F0&sideNums=E2E8F0&dates=6E938C"/>
@@ -409,10 +403,6 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 <img alt="Santhosh's GitHub trophies" src="https://github-profile-trophy-liard-delta.vercel.app/?username=SANTHOSHSIVA55&theme=darkhub&no-frame=true&column=4&margin-w=8&margin-h=8"/>
 </p>
 
-<p align="center">
-<img alt="Profile view count" src="https://komarev.com/ghpvc/?username=SANTHOSHSIVA55&style=flat&color=2DD4BF"/>
-</p>
-
 <div align="center">
 
 <sub>An animated contribution-snake graph and a live auto-updating activity feed are both possible, but require a small GitHub Actions workflow file living at <code>.github/workflows/</code> — that can't be embedded inside a single self-contained README. Ask if you'd like those two workflow files as a separate follow-up.</sub>
@@ -425,9 +415,11 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 </div>
 
+<div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
+
 <br/>
 
-## 09. Credentials
+## 08. Credentials
 
 <table align="center" width="100%">
 <tr>
@@ -456,7 +448,7 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=4" width="100%" height="6"/>
 
-## 10. Connect
+## 09. Connect
 
 <div align="center">
 
