@@ -26,8 +26,17 @@
 
 <div align="center">
 
-| [`ABOUT`](#01-about) | [`ROLES`](#02-roles) | [`FOCUS`](#03-current-focus) | [`ENGINEERING`](#04-software-engineering) | [`DATA`](#05-data-analytics) | [`ARSENAL`](#06-technical-arsenal) | [`PROJECTS`](#07-featured-projects) | [`ANALYTICS`](#08-github-analytics) | [`CREDENTIALS`](#09-credentials) | [`CONNECT`](#10-connect) |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+<a href="#01-about"><img src="https://img.shields.io/badge/01-ABOUT-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#02-roles"><img src="https://img.shields.io/badge/02-ROLES-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#03-current-focus"><img src="https://img.shields.io/badge/03-FOCUS-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#04-software-engineering"><img src="https://img.shields.io/badge/04-ENGINEERING-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#05-data-analytics"><img src="https://img.shields.io/badge/05-DATA-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<br/>
+<a href="#06-technical-arsenal"><img src="https://img.shields.io/badge/06-ARSENAL-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#07-featured-projects"><img src="https://img.shields.io/badge/07-PROJECTS-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
+<a href="#08-github-analytics"><img src="https://img.shields.io/badge/08-ANALYTICS-0B1F1D?style=for-the-badge&labelColor=2DD4BF&logoColor=0B1F1D"/></a>
+<a href="#09-credentials"><img src="https://img.shields.io/badge/09-CREDENTIALS-0B1F1D?style=for-the-badge&labelColor=FB923C&logoColor=0B1F1D"/></a>
+<a href="#10-connect"><img src="https://img.shields.io/badge/10-CONNECT-0B1F1D?style=for-the-badge&labelColor=FB7185&logoColor=0B1F1D"/></a>
 
 </div>
 
@@ -37,9 +46,9 @@
 
 ## 01. About
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
-<td width="65%" valign="top">
+<td width="62%" valign="top">
 
 > 🎓 **Computer Science Engineering Student**, building at the intersection of software and data.
 >
@@ -52,17 +61,17 @@
 > 🧠 Not boxed into one label — my work spans **product engineering, AI systems, and data-driven decision making.**
 
 </td>
-<td width="35%" valign="top">
+<td width="38%" align="center" valign="top">
 
-**Snapshot**
+<b>📌 Snapshot</b>
 
-| | |
-|---|---|
-| 🧭 Role | SWE · Full Stack · Data |
-| 🌍 Based in | India |
-| 📚 Status | CSE Student |
-| 🎯 Target | SDE Role, 2026 |
-| ✉️ Contact | shaisanthoshsiva2006@gmail.com |
+<table align="center">
+<tr><td align="center">🧭</td><td align="left"><b>Role</b><br/><sub>SWE · Full Stack · Data</sub></td></tr>
+<tr><td align="center">🌍</td><td align="left"><b>Based in</b><br/><sub>India</sub></td></tr>
+<tr><td align="center">📚</td><td align="left"><b>Status</b><br/><sub>CSE Student</sub></td></tr>
+<tr><td align="center">🎯</td><td align="left"><b>Target</b><br/><sub>SDE Role, 2026</sub></td></tr>
+<tr><td align="center">✉️</td><td align="left"><b>Contact</b><br/><sub>shaisanthoshsiva2006@gmail.com</sub></td></tr>
+</table>
 
 </td>
 </tr>
@@ -72,11 +81,11 @@
 
 ## 02. Roles
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
 <td align="center" width="25%">
 
-**💻**
+<img src="https://img.shields.io/badge/💻-2DD4BF?style=flat-square&labelColor=2DD4BF"/>
 <br/>
 **Software Engineer**
 <br/>
@@ -85,7 +94,7 @@
 </td>
 <td align="center" width="25%">
 
-**🧩**
+<img src="https://img.shields.io/badge/🧩-FB923C?style=flat-square&labelColor=FB923C"/>
 <br/>
 **Full Stack Developer**
 <br/>
@@ -94,7 +103,7 @@
 </td>
 <td align="center" width="25%">
 
-**📊**
+<img src="https://img.shields.io/badge/📊-FB7185?style=flat-square&labelColor=FB7185"/>
 <br/>
 **Data Analyst**
 <br/>
@@ -103,7 +112,7 @@
 </td>
 <td align="center" width="25%">
 
-**🤖**
+<img src="https://img.shields.io/badge/🤖-2DD4BF?style=flat-square&labelColor=2DD4BF"/>
 <br/>
 **AI / ML Builder**
 <br/>
@@ -125,18 +134,46 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 ## 03. Current Focus
 
-<table width="100%">
-<tr><td width="55%"><b>Data Structures & Algorithms</b></td><td width="45%"><code>■■■■■■■■■■■□□□</code> Active</td></tr>
-<tr><td><b>Full Stack Development</b></td><td><code>■■■■■■■■■■■■■■</code> Active</td></tr>
-<tr><td><b>System Design</b></td><td><code>■■■■■■■■■□□□□□</code> Learning</td></tr>
-<tr><td><b>SQL & Database Systems</b></td><td><code>■■■■■■■■■■■■□□</code> Active</td></tr>
-<tr><td><b>Data Analytics & BI</b></td><td><code>■■■■■■■■■■□□□□</code> Active</td></tr>
-<tr><td><b>Production-Level Projects</b></td><td><code>■■■■■■■■■■■■■■</code> Active</td></tr>
+<table align="center" width="100%">
+<tr>
+<td width="45%" align="right"><b>Data Structures & Algorithms</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
+<td width="55%" align="left"><img src="https://progress-bar.xyz/78/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
+</tr>
+<tr>
+<td align="right"><b>Full Stack Development</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
+<td align="left"><img src="https://progress-bar.xyz/95/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
+</tr>
+<tr>
+<td align="right"><b>System Design</b> &nbsp;<img src="https://img.shields.io/badge/Learning-FB923C?style=flat-square"/></td>
+<td align="left"><img src="https://progress-bar.xyz/60/?title=&width=220&color=FB923C&suffix=%25&style=flat-square"/></td>
+</tr>
+<tr>
+<td align="right"><b>SQL & Database Systems</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
+<td align="left"><img src="https://progress-bar.xyz/85/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
+</tr>
+<tr>
+<td align="right"><b>Data Analytics & BI</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
+<td align="left"><img src="https://progress-bar.xyz/72/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
+</tr>
+<tr>
+<td align="right"><b>Production-Level Projects</b> &nbsp;<img src="https://img.shields.io/badge/Active-2DD4BF?style=flat-square"/></td>
+<td align="left"><img src="https://progress-bar.xyz/95/?title=&width=220&color=2DD4BF&suffix=%25&style=flat-square"/></td>
+</tr>
 </table>
 
-**2026 Roadmap**
+<div align="center">
 
-`Solve 500+ DSA Problems` → `Build 5+ Production-Level Projects` → `Master Full Stack Development` → `Learn System Design & Distributed Systems` → `Contribute to Open Source` → `Secure a Software Engineering Role`
+**🗺️ 2026 Roadmap**
+
+<img src="https://img.shields.io/badge/1-Solve_500%2B_DSA_Problems-2DD4BF?style=flat-square&labelColor=0B1F1D"/> →
+<img src="https://img.shields.io/badge/2-Build_5%2B_Production_Projects-2DD4BF?style=flat-square&labelColor=0B1F1D"/> →
+<img src="https://img.shields.io/badge/3-Master_Full_Stack-FB923C?style=flat-square&labelColor=0B1F1D"/>
+<br/>
+<img src="https://img.shields.io/badge/4-Learn_System_Design-FB923C?style=flat-square&labelColor=0B1F1D"/> →
+<img src="https://img.shields.io/badge/5-Contribute_to_Open_Source-FB7185?style=flat-square&labelColor=0B1F1D"/> →
+<img src="https://img.shields.io/badge/6-Secure_an_SDE_Role-FB7185?style=flat-square&labelColor=0B1F1D"/>
+
+</div>
 
 <div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
 
@@ -144,13 +181,13 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 ## 04. Software Engineering
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
-<td width="20%" align="center"><b>Languages</b><br/><sub>Python · Java · JavaScript · TypeScript</sub></td>
-<td width="20%" align="center"><b>Frontend</b><br/><sub>React · Next.js · Tailwind CSS · HTML/CSS</sub></td>
-<td width="20%" align="center"><b>Backend</b><br/><sub>Node.js · Express · FastAPI</sub></td>
-<td width="20%" align="center"><b>Databases</b><br/><sub>MySQL · PostgreSQL · MongoDB</sub></td>
-<td width="20%" align="center"><b>Tools</b><br/><sub>Git · GitHub · Docker · VS Code · Figma</sub></td>
+<td width="20%" align="center">🧑‍💻<br/><b>Languages</b><br/><sub>Python · Java · JavaScript · TypeScript</sub></td>
+<td width="20%" align="center">🎨<br/><b>Frontend</b><br/><sub>React · Next.js · Tailwind CSS · HTML/CSS</sub></td>
+<td width="20%" align="center">⚙️<br/><b>Backend</b><br/><sub>Node.js · Express · FastAPI</sub></td>
+<td width="20%" align="center">🗄️<br/><b>Databases</b><br/><sub>MySQL · PostgreSQL · MongoDB</sub></td>
+<td width="20%" align="center">🛠️<br/><b>Tools</b><br/><sub>Git · GitHub · Docker · VS Code · Figma</sub></td>
 </tr>
 </table>
 
@@ -166,13 +203,13 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 </div>
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
-<td width="20%" align="center"><b>Data Handling</b><br/><sub>Excel · SQL · Data Cleaning</sub></td>
-<td width="20%" align="center"><b>Analysis</b><br/><sub>Python · Pandas · NumPy</sub></td>
-<td width="20%" align="center"><b>Visualization</b><br/><sub>Matplotlib · Power BI</sub></td>
-<td width="20%" align="center"><b>Insight</b><br/><sub>EDA · Business Insights</sub></td>
-<td width="20%" align="center"><b>Communication</b><br/><sub>Data Storytelling · BI</sub></td>
+<td width="20%" align="center">🧹<br/><b>Data Handling</b><br/><sub>Excel · SQL · Data Cleaning</sub></td>
+<td width="20%" align="center">🔍<br/><b>Analysis</b><br/><sub>Python · Pandas · NumPy</sub></td>
+<td width="20%" align="center">📈<br/><b>Visualization</b><br/><sub>Matplotlib · Power BI</sub></td>
+<td width="20%" align="center">💡<br/><b>Insight</b><br/><sub>EDA · Business Insights</sub></td>
+<td width="20%" align="center">🗣️<br/><b>Communication</b><br/><sub>Data Storytelling · BI</sub></td>
 </tr>
 </table>
 
@@ -218,7 +255,7 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 ## 07. Featured Projects
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
 <td width="34%" align="center"><b>💻 Software Engineering</b><br/><sub>Full-stack apps, backend systems, APIs, React</sub></td>
 <td width="33%" align="center"><b>🤖 AI / GenAI</b><br/><sub>AI-powered systems, ML, GenAI applications</sub></td>
@@ -228,72 +265,103 @@ I build software  →  I analyze data  →  I turn technology into useful produc
 
 <br/>
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
 <td width="72%">
 
 ### 🌊 AquaBloom AI — Smart Aquaculture Monitoring
-`🤖 AI/GenAI` `💻 Software Engineering`
+<img src="https://img.shields.io/badge/AI%2FGenAI-2DD4BF?style=flat-square&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Software_Engineering-FB923C?style=flat-square&labelColor=0B1F1D"/>
 
 <img src="https://api.microlink.io/?url=https%3A%2F%2Faqua-bloom-v2.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url" width="100%" alt="AquaBloom AI live preview"/>
 
 AI-powered early warning system for **harmful algal blooms**, built to predict risk and support **sustainable fish farming**. Features a Netflix-style dark glassmorphism dashboard, real-time telemetry, 72h forecasting, an interactive 3D digital twin simulation, and pond risk maps.
 
-**Features** — Real-Time Risk Monitoring · Machine Learning Predictions (72h Forecasting) · Interactive 3D Digital Twin Simulation · Pond Risk Maps · REST APIs · Responsive Glassmorphism Dashboard · End-to-End Product Development
+<details>
+<summary><b>🔎 Key Features</b> — click to expand</summary>
+<br/>
 
-**Stack** — `React` `FastAPI` `Python` `Scikit-learn` `Machine Learning` `REST APIs` `Data Visualization`
+- ⚡ Real-Time Risk Monitoring
+- 🧠 Machine Learning Predictions (72h Forecasting)
+- 🌐 Interactive 3D Digital Twin Simulation
+- 🗺️ Pond Risk Maps
+- 🔌 REST APIs
+- 🖥️ Responsive Glassmorphism Dashboard
+- 🚀 End-to-End Product Development
+
+</details>
+
+<br/>
+
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white"/>
 
 </td>
 <td width="28%" align="center">
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-00C853?style=for-the-badge)](https://aqua-bloom-v2.vercel.app/)
-<br/>
+<br/><br/>
 [![Source](https://img.shields.io/badge/📂_Source-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/aqua-bloom-ai)
 
 </td>
 </tr>
 </table>
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
 <td width="72%">
 
 ### 🤖 GenAI BI Platform — Watch Your Insights
-`🤖 AI/GenAI` `📊 Data Analytics` `💻 Software Engineering`
+<img src="https://img.shields.io/badge/AI%2FGenAI-2DD4BF?style=flat-square&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Data_Analytics-FB7185?style=flat-square&labelColor=0B1F1D"/> <img src="https://img.shields.io/badge/Software_Engineering-FB923C?style=flat-square&labelColor=0B1F1D"/>
 
 <img src="https://api.microlink.io/?url=https%3A%2F%2Fgenaibi.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url" width="100%" alt="GenAI BI Platform live preview"/>
 
 A modern **Generative AI Business Intelligence platform** that translates **natural language into SQL queries and actionable insights**, backed by dynamic charts and an interactive 3D UI.
 
-**Features** — Natural Language → SQL Query Engine · Dynamic Interactive Charts · Secure JWT Authentication · Scalable Backend Architecture · Interactive 3D UI · AI-Powered Query Engine
+<details>
+<summary><b>🔎 Key Features</b> — click to expand</summary>
+<br/>
 
-**Stack** — `React` `Node.js` `Python` `SQL` `JWT Authentication` `Generative AI` `Business Intelligence`
+- 🗣️ Natural Language → SQL Query Engine
+- 📊 Dynamic Interactive Charts
+- 🔐 Secure JWT Authentication
+- 🏗️ Scalable Backend Architecture
+- 🌐 Interactive 3D UI
+- 🤖 AI-Powered Query Engine
+
+</details>
+
+<br/>
+
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white"/>
 
 </td>
 <td width="28%" align="center">
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-00C853?style=for-the-badge)](https://genaibi.vercel.app/)
-<br/>
+<br/><br/>
 [![Source](https://img.shields.io/badge/📂_Source-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/genai-bi-platform)
 
 </td>
 </tr>
 </table>
 
-<table width="100%">
+<table align="center" width="100%">
 <tr>
 <td width="72%">
 
 ### 📊 Data Analysis Portfolio
-`📊 Data Analytics`
+<img src="https://img.shields.io/badge/Data_Analytics-FB7185?style=flat-square&labelColor=0B1F1D"/>
 
 A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas, Matplotlib, and Power BI — each focused on **data cleaning, exploratory analysis, visualization**, and extracting **actionable business insights**.
 
 <sub>No live demo link exists for this repo, so no screenshot embed is included — add one once/if it's deployed.</sub>
 
-**Workflow** — `Excel → SQL → Python → Pandas → Matplotlib → Power BI → Business Insights`
+<div align="center">
 
-**Stack** — `Excel` `SQL` `Python` `Pandas` `Matplotlib` `Power BI` `EDA`
+`Excel` → `SQL` → `Python` → `Pandas` → `Matplotlib` → `Power BI` → `Business Insights`
+
+</div>
+
+<img src="https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white"/> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white"/> <img src="https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black"/>
 
 </td>
 <td width="28%" align="center">
@@ -361,13 +429,28 @@ A collection of mini **Data Analysis projects** using Excel, SQL, Python, Pandas
 
 ## 09. Credentials
 
-**Certifications**
+<table align="center" width="100%">
+<tr>
+<td width="50%" valign="top" align="center">
 
-> No certifications are listed in the source README yet — this section is a placeholder frame. Add certificate names, issuing bodies, and links here and they'll drop straight into this layout without needing another redesign.
+**🎓 Certifications**
 
-**Experience**
+<img src="https://img.shields.io/badge/Frame_Ready-0B1F1D?style=flat-square&labelColor=6E938C"/>
 
-> No internships or work experience are listed in the source README yet — this frame is ready for a role title, company, dates, and 1-2 line impact summary whenever there's one to add.
+<sub>No certifications are listed yet — this is a placeholder frame. Drop in certificate names, issuing bodies, and links and they'll render in this same card layout.</sub>
+
+</td>
+<td width="50%" valign="top" align="center">
+
+**💼 Experience**
+
+<img src="https://img.shields.io/badge/Frame_Ready-0B1F1D?style=flat-square&labelColor=6E938C"/>
+
+<sub>No internships or work experience are listed yet — this card is ready for a role title, company, dates, and a 1–2 line impact summary whenever there's one to add.</sub>
+
+</td>
+</tr>
+</table>
 
 <div align="right"><a href="#top"><sub>⬆ back to top</sub></a></div>
 
