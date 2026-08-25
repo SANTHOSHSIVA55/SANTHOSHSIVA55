@@ -111,7 +111,7 @@ function getScreenshotUrl(url: string | null, retry = 0): string | null {
   } catch {
     return null;
   }
-  const base = `https://image.thum.io/get/width/1200/${url}`;
+  const base = `https://image.thum.io/get/width/800/${url.replace(/\/+$/, "")}`;
   return retry > 0 ? `${base}&retry=${retry}&t=${Date.now()}` : base;
 }
 
@@ -183,8 +183,6 @@ function PreviewImage({
       <img
         src={src}
         alt={alt}
-        crossOrigin="anonymous"
-        referrerPolicy="no-referrer"
         onLoad={onLoad}
         onError={onError}
         className="h-full w-full object-cover object-top transition-opacity duration-500"
