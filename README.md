@@ -10,6 +10,7 @@ Building intelligent, practical software with AI, data, and modern web technolog
 
 <img src="https://img.shields.io/badge/Open_to_SDE_Roles_2026-2DD4BF?style=flat-square&labelColor=0B1F1D"/>
 <img src="https://img.shields.io/badge/Chennai%2C_India-FB923C?style=flat-square&labelColor=0B1F1D"/>
+<img src="https://img.shields.io/badge/B.E._CSE_%E2%80%9927-8B5CF6?style=flat-square&labelColor=0B1F1D"/>
 
 <br/>
 
@@ -29,6 +30,29 @@ Building intelligent, practical software with AI, data, and modern web technolog
 ## About Me
 
 Computer Science undergrad who builds at the intersection of **software engineering, AI, and data**. I like turning messy problems into clean, working products — from full-stack apps to GenAI systems and data-driven dashboards. Strong fundamentals in DSA, comfortable across the stack, and always looking for ways to make technology actually useful.
+
+<br/>
+
+## Education
+
+**B.E. Computer Science and Engineering** — Velammal Institute of Technology, Ponneri
+`Expected Graduation: 2027` · `CGPA: 8.02 / 10`
+
+<br/>
+
+## Experience
+
+**Software Engineering Intern** — Unified Mentor Pvt. Ltd. *(2026, Remote, up to 6 months)*
+Remote internship focused on applied software engineering work — details to be expanded with specific projects/contributions as the internship progresses.
+
+<br/>
+
+## Certifications
+
+<img src="https://img.shields.io/badge/9%2B_Professional_Certifications-2DD4BF?style=flat-square&labelColor=0B1F1D"/>
+
+- **SQL Masterclass: Beginner to Expert** — Udemy *(14 hours, completed Aug 2026)*
+- 9+ additional certifications spanning **Python, Data Analytics, Excel, AI/GenAI, AWS, and UI/UX**
 
 <br/>
 
@@ -72,7 +96,7 @@ Computer Science undergrad who builds at the intersection of **software engineer
 ## Featured Projects
 
 **🌊 AquaBloom AI — Smart Aquaculture Monitoring**
-AI-powered early warning system for harmful algal blooms that forecasts risk 72 hours ahead to support sustainable fish farming, with an interactive 3D digital twin and live pond risk maps.
+AI-powered early warning system for harmful algal blooms, forecasting risk up to 72 hours ahead to support sustainable fish farming. Includes an interactive 3D digital twin and live pond risk maps built on a Scikit-learn forecasting pipeline served through a FastAPI backend.
 
 <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white"/>
 
@@ -81,11 +105,20 @@ AI-powered early warning system for harmful algal blooms that forecasts risk 72 
 <br/>
 
 **🤖 GenAI BI Platform — Watch Your Insights**
-A Generative AI business intelligence platform that turns natural language into SQL queries, surfacing charts and insights through an interactive 3D UI so non-technical users can query data conversationally.
+A Generative AI business intelligence platform that converts natural language into SQL queries, surfacing charts and insights through an interactive 3D UI so non-technical users can query data conversationally. Handles auth via JWT and connects a Node.js API layer to a Python query-generation service.
 
 <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white"/> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white"/>
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-2DD4BF?style=flat-square)](https://genaibi.vercel.app/) [![Source](https://img.shields.io/badge/Source-171515?style=flat-square&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/genai-bi-platform)
+
+<br/>
+
+**🩺 MediAI — AI-Powered Doctor Appointment Booking System**
+An AI-assisted booking platform that helps patients find the right doctor and schedule appointments through a conversational interface, streamlining a typically manual, form-heavy process.
+
+<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/AI-2DD4BF?style=flat-square"/>
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-2DD4BF?style=flat-square)](https://doctor-ai-frontend-smoky.vercel.app/)
 
 <br/>
 
@@ -97,6 +130,7 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 [![Source](https://img.shields.io/badge/Source-171515?style=flat-square&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/data-analysis-portfolio)
 
 <br/>
+
 ## GitHub Activity
 
 <p align="center">
