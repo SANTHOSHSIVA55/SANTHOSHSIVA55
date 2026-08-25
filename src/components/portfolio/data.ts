@@ -76,7 +76,7 @@ export const projects = [
     tag: "AI · Healthcare",
     description:
       "AI-powered healthcare platform that uses OCR and AI to analyze medical reports, explain findings in simple language, and provide personalized health assistance.",
-    stack: ["JavaScript"],
+    stack: ["Python", "SQL", "React", "FastAPI", "PostgreSQL"],
     features: [
       "Medical report OCR + AI analysis",
       "Doctor discovery & appointment booking",
