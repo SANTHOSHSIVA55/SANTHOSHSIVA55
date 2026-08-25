@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
-import { ProjectCardCompact } from "./ProjectShowcase";
+import { ProjectCardCompact, ProjectShowcaseCard } from "./ProjectShowcase";
 import { InfiniteMarquee } from "./InfiniteMarquee";
 
 /* ──────────── Section Header ──────────── */
@@ -389,22 +389,18 @@ export function Projects() {
           title="Projects I've Built"
           lead="Real-world applications spanning data-driven analytics, full-stack platforms, and AI systems."
         />
-        <div className="mt-5 flex items-center justify-center gap-2 text-xs text-[#A8A8A8]">
-          <RefreshCw className={`size-3.5 ${!repos && !err ? "animate-spin" : ""}`} />
-          <span>{err ? err : repos ? `Live · ${repos.length} latest projects` : ""}</span>
-        </div>
 
         {!repos && !err && (
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className="mt-14 space-y-6">
             {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className="glass-strong rounded-3xl overflow-hidden">
-                <div className="h-[280px] animate-pulse bg-white/[0.03]" />
-                <div className="p-6 space-y-3">
+                <div className="h-[320px] animate-pulse bg-white/[0.03]" />
+                <div className="p-8 space-y-3">
                   <div className="h-5 w-3/4 animate-pulse rounded bg-white/[0.05]" />
                   <div className="h-3 w-full animate-pulse rounded bg-white/[0.04]" />
                   <div className="h-3 w-5/6 animate-pulse rounded bg-white/[0.04]" />
                   <div className="flex gap-2 pt-2">
-                    {[1, 2, 3].map((j) => (
+                    {[1, 2, 3, 4].map((j) => (
                       <div key={j} className="h-5 w-16 animate-pulse rounded-full bg-white/[0.04]" />
                     ))}
                   </div>
@@ -413,12 +409,25 @@ export function Projects() {
             ))}
           </div>
         )}
+
         {cards.length > 0 && (
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {cards.map((p, i) => (
-              <ProjectCardCompact key={p.title} project={p} index={i} />
-            ))}
-          </div>
+          <>
+            {/* Featured showcase — first 2 projects, full width */}
+            <div className="mt-14 space-y-6">
+              {cards.slice(0, 2).map((p) => (
+                <ProjectShowcaseCard key={p.title} project={p} />
+              ))}
+            </div>
+
+            {/* Remaining projects — 2-column grid */}
+            {cards.length > 2 && (
+              <div className="mt-6 grid gap-6 lg:grid-cols-2">
+                {cards.slice(2).map((p, i) => (
+                  <ProjectCardCompact key={p.title} project={p} index={i} />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

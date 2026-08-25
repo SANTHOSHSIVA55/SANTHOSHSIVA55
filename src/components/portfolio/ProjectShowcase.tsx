@@ -44,6 +44,92 @@ const impactSlide = (delay: number) => ({
   visible: { opacity: 1, x: 0, transition: { duration: 0.3, delay: delay * 0.06 } },
 });
 
+/* ─── Tech Stack Brand Colors ─── */
+const TECH_COLORS: Record<string, string> = {
+  React: "#61DAFB",
+  "React.js": "#61DAFB",
+  "Next.js": "#FFFFFF",
+  TypeScript: "#3178C6",
+  Python: "#FFD43B",
+  JavaScript: "#F7DF1E",
+  Node: "#339933",
+  "Node.js": "#339933",
+  Django: "#092E20",
+  Flask: "#FFFFFF",
+  FastAPI: "#009688",
+  PostgreSQL: "#4169E1",
+  MongoDB: "#47A248",
+  MySQL: "#4479A1",
+  Tailwind: "#38BDF8",
+  "Tailwind CSS": "#38BDF8",
+  Prisma: "#2D3748",
+  "Socket.io": "#010101",
+  Docker: "#2496ED",
+  Git: "#F05032",
+  GitHub: "#FFFFFF",
+  Pandas: "#150458",
+  NumPy: "#013243",
+  Matplotlib: "#11557C",
+  "Power BI": "#F2C811",
+  Excel: "#217346",
+  Figma: "#F24E1E",
+  "Framer Motion": "#BB4BFF",
+  SQL: "#E38C00",
+  "REST API": "#FF6C37",
+  DSA: "#3B82F6",
+  GraphQL: "#E10098",
+  Redis: "#DC382D",
+  Firebase: "#FFCA28",
+  AWS: "#FF9900",
+  Vercel: "#FFFFFF",
+  Netlify: "#00C7B7",
+};
+
+function getTechColor(name: string): string {
+  if (TECH_COLORS[name]) return TECH_COLORS[name];
+  const lower = name.toLowerCase();
+  for (const [key, color] of Object.entries(TECH_COLORS)) {
+    if (key.toLowerCase() === lower) return color;
+  }
+  return "#A8A8A8";
+}
+
+function TechTag({ name, delay = 0 }: { name: string; delay?: number }) {
+  const color = getTechColor(name);
+  return (
+    <motion.span
+      variants={tagPop(delay)}
+      className="tech-tag"
+      style={{ "--tech-color": color } as React.CSSProperties}
+    >
+      {name}
+    </motion.span>
+  );
+}
+
+/* ─── Deployment Status Dot ─── */
+function StatusDot({ hasWebsite }: { hasWebsite: boolean }) {
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider"
+      style={{
+        borderColor: hasWebsite ? "rgba(34,197,94,0.2)" : "rgba(59,130,246,0.2)",
+        background: hasWebsite ? "rgba(34,197,94,0.06)" : "rgba(59,130,246,0.06)",
+        color: hasWebsite ? "#4ADE80" : "#60A5FA",
+      }}
+    >
+      <span
+        className="size-1.5 rounded-full"
+        style={{
+          background: hasWebsite ? "#22C55E" : "#3B82F6",
+          boxShadow: hasWebsite ? "0 0 6px rgba(34,197,94,0.4)" : "0 0 6px rgba(59,130,246,0.4)",
+        }}
+      />
+      {hasWebsite ? "Live" : "Code"}
+    </span>
+  );
+}
+
 /* ─── Screenshot URL Generator ─── */
 function getScreenshotUrl(url: string | null, retry = 0): string | null {
   if (!url) return null;
@@ -264,7 +350,10 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A8A8]">{project.tag}</div>
+              <div className="flex items-center gap-2.5">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A8A8]">{project.tag}</div>
+                <StatusDot hasWebsite={!!project.homepage} />
+              </div>
               <h3 className="mt-1.5 font-display text-xl sm:text-2xl font-bold text-[#FFFFFF]">{project.title}</h3>
             </div>
             <a
@@ -326,10 +415,8 @@ export function ProjectShowcaseCard({ project: p }: { project: Record<string, un
           )}
 
           <div className="mt-4 flex flex-wrap gap-2">
-            {project.stack.map((s: string) => (
-              <span key={s} className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-1 text-xs text-[#A8A8A8]">
-                {s}
-              </span>
+            {project.stack.map((s: string, i: number) => (
+              <TechTag key={s} name={s} delay={i} />
             ))}
           </div>
         </div>
@@ -427,7 +514,10 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
           <motion.div variants={fadeSlideLeft}
             className="flex items-start justify-between gap-3">
             <div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A8A8]">{project.tag}</div>
+              <div className="flex items-center gap-2">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-[#A8A8A8]">{project.tag}</div>
+                <StatusDot hasWebsite={!!project.homepage} />
+              </div>
               <h3 className="mt-1 font-display text-lg font-semibold text-[#FFFFFF] capitalize">{project.title}</h3>
             </div>
             <a href={project.github} target="_blank" rel="noreferrer" aria-label={`${project.title} on GitHub`}
@@ -486,11 +576,7 @@ export function ProjectCardCompact({ project: p, index: i }: { project: Record<s
 
           <div className="mt-3 flex flex-wrap gap-1.5">
             {project.stack.map((s: string, si: number) => (
-              <motion.span key={s}
-                variants={tagPop(si)}
-                className="rounded-lg border border-white/[0.05] bg-white/[0.02] px-2 py-0.5 text-[10px] text-[#A8A8A8]">
-                {s}
-              </motion.span>
+              <TechTag key={s} name={s} delay={si} />
             ))}
           </div>
         </div>
