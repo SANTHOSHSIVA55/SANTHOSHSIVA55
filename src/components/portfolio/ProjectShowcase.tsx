@@ -111,7 +111,7 @@ function getScreenshotUrl(url: string | null, retry = 0): string | null {
   } catch {
     return null;
   }
-  const base = `https://image.thum.io/get/width/800/${url.replace(/\/+$/, "")}`;
+  const base = `https://image.thum.io/get/width/800/no/animate/20/${url.replace(/\/+$/, "")}`;
   return retry > 0 ? `${base}&retry=${retry}&t=${Date.now()}` : base;
 }
 
@@ -127,7 +127,7 @@ function useScreenshot(url: string | null) {
     if (!src || loaded) return;
     const timeout = setTimeout(() => {
       if (!loaded) setError(true);
-    }, 30000);
+    }, 35000);
     return () => clearTimeout(timeout);
   }, [src, loaded]);
 
