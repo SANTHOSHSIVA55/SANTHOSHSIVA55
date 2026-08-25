@@ -84,6 +84,7 @@ export const projects = [
     ],
     github: "https://github.com/SANTHOSHSIVA55/mediai-health-assistant",
     website: "https://doctor-ai-frontend-smoky.vercel.app/",
+    screenshot: "/screenshots/mediai.png",
     duration: "3 weeks",
     role: "Solo project",
     impact: [],

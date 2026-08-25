@@ -106,6 +106,7 @@ function StatusBadge({ hasWebsite }: { hasWebsite: boolean }) {
 /* ─── Screenshot URL Generator ─── */
 function getScreenshotUrl(url: string | null, retry = 0): string | null {
   if (!url) return null;
+  if (url.startsWith("/")) return url;
   try {
     new URL(url);
   } catch {
@@ -210,6 +211,7 @@ export function ProjectCard({ project: p, index }: { project: Record<string, unk
     duration?: string;
     role?: string;
     impact?: string[];
+    screenshot?: string;
   };
 
   const cardRef = useRef<HTMLDivElement>(null);
@@ -218,7 +220,7 @@ export function ProjectCard({ project: p, index }: { project: Record<string, unk
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [2, -2]), { stiffness: 200, damping: 25 });
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-2, 2]), { stiffness: 200, damping: 25 });
 
-  const { src, loaded, error, handleLoad, handleError } = useScreenshot(project.homepage ?? null);
+  const { src, loaded, error, handleLoad, handleError } = useScreenshot(project.screenshot || (project.homepage ?? null));
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
