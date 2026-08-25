@@ -110,11 +110,6 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 </p>
 
 <br/>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:2DD4BF,50:FB923C,100:FB7185&height=3" width="100%"/>
-
-<div align="center">
-
 ### Let's Connect
 
 Interested in software engineering, AI, and building useful, data-driven products.
