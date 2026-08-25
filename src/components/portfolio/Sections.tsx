@@ -411,7 +411,7 @@ export function Projects() {
         )}
 
         {cards.length > 0 && (
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
             {cards.map((p, i) => (
               <ProjectCard key={p.title} project={p} index={i} />
             ))}

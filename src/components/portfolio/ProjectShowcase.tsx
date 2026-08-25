@@ -242,13 +242,14 @@ export function ProjectCard({ project: p, index }: { project: Record<string, unk
       whileInView="visible"
       viewport={{ once: true, margin: "-40px" }}
       variants={cardVariants}
+      className="flex flex-col h-full"
     >
       <motion.div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY, transformPerspective: 1200 }}
-        className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#0a0a0f]/80 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.1] hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.5)]"
+        className="group relative flex flex-col h-full overflow-hidden rounded-xl border border-white/[0.06] bg-[#0a0a0f]/80 backdrop-blur-sm transition-all duration-300 hover:border-white/[0.1] hover:shadow-[0_8px_30px_-8px_rgba(0,0,0,0.5)]"
       >
         {/* Preview image — compact */}
         <div className="relative h-36 sm:h-40 overflow-hidden">
@@ -290,7 +291,7 @@ export function ProjectCard({ project: p, index }: { project: Record<string, unk
         </div>
 
         {/* Content — compact */}
-        <div className="p-4">
+        <div className="flex flex-col flex-1 p-4">
           {/* Header: tag + role + status */}
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
@@ -338,7 +339,7 @@ export function ProjectCard({ project: p, index }: { project: Record<string, unk
           </div>
 
           {/* Footer: updated + action link */}
-          <div className="mt-3 flex items-center justify-between border-t border-white/[0.04] pt-3">
+          <div className="mt-auto flex items-center justify-between border-t border-white/[0.04] pt-3">
             <span className="text-[10px] text-[#505050]">
               {project.updated
                 ? new Date(project.updated).toLocaleDateString(undefined, { month: "short", year: "numeric" })
