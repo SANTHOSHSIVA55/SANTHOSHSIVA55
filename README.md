@@ -101,11 +101,12 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 ## GitHub Activity
 
 <p align="center">
-<img src="https://github-stats-extended.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&icon_color=FB923C&text_color=E2E8F0&ring_color=2DD4BF" height="165"/>
+<img src="https://github-stats-extended.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&icon_color=FB923C&text_color=E2E8F0" height="165"/>
 <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&text_color=E2E8F0" height="165"/>
 </p>
 
 <br/>
+
 <div align="center">
 
 ### Let's Connect
