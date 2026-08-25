@@ -97,7 +97,7 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 [![Source](https://img.shields.io/badge/Source-171515?style=flat-square&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/data-analysis-portfolio)
 
 <br/>
-## <u>GitHub Activity</u>
+## **<u>GitHub Activity</u>**
 
 <p align="left">
 <img src="https://github-stats-extended.vercel.app/api?username=SANTHOSHSIVA55&show_icons=true&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&icon_color=FB923C&text_color=E2E8F0" height="165"/>
