@@ -36,30 +36,30 @@ Computer Science undergrad who builds at the intersection of **software engineer
 
 <table width="100%">
 <tr>
-<td width="25%" valign="top">
+<td width="25%" valign="top" align="left">
 
-**Languages**
+**<u>Languages</u>**
 <br/>
 <img src="https://skillicons.dev/icons?i=python,java,js,ts,mysql"/>
 
 </td>
-<td width="25%" valign="top">
+<td width="25%" valign="top" align="left">
 
-**AI / Data**
+**<u>AI / Data</u>**
 <br/>
 `Generative AI` `Machine Learning` `Scikit-learn` `Pandas` `Power BI`
 
 </td>
-<td width="25%" valign="top">
+<td width="25%" valign="top" align="left">
 
-**Web Development**
+**<u>Web Development</u>**
 <br/>
 <img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,html,css,tailwind"/>
 
 </td>
-<td width="25%" valign="top">
+<td width="25%" valign="top" align="left">
 
-**Tools**
+**<u>Tools</u>**
 <br/>
 <img src="https://skillicons.dev/icons?i=git,github,docker,vscode,figma"/>
 
