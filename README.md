@@ -104,6 +104,10 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=SANTHOSHSIVA55&layout=compact&hide_border=true&bg_color=0B1F1D&title_color=2DD4BF&text_color=E2E8F0" height="165"/>
 </p>
 
+</div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1F1D,55:123330,100:1B4640&height=100&section=footer" width="100%"/>
+
 <br/>
 
 ## Let's Connect
