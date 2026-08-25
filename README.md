@@ -109,7 +109,7 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 
 <div align="center">
 
-### Let's Connect
+## Let's Connect
 Interested in software engineering, AI, and building useful, data-driven products.
 
 <a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/></a>
