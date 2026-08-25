@@ -97,7 +97,6 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 [![Source](https://img.shields.io/badge/Source-171515?style=flat-square&logo=github&logoColor=white)](https://github.com/SANTHOSHSIVA55/data-analysis-portfolio)
 
 <br/>
-
 ## GitHub Activity
 
 <p align="center">
@@ -107,10 +106,11 @@ A collection of end-to-end data analysis projects — cleaning, exploration, vis
 
 <br/>
 
-<div align="center">
-
 ## Let's Connect
+
 Interested in software engineering, AI, and building useful, data-driven products.
+
+<div align="center">
 
 <a href="https://www.linkedin.com/in/santhosh-t-s/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/></a>
 <a href="https://github.com/SANTHOSHSIVA55"><img src="https://img.shields.io/badge/GitHub-171515?style=flat-square&logo=github&logoColor=white"/></a>
