@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { GithubIcon } from "./icons";
 import { profile, projects as featuredProjects, skills, timeline, certifications, achievements } from "./data";
-import { ProjectCardCompact, ProjectShowcaseCard } from "./ProjectShowcase";
+import { ProjectCard } from "./ProjectShowcase";
 import { InfiniteMarquee } from "./InfiniteMarquee";
 
 /* ──────────── Section Header ──────────── */
@@ -387,21 +387,21 @@ export function Projects() {
         <SectionHeader
           kicker="Featured Work"
           title="Projects I've Built"
-          lead="Real-world applications spanning data-driven analytics, full-stack platforms, and AI systems."
+          lead="Real-world applications spanning AI, data analytics, and full-stack platforms."
         />
 
         {!repos && !err && (
-          <div className="mt-14 space-y-6">
-            {Array.from({ length: 2 }).map((_, i) => (
-              <div key={i} className="glass-strong rounded-3xl overflow-hidden">
-                <div className="h-[320px] animate-pulse bg-white/[0.03]" />
-                <div className="p-8 space-y-3">
-                  <div className="h-5 w-3/4 animate-pulse rounded bg-white/[0.05]" />
-                  <div className="h-3 w-full animate-pulse rounded bg-white/[0.04]" />
-                  <div className="h-3 w-5/6 animate-pulse rounded bg-white/[0.04]" />
-                  <div className="flex gap-2 pt-2">
-                    {[1, 2, 3, 4].map((j) => (
-                      <div key={j} className="h-5 w-16 animate-pulse rounded-full bg-white/[0.04]" />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="rounded-xl border border-white/[0.06] bg-[#0a0a0f]/80 overflow-hidden">
+                <div className="h-36 sm:h-40 animate-pulse bg-white/[0.03]" />
+                <div className="p-4 space-y-2.5">
+                  <div className="h-3 w-2/3 animate-pulse rounded bg-white/[0.05]" />
+                  <div className="h-2.5 w-full animate-pulse rounded bg-white/[0.04]" />
+                  <div className="h-2.5 w-4/5 animate-pulse rounded bg-white/[0.04]" />
+                  <div className="flex gap-1.5 pt-1">
+                    {[1, 2, 3].map((j) => (
+                      <div key={j} className="h-4 w-12 animate-pulse rounded bg-white/[0.04]" />
                     ))}
                   </div>
                 </div>
@@ -411,23 +411,11 @@ export function Projects() {
         )}
 
         {cards.length > 0 && (
-          <>
-            {/* Featured showcase — first 2 projects, full width */}
-            <div className="mt-14 space-y-6">
-              {cards.slice(0, 2).map((p) => (
-                <ProjectShowcaseCard key={p.title} project={p} />
-              ))}
-            </div>
-
-            {/* Remaining projects — 2-column grid */}
-            {cards.length > 2 && (
-              <div className="mt-6 grid gap-6 lg:grid-cols-2">
-                {cards.slice(2).map((p, i) => (
-                  <ProjectCardCompact key={p.title} project={p} index={i} />
-                ))}
-              </div>
-            )}
-          </>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map((p, i) => (
+              <ProjectCard key={p.title} project={p} index={i} />
+            ))}
+          </div>
         )}
       </div>
     </section>
